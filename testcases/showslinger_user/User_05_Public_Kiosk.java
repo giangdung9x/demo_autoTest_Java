@@ -15,7 +15,7 @@ import pageObject.user.UserRegisterVenuePageObject;
 
 import java.util.concurrent.TimeUnit;
 
-public class User_04_Forgot_Password_2 extends BaseTest{
+public class User_05_Public_Kiosk extends BaseTest{
 	private WebDriver driver;
 	private String existingEmail;
 	
