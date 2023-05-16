@@ -17,6 +17,18 @@ public class UserRegisterVenuePageObject extends BasePage {
 		clickToElement(driver,RegisterPageUI.REGISTER_BUTTON);
 
 	}
+	
+	public void clickToCallFormResgiter() {
+		waitForElementClickable(driver,RegisterPageUI.IMAGE_CALL_FORM_REGISTER);
+		clickdoubleToElement(driver,RegisterPageUI.IMAGE_CALL_FORM_REGISTER);
+
+	}
+	
+	public void clickToRadioButtonVenue() {
+		waitForElementClickable(driver,RegisterPageUI.RADIO_BUTTON_VENUE);
+		clickToElement(driver,RegisterPageUI.RADIO_BUTTON_VENUE);
+
+	}
 
 	public String getErrorMessageAtEmailTextbox() {
 		waitForElementVisible(driver, RegisterPageUI.EMAIL_ERROR_MESSAGE);

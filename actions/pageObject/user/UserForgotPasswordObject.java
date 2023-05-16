@@ -23,21 +23,18 @@ public class UserForgotPasswordObject extends BasePage{
 	}
 
 	public void inputToEmailTextbox(String validEmail) {
-		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
-		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, validEmail);		
+		waitForElementVisible(driver, ForgotPasswordPageUI.EMAIL_TEXTBOX);
+		sendkeyToElement(driver, ForgotPasswordPageUI.EMAIL_TEXTBOX, validEmail);		
 	}
 	
-	public boolean isCalendarLinkDisplayed() {
-		waitForElementVisible(driver, ForgotPasswordPageUI.SIGN_IN_LINK);
-		return isElementDisplayed(driver, ForgotPasswordPageUI.SIGN_IN_LINK);
+	public void clickToResetPasswordButton() {
+		waitForElementClickable(driver,ForgotPasswordPageUI.RESET_PASSWORD_BUTTON);
+		clickToElement(driver, ForgotPasswordPageUI.RESET_PASSWORD_BUTTON);		
 	}
 	
 
+	
+	
 
-	/*public UserCustomerInfoPageObject clickToMyAccountLink() {
-		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
-		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
-		return PageGeneratorManager.getUserCustomerInfoPage(driver);
-	}*/
 
 }

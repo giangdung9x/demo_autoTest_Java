@@ -11,53 +11,43 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import commons.BaseTest;
+import commons.GlobalConstants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserRegisterArtistPageObject;
+import pageObject.user.UserRegisterVenuePageObject;
 
-public class User_02_Register_Account_Artist {
+public class User_02_Register_Account_Artist extends BaseTest{
 	private WebDriver driver;
 
 	private String osName = System.getProperty("os.name");
 	private String projectPath = System.getProperty("user.dir");
 	private UserHomePageObject homePage  ;
 	private UserRegisterArtistPageObject registerArtistPage;
+	
+	//portalUrl : homepage
+    @Parameters({"browser", "portalURL"})
 	@BeforeClass
-	public void beforeClass() {
-		if (osName.contains("Mac OS")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDriver/geckodriver");
-		} else {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-		}
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	public void beforeClass(String browserName, String portalURL) {
+		driver = getBrowserDriver(browserName, portalURL);
+		homePage = new UserHomePageObject(driver);
 	}
 
-	@Test 
-	public void Register_00_Alert_Authen() {
-		driver.get(UsernameandPassword("https://showslinger-staging.herokuapp.com/", "SS15243", "12345"));
-		Assert.assertTrue(driver.findElement(By.xpath("//h2[normalize-space()='Artists']")).isDisplayed());
-	}
-
-	public String UsernameandPassword (String url, String username, String password){
-		String [] arrayurl = url.split("//");
-		return arrayurl[0] + "//" + username +":"+ password + "@" + arrayurl[1];
-	}
 
 
 	@Test
 	public void Register_01_Register_Empty_Data() {
 		System.out.println("Register_01 - Step 01: Click to Register link");
-		driver.findElement(By.xpath("//li[@id='nav-menu-item-15651']//a")).click();
+		homePage.clickToRegisterLink();
 
 		registerArtistPage = new UserRegisterArtistPageObject(driver);
-
-		System.out.println("Register_01 - Step 02: Call form Register");
-		WebElement element = driver.findElement(By.xpath("//a[@id='ss-logo']//img"));
-		Actions actions = new Actions(driver);
-		actions.doubleClick(element).perform();
-		driver.findElement(By.xpath("//label[@for='radio-account_type-performer']")).click();
+		System.out.println("Register_01 - Step 02: Call form Register"); //double click image
+		registerArtistPage.clickToCallFormResgiter();
+		registerArtistPage.clickToRadioButtonArtist();
 
 		System.out.println("Register_01 - Step 03: Click to Register button");
 		registerArtistPage.clickToRegisterButton();
@@ -68,30 +58,7 @@ public class User_02_Register_Account_Artist {
 		Assert.assertEquals(registerArtistPage.getErrorMessageAtConfirmPasswordTextbox(),"You must agree to the terms of service to continue");
 	}
 
-	//@Test
-	public void Register_02_Register_Invalid_Email() {
-	}
 
-	//@Test
-	public void Register_03_Register_Success() {
-
-	}
-
-	//@Test
-	public void Register_04_Register_Existing_Email() {
-
-	}
-
-	//@Test
-	public void Register_05_Register_Password_Less_Than_6_Chars() {
-
-	}
-
-	//@Test
-	public void Register_06_Register_Invalid_Confirm_Password() {
-
-
-	}
 
 	public int generateFakeNumber() {
 		Random rand = new Random();

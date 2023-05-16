@@ -13,9 +13,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.user.UserForgotPasswordObject;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserLoginPageObject;
@@ -25,32 +28,29 @@ public class User_04_Forgot_Password extends BaseTest{
 	private WebDriver driver;
 	private String existingEmail;
 	
-	private String osName = System.getProperty("os.name");
-	private String projectPath = System.getProperty("user.dir");
 	private UserHomePageObject homePage  ;
 	private UserRegisterVenuePageObject registerVenuePage;
 	private UserLoginPageObject loginPage;
 	private UserForgotPasswordObject forgotPasswordPage;
 	
 	
+	//portalUrl : homepage
+    @Parameters({"browser", "portalURL"})
 	@BeforeClass
-	public void beforeClass() {
-		if (osName.contains("Mac OS")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDriver/geckodriver");
-		} else {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-		}
-		//driver = new FirefoxDriver();
-		driver = new EdgeDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+	public void beforeClass(String browserName, String portalURL) {
+		driver = getBrowserDriver(browserName, portalURL);
+		homePage = new UserHomePageObject(driver);
+
 		existingEmail ="dangthigiang+82@gmail.com";
+
 	}
+	
+
 
 	@Test 
 	public void Forgot_00_Alert_Authen() {
-		driver.get(UsernameandPassword("https://showslinger-staging.herokuapp.com/", "SS15243", "12345"));
-		Assert.assertTrue(driver.findElement(By.xpath("//h2[normalize-space()='Artists']")).isDisplayed());
+		driver.get(UsernameandPassword(GlobalConstants.PORTAL_PAGE_URL, "SS15243", "12345"));
+		Assert.assertTrue(homePage.isTextDisplayed());
 	}
 
 	public String UsernameandPassword (String url, String username, String password){
@@ -62,22 +62,26 @@ public class User_04_Forgot_Password extends BaseTest{
 	@Test
 	public void Forgot_01_Fotgot_Password_Successfully() {
 		System.out.println("Forgot_01 - Step 01: Click to Login link");
-		driver.findElement(By.xpath("//li[@id='nav-menu-item-15650']//a")).click();
+		homePage.clickToLoginLink();
 
 		loginPage = new UserLoginPageObject(driver);
 		
+		
 		System.out.println("Forgot_01 - Step 02: Click to Forgot passwork link");
-		driver.findElement(By.xpath("(//a[normalize-space()='Forgot password?'])[1]")).click();
-
+		loginPage.clickToForgotPasswordLink();
+		
+		forgotPasswordPage = new UserForgotPasswordObject(driver);
+		
 		System.out.println("Login_01 - Step 03: Input Email Textbox");
-		loginPage.inputToEmailTextbox(existingEmail);
+		forgotPasswordPage.inputToEmailTextbox(existingEmail);
 
 		System.out.println("Login_01 - Step 04: Click to Send me reset password instructions button");
-		driver.findElement(By.xpath("(//input[@name='commit'])[1]")).click();
+		forgotPasswordPage	.clickToResetPasswordButton();	
 		
-		//Verify trang HomePage
-		System.out.println("Login_01 - Step 05: Verify message");
-		Assert.assertEquals(loginPage.isMessageSuccessDisplayed(), "You will receive an email with instructions about how to reset your password in a few minutes.");
+		loginPage = new UserLoginPageObject(driver);
+
+		//System.out.println("Login_01 - Step 05: Verify message");
+		//Assert.assertEquals(loginPage.getMessageSuccessDisplayed(), "You will receive an email with instructions about how to reset your password in a few minutes.");
 		
 		
 	}

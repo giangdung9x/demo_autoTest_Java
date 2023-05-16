@@ -16,7 +16,6 @@ public class UserLoginPageObject extends BasePage {
 		this.driver = driver;
 	}
 
-
 	public UserHomePageObject clickToLoginButton() {
 		waitForElementClickable(driver,LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver,LoginPageUI.LOGIN_BUTTON);
@@ -41,9 +40,16 @@ public class UserLoginPageObject extends BasePage {
 		return clickToLoginButton();
 	}
 	
-	public boolean isMessageSuccessDisplayed() {
+	public UserForgotPasswordObject clickToForgotPasswordLink() {
+		waitForElementClickable(driver,LoginPageUI.FORGOT_PASSWORD_LINK);
+		clickToElement(driver,LoginPageUI.FORGOT_PASSWORD_LINK);
+		return PageGeneratorManager.getUserForgotPasswordPage(driver);
+	}
+	
+	
+	public String getMessageSuccessDisplayed() {
 		waitForElementVisible(driver, LoginPageUI.MESSAGE_SUCCESS);
-		return isElementDisplayed(driver, LoginPageUI.MESSAGE_SUCCESS);
+		return getElementText(driver, LoginPageUI.MESSAGE_SUCCESS);
 	}
 
 }

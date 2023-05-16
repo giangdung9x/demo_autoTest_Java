@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObject.admin.AdminDashboardPageObject;
 import pageObject.admin.AdminLoginPageObject;
-
+import pageObject.user.UserForgotPasswordObject;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserLoginPageObject;
 import pageObject.user.UserRegisterVenuePageObject;
@@ -18,7 +18,7 @@ public class PageGeneratorManager {
 		return new UserLoginPageObject(driver);
 	}
 	
-	public static UserRegisterVenuePageObject getUserRegisterPage(WebDriver driver) {
+	public static UserRegisterVenuePageObject getUserRegisterVenuePageObject(WebDriver driver) {
 		return new UserRegisterVenuePageObject(driver);
 	}
 	
@@ -44,6 +44,10 @@ public class PageGeneratorManager {
 	
 	public static AdminDashboardPageObject getAdminDashboardPage(WebDriver driver) {
 		return new AdminDashboardPageObject(driver);
+	}
+
+	public static UserForgotPasswordObject getUserForgotPasswordPage(WebDriver driver) {
+		return new UserForgotPasswordObject(driver);
 	}
 
 }

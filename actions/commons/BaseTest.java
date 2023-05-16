@@ -3,6 +3,9 @@ package commons;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,67 +13,53 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaDriver;
+import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
-	private WebDriver driver;
+    String portalURL;
+    
+	public WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	
-	protected WebDriver getBrowserDriver(String browserName) {
-		if (browserName.equals("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
+	public WebDriver getBrowserDriver(String browserName, String portalURL) {
+		switch (browserName){
+		case "firefox": 
+			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDriver/geckodriver");
 			driver = new FirefoxDriver();
-		}else if (browserName.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-		}
-		
-		/*else if (browserName.equals("h_firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			FirefoxOptions options = new FirefoxOptions();
-			options.addArguments("--headless");
-			options.addArguments("window-size-1920x1080");
-			driver = new FirefoxDriver(options);
-		} /*else if (browserName.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-		} else if (browserName.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");
-			options.addArguments("window-size-1920x1080");
-			driver = new ChromeDriver(options);
-		}else if (browserName.equals("edge")) {
-			WebDriverManager.edgedriver().setup();
+			break;
+		case "chrome": 
+			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDriver/chromedriver");
+			driver = new ChromeDriver();			
+			break;
+		case "edge": 
+			System.setProperty("webdriver.edge.driver", projectPath + "/browserDriver/msedgedriver");
 			driver = new EdgeDriver();
-		}else if (browserName.equals("opera")) {
-			WebDriverManager.operadriver().setup();
-			driver = new OperaDriver();
-		}else if (browserName.equals("coccoc")) {
-			//Cốc cốc browser trừ đi 5-6 version ra chromedriver
-			WebDriverManager.chromedriver().driverVersion("93.0.4577.63").setup();
-			ChromeOptions options = new ChromeOptions();
-			options.setBinary("C:\\Program Files(x86)\\CocCoc\\Browser\\Application\\browser.exe");
-			driver = new ChromeDriver(options);
-		}else if (browserName.equals("brave")) {
-			//Brave browser version nào dùng chrome drive version đó 
-			WebDriverManager.chromedriver().driverVersion("95.0.4638.17").setup();
-			ChromeOptions options = new ChromeOptions();
-			options.setBinary("C:\\Program Files(x86)\\BraveSoftWare\\Brave-Browser\\Application\\browser.exe");
-			driver = new ChromeDriver(options);
-		}*/else {
-			throw new RuntimeException("Browser name invaliad.");
+			break;
+		default:
+			throw new IllegalArgumentException("Please enter the correct Browser name!");
 		}
+		driver.manage().window().setPosition(new Point(0, 0));
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.get(GlobalConstants.PORTAL_PAGE_URL);
+		
+		switch (portalURL) {
+		case "homepage": 
+			portalURL = GlobalConstants.PORTAL_PAGE_URL;
+			break;
+		
+		case "publickiosk": 
+			portalURL = GlobalConstants.PUBLIC_KIOSK_PAGE_URL;
+			break;
+		default:
+			throw new RuntimeException("Invalid portal Url");
+		}
+		driver.get(UsernameandPassword(portalURL, "SS15243", "12345"));
 		return driver;
-		
-		
 	}
 	
-	public int generateFakeNumber() {
-		Random rand = new Random();
-		return rand.nextInt(9999);
-
+	public String UsernameandPassword (String url, String username, String password){
+		String [] arrayurl = url.split("//");
+		return arrayurl[0] + "//" + username +":"+ password + "@" + arrayurl[1];
 	}
+
 }

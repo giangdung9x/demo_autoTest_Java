@@ -69,10 +69,8 @@ public class User_01_Login_Account_Admin extends BaseTest{
 		System.out.println("Login_01 - Step 03: Click to Login button");
 		driver.findElement(By.xpath("(//input[@name='commit'])[1]")).click();
 		
-		//Login thành công -> HomePage
 		adminDashboardPage= new AdminDashboardPageObject(driver);
 
-		//Verify trang HomePage
 		System.out.println("Login_01 - Step 04: Verify Dashboard Page");
 		Assert.assertTrue(adminDashboardPage.isDashboardHeaderDisplayed());
 	}

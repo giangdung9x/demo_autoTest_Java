@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/0/2</td>
 </tr><tr>
-<td>Started on:</td><td>Mon May 15 10:59:57 ICT 2023</td>
+<td>Started on:</td><td>Mon May 15 21:00:46 ICT 2023</td>
 </tr>
-<tr><td>Total time:</td><td>9 seconds (9355 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (8 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,111 +75,28 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='showslinger_user.User_04_Forgot_Password.beforeClass()'><b>beforeClass</b><br>Test class: showslinger_user.User_04_Forgot_Password</td>
-<td><div><pre>org.openqa.selenium.SessionNotCreatedException: session not created: This version of Microsoft Edge WebDriver only supports Microsoft Edge version 110
-Current browser version is 113.0.1774.35 with binary path /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:4ea:35e2:1f8b:845d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;17.0.6&apos;
-Driver info: driver.version: EdgeDriver
-remote stacktrace: 0   msedgedriver                        0x00000001062dace8 msedgedriver + 5090536
-1   msedgedriver                        0x0000000106248123 msedgedriver + 4489507
-2   msedgedriver                        0x0000000105e74147 msedgedriver + 475463
-3   msedgedriver                        0x0000000105ea8379 msedgedriver + 689017
-4   msedgedriver                        0x0000000105ea3400 msedgedriver + 668672
-5   msedgedriver                        0x0000000105e9ea06 msedgedriver + 649734
-6   msedgedriver                        0x0000000105eedfc6 msedgedriver + 974790
-7   msedgedriver                        0x0000000105ee3fe3 msedgedriver + 933859
-8   msedgedriver                        0x0000000105eab138 msedgedriver + 700728
-9   msedgedriver                        0x0000000105eac7b4 msedgedriver + 706484
-10  msedgedriver                        0x00000001062a232e msedgedriver + 4858670
-11  msedgedriver                        0x00000001062a6daf msedgedriver + 4877743
-12  msedgedriver                        0x00000001062a7678 msedgedriver + 4879992
-13  msedgedriver                        0x00000001062b06df msedgedriver + 4916959
-14  msedgedriver                        0x00000001062a7eb2 msedgedriver + 4882098
-15  msedgedriver                        0x000000010627aaa4 msedgedriver + 4696740
-16  msedgedriver                        0x00000001062cd868 msedgedriver + 5036136
-17  msedgedriver                        0x00000001062cd987 msedgedriver + 5036423
-18  msedgedriver                        0x00000001062e343e msedgedriver + 5125182
-19  libsystem_pthread.dylib             0x00007ff81730d4e1 _pthread_start + 125
-20  libsystem_pthread.dylib             0x00007ff817308f6b thread_start + 15
-
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:1002)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:141)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:96)
-	at showslinger_user.User_04_Forgot_Password.beforeClass(User_04_Forgot_Password.java:46)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace955611965", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace955611965'><pre>org.openqa.selenium.SessionNotCreatedException: session not created: This version of Microsoft Edge WebDriver only supports Microsoft Edge version 110
-Current browser version is 113.0.1774.35 with binary path /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:4ea:35e2:1f8b:845d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;17.0.6&apos;
-Driver info: driver.version: EdgeDriver
-remote stacktrace: 0   msedgedriver                        0x00000001062dace8 msedgedriver + 5090536
-1   msedgedriver                        0x0000000106248123 msedgedriver + 4489507
-2   msedgedriver                        0x0000000105e74147 msedgedriver + 475463
-3   msedgedriver                        0x0000000105ea8379 msedgedriver + 689017
-4   msedgedriver                        0x0000000105ea3400 msedgedriver + 668672
-5   msedgedriver                        0x0000000105e9ea06 msedgedriver + 649734
-6   msedgedriver                        0x0000000105eedfc6 msedgedriver + 974790
-7   msedgedriver                        0x0000000105ee3fe3 msedgedriver + 933859
-8   msedgedriver                        0x0000000105eab138 msedgedriver + 700728
-9   msedgedriver                        0x0000000105eac7b4 msedgedriver + 706484
-10  msedgedriver                        0x00000001062a232e msedgedriver + 4858670
-11  msedgedriver                        0x00000001062a6daf msedgedriver + 4877743
-12  msedgedriver                        0x00000001062a7678 msedgedriver + 4879992
-13  msedgedriver                        0x00000001062b06df msedgedriver + 4916959
-14  msedgedriver                        0x00000001062a7eb2 msedgedriver + 4882098
-15  msedgedriver                        0x000000010627aaa4 msedgedriver + 4696740
-16  msedgedriver                        0x00000001062cd868 msedgedriver + 5036136
-17  msedgedriver                        0x00000001062cd987 msedgedriver + 5036423
-18  msedgedriver                        0x00000001062e343e msedgedriver + 5125182
-19  libsystem_pthread.dylib             0x00007ff81730d4e1 _pthread_start + 125
-20  libsystem_pthread.dylib             0x00007ff817308f6b thread_start + 15
-
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:1002)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:141)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:96)
-	at showslinger_user.User_04_Forgot_Password.beforeClass(User_04_Forgot_Password.java:46)
+<td title='showslinger_user.User_01_Register_Account_Venue.beforeClass()'><b>beforeClass</b><br>Test class: showslinger_user.User_01_Register_Account_Venue</td>
+<td><div><pre>java.lang.IllegalStateException: The driver is not executable: /Users/Automation Testing/Automation_Testing_MBF/mbf_framework_showslinger_web/browserDriver/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:150)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at showslinger_user.User_01_Register_Account_Venue.beforeClass(User_01_Register_Account_Venue.java:37)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace116669570", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace116669570'><pre>java.lang.IllegalStateException: The driver is not executable: /Users/Automation Testing/Automation_Testing_MBF/mbf_framework_showslinger_web/browserDriver/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:150)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at showslinger_user.User_01_Register_Account_Venue.beforeClass(User_01_Register_Account_Venue.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -207,8 +124,8 @@ remote stacktrace: 0   msedgedriver                        0x00000001062dace8 ms
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>9</td>
-<td>showslinger_user.User_04_Forgot_Password@65d09a04</td></tr>
+<td>0</td>
+<td>showslinger_user.User_01_Register_Account_Venue@1ebd319f</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
@@ -218,10 +135,10 @@ remote stacktrace: 0   msedgedriver                        0x00000001062dace8 ms
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='showslinger_user.User_04_Forgot_Password.afterClass()'><b>afterClass</b><br>Test class: showslinger_user.User_04_Forgot_Password</td>
+<td title='showslinger_user.User_01_Register_Account_Venue.afterClass()'><b>afterClass</b><br>Test class: showslinger_user.User_01_Register_Account_Venue</td>
 <td></td>
 <td>0</td>
-<td>showslinger_user.User_04_Forgot_Password@65d09a04</td></tr>
+<td>showslinger_user.User_01_Register_Account_Venue@1ebd319f</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -231,111 +148,28 @@ remote stacktrace: 0   msedgedriver                        0x00000001062dace8 ms
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='showslinger_user.User_04_Forgot_Password.Forgot_00_Alert_Authen()'><b>Forgot_00_Alert_Authen</b><br>Test class: showslinger_user.User_04_Forgot_Password</td>
-<td><div><pre>org.openqa.selenium.SessionNotCreatedException: session not created: This version of Microsoft Edge WebDriver only supports Microsoft Edge version 110
-Current browser version is 113.0.1774.35 with binary path /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:4ea:35e2:1f8b:845d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;17.0.6&apos;
-Driver info: driver.version: EdgeDriver
-remote stacktrace: 0   msedgedriver                        0x00000001062dace8 msedgedriver + 5090536
-1   msedgedriver                        0x0000000106248123 msedgedriver + 4489507
-2   msedgedriver                        0x0000000105e74147 msedgedriver + 475463
-3   msedgedriver                        0x0000000105ea8379 msedgedriver + 689017
-4   msedgedriver                        0x0000000105ea3400 msedgedriver + 668672
-5   msedgedriver                        0x0000000105e9ea06 msedgedriver + 649734
-6   msedgedriver                        0x0000000105eedfc6 msedgedriver + 974790
-7   msedgedriver                        0x0000000105ee3fe3 msedgedriver + 933859
-8   msedgedriver                        0x0000000105eab138 msedgedriver + 700728
-9   msedgedriver                        0x0000000105eac7b4 msedgedriver + 706484
-10  msedgedriver                        0x00000001062a232e msedgedriver + 4858670
-11  msedgedriver                        0x00000001062a6daf msedgedriver + 4877743
-12  msedgedriver                        0x00000001062a7678 msedgedriver + 4879992
-13  msedgedriver                        0x00000001062b06df msedgedriver + 4916959
-14  msedgedriver                        0x00000001062a7eb2 msedgedriver + 4882098
-15  msedgedriver                        0x000000010627aaa4 msedgedriver + 4696740
-16  msedgedriver                        0x00000001062cd868 msedgedriver + 5036136
-17  msedgedriver                        0x00000001062cd987 msedgedriver + 5036423
-18  msedgedriver                        0x00000001062e343e msedgedriver + 5125182
-19  libsystem_pthread.dylib             0x00007ff81730d4e1 _pthread_start + 125
-20  libsystem_pthread.dylib             0x00007ff817308f6b thread_start + 15
-
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:1002)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:141)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:96)
-	at showslinger_user.User_04_Forgot_Password.beforeClass(User_04_Forgot_Password.java:46)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1730337646", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1730337646'><pre>org.openqa.selenium.SessionNotCreatedException: session not created: This version of Microsoft Edge WebDriver only supports Microsoft Edge version 110
-Current browser version is 113.0.1774.35 with binary path /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:4ea:35e2:1f8b:845d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;17.0.6&apos;
-Driver info: driver.version: EdgeDriver
-remote stacktrace: 0   msedgedriver                        0x00000001062dace8 msedgedriver + 5090536
-1   msedgedriver                        0x0000000106248123 msedgedriver + 4489507
-2   msedgedriver                        0x0000000105e74147 msedgedriver + 475463
-3   msedgedriver                        0x0000000105ea8379 msedgedriver + 689017
-4   msedgedriver                        0x0000000105ea3400 msedgedriver + 668672
-5   msedgedriver                        0x0000000105e9ea06 msedgedriver + 649734
-6   msedgedriver                        0x0000000105eedfc6 msedgedriver + 974790
-7   msedgedriver                        0x0000000105ee3fe3 msedgedriver + 933859
-8   msedgedriver                        0x0000000105eab138 msedgedriver + 700728
-9   msedgedriver                        0x0000000105eac7b4 msedgedriver + 706484
-10  msedgedriver                        0x00000001062a232e msedgedriver + 4858670
-11  msedgedriver                        0x00000001062a6daf msedgedriver + 4877743
-12  msedgedriver                        0x00000001062a7678 msedgedriver + 4879992
-13  msedgedriver                        0x00000001062b06df msedgedriver + 4916959
-14  msedgedriver                        0x00000001062a7eb2 msedgedriver + 4882098
-15  msedgedriver                        0x000000010627aaa4 msedgedriver + 4696740
-16  msedgedriver                        0x00000001062cd868 msedgedriver + 5036136
-17  msedgedriver                        0x00000001062cd987 msedgedriver + 5036423
-18  msedgedriver                        0x00000001062e343e msedgedriver + 5125182
-19  libsystem_pthread.dylib             0x00007ff81730d4e1 _pthread_start + 125
-20  libsystem_pthread.dylib             0x00007ff817308f6b thread_start + 15
-
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:1002)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:141)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:96)
-	at showslinger_user.User_04_Forgot_Password.beforeClass(User_04_Forgot_Password.java:46)
+<td title='showslinger_user.User_01_Register_Account_Venue.Register_00_Alert_Authen()'><b>Register_00_Alert_Authen</b><br>Test class: showslinger_user.User_01_Register_Account_Venue</td>
+<td><div><pre>java.lang.IllegalStateException: The driver is not executable: /Users/Automation Testing/Automation_Testing_MBF/mbf_framework_showslinger_web/browserDriver/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:150)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at showslinger_user.User_01_Register_Account_Venue.beforeClass(User_01_Register_Account_Venue.java:37)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace554348863", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace554348863'><pre>java.lang.IllegalStateException: The driver is not executable: /Users/Automation Testing/Automation_Testing_MBF/mbf_framework_showslinger_web/browserDriver/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:150)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at showslinger_user.User_01_Register_Account_Venue.beforeClass(User_01_Register_Account_Venue.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -364,113 +198,30 @@ remote stacktrace: 0   msedgedriver                        0x00000001062dace8 ms
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>showslinger_user.User_04_Forgot_Password@65d09a04</td></tr>
+<td>showslinger_user.User_01_Register_Account_Venue@1ebd319f</td></tr>
 <tr>
-<td title='showslinger_user.User_04_Forgot_Password.Forgot_01_Fotgot_Password_Successfully()'><b>Forgot_01_Fotgot_Password_Successfully</b><br>Test class: showslinger_user.User_04_Forgot_Password</td>
-<td><div><pre>org.openqa.selenium.SessionNotCreatedException: session not created: This version of Microsoft Edge WebDriver only supports Microsoft Edge version 110
-Current browser version is 113.0.1774.35 with binary path /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:4ea:35e2:1f8b:845d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;17.0.6&apos;
-Driver info: driver.version: EdgeDriver
-remote stacktrace: 0   msedgedriver                        0x00000001062dace8 msedgedriver + 5090536
-1   msedgedriver                        0x0000000106248123 msedgedriver + 4489507
-2   msedgedriver                        0x0000000105e74147 msedgedriver + 475463
-3   msedgedriver                        0x0000000105ea8379 msedgedriver + 689017
-4   msedgedriver                        0x0000000105ea3400 msedgedriver + 668672
-5   msedgedriver                        0x0000000105e9ea06 msedgedriver + 649734
-6   msedgedriver                        0x0000000105eedfc6 msedgedriver + 974790
-7   msedgedriver                        0x0000000105ee3fe3 msedgedriver + 933859
-8   msedgedriver                        0x0000000105eab138 msedgedriver + 700728
-9   msedgedriver                        0x0000000105eac7b4 msedgedriver + 706484
-10  msedgedriver                        0x00000001062a232e msedgedriver + 4858670
-11  msedgedriver                        0x00000001062a6daf msedgedriver + 4877743
-12  msedgedriver                        0x00000001062a7678 msedgedriver + 4879992
-13  msedgedriver                        0x00000001062b06df msedgedriver + 4916959
-14  msedgedriver                        0x00000001062a7eb2 msedgedriver + 4882098
-15  msedgedriver                        0x000000010627aaa4 msedgedriver + 4696740
-16  msedgedriver                        0x00000001062cd868 msedgedriver + 5036136
-17  msedgedriver                        0x00000001062cd987 msedgedriver + 5036423
-18  msedgedriver                        0x00000001062e343e msedgedriver + 5125182
-19  libsystem_pthread.dylib             0x00007ff81730d4e1 _pthread_start + 125
-20  libsystem_pthread.dylib             0x00007ff817308f6b thread_start + 15
-
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:1002)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:141)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:96)
-	at showslinger_user.User_04_Forgot_Password.beforeClass(User_04_Forgot_Password.java:46)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1256405521", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1256405521'><pre>org.openqa.selenium.SessionNotCreatedException: session not created: This version of Microsoft Edge WebDriver only supports Microsoft Edge version 110
-Current browser version is 113.0.1774.35 with binary path /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:4ea:35e2:1f8b:845d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;17.0.6&apos;
-Driver info: driver.version: EdgeDriver
-remote stacktrace: 0   msedgedriver                        0x00000001062dace8 msedgedriver + 5090536
-1   msedgedriver                        0x0000000106248123 msedgedriver + 4489507
-2   msedgedriver                        0x0000000105e74147 msedgedriver + 475463
-3   msedgedriver                        0x0000000105ea8379 msedgedriver + 689017
-4   msedgedriver                        0x0000000105ea3400 msedgedriver + 668672
-5   msedgedriver                        0x0000000105e9ea06 msedgedriver + 649734
-6   msedgedriver                        0x0000000105eedfc6 msedgedriver + 974790
-7   msedgedriver                        0x0000000105ee3fe3 msedgedriver + 933859
-8   msedgedriver                        0x0000000105eab138 msedgedriver + 700728
-9   msedgedriver                        0x0000000105eac7b4 msedgedriver + 706484
-10  msedgedriver                        0x00000001062a232e msedgedriver + 4858670
-11  msedgedriver                        0x00000001062a6daf msedgedriver + 4877743
-12  msedgedriver                        0x00000001062a7678 msedgedriver + 4879992
-13  msedgedriver                        0x00000001062b06df msedgedriver + 4916959
-14  msedgedriver                        0x00000001062a7eb2 msedgedriver + 4882098
-15  msedgedriver                        0x000000010627aaa4 msedgedriver + 4696740
-16  msedgedriver                        0x00000001062cd868 msedgedriver + 5036136
-17  msedgedriver                        0x00000001062cd987 msedgedriver + 5036423
-18  msedgedriver                        0x00000001062e343e msedgedriver + 5125182
-19  libsystem_pthread.dylib             0x00007ff81730d4e1 _pthread_start + 125
-20  libsystem_pthread.dylib             0x00007ff817308f6b thread_start + 15
-
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:1002)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:141)
-	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:96)
-	at showslinger_user.User_04_Forgot_Password.beforeClass(User_04_Forgot_Password.java:46)
+<td title='showslinger_user.User_01_Register_Account_Venue.Register_01_Register_Empty_Data()'><b>Register_01_Register_Empty_Data</b><br>Test class: showslinger_user.User_01_Register_Account_Venue</td>
+<td><div><pre>java.lang.IllegalStateException: The driver is not executable: /Users/Automation Testing/Automation_Testing_MBF/mbf_framework_showslinger_web/browserDriver/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:150)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at showslinger_user.User_01_Register_Account_Venue.beforeClass(User_01_Register_Account_Venue.java:37)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace548554586", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace548554586'><pre>java.lang.IllegalStateException: The driver is not executable: /Users/Automation Testing/Automation_Testing_MBF/mbf_framework_showslinger_web/browserDriver/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:150)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at showslinger_user.User_01_Register_Account_Venue.beforeClass(User_01_Register_Account_Venue.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -499,7 +250,7 @@ remote stacktrace: 0   msedgedriver                        0x00000001062dace8 ms
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>showslinger_user.User_04_Forgot_Password@65d09a04</td></tr>
+<td>showslinger_user.User_01_Register_Account_Venue@1ebd319f</td></tr>
 </table><p>
 </body>
 </html>

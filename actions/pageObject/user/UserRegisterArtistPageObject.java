@@ -17,6 +17,18 @@ public class UserRegisterArtistPageObject extends BasePage {
 		clickToElement(driver,RegisterPageUI.REGISTER_BUTTON);
 
 	}
+	
+	public void clickToCallFormResgiter() {
+		waitForElementClickable(driver,RegisterPageUI.IMAGE_CALL_FORM_REGISTER);
+		clickdoubleToElement(driver,RegisterPageUI.IMAGE_CALL_FORM_REGISTER);
+
+	}
+	
+	public void clickToRadioButtonArtist() {
+		waitForElementClickable(driver,RegisterPageUI.RADIO_BUTTON_ARTIST);
+		clickToElement(driver,RegisterPageUI.RADIO_BUTTON_ARTIST);
+
+	}
 
 	public String getErrorMessageAtEmailTextbox() {
 		waitForElementVisible(driver, RegisterPageUI.EMAIL_ERROR_MESSAGE);

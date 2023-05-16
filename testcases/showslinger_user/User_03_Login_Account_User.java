@@ -11,9 +11,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserLoginPageObject;
 import pageObject.user.UserRegisterVenuePageObject;
@@ -22,32 +25,27 @@ public class User_03_Login_Account_User extends BaseTest{
 	private WebDriver driver;
 	private String existingEmail, validPassword;
 
-	private String osName = System.getProperty("os.name");
-	private String projectPath = System.getProperty("user.dir");
 	private UserHomePageObject homePage  ;
 	private UserRegisterVenuePageObject registerVenuePage;
 	private UserLoginPageObject loginPage;
 	
 	
 	
+	//portalUrl : homepage
+    @Parameters({"browser", "portalURL"})
 	@BeforeClass
-	public void beforeClass() {
-		if (osName.contains("Mac OS")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDriver/geckodriver");
-		} else {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-		}
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+	public void beforeClass(String browserName, String portalURL) {
+		driver = getBrowserDriver(browserName, portalURL);
+		homePage = new UserHomePageObject(driver);
+
 		existingEmail ="paulv@showslinger.com";
 		validPassword = "12345";
 	}
 
 	@Test 
 	public void Login_00_Alert_Authen() {
-		driver.get(UsernameandPassword("https://showslinger-staging.herokuapp.com/", "SS15243", "12345"));
-		Assert.assertTrue(driver.findElement(By.xpath("//h2[normalize-space()='Artists']")).isDisplayed());
+		driver.get(UsernameandPassword(GlobalConstants.PORTAL_PAGE_URL, "SS15243", "12345"));
+		Assert.assertTrue(homePage.isTextDisplayed());
 	}
 
 	public String UsernameandPassword (String url, String username, String password){
@@ -59,7 +57,7 @@ public class User_03_Login_Account_User extends BaseTest{
 	@Test
 	public void Login_01_Login_Successfully() {
 		System.out.println("Login_01 - Step 01: Click to Login link");
-		driver.findElement(By.xpath("//li[@id='nav-menu-item-15650']//a")).click();
+		homePage.clickToLoginLink();
 
 		loginPage = new UserLoginPageObject(driver);
 		
@@ -68,12 +66,10 @@ public class User_03_Login_Account_User extends BaseTest{
 		loginPage.inputToPasswordTextbox(validPassword);
 
 		System.out.println("Login_01 - Step 03: Click to Login button");
-		driver.findElement(By.xpath("(//input[@name='commit'])[1]")).click();
+		loginPage.clickToLoginButton();
 		
-		//Login thành công -> HomePage
 		homePage = new UserHomePageObject(driver);
 
-		//Verify trang HomePage
 		System.out.println("Login_01 - Step 04: Verify HomePage");
 		Assert.assertTrue(homePage.isCalendarLinkDisplayed());
 	}
@@ -87,7 +83,7 @@ public class User_03_Login_Account_User extends BaseTest{
 		driver.findElement(By.xpath("//a[normalize-space()='Sign Out']")).click();
 		
 		System.out.println("Logout_02 - Step 03: Verify page");
-		Assert.assertTrue(homePage.isLinkTextDisplayed());
+		Assert.assertTrue(homePage.isTextDisplayed());
 
 	}
 	
