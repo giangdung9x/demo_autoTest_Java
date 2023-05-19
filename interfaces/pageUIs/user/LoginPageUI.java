@@ -8,5 +8,7 @@ public class LoginPageUI {
 	public static final String LOGIN_BUTTON = "xpath=//div[@xpath='1']//input[@name='commit']";
 	
 	public static final String MESSAGE_SUCCESS = "xpath=//p[contains(text(),'You will receive an email with instructions about how to reset your password in a few minutes.')]";
+	public static final String NAME_OF_BUYER = "xpath=//input[@placeholder = 'Name *']";
+	public static final String PHONE_NUMBER_OF_BUYER = "xpath=//input[@placeholder = 'Phone *']";
 
 }

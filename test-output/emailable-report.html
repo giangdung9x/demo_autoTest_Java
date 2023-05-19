@@ -9,11 +9,22 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">ShowSlinger</th></tr>
-<tr><td><a href="#t0">Run on Chrome</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">76,870</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Run on Chrome</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">52,079</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">ShowSlinger</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Run on Chrome &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">showslinger_user.User_01_Register_Account_Venue</td><td><a href="#m0">Register_00_Alert_Authen</a></td><td rowspan="1">1684230738006</td><td rowspan="1">1404</td></tr><tr class="passedeven"><td><a href="#m1">Register_01_Register_Empty_Data</a></td><td rowspan="1">1684230739411</td><td rowspan="1">37213</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">ShowSlinger</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Run on Chrome &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">showslinger_user.User_05_Public_Kiosk</td><td><a href="#m0">Kiosk_11_Check_Out_Sucess</a></td><td rowspan="1">1684402672674</td><td rowspan="1">44105</td></tr><tr><th colspan="4">Run on Chrome &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">showslinger_user.User_05_Public_Kiosk</td><td><a href="#m1">Kiosk_01_Page_List_Event_Check_Displayed</a></td><td rowspan="1">1684402672558</td><td rowspan="1">115</td></tr></tbody>
 </table>
-<h2>Run on Chrome</h2><h3 id="m0">showslinger_user.User_01_Register_Account_Venue#Register_00_Alert_Authen</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">showslinger_user.User_01_Register_Account_Venue#Register_01_Register_Empty_Data</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Run on Chrome</h2><h3 id="m0">showslinger_user.User_05_Public_Kiosk#Kiosk_11_Check_Out_Sucess</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //b[text()=&apos;Checkout&apos;] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:40d:f7bd:77d4:b4b9%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;17.0.6&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.92, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: /var/folders/pm/gzm9jcks7wv...}, goog:chromeOptions: {debuggerAddress: localhost:49944}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 27fc73f453bd6b78771abc83212f5fe7
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at commons.BasePage.waitForElementVisible(BasePage.java:374)
+	at pageObject.user.UserPublicKioskObject.isTextCheckoutDisplayed(UserPublicKioskObject.java:208)
+	at showslinger_user.User_05_Public_Kiosk.Kiosk_11_Check_Out_Sucess(User_05_Public_Kiosk.java:229)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">showslinger_user.User_05_Public_Kiosk#Kiosk_01_Page_List_Event_Check_Displayed</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -47,18 +47,6 @@ public class User_04_Forgot_Password extends BaseTest{
 	
 
 
-	@Test 
-	public void Forgot_00_Alert_Authen() {
-		driver.get(UsernameandPassword(GlobalConstants.PORTAL_PAGE_URL, "SS15243", "12345"));
-		Assert.assertTrue(homePage.isTextDisplayed());
-	}
-
-	public String UsernameandPassword (String url, String username, String password){
-		String [] arrayurl = url.split("//");
-		return arrayurl[0] + "//" + username +":"+ password + "@" + arrayurl[1];
-	}
-
-
 	@Test
 	public void Forgot_01_Fotgot_Password_Successfully() {
 		System.out.println("Forgot_01 - Step 01: Click to Login link");

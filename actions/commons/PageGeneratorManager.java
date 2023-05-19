@@ -7,6 +7,7 @@ import pageObject.admin.AdminLoginPageObject;
 import pageObject.user.UserForgotPasswordObject;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserLoginPageObject;
+import pageObject.user.UserPublicKioskObject;
 import pageObject.user.UserRegisterVenuePageObject;
 
 public class PageGeneratorManager {
@@ -22,25 +23,6 @@ public class PageGeneratorManager {
 		return new UserRegisterVenuePageObject(driver);
 	}
 	
-	/*public static UserCustomerInfoPageObject getUserCustomerInfoPage(WebDriver driver) {
-		return new UserCustomerInfoPageObject(driver);
-	}
-
-	public static UserAddressPageObject getUserAddressPage(WebDriver driver) {
-		return new UserAddressPageObject(driver);
-	}
-
-	public static UserRewardPointPageObject getUserRewardPointPage(WebDriver driver) {
-		return new UserRewardPointPageObject(driver);
-	}
-
-	public static UserMyProductReviewPageObject getUserMyProductReviewPage(WebDriver driver) {
-		return new UserMyProductReviewPageObject(driver);
-	}
-	
-	public static AdminLoginPageObject getAdminLoginPage(WebDriver driver) {
-		return new AdminLoginPageObject(driver);
-	}*/
 	
 	public static AdminDashboardPageObject getAdminDashboardPage(WebDriver driver) {
 		return new AdminDashboardPageObject(driver);
@@ -50,4 +32,7 @@ public class PageGeneratorManager {
 		return new UserForgotPasswordObject(driver);
 	}
 
+	public static UserPublicKioskObject getUserPublicKioskPage(WebDriver driver) {
+		return new UserPublicKioskObject(driver);
+	}
 }
