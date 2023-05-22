@@ -24,9 +24,6 @@ import java.util.concurrent.TimeUnit;
 
 public class User_05_Public_Kiosk extends BaseTest{
 	private String existingEmail;
-
-	private String osName = System.getProperty("os.name");
-	private String projectPath = System.getProperty("user.dir");
 	private UserPublicKioskObject publicKioskPage;
 	String accessCodeInvalid;
 	String accessCodeValid;
@@ -161,7 +158,7 @@ public class User_05_Public_Kiosk extends BaseTest{
 	}
 
 
-	//@Test
+	@Test
 	public void Kiosk_08_Check_Out_Name_Empty() {
 		String eventName = publicKioskPage.getNameOfEventFromScreenSelectEvent();
 
@@ -206,30 +203,27 @@ public class User_05_Public_Kiosk extends BaseTest{
 	
 	@Test
 	public void Kiosk_11_Check_Out_Sucess_Choose_Card_From_Checkout_Screen() {
-		System.out.println("Kiosk_08 - Step 01: Selectd Event");
-		publicKioskPage.clickToChooseEventName();
-		
-		System.out.println("Kiosk_11 - Step 02: Select quantity ticket");
+		System.out.println("Kiosk_11 - Step 01: Select quantity ticket");
 		publicKioskPage.clickToDropDownSelectQuantityTicket(textItem);
 		
-		System.out.println("Kiosk_11 - Step 03: Click button");
+		System.out.println("Kiosk_11 - Step 02: Click button");
 		publicKioskPage.clickToButtonCheckout();
 		
-		System.out.println("Kiosk_11 - Step 04: Verify Text Checkout");
+		System.out.println("Kiosk_11 - Step 03: Verify Text Checkout");
 		Assert.assertTrue(publicKioskPage.isTextCheckoutDisplayed());
 		
-		System.out.println("Kiosk_11 - Step 05: Selected card reader");
+		System.out.println("Kiosk_11 - Step 04: Selected card reader");
 		publicKioskPage.clickToRadioButtonCardReader();
 		
-		System.out.println("Kiosk_11 - Step 06: Click button Charge Card");
+		System.out.println("Kiosk_11 - Step 05: Click button Charge Card");
 		publicKioskPage.clickToButtonChargeCard();
 		
-		System.out.println("Kiosk_11 - Step 07: Verify success");
+		System.out.println("Kiosk_11 - Step 06: Verify success");
 		Assert.assertTrue(publicKioskPage.isTextTapToInsertPayment());
 		Assert.assertTrue(publicKioskPage.isTextSuccessPleaseWait());
 		Assert.assertTrue(publicKioskPage.isTextPleaseTakeYourTickets());
 		
-		System.out.println("Kiosk_11 - Step 08: Verify back to Kiosk screen");
+		System.out.println("Kiosk_11 - Step 07: Verify back to Kiosk screen");
 		Assert.assertTrue(publicKioskPage.isTextOrderDisplayed());
 	}
 

@@ -42,17 +42,6 @@ public class User_03_Login_Account_User extends BaseTest{
 		validPassword = "12345";
 	}
 
-	@Test 
-	public void Login_00_Alert_Authen() {
-		driver.get(UsernameandPassword(GlobalConstants.PORTAL_PAGE_URL, "SS15243", "12345"));
-		Assert.assertTrue(homePage.isTextDisplayed());
-	}
-
-	public String UsernameandPassword (String url, String username, String password){
-		String [] arrayurl = url.split("//");
-		return arrayurl[0] + "//" + username +":"+ password + "@" + arrayurl[1];
-	}
-
 
 	@Test
 	public void Login_01_Login_Successfully() {

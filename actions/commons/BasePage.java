@@ -1,5 +1,6 @@
 package commons;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -88,7 +89,7 @@ public class BasePage {
 		}
 	}
 
-	private void switchToWindowByTitle(WebDriver driver,String tabTitle) {
+	public void switchToWindowByTitle(WebDriver driver,String tabTitle) {
 		Set<String> allWindowIDs = driver.getWindowHandles();
 		for (String id : allWindowIDs) {
 			driver.switchTo().window(id);
@@ -110,6 +111,7 @@ public class BasePage {
 		}
 		driver.switchTo().window(parentID);
 	}
+	
 
 	private By getByLocator(String locatorType) {
 		By by = null;

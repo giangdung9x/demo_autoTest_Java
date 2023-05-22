@@ -17,7 +17,7 @@ import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
-    String portalURL;
+    protected String portalURL;
     
 	public WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
@@ -49,6 +49,9 @@ public class BaseTest {
 		
 		case "publickiosk": 
 			portalURL = GlobalConstants.PUBLIC_KIOSK_PAGE_URL;
+			break;
+		case "boxoffice": 
+			portalURL = GlobalConstants.BOX_OFFICE_PAGE_URL;
 			break;
 		default:
 			throw new RuntimeException("Invalid portal Url");
