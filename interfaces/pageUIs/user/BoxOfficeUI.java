@@ -51,9 +51,22 @@ public class BoxOfficeUI {
 	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=//div[text()='Please select at least one ticket']";
 	public static final String DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']";
 	public static final String VALUE_DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']//option[@value='1']";
+	public static final String VALUE_DROPDOWN_TICKET_COMP = "xpath=//select[@data-name='vip3']//option[@value='5']";
 	public static final String RADIO_BUTTON_PAY_BY_CASH = "xpath=//label[@for='radio-payment_type-cash']//span[text()='Cash']";
+	public static final String RADIO_BUTTON_PAY_BY_COMP = "xpath=//label[@for='radio-payment_type-comp']//span[text()='Comp']";
+	public static final String RADIO_BUTTON_PAY_BY_CARD_SWIPER = "xpath=//label[@for='radio-payment_type-card_reader']//span[text()='Card swiper']";
+	public static final String RADIO_BUTTON_PAY_BY_CARD_MANUALLY = "xpath=//label[@for='radio-payment_type-credit_card']//span[text()='Enter card manually']";
+	public static final String RADIO_BUTTON_PAY_BY_PAY_LATER = "xpath=//label[@for='radio-payment_type_affirm']//span[text()='Buy now pay later']";
 	public static final String BUTTON_PLACE_ORDER = "xpath=//button[text()='Place Order']";
 	public static final String TEXT_SUCCESS_ORDER = "xpath=//b[text()='Success!']";
+	
+	public static final String BUTTON_VIEW_ORDER = "xpath=//a[text()='View order']";
+	public static final String BLADE_VIEW_ORDER_PAGE = "xpath=//div[@class='bladeContent']";
+	public static final String VALUE_OF_DROPDOWN_PRINTER_DEFAULT ="xpath=//li[text()='Please select your printer']";
+	public static final String BUTTON_PRINT_ORDER = "xpath=//div[text()='Print order']";
+	public static final String BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS = "xpath=//a[text()='Back to box office']";
+	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//a[contains(text(), 'Authorize Test Payment')]";
+	public static final String BUTTON_FAIL_TEST_PAYMENT = "xpath=//a[contains(text(), 'Fail Test Payment')]";
 
 	
 

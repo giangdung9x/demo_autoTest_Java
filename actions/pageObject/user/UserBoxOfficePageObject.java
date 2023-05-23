@@ -56,11 +56,11 @@ public class UserBoxOfficePageObject extends BasePage{
 		clickToElement(driver, BoxOfficeUI.COPY_LINK_BUTTON);			
 	}
 	
-	public void acceptAlertCopyLink() {
+	public void acceptAlertBoxOffice() {
 		acceptAlert(driver);
 	}
 	
-	public void cancelAlertCopyLink() {
+	public void cancelAlertBoxOffice() {
 		cancelAlert(driver);
 	}
 
@@ -280,10 +280,35 @@ public class UserBoxOfficePageObject extends BasePage{
 		waitForElementClickable(driver,BoxOfficeUI.VALUE_DROPDOWN_TICKET);
 		clickToElement(driver, BoxOfficeUI.VALUE_DROPDOWN_TICKET);	
 	}
+	
+	public void clickToValueOfDropdownSelectTicketComp() {
+		waitForElementClickable(driver,BoxOfficeUI.VALUE_DROPDOWN_TICKET_COMP);
+		clickToElement(driver, BoxOfficeUI.VALUE_DROPDOWN_TICKET_COMP);	
+	}
 
 	public void clickRadioButtonPayByCash() {
 		waitForElementClickable(driver,BoxOfficeUI.RADIO_BUTTON_PAY_BY_CASH);
 		clickToElement(driver, BoxOfficeUI.RADIO_BUTTON_PAY_BY_CASH);	
+	}
+	
+	public void clickRadioButtonPayByComp() {
+		waitForElementClickable(driver,BoxOfficeUI.RADIO_BUTTON_PAY_BY_COMP);
+		clickToElement(driver, BoxOfficeUI.RADIO_BUTTON_PAY_BY_COMP);	
+	}
+	
+	public void clickRadioButtonPayByCardSwiper() {
+		waitForElementClickable(driver,BoxOfficeUI.RADIO_BUTTON_PAY_BY_CARD_SWIPER);
+		clickToElement(driver, BoxOfficeUI.RADIO_BUTTON_PAY_BY_CARD_SWIPER);	
+	}
+	
+	public void clickRadioButtonPayByCardManually() {
+		waitForElementClickable(driver,BoxOfficeUI.RADIO_BUTTON_PAY_BY_CARD_MANUALLY);
+		clickToElement(driver, BoxOfficeUI.RADIO_BUTTON_PAY_BY_CARD_MANUALLY);	
+	}
+	
+	public void clickRadioButtonPayByPayLater() {
+		waitForElementClickable(driver,BoxOfficeUI.RADIO_BUTTON_PAY_BY_PAY_LATER);
+		clickToElement(driver, BoxOfficeUI.RADIO_BUTTON_PAY_BY_PAY_LATER);	
 	}
 
 	public void clickButtonPlaceOrder() {
@@ -295,6 +320,50 @@ public class UserBoxOfficePageObject extends BasePage{
 		waitForElementVisible(driver, BoxOfficeUI.TEXT_SUCCESS_ORDER);
 		return isElementDisplayed(driver, BoxOfficeUI.TEXT_SUCCESS_ORDER);
 	}
+	
+	//ORDER SUCCESS
+
+	public void clickViewOrderButton() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_VIEW_ORDER);
+		clickToElement(driver, BoxOfficeUI.BUTTON_VIEW_ORDER);	
+	}
+
+	public boolean isPageViewOrderDisplayed() {
+		waitForElementVisible(driver, BoxOfficeUI.BLADE_VIEW_ORDER_PAGE);
+		return isElementDisplayed(driver, BoxOfficeUI.BLADE_VIEW_ORDER_PAGE);
+	}
+	
+	public void clickToValueOfDropdownSelectPrinterDefault() {
+		waitForElementClickable(driver,BoxOfficeUI.VALUE_OF_DROPDOWN_PRINTER_DEFAULT);
+		clickToElement(driver, BoxOfficeUI.VALUE_OF_DROPDOWN_PRINTER_DEFAULT);	
+	}
+
+	public void clickPrintOrderButton() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_PRINT_ORDER);
+		clickToElement(driver, BoxOfficeUI.BUTTON_PRINT_ORDER);	
+	}
+
+	public String getTextOfAlertBoxOffice() {
+		waitForAlertPresence(driver);
+		return getAlertText(driver);
+	}
+
+	public void clickBackToBoxOfficeButton() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS);
+		clickToElement(driver, BoxOfficeUI.BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS);	
+	}
+
+	public void clickButtonAuthorizeTestPayment() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_AUTHORIZE_TEST_PAYMENT);
+		clickToElement(driver, BoxOfficeUI.BUTTON_AUTHORIZE_TEST_PAYMENT);	
+	}
+
+	public void clickButtonFailTestPayment() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_FAIL_TEST_PAYMENT);
+		clickToElement(driver, BoxOfficeUI.BUTTON_FAIL_TEST_PAYMENT);	
+	}
+
+
 
 	
 

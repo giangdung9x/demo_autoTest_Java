@@ -4,6 +4,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import pageUIs.user.BoxOfficeUI;
 import pageUIs.user.ForgotPasswordPageUI;
 import pageUIs.user.HomePageUI;
 import pageUIs.user.LoginPageUI;
@@ -261,5 +262,14 @@ public class UserPublicKioskObject extends BasePage{
 		clickToElement(driver, PublicKioskUI.BUTTON_BACK_FROM_PAYMENT_METHOD_DECLINED);	
 	}
 
+	public void clickToDropDownSelectTicket() {
+		waitForElementClickable(driver,PublicKioskUI.DROPDOWN_TICKET);
+		clickToElement(driver, PublicKioskUI.DROPDOWN_TICKET);	
+	}
+
+	public void clickToValueOfDropdownSelectTicket() {
+		waitForElementClickable(driver,PublicKioskUI.VALUE_DROPDOWN_TICKET);
+		clickToElement(driver, PublicKioskUI.VALUE_DROPDOWN_TICKET);	
+	}
 	
 }

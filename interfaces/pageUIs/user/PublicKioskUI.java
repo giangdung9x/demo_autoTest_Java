@@ -53,6 +53,8 @@ public class PublicKioskUI {
 	public static final String BUTTON_CANCEL_PAYMENT = "xpath=//a[text()='Cancel']";
 	public static final String TEXT_PAYMENT_METHOD_DECLINED = "xpath=//h3[text()='Payment method declined']";
 	public static final String BUTTON_BACK_FROM_PAYMENT_METHOD_DECLINED = "xpath=//button[text()='Back']";
+	public static final String DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']";
+	public static final String VALUE_DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']//option[@value='1']";
 
 
 }

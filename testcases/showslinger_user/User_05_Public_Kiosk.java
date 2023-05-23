@@ -205,6 +205,8 @@ public class User_05_Public_Kiosk extends BaseTest{
 	public void Kiosk_11_Check_Out_Sucess_Choose_Card_From_Checkout_Screen() {
 		System.out.println("Kiosk_11 - Step 01: Select quantity ticket");
 		publicKioskPage.clickToDropDownSelectQuantityTicket(textItem);
+		//publicKioskPage.clickToDropDownSelectTicket();
+		//publicKioskPage.clickToValueOfDropdownSelectTicket();
 		
 		System.out.println("Kiosk_11 - Step 02: Click button");
 		publicKioskPage.clickToButtonCheckout();

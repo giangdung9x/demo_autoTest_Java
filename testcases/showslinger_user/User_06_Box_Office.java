@@ -64,9 +64,9 @@ public class User_06_Box_Office extends BaseTest{
 		boxOfficePage.clickToMoreMenuButton();
 		
 		System.out.println("Role_Manager_Box_02 - Step 02: Click Instruction");
-		String boxOfficeWindowID_1 = driver.getWindowHandle();
+		String boxOfficeWindowID = driver.getWindowHandle();
 		boxOfficePage.clickToInstructionButton();
-		boxOfficePage.switchToWindowByID(boxOfficeWindowID_1);
+		boxOfficePage.switchToWindowByID(boxOfficeWindowID);
 
 		System.out.println("Role_Manager_Box_02 - Step 03: Verify Instruction");
 		Assert.assertTrue(boxOfficePage.isTitleInstructionYoutubeDisplayed());
@@ -76,12 +76,11 @@ public class User_06_Box_Office extends BaseTest{
 		
 		System.out.println("Role_Manager_Box_02 - Step 04: Click Copy Link");
 		boxOfficePage.clickToCopyLinkButton();
-		boxOfficePage.acceptAlertCopyLink();
+		boxOfficePage.acceptAlertBoxOffice();
 
 		System.out.println("Role_Manager_Box_02 - Step 05: Click Card Reader");
-		String boxOfficeWindowID_2 = driver.getWindowHandle();
 		boxOfficePage.clickToCardReadersButton();
-		boxOfficePage.switchToWindowByID(boxOfficeWindowID_2);
+		boxOfficePage.switchToWindowByID(boxOfficeWindowID);
 
 		System.out.println("Role_Manager_Box_02 - Step 06: Verify Card Reader");
 		Assert.assertTrue(boxOfficePage.isTitleRegisteredReadersDisplayed());
@@ -90,9 +89,8 @@ public class User_06_Box_Office extends BaseTest{
 		boxOfficePage.switchToWindowByID(registeredReadersWindowID);
 
 		System.out.println("Role_Manager_Box_02 - Step 07: Click Information");
-		String boxOfficeWindowID_3 = driver.getWindowHandle();;
 		boxOfficePage.clickToInformationButton();
-		boxOfficePage.switchToWindowByID(boxOfficeWindowID_3);
+		boxOfficePage.switchToWindowByID(boxOfficeWindowID);
 
 		System.out.println("Role_Manager_Box_02 - Step 08: Verify Information");
 		Assert.assertTrue(boxOfficePage.isTitleBoxOfficeInformationDisplayed());
@@ -224,16 +222,324 @@ public class User_06_Box_Office extends BaseTest{
 		
 		System.out.println("Role_Manager_Box_06 - Step 05: Verify text success");
 		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button View Order
+		String PageOrderSuccess = driver.getWindowHandle();
+		System.out.println("Role_Manager_Box_06 - Step 06: Click button View Order");
+		boxOfficePage.clickViewOrderButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+
+		System.out.println("Role_Manager_Box_06 - Step 07: Close tab View Order, back tab Order Success");
+		String PageViewOrder = driver.getWindowHandle();
+		driver.close();
+		boxOfficePage.switchToWindowByID(PageViewOrder);
+		
+		System.out.println("Role_Manager_Box_06 - Step 08: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button Print Order
+		System.out.println("Role_Manager_Box_06 - Step 09: Click button More Menu");
+		boxOfficePage.clickToMoreMenuButton();
+		
+		System.out.println("Role_Manager_Box_06 - Step 10: Click Information");
+		boxOfficePage.clickToInformationButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		
+		System.out.println("Role_Manager_Box_06 - Step 11: Click dropdown Select default printer");
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinterDefault();
+		
+		String pageInformationBoxOffice  = driver.getWindowHandle();;
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_06 - Step 12: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_06 - Step 13: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_06 - Step 14: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinter();
+		
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_06 - Step 15: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_06 - Step 16: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_06 - Step 17: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPaper();
+		boxOfficePage.clickToValueOfDropdownSelectPaper();
+		
+		driver.close();
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_06 - Step 18: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_06 - Step 19: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		//Verify Button Back To Box Office
+		System.out.println("Role_Manager_Box_06 - Step 20: Click button Back to box office");
+		boxOfficePage.clickBackToBoxOfficeButton();
+
+		System.out.println("Role_Manager_Box_06 - Step 21: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
+	
+	
+	
+	@Test
+	public void Role_Manager_Box_07_Check_Out_Success_Comp() {
+		System.out.println("Role_Manager_Box_07 - Step 01: Select quantity ticket");
+		boxOfficePage.clickToDropDownSelectTicket();
+		boxOfficePage.clickToValueOfDropdownSelectTicket();
+		
+		System.out.println("Role_Manager_Box_07 - Step 02: Click radio button Cash");
+		boxOfficePage.clickRadioButtonPayByComp();
+		
+		System.out.println("Role_Manager_Box_07 - Step 03: Click button Checkout");
+		boxOfficePage.clickButtonCheckoutNow();
+		
+		System.out.println("Role_Manager_Box_07 - Step 04: Click button Place Order");
+		boxOfficePage.clickButtonPlaceOrder();
+		
+		System.out.println("Role_Manager_Box_07 - Step 05: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button View Order
+		String PageOrderSuccess = driver.getWindowHandle();
+		System.out.println("Role_Manager_Box_07 - Step 06: Click button View Order");
+		boxOfficePage.clickViewOrderButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+
+		System.out.println("Role_Manager_Box_07 - Step 07: Close tab View Order, back tab Order Success");
+		String PageViewOrder = driver.getWindowHandle();
+		driver.close();
+		boxOfficePage.switchToWindowByID(PageViewOrder);
+		
+		System.out.println("Role_Manager_Box_07 - Step 08: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button Print Order
+		System.out.println("Role_Manager_Box_07 - Step 09: Click button More Menu");
+		boxOfficePage.clickToMoreMenuButton();
+		
+		System.out.println("Role_Manager_Box_07 - Step 10: Click Information");
+		boxOfficePage.clickToInformationButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		
+		System.out.println("Role_Manager_Box_07 - Step 11: Click dropdown Select default printer");
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinterDefault();
+		
+		String pageInformationBoxOffice  = driver.getWindowHandle();;
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_07 - Step 12: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_07 - Step 13: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_07 - Step 14: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinter();
+		
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_07 - Step 15: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_07 - Step 16: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_07 - Step 17: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPaper();
+		boxOfficePage.clickToValueOfDropdownSelectPaper();
+		
+		driver.close();
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_07 - Step 18: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_07 - Step 19: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		//Verify Button Back To Box Office
+		System.out.println("Role_Manager_Box_07 - Step 20: Click button Back to box office");
+		boxOfficePage.clickBackToBoxOfficeButton();
+
+		System.out.println("Role_Manager_Box_07 - Step 21: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
+	}
+	
+	@Test
+	public void Role_Manager_Box_08_Check_Out_Success_Pay_Later() {
+		System.out.println("Role_Manager_Box_08 - Step 01: Select quantity ticket");
+		boxOfficePage.clickToDropDownSelectTicket();
+		boxOfficePage.clickToValueOfDropdownSelectTicketComp();
+		
+		System.out.println("Role_Manager_Box_08 - Step 02: Click radio button Cash");
+		boxOfficePage.clickRadioButtonPayByPayLater();
+		
+		System.out.println("Role_Manager_Box_08 - Step 03: Click button Checkout");
+		boxOfficePage.clickButtonCheckoutNow();
+		
+		System.out.println("Role_Manager_Box_08 - Step 04: Click button Place Order");
+		boxOfficePage.clickButtonPlaceOrder();
+		
+		System.out.println("Role_Manager_Box_08 - Step 05: Click button Authorize Test Payment - Striper");
+		boxOfficePage.clickButtonAuthorizeTestPayment();
+		
+		System.out.println("Role_Manager_Box_08 - Step 05: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button View Order
+		String PageOrderSuccess = driver.getWindowHandle();
+		System.out.println("Role_Manager_Box_08 - Step 06: Click button View Order");
+		boxOfficePage.clickViewOrderButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+
+		System.out.println("Role_Manager_Box_08 - Step 07: Close tab View Order, back tab Order Success");
+		String PageViewOrder = driver.getWindowHandle();
+		driver.close();
+		boxOfficePage.switchToWindowByID(PageViewOrder);
+		
+		System.out.println("Role_Manager_Box_08 - Step 08: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button Print Order
+		System.out.println("Role_Manager_Box_08 - Step 09: Click button More Menu");
+		boxOfficePage.clickToMoreMenuButton();
+		
+		System.out.println("Role_Manager_Box_08 - Step 10: Click Information");
+		boxOfficePage.clickToInformationButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		
+		System.out.println("Role_Manager_Box_08 - Step 11: Click dropdown Select default printer");
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinterDefault();
+		
+		String pageInformationBoxOffice  = driver.getWindowHandle();;
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_08 - Step 12: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_08 - Step 13: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_08 - Step 14: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinter();
+		
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_08 - Step 15: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_08 - Step 16: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_08 - Step 17: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPaper();
+		boxOfficePage.clickToValueOfDropdownSelectPaper();
+		
+		driver.close();
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_08 - Step 18: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_08 - Step 19: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		//Verify Button Back To Box Office
+		System.out.println("Role_Manager_Box_08 - Step 20: Click button Back to box office");
+		boxOfficePage.clickBackToBoxOfficeButton();
+
+		System.out.println("Role_Manager_Box_08 - Step 21: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
+	}
+	
+	@Test
+	public void Role_Manager_Box_09_Check_Out_Fail_Pay_Later() {
+		System.out.println("Role_Manager_Box_09 - Step 01: Select quantity ticket");
+		boxOfficePage.clickToDropDownSelectTicket();
+		boxOfficePage.clickToValueOfDropdownSelectTicketComp();
+		
+		System.out.println("Role_Manager_Box_09 - Step 02: Click radio button Cash");
+		boxOfficePage.clickRadioButtonPayByPayLater();
+		
+		System.out.println("Role_Manager_Box_09 - Step 03: Click button Checkout");
+		boxOfficePage.clickButtonCheckoutNow();
+		
+		System.out.println("Role_Manager_Box_09 - Step 04: Click button Place Order");
+		boxOfficePage.clickButtonPlaceOrder();
+		
+		System.out.println("Role_Manager_Box_09 - Step 05: Click button Authorize Test Payment - Striper");
+		boxOfficePage.clickButtonFailTestPayment();
+		
+		System.out.println("Role_Manager_Box_08 - Step 06: Verify text of alert fail");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Checkout order failed! Please select your ticket and checkout again.");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_09 - Step 07: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
+		
+	}
+	
+	@Test
+	public void Role_Manager_Box_14_Check_Out_Success_Card_Swiper() {
+		
+	}
+	
+	@Test
+	public void Role_Manager_Box_14_Check_Out_Fail_Card_Swiper() {
+		
+	}
+	
+	
+	@Test
+	public void Role_Manager_Box_18_Check_Out_Success_Card_Manually() {
+		
+	}
+	
+	@Test
+	public void Role_Manager_Box_18_Check_Out_Fail_Card_Manually() {
+		
+	}
+	
+	
 	
 	//@Test
 	public void Role_Manager_Box_Log_Out() {
-		/*
 		System.out.println("Role_Manager_Box_02 - Step 02: Click Log Out");
 		boxOfficePage.clickToLogOutButton();
 		
 		System.out.println("Role_Manager_Box_02 - Step 03: Verify Log Out");
-		Assert.assertTrue(boxOfficePage.isLoginButtonDisplayed());*/
+		Assert.assertTrue(boxOfficePage.isLoginButtonDisplayed());
 	}
 	
 	
