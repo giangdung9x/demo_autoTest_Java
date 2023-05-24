@@ -281,9 +281,9 @@ public class UserBoxOfficePageObject extends BasePage{
 		clickToElement(driver, BoxOfficeUI.VALUE_DROPDOWN_TICKET);	
 	}
 	
-	public void clickToValueOfDropdownSelectTicketComp() {
-		waitForElementClickable(driver,BoxOfficeUI.VALUE_DROPDOWN_TICKET_COMP);
-		clickToElement(driver, BoxOfficeUI.VALUE_DROPDOWN_TICKET_COMP);	
+	public void clickToValueOfDropdownSelectTicketPayLater() {
+		waitForElementClickable(driver,BoxOfficeUI.VALUE_DROPDOWN_TICKET_PAY_LATER);
+		clickToElement(driver, BoxOfficeUI.VALUE_DROPDOWN_TICKET_PAY_LATER);	
 	}
 
 	public void clickRadioButtonPayByCash() {
@@ -363,6 +363,73 @@ public class UserBoxOfficePageObject extends BasePage{
 		clickToElement(driver, BoxOfficeUI.BUTTON_FAIL_TEST_PAYMENT);	
 	}
 
+	public void clickButtonChargeCard() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_CHARGE_CARD);
+		clickToElement(driver, BoxOfficeUI.BUTTON_CHARGE_CARD);	
+	}
+
+	public boolean isTapOrInsertTextDisplayed() {
+		waitForElementVisible(driver, BoxOfficeUI.TAP_OR_INSERT_TEXT);
+		return isElementDisplayed(driver, BoxOfficeUI.TAP_OR_INSERT_TEXT);
+	}
+
+	public void clickButtonCancelChargeCard() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_CANCEL_CHARGE_CARD);
+		clickToElement(driver, BoxOfficeUI.BUTTON_CANCEL_CHARGE_CARD);	
+	}
+
+	public void inputToCardNumberTextbox(String cardNumber) {
+		waitForElementVisible(driver, BoxOfficeUI.CARD_NUMBER_TEXTBOX);
+		sendkeyToElement(driver, BoxOfficeUI.CARD_NUMBER_TEXTBOX, cardNumber);
+	}
+
+	public void inputToMonthYearTextbox(String monthYear) {
+		waitForElementVisible(driver, BoxOfficeUI.MONTH_YEAR_TEXTBOX);
+		sendkeyToElement(driver, BoxOfficeUI.MONTH_YEAR_TEXTBOX, monthYear);
+	}
+
+	public void inputToCVCTextbox(String cvc) {
+		waitForElementVisible(driver, BoxOfficeUI.CVC_TEXTBOX);
+		sendkeyToElement(driver, BoxOfficeUI.CVC_TEXTBOX, cvc);
+	}
+
+	public void inputToZipTextbox(String zip) {
+		waitForElementVisible(driver, BoxOfficeUI.ZIP_TEXTBOX);
+		sendkeyToElement(driver, BoxOfficeUI.ZIP_TEXTBOX, zip);
+	}
+
+	public String getErrorMessageChargeCard() {
+		waitForElementVisible(driver, BoxOfficeUI.ERROR_MESSAGE_CHARGE_CARD);
+		return getElementText(driver, BoxOfficeUI.ERROR_MESSAGE_CHARGE_CARD);
+	}
+
+	public String getTextNameOfReader() {
+		waitForElementVisible(driver, BoxOfficeUI.NAME_OF_READER);
+		return getElementText(driver, BoxOfficeUI.NAME_OF_READER);
+	}
+
+	public void clickToCardNumberTextbox() {
+		waitForElementClickable(driver,BoxOfficeUI.CARD_NUMBER_TEXTBOX);
+		clickToElement(driver, BoxOfficeUI.CARD_NUMBER_TEXTBOX);	
+	}
+
+	public boolean isCardInfoTextDisplayed() {
+		waitForElementVisible(driver, BoxOfficeUI.CARD_INFO_TEXT);
+		return isElementDisplayed(driver, BoxOfficeUI.CARD_INFO_TEXT);
+	}
+
+	public void switchToFrameIframe() {
+		switchToFrameIframe(driver, BoxOfficeUI.IFRAME_CARD_MANUALLY);
+	}
+	
+	public void switchToDefaultContent() {
+		switchToDefaultContent(driver, BoxOfficeUI.IFRAME_CARD_MANUALLY);
+	}
+
+	public void clickBackToTickets() {
+		waitForElementClickable(driver,BoxOfficeUI.BUTTON_BACK_TO_TICKET);
+		clickToElement(driver, BoxOfficeUI.BUTTON_BACK_TO_TICKET);	
+	}
 
 
 	

@@ -7,6 +7,7 @@ import pageObject.user.UserHomePageObject;
 import pageObject.user.UserLoginPageObject;
 import pageObject.user.UserPublicKioskObject;
 
+import org.apache.commons.lang3.concurrent.BackgroundInitializer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -29,6 +30,14 @@ public class User_06_Box_Office extends BaseTest{
 	String currentWindowHandle;
 	String textVenue;
 	String textEvent;
+	String cardNumberValid;
+	String cardNumberInvalid;
+	String cardNumberDeclined;
+	String monthYearValid;
+	String monthYearInvalid;
+	String cvc;
+	String zip;
+
 
 	//portalURL: boxoffice
 	@Parameters({"browser", "portalURL"})
@@ -42,7 +51,14 @@ public class User_06_Box_Office extends BaseTest{
 		
 		textVenue = "City Theater";
 		textVenue = "Giang Test auto";
-
+		cardNumberValid = "4242424242424242";
+		cardNumberDeclined ="4000000000000002";
+		monthYearValid = "0424";
+		cvc = "242";
+		zip = "42424";
+		cardNumberInvalid="2323232323232323";
+		monthYearInvalid = "0420";
+		
 	}
 	
 	@Test
@@ -58,7 +74,7 @@ public class User_06_Box_Office extends BaseTest{
 		Assert.assertTrue(boxOfficePage.isBoxOfficeTextDisplayed());
 	}
 
-	//@Test
+	@Test
 	public void Role_Manager_Box_02_More_Menu() {
 		System.out.println("Role_Manager_Box_02 - Step 01: Click button More Menu");
 		boxOfficePage.clickToMoreMenuButton();
@@ -96,7 +112,7 @@ public class User_06_Box_Office extends BaseTest{
 		Assert.assertTrue(boxOfficePage.isTitleBoxOfficeInformationDisplayed());
 	}
 	
-	//@Test
+	@Test
 	public void Role_Manager_Box_03_Config_Information() {
 		System.out.println("Role_Manager_Box_03 - Step 01: Click dropdown Select default printer");
 		boxOfficePage.clickToDropDownSelectPrinter();
@@ -304,7 +320,7 @@ public class User_06_Box_Office extends BaseTest{
 		boxOfficePage.clickToDropDownSelectTicket();
 		boxOfficePage.clickToValueOfDropdownSelectTicket();
 		
-		System.out.println("Role_Manager_Box_07 - Step 02: Click radio button Cash");
+		System.out.println("Role_Manager_Box_07 - Step 02: Click radio button Comp");
 		boxOfficePage.clickRadioButtonPayByComp();
 		
 		System.out.println("Role_Manager_Box_07 - Step 03: Click button Checkout");
@@ -393,9 +409,9 @@ public class User_06_Box_Office extends BaseTest{
 	public void Role_Manager_Box_08_Check_Out_Success_Pay_Later() {
 		System.out.println("Role_Manager_Box_08 - Step 01: Select quantity ticket");
 		boxOfficePage.clickToDropDownSelectTicket();
-		boxOfficePage.clickToValueOfDropdownSelectTicketComp();
+		boxOfficePage.clickToValueOfDropdownSelectTicketPayLater();
 		
-		System.out.println("Role_Manager_Box_08 - Step 02: Click radio button Cash");
+		System.out.println("Role_Manager_Box_08 - Step 02: Click radio button Pay Later");
 		boxOfficePage.clickRadioButtonPayByPayLater();
 		
 		System.out.println("Role_Manager_Box_08 - Step 03: Click button Checkout");
@@ -487,9 +503,9 @@ public class User_06_Box_Office extends BaseTest{
 	public void Role_Manager_Box_09_Check_Out_Fail_Pay_Later() {
 		System.out.println("Role_Manager_Box_09 - Step 01: Select quantity ticket");
 		boxOfficePage.clickToDropDownSelectTicket();
-		boxOfficePage.clickToValueOfDropdownSelectTicketComp();
+		boxOfficePage.clickToValueOfDropdownSelectTicketPayLater();
 		
-		System.out.println("Role_Manager_Box_09 - Step 02: Click radio button Cash");
+		System.out.println("Role_Manager_Box_09 - Step 02: Click radio button Pay Later");
 		boxOfficePage.clickRadioButtonPayByPayLater();
 		
 		System.out.println("Role_Manager_Box_09 - Step 03: Click button Checkout");
@@ -511,29 +527,346 @@ public class User_06_Box_Office extends BaseTest{
 	}
 	
 	@Test
-	public void Role_Manager_Box_14_Check_Out_Success_Card_Swiper() {
+	public void Role_Manager_Box_10_Check_Out_Success_Card_Swiper() {
+		System.out.println("Role_Manager_Box_10 - Step 01: Select quantity ticket");
+		boxOfficePage.clickToDropDownSelectTicket();
+		boxOfficePage.clickToValueOfDropdownSelectTicket();
 		
+		System.out.println("Role_Manager_Box_10 - Step 02: Click radio button Card Swiper");
+		boxOfficePage.clickRadioButtonPayByCardSwiper();
+		
+		System.out.println("Role_Manager_Box_10 - Step 03: Click button Checkout");
+		boxOfficePage.clickButtonCheckoutNow();
+		
+		//This step is necessary
+		System.out.println("Role_Manager_Box_10 - Step 04: Verify text Name of reader");
+		Assert.assertEquals(boxOfficePage.getTextNameOfReader(),"ss-reader");
+		
+		System.out.println("Role_Manager_Box_10 - Step 05: Click button Place Order");
+		boxOfficePage.clickButtonChargeCard();
+		
+		System.out.println("Role_Manager_Box_10 - Step 06: Verify text Tap or insert payment method ");
+		Assert.assertTrue(boxOfficePage.isTapOrInsertTextDisplayed());			
+		
+		System.out.println("Role_Manager_Box_10 - Step 07: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button View Order
+		String PageOrderSuccess = driver.getWindowHandle();
+		System.out.println("Role_Manager_Box_10 - Step 08: Click button View Order");
+		boxOfficePage.clickViewOrderButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+
+		System.out.println("Role_Manager_Box_10 - Step 09: Close tab View Order, back tab Order Success");
+		String PageViewOrder = driver.getWindowHandle();
+		driver.close();
+		boxOfficePage.switchToWindowByID(PageViewOrder);
+		
+		System.out.println("Role_Manager_Box_10 - Step 10: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button Print Order
+		System.out.println("Role_Manager_Box_10 - Step 11: Click button More Menu");
+		boxOfficePage.clickToMoreMenuButton();
+		
+		System.out.println("Role_Manager_Box_10 - Step 12: Click Information");
+		boxOfficePage.clickToInformationButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		
+		System.out.println("Role_Manager_Box_10 - Step 13: Click dropdown Select default printer");
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinterDefault();
+		
+		String pageInformationBoxOffice  = driver.getWindowHandle();;
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_10 - Step 14: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_10 - Step 15: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_10 - Step 16: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinter();
+		
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_10 - Step 17: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_10 - Step 18: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_10 - Step 19: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPaper();
+		boxOfficePage.clickToValueOfDropdownSelectPaper();
+		
+		driver.close();
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_10 - Step 20: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_10 - Step 21: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		//Verify Button Back To Box Office
+		System.out.println("Role_Manager_Box_10 - Step 22: Click button Back to box office");
+		boxOfficePage.clickBackToBoxOfficeButton();
+
+		System.out.println("Role_Manager_Box_10 - Step 23: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
 	
 	@Test
 	public void Role_Manager_Box_14_Check_Out_Fail_Card_Swiper() {
+		System.out.println("Role_Manager_Box_11 - Step 01: Select quantity ticket");
+		boxOfficePage.clickToDropDownSelectTicket();
+		boxOfficePage.clickToValueOfDropdownSelectTicket();
 		
+		System.out.println("Role_Manager_Box_11 - Step 02: Click radio button Card Swiper");
+		boxOfficePage.clickRadioButtonPayByCardSwiper();
+		
+		System.out.println("Role_Manager_Box_11 - Step 03: Click button Checkout");
+		boxOfficePage.clickButtonCheckoutNow();
+		
+		//This step is necessary
+		System.out.println("Role_Manager_Box_11 - Step 04: Verify text Name of reader");
+		Assert.assertEquals(boxOfficePage.getTextNameOfReader(),"ss-reader");
+		
+		System.out.println("Role_Manager_Box_11 - Step 05: Click button Charge Card");
+		boxOfficePage.clickButtonChargeCard();		
+		
+		System.out.println("Role_Manager_Box_11 - Step 06: Click button Cancel");
+		boxOfficePage.clickButtonCancelChargeCard();
+		
+		System.out.println("Role_Manager_Box_11 - Step 07: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
 	
 	
 	@Test
 	public void Role_Manager_Box_18_Check_Out_Success_Card_Manually() {
+		System.out.println("Role_Manager_Box_12 - Step 01: Select quantity ticket");
+		boxOfficePage.clickToDropDownSelectTicket();
+		boxOfficePage.clickToValueOfDropdownSelectTicket();
 		
+		System.out.println("Role_Manager_Box_12 - Step 02: Click radio button Card Manually");
+		boxOfficePage.clickRadioButtonPayByCardManually();
+		
+		System.out.println("Role_Manager_Box_12 - Step 03: Click button Checkout");
+		boxOfficePage.clickButtonCheckoutNow();
+		
+		System.out.println("Role_Manager_Box_12 - Step 04: Input info of Card");
+		boxOfficePage.switchToFrameIframe();
+		boxOfficePage.inputToCardNumberTextbox(cardNumberValid);
+		boxOfficePage.inputToMonthYearTextbox(monthYearValid);
+		boxOfficePage.inputToCVCTextbox(cvc);
+		boxOfficePage.inputToZipTextbox(zip);
+		boxOfficePage.switchToDefaultContent();
+
+		System.out.println("Role_Manager_Box_12 - Step 05: Click button Place Order");
+		boxOfficePage.clickButtonPlaceOrder();		
+		
+		System.out.println("Role_Manager_Box_12 - Step 06: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button View Order
+		String PageOrderSuccess = driver.getWindowHandle();
+		System.out.println("Role_Manager_Box_12 - Step 07: Click button View Order");
+		boxOfficePage.clickViewOrderButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+
+		System.out.println("Role_Manager_Box_12 - Step 08: Close tab View Order, back tab Order Success");
+		String PageViewOrder = driver.getWindowHandle();
+		driver.close();
+		boxOfficePage.switchToWindowByID(PageViewOrder);
+		
+		System.out.println("Role_Manager_Box_12 - Step 09: Verify text success");
+		Assert.assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		
+		//Verify Button Print Order
+		System.out.println("Role_Manager_Box_12 - Step 10: Click button More Menu");
+		boxOfficePage.clickToMoreMenuButton();
+		
+		System.out.println("Role_Manager_Box_12 - Step 11: Click Information");
+		boxOfficePage.clickToInformationButton();
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		
+		System.out.println("Role_Manager_Box_12 - Step 12: Click dropdown Select default printer");
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinterDefault();
+		
+		String pageInformationBoxOffice  = driver.getWindowHandle();;
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_12 - Step 13: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_12 - Step 14: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_12 - Step 15: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPrinter();
+		boxOfficePage.clickToValueOfDropdownSelectPrinter();
+		
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_12 - Step 16: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_12 - Step 17: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		System.out.println("Role_Manager_Box_12 - Step 18: Select value printer valid");
+		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+		boxOfficePage.clickToDropDownSelectPaper();
+		boxOfficePage.clickToValueOfDropdownSelectPaper();
+		
+		driver.close();
+		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+		
+		System.out.println("Role_Manager_Box_12 - Step 19: Click button print order");
+		boxOfficePage.clickPrintOrderButton();
+		
+		System.out.println("Role_Manager_Box_12 - Step 20: Verify text of alert");
+		Assert.assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+		boxOfficePage.acceptAlertBoxOffice();
+		
+		//Verify Button Back To Box Office
+		System.out.println("Role_Manager_Box_12 - Step 21: Click button Back to box office");
+		boxOfficePage.clickBackToBoxOfficeButton();
+
+		System.out.println("Role_Manager_Box_12 - Step 22: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
 	
 	@Test
 	public void Role_Manager_Box_18_Check_Out_Fail_Card_Manually() {
+		System.out.println("Role_Manager_Box_13 - Step 01: Select quantity ticket");
+		boxOfficePage.clickToDropDownSelectTicket();
+		boxOfficePage.clickToValueOfDropdownSelectTicket();
 		
+		System.out.println("Role_Manager_Box_13 - Step 02: Click radio button Card Manually");
+		boxOfficePage.clickRadioButtonPayByCardManually();
+		
+		System.out.println("Role_Manager_Box_13 - Step 03: Click button Checkout");
+		boxOfficePage.clickButtonCheckoutNow();
+
+		
+		System.out.println("Role_Manager_Box_13 - Case 1: Input invalid Card number of Card");
+		System.out.println("Role_Manager_Box_13 - C1.Step 01: Input Card Number");
+		boxOfficePage.switchToFrameIframe();
+		boxOfficePage.inputToCardNumberTextbox(cardNumberInvalid);
+		boxOfficePage.switchToDefaultContent();
+
+		System.out.println("Role_Manager_Box_13 - C1.Step 02: Click button Place Order");
+		boxOfficePage.clickButtonPlaceOrder();	
+		
+		System.out.println("Role_Manager_Box_13 - C1.Step 03: Verify error msg ");
+		Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is invalid.");
+		
+
+		System.out.println("Role_Manager_Box_13 - Case 2: Input Card number of Card - case Declined");
+		System.out.println("Role_Manager_Box_13 - C2.Step 01: Input Card Number");
+		boxOfficePage.switchToFrameIframe();
+		boxOfficePage.inputToCardNumberTextbox(cardNumberDeclined);
+		boxOfficePage.inputToMonthYearTextbox(monthYearValid);
+		boxOfficePage.inputToCVCTextbox(cvc);
+		boxOfficePage.inputToZipTextbox(zip);
+		boxOfficePage.switchToDefaultContent();
+
+		System.out.println("Role_Manager_Box_13 - C2.Step 02: Click button Place Order");
+		boxOfficePage.clickButtonPlaceOrder();	
+
+		System.out.println("Role_Manager_Box_13 - C2.Step 03: Verify error msg ");
+		//Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Please use a credit card, Google Pay or Apple Pay to complete this purchase. Prepaid cards and some digital cards like CashApp are not accepted.");
+		Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
+
+		
+		System.out.println("Role_Manager_Box_13 - Case 3: input invalid  expiration date of Card");
+		System.out.println("Role_Manager_Box_13 - C3.Step 01: Input Card Number");
+		boxOfficePage.switchToFrameIframe();
+		boxOfficePage.inputToCardNumberTextbox(cardNumberValid);
+		boxOfficePage.inputToMonthYearTextbox(monthYearInvalid);
+		boxOfficePage.switchToDefaultContent();
+
+		System.out.println("Role_Manager_Box_13 - C3.Step 02: Click button Place Order");
+		boxOfficePage.clickButtonPlaceOrder();	
+		
+		System.out.println("Role_Manager_Box_13 - C3.Step 03: Verify error msg ");
+		Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration year is in the past.");
+		
+		
+		System.out.println("Role_Manager_Box_13 - Case 4: infor card is empty");
+		System.out.println("Role_Manager_Box_13 - C4.Step 01: Click button Charge Card");
+		boxOfficePage.clickButtonPlaceOrder();	
+		
+		System.out.println("Role_Manager_Box_13 - C4.Step 02: Verify error msg ");
+		Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
+		
+		
+		System.out.println("Role_Manager_Box_13 - Case 5: only input card number");
+		System.out.println("Role_Manager_Box_13 - C5.Step 01: Input Card Number");
+		boxOfficePage.switchToFrameIframe();
+		boxOfficePage.inputToCardNumberTextbox(cardNumberValid);
+		boxOfficePage.switchToDefaultContent();
+		
+		System.out.println("Role_Manager_Box_13 - C5.Step 02: Click button Charge Card");
+		boxOfficePage.clickButtonPlaceOrder();	
+		
+		System.out.println("Role_Manager_Box_13 - C5.Step 03: Verify error msg ");
+		Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration date is incomplete.");
+		
+
+		System.out.println("Role_Manager_Box_13 - Case 6: only input card number & expiration date");
+		System.out.println("Role_Manager_Box_13 - C6.Step 01: Input expiration date of Card");
+		boxOfficePage.switchToFrameIframe();
+		boxOfficePage.inputToCardNumberTextbox(cardNumberValid);
+		boxOfficePage.inputToMonthYearTextbox(monthYearValid);
+		boxOfficePage.switchToDefaultContent();
+
+		System.out.println("Role_Manager_Box_13 - C6.Step 02: Click button Charge Card");
+		boxOfficePage.clickButtonPlaceOrder();	
+		
+		System.out.println("Role_Manager_Box_13 - C6.Step 03: Verify error msg ");
+		Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's security code is incomplete.");
+		
+
+		System.out.println("Role_Manager_Box_13 - Case 7: don't input zip code");
+		System.out.println("Role_Manager_Box_13 - C7.Step 01: Input CVC of Card");
+		boxOfficePage.switchToFrameIframe();
+		boxOfficePage.inputToCardNumberTextbox(cardNumberValid);
+		boxOfficePage.inputToMonthYearTextbox(monthYearValid);
+		boxOfficePage.inputToCVCTextbox(cvc);
+		boxOfficePage.switchToDefaultContent();
+
+		System.out.println("Role_Manager_Box_13 - C7.Step 02: Click button Charge Card");
+		boxOfficePage.clickButtonPlaceOrder();	
+
+		System.out.println("Role_Manager_Box_13 - C7.Step 03: Verify error msg ");
+		Assert.assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your postal code is incomplete.");
+		
+		
+		System.out.println("Role_Manager_Box_13 - Step 04: Click to Back to tickets");
+		boxOfficePage.clickBackToTickets();	
+
+		System.out.println("Role_Manager_Box_12 - Step 05: Verify screen Order");
+		Assert.assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
 	
 	
 	
-	//@Test
+	@Test
 	public void Role_Manager_Box_Log_Out() {
 		System.out.println("Role_Manager_Box_02 - Step 02: Click Log Out");
 		boxOfficePage.clickToLogOutButton();
@@ -543,7 +876,7 @@ public class User_06_Box_Office extends BaseTest{
 	}
 	
 	
-	//@AfterClass
+	@AfterClass
 	public void afterClass() {
 		driver.quit();
 	}

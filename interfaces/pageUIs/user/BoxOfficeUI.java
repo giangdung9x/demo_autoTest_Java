@@ -51,7 +51,7 @@ public class BoxOfficeUI {
 	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=//div[text()='Please select at least one ticket']";
 	public static final String DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']";
 	public static final String VALUE_DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']//option[@value='1']";
-	public static final String VALUE_DROPDOWN_TICKET_COMP = "xpath=//select[@data-name='vip3']//option[@value='5']";
+	public static final String VALUE_DROPDOWN_TICKET_PAY_LATER = "xpath=//select[@data-name='vip3']//option[@value='5']";
 	public static final String RADIO_BUTTON_PAY_BY_CASH = "xpath=//label[@for='radio-payment_type-cash']//span[text()='Cash']";
 	public static final String RADIO_BUTTON_PAY_BY_COMP = "xpath=//label[@for='radio-payment_type-comp']//span[text()='Comp']";
 	public static final String RADIO_BUTTON_PAY_BY_CARD_SWIPER = "xpath=//label[@for='radio-payment_type-card_reader']//span[text()='Card swiper']";
@@ -67,6 +67,18 @@ public class BoxOfficeUI {
 	public static final String BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS = "xpath=//a[text()='Back to box office']";
 	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//a[contains(text(), 'Authorize Test Payment')]";
 	public static final String BUTTON_FAIL_TEST_PAYMENT = "xpath=//a[contains(text(), 'Fail Test Payment')]";
+	public static final String BUTTON_CHARGE_CARD = "xpath=//button[text()='Charge card']";
+	public static final String TAP_OR_INSERT_TEXT = "xpath=//div[contains(text(), 'Tap or insert payment method')]";
+	public static final String BUTTON_CANCEL_CHARGE_CARD = "xpath=//a[text() = 'Cancel']";
+	public static final String CARD_NUMBER_TEXTBOX = "xpath=//input[@placeholder = 'Card number']";
+	public static final String MONTH_YEAR_TEXTBOX = "xpath=//input[@placeholder = 'MM / YY']";
+	public static final String CVC_TEXTBOX = "xpath=//input[@placeholder = 'CVC']";
+	public static final String ZIP_TEXTBOX = "xpath=//input[@placeholder = 'ZIP']";
+	public static final String ERROR_MESSAGE_CHARGE_CARD = "xpath=//div[@class='error-message flex justify-center items-center min-h-10 w-full text-red-600 border border-red-600 p-2 mb-5']";
+	public static final String NAME_OF_READER = "xpath=//label[text() = 'ss-reader']";
+	public static final String CARD_INFO_TEXT = "xpath=//b[text()='Card Info']";
+	public static final String IFRAME_CARD_MANUALLY = "xpath=//iframe[@title='Secure card payment input frame']";
+	public static final String BUTTON_BACK_TO_TICKET = "xpath=//a[@class='font-semibold text-blue-custom btn-back-to-tickets']";
 
 	
 
