@@ -48,7 +48,7 @@ public class BoxOfficeUI {
 	public static final String VALUE_DROPDOWN_EVENT = "xpath=//li[contains(text(), 'Giang Test auto')]";
 	
 	public static final String BUTTON_CHECK_OUT_NOW = "xpath=//button[text()='Checkout now']";
-	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=//div[text()='Please select at least one ticket']";
+	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=//div[contains(text(), 'Please')]";
 	public static final String DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']";
 	public static final String VALUE_DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']//option[@value='1']";
 	public static final String VALUE_DROPDOWN_TICKET_PAY_LATER = "xpath=//select[@data-name='vip3']//option[@value='5']";
@@ -79,7 +79,11 @@ public class BoxOfficeUI {
 	public static final String CARD_INFO_TEXT = "xpath=//b[text()='Card Info']";
 	public static final String IFRAME_CARD_MANUALLY = "xpath=//iframe[@title='Secure card payment input frame']";
 	public static final String BUTTON_BACK_TO_TICKET = "xpath=//a[@class='font-semibold text-blue-custom btn-back-to-tickets']";
+	public static final String ERROR_MESSAGE_FOOTER_BOX_OFFICE = "xpath=//div[contains(@class, 'bnpl-unavailable-text')]";
 
-	
+	public static final String TEXT_TOTAL_AMOUNT_ORDER_BOX_OFFICE = "xpath=//h3[@class ='color-info fw-600 bo-total-price']";
+	public static final String CHECKBOX_EMAIL_BOX_OFFICE = "xpath=//label[@for='delivery_email']";
+	public static final String CHECKBOX_TEXT_PHONE_BOX_OFFICE = "xpath=//label[@for='delivery_text']";
+
 
 }

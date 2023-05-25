@@ -261,6 +261,16 @@ public class UserBoxOfficePageObject extends BasePage{
 	}
 
 	//CHECKOUT
+	public void clickEmailCheckbox() {
+		waitForElementClickable(driver,BoxOfficeUI.CHECKBOX_EMAIL_BOX_OFFICE);
+		clickToElement(driver, BoxOfficeUI.CHECKBOX_EMAIL_BOX_OFFICE);	
+	}
+
+	public void clickTextPhoneCheckbox() {
+		waitForElementClickable(driver,BoxOfficeUI.CHECKBOX_TEXT_PHONE_BOX_OFFICE);
+		clickToElement(driver, BoxOfficeUI.CHECKBOX_TEXT_PHONE_BOX_OFFICE);	
+	}
+	
 	public void clickButtonCheckoutNow() {
 		waitForElementClickable(driver,BoxOfficeUI.BUTTON_CHECK_OUT_NOW);
 		clickToElement(driver, BoxOfficeUI.BUTTON_CHECK_OUT_NOW);	
@@ -284,6 +294,12 @@ public class UserBoxOfficePageObject extends BasePage{
 	public void clickToValueOfDropdownSelectTicketPayLater() {
 		waitForElementClickable(driver,BoxOfficeUI.VALUE_DROPDOWN_TICKET_PAY_LATER);
 		clickToElement(driver, BoxOfficeUI.VALUE_DROPDOWN_TICKET_PAY_LATER);	
+	}
+	
+
+	public String getTextTotalAmountOrder() {
+		waitForElementVisible(driver, BoxOfficeUI.TEXT_TOTAL_AMOUNT_ORDER_BOX_OFFICE);
+		return getElementText(driver, BoxOfficeUI.TEXT_TOTAL_AMOUNT_ORDER_BOX_OFFICE);
 	}
 
 	public void clickRadioButtonPayByCash() {
@@ -430,6 +446,15 @@ public class UserBoxOfficePageObject extends BasePage{
 		waitForElementClickable(driver,BoxOfficeUI.BUTTON_BACK_TO_TICKET);
 		clickToElement(driver, BoxOfficeUI.BUTTON_BACK_TO_TICKET);	
 	}
+
+	public String getErrorMessageFooterBoxOffice() {
+		waitForElementVisible(driver, BoxOfficeUI.ERROR_MESSAGE_FOOTER_BOX_OFFICE);
+		return getElementText(driver, BoxOfficeUI.ERROR_MESSAGE_FOOTER_BOX_OFFICE);
+	}
+
+
+
+	
 
 
 	
