@@ -1,14 +1,8 @@
 package showslinger_user;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,15 +11,11 @@ import org.testng.annotations.Test;
 
 import commons.BaseTest;
 import commons.GlobalConstants;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserRegisterVenuePageObject;
 
 public class User_01_Register_Account_Venue extends BaseTest{
 	private WebDriver driver;
-
-	private String osName = System.getProperty("os.name");
-	private String projectPath = System.getProperty("user.dir");
 	private UserHomePageObject homePage  ;
 	private UserRegisterVenuePageObject registerVenuePage;
 	

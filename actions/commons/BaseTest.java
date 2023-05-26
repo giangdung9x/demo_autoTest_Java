@@ -53,6 +53,9 @@ public class BaseTest {
 		case "boxoffice": 
 			portalURL = GlobalConstants.BOX_OFFICE_PAGE_URL;
 			break;
+		case "buyonline": 
+			portalURL = GlobalConstants.BUY_ONLINE_URL;
+			break;
 		default:
 			throw new RuntimeException("Invalid portal Url");
 		}

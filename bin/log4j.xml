@@ -2,9 +2,9 @@
 <suite name="ShowSlinger">
 <test name="Run on Chrome">
 	  <parameter name="browser" value = "chrome"></parameter>
-	  <parameter name="portalURL" value="boxoffice"></parameter>
+	  <parameter name="portalURL" value="buyonline"></parameter>
     <classes>
-      <class name="showslinger_user.User_06_Box_Office"/>
+      <class name="showslinger_user.User_07_Buy_Online"/>
     </classes>
   </test> <!-- Test --> 
   

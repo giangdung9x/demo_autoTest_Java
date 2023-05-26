@@ -3,12 +3,7 @@ package pageObject.user;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
 import pageUIs.user.BoxOfficeUI;
-import pageUIs.user.ForgotPasswordPageUI;
-import pageUIs.user.HomePageUI;
-import pageUIs.user.LoginPageUI;
-import pageUIs.user.PublicKioskUI;
 
 public class UserBoxOfficePageObject extends BasePage{
 
