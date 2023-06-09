@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
@@ -30,21 +31,16 @@ public class User_01_Login_Account_Admin extends BaseTest{
 	private UserLoginPageObject loginPage;
 	private AdminDashboardPageObject adminDashboardPage;
 	
-	
-	
+	//portalUrl : admin
+    @Parameters({"browser", "portalURL"})
 	@BeforeClass
-	public void beforeClass() {
-		if (osName.contains("Mac OS")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDriver/geckodriver");
-		} else {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-		}
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+	public void beforeClass(String browserName, String portalURL) {
+		driver = getBrowserDriver(browserName, portalURL);		
+
 		existingEmail ="paulv@showslinger.com";
 		validPassword = "12345";
 	}
+	
 
 	@Test 
 	public void Login_00_Alert_Authen() {
@@ -63,8 +59,8 @@ public class User_01_Login_Account_Admin extends BaseTest{
 		loginPage = new UserLoginPageObject(driver);
 		
 		System.out.println("Login_01 - Step 02: Input Email Textbox & Password Textbox");
-		loginPage.inputToEmailTextbox(existingEmail);
-		loginPage.inputToPasswordTextbox(validPassword);
+		loginPage.inputToTextboxLogin("email",existingEmail);
+		loginPage.inputToTextboxLogin("password", validPassword);
 
 		System.out.println("Login_01 - Step 03: Click to Login button");
 		driver.findElement(By.xpath("(//input[@name='commit'])[1]")).click();

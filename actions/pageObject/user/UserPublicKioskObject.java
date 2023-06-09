@@ -185,8 +185,8 @@ public class UserPublicKioskObject extends BasePage{
 	}
 	
 	public void inputToEmailTextbox(String invalidEmail) {
-		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
-		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, invalidEmail);		
+		waitForElementVisible(driver, LoginPageUI.TEXTBOX_LOGIN);
+		sendkeyToElement(driver, LoginPageUI.TEXTBOX_LOGIN, invalidEmail);		
 	}
 
 	public void inputNameOfBuyer(String nameOfBuyer) {

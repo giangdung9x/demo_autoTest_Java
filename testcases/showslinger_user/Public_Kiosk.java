@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import pageObject.user.UserPublicKioskObject;
 import java.util.Random;
 
-public class User_05_Public_Kiosk extends BaseTest{
+public class Public_Kiosk extends BaseTest{
 	private UserPublicKioskObject publicKioskPage;
 	String accessCodeInvalid;
 	String accessCodeValid;

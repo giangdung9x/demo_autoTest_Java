@@ -78,6 +78,9 @@ public class BasePage {
 		waitForAlertPresence(driver).sendKeys(textValue);
 	}
 
+	public void sendkeyToAlertAuthen(WebDriver driver, String textValue ) {
+		waitForAlertPresence(driver).sendKeys(textValue);
+	}
 
 	public void switchToWindowByID(WebDriver driver,String windowID) 
 	{
@@ -179,12 +182,12 @@ public class BasePage {
 
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
 		Select select = new Select(getWebElement(driver, locatorType));
-		select.selectByValue(textItem);
+		select.selectByVisibleText(textItem);
 	}
 	
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem, String... dynamicValues) {
 		Select select = new Select(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)));
-		select.selectByValue(textItem);
+		select.selectByVisibleText(textItem);
 	}
 
 	public String getSelectedItemDefaultDropdown(WebDriver driver, String locatorType) {
@@ -259,8 +262,15 @@ public class BasePage {
 		return getListWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).size();
 	}
 
-	public void checkToDefaultCheckboxRadio(WebDriver driver, String locatorType) {
+	public void checkToDefaultCheckboxOrRadio(WebDriver driver, String locatorType) {
 		WebElement element = getWebElement(driver, locatorType);
+		if(!element.isSelected()) {
+			element.click();
+		}
+	}
+	
+	public void checkToDefaultCheckboxOrRadio(WebDriver driver, String locatorType,  String... dynamicValues) {
+		WebElement element = getWebElement(driver, getDynamicXpath(locatorType, dynamicValues));
 		if(!element.isSelected()) {
 			element.click();
 		}
@@ -269,6 +279,13 @@ public class BasePage {
 
 	public void uncheckToDefaultCheckboxRadio(WebDriver driver, String locatorType) {
 		WebElement element = getWebElement(driver, locatorType);
+		if(element.isSelected()) {
+			element.click();
+		}
+	}
+	
+	public void uncheckToDefaultCheckboxRadio(WebDriver driver, String locatorType,  String... dynamicValues) {
+		WebElement element = getWebElement(driver, getDynamicXpath(locatorType, dynamicValues));
 		if(element.isSelected()) {
 			element.click();
 		}

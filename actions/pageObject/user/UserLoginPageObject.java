@@ -3,7 +3,9 @@ package pageObject.user;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import commons.GlobalConstants;
 import commons.PageGeneratorManager;
+import io.qameta.allure.Step;
 import pageUIs.user.ForgotPasswordPageUI;
 import pageUIs.user.HomePageUI;
 import pageUIs.user.LoginPageUI;
@@ -16,40 +18,37 @@ public class UserLoginPageObject extends BasePage {
 		this.driver = driver;
 	}
 
-	public UserHomePageObject clickToLoginButton() {
+	@Step("Click to button Log In")
+	public void clickToLoginButton() {
 		waitForElementClickable(driver,LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver,LoginPageUI.LOGIN_BUTTON);
-		return PageGeneratorManager.getUserHomePage(driver);
+//		return PageGeneratorManager.getUserHomePage(driver);
 	}
 
-
-	public void inputToEmailTextbox(String validEmail) {
-		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
-		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, validEmail);		
-	}
-
-
-	public void inputToPasswordTextbox(String password) {
-		waitForElementVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
-		sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);		
-	}
-
-	public UserHomePageObject loginAsUser(String emailAddress, String password) {
-		inputToEmailTextbox(emailAddress);
-		inputToPasswordTextbox(password);
-		return clickToLoginButton();
+	@Step("Input to Textbox Login {0} {1}")
+	public void inputToTextboxLogin(String field, String value) {
+		waitForElementVisible(driver, LoginPageUI.TEXTBOX_LOGIN, field);
+		sendkeyToElement(driver, LoginPageUI.TEXTBOX_LOGIN, value, field);		
 	}
 	
-	public UserForgotPasswordObject clickToForgotPasswordLink() {
-		waitForElementClickable(driver,LoginPageUI.FORGOT_PASSWORD_LINK);
-		clickToElement(driver,LoginPageUI.FORGOT_PASSWORD_LINK);
-		return PageGeneratorManager.getUserForgotPasswordPage(driver);
-	}
-	
-	
-	public String getMessageSuccessDisplayed() {
-		waitForElementVisible(driver, LoginPageUI.MESSAGE_SUCCESS);
-		return getElementText(driver, LoginPageUI.MESSAGE_SUCCESS);
+	@Step("Verify text Log In")
+	public boolean isTextLogInDisplayed() {
+		waitForElementVisible(driver, LoginPageUI.LOGIN_TEXTBOX);
+		return isElementDisplayed(driver, LoginPageUI.LOGIN_TEXTBOX);
 	}
 
+	@Step("Click to Forgot Password Link")
+	public void clickToForgotPasswordLink() {
+		waitForElementClickable(driver,LoginPageUI.FOTGOT_PASSWORD_BUTTON);
+		clickToElement(driver,LoginPageUI.FOTGOT_PASSWORD_BUTTON);
+	}
+	
+	@Step("Login Account")
+	public void loginAccount(String email, String password) {
+		inputToTextboxLogin("email", email);
+		inputToTextboxLogin("password", password);
+
+	}
+	
+	
 }

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObject.user.UserBuyOnlinePageObject;
 
-public class User_07_Buy_Online extends BaseTest{
+public class Buy_Online extends BaseTest{
 
 	private UserBuyOnlinePageObject buyOnlinePage;
 	private String fullName, phone, email;

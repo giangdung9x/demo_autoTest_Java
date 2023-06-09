@@ -9,7 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
-public class User_06_Box_Office extends BaseTest{
+public class Box_Office extends BaseTest{
 	private UserBoxOfficePageObject boxOfficePage;
 	private String existingEmail, validPassword, existingEmailStaff, validPasswordStaff;
 	private String cardNumberValid, cardNumberInvalid, cardNumberDeclined, monthYearValid, monthYearInvalid, cvc, zip;

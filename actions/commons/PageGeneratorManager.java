@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import pageObject.admin.AdminDashboardPageObject;
 import pageObject.admin.AdminLoginPageObject;
 import pageObject.user.UserBoxOfficePageObject;
+import pageObject.user.UserBuyOnlinePageObject;
 import pageObject.user.UserForgotPasswordObject;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserLoginPageObject;
@@ -39,5 +40,9 @@ public class PageGeneratorManager {
 	
 	public static UserBoxOfficePageObject getUserBoxOfficePage(WebDriver driver) {
 		return new UserBoxOfficePageObject(driver);
+	}
+	
+	public static UserBuyOnlinePageObject getUserBuyOnlinePageObject(WebDriver driver) {
+		return new UserBuyOnlinePageObject(driver);
 	}
 }
