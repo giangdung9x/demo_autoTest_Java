@@ -7,7 +7,6 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import pageUIs.user.HomePageUI;
-import pageUIs.user.RegisterPageUI;
 
 public class UserHomePageObject extends BasePage{
 

@@ -7,22 +7,22 @@
 </listeners>>
 
 	<test name="Run on Chrome">
-	  <parameter name="browser" value = "chrome"></parameter>
+	 <!--  <parameter name="browser" value = "chrome"></parameter>
 	  <parameter name="portalURL" value="homepage"></parameter>
     	<classes>
       		<class name="showslinger_user.SignUp_001_AccVenue"/> 
      		<class name="showslinger_user.SignUp_002_AccArtist"/>
-	 		<class name="showslinger_user.Login_Account"/>-->
+	 		<class name="showslinger_user.Login_Account"/>
      		<class name="showslinger_user.Forgot_Password"/>
-    	</classes>
+    	</classes>-->
     	
-    	<!-- <parameter name="browser" value = "chrome"></parameter>
+     <parameter name="browser" value = "chrome"></parameter>
 	  <parameter name="portalURL" value="publickiosk"></parameter>
     	<classes>
-      		<class name="showslinger_user.Public_Kiosk"/>
+      		<class name="showslinger_user.Public_Kiosk_Page"/>
     	</classes>
     	
-    	 <parameter name="browser" value = "chrome"></parameter>
+    	 <!--  <parameter name="browser" value = "chrome"></parameter>
 	  <parameter name="portalURL" value="boxoffice"></parameter>
     	<classes>
      		 <class name="showslinger_user.Box_Office"/>
