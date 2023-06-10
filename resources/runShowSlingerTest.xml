@@ -16,19 +16,19 @@
      		<class name="showslinger_user.Forgot_Password"/>
     	</classes>-->
     	
-     <parameter name="browser" value = "chrome"></parameter>
+    <!--   <parameter name="browser" value = "chrome"></parameter>
 	  <parameter name="portalURL" value="publickiosk"></parameter>
     	<classes>
       		<class name="showslinger_user.Public_Kiosk_Page"/>
-    	</classes>
+    	</classes>-->
     	
-    	 <!--  <parameter name="browser" value = "chrome"></parameter>
+    	 <parameter name="browser" value = "chrome"></parameter>
 	  <parameter name="portalURL" value="boxoffice"></parameter>
     	<classes>
      		 <class name="showslinger_user.Box_Office"/>
     	</classes>
     	
-    	 <parameter name="browser" value = "chrome"></parameter>
+    	  <!-- <parameter name="browser" value = "chrome"></parameter>
 	  <parameter name="portalURL" value="buyonline"></parameter>
   		  <classes>
      		 <class name="showslinger_user.Buy_Online"/>

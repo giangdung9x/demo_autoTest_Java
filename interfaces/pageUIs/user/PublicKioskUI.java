@@ -39,7 +39,6 @@ public class PublicKioskUI {
 	public static final String BUTTON_CHECKOUT_NOW = "xpath=//button[text()='Checkout now']";
 	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=//div[contains(text(), 'Please ')]";
 	public static final String DROPDOWN_QUANTITY_TICKET = "xpath=//select[@data-name='%s']";
-	public static final String VALUE_OF_DROPDOWN_QUANTITY_TICKET = "xpath=//select[@data-name='vip3']//option[@value='1']";
 	public static final String TEXT_CHECKOUT = "xpath=//b[text()='Checkout']";
 	public static final String BUTTON_KIOSK = "xpath=//a[@href='#']";
 	

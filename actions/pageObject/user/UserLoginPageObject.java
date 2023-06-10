@@ -43,7 +43,7 @@ public class UserLoginPageObject extends BasePage {
 		clickToElement(driver,LoginPageUI.FOTGOT_PASSWORD_BUTTON);
 	}
 	
-	@Step("Login Account")
+	@Step("Login Account {0} {1}")
 	public void loginAccount(String email, String password) {
 		inputToTextboxLogin("email", email);
 		inputToTextboxLogin("password", password);
