@@ -4,35 +4,36 @@
 <listeners>
 	<listener class-name ="commons.MethodListener"></listener>
 	<listener class-name ="reportConfig.AllureTestListener"></listener>
-</listeners>>
+</listeners>
 
-	<test name="Run on Chrome">
-	 <!--  <parameter name="browser" value = "chrome"></parameter>
-	  <parameter name="portalURL" value="homepage"></parameter>
-    	<classes>
-      		<class name="showslinger_user.SignUp_001_AccVenue"/> 
-     		<class name="showslinger_user.SignUp_002_AccArtist"/>
-	 		<class name="showslinger_user.Login_Account"/>
-     		<class name="showslinger_user.Forgot_Password"/>
-    	</classes>-->
+<test name="Run on Chrome" preserve-order="true">
+	<parameter name="browser" value = "chrome"></parameter>
+	
     	
-    <!--   <parameter name="browser" value = "chrome"></parameter>
-	  <parameter name="portalURL" value="publickiosk"></parameter>
+    <parameter name="portalURL" value="publickiosk"></parameter>
     	<classes>
       		<class name="showslinger_user.Public_Kiosk_Page"/>
-    	</classes>-->
+    	</classes>
     	
-    	 <parameter name="browser" value = "chrome"></parameter>
+    	
+    <parameter name="portalURL" value="buyonline"></parameter>
+  		  <classes>
+     		 <class name="showslinger_user.Buy_Online"/>
+   		 </classes>
+    	
 	  <parameter name="portalURL" value="boxoffice"></parameter>
     	<classes>
      		 <class name="showslinger_user.Box_Office"/>
     	</classes>
     	
-    	  <!-- <parameter name="browser" value = "chrome"></parameter>
-	  <parameter name="portalURL" value="buyonline"></parameter>
-  		  <classes>
-     		 <class name="showslinger_user.Buy_Online"/>
-   		 </classes> -->
- 	 </test>
+	
+    <parameter name="portalURL" value="homepage"></parameter>
+    <classes>
+      		<class name="showslinger_user.SignUp_001_AccVenue"/> 
+     		<class name="showslinger_user.SignUp_002_AccArtist"/>
+	 		<class name="showslinger_user.Login_Account"/>
+     		<class name="showslinger_user.Forgot_Password"/>
+    	</classes>
+ </test>
   
 </suite>

@@ -5,16 +5,23 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
 
 import commons.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import pageObject.user.UserBuyOnlinePageObject;
 
 public class Buy_Online extends BaseTest{
 
 	private UserBuyOnlinePageObject buyOnlinePage;
-	private String fullName, phone, email;
-	private String cardNumberValid, cardNumberInvalid, cardNumberDeclined, monthYearValid, monthYearInvalid, cvc, zip;
-
+	private String fullName, phone, validEmail, invalidEmail, confirmEmail;
+	private String cardNumberValid, cardNumberInvalid, cardNumberDeclined, monthYearValid, monthYearInvalid, cvc, zip, errorMessageInfoCard;
+	private String eventName, ticketName, quantity, addOnsName, passName, giftCardName;
+	private int shortTime;
 	//portalURL: buyonline
 	@Parameters({"browser", "portalURL"})
 	@BeforeClass
@@ -23,8 +30,18 @@ public class Buy_Online extends BaseTest{
 		buyOnlinePage = new UserBuyOnlinePageObject(driver);
 		fullName = "Dang Thi Giang";
 		phone = "+128379292999";
-		email = "dangthigiang+2@mobilefolk.com";
-
+		validEmail = "dangthigiang+2@mobilefolk.com";
+		invalidEmail = "dangthigiang+2@";
+		confirmEmail= "dangthigiang+3@mobilefolk.com";
+				
+		eventName = "Giang Test auto";
+		ticketName ="vip3";
+		quantity ="1";
+		addOnsName = "coca";
+		passName = "giang test pass"; 
+		giftCardName = "Gift Card";
+		shortTime =3;
+		
 		cardNumberValid = "4242424242424242";
 		cardNumberDeclined ="4000000000000002";
 		monthYearValid = "0424";
@@ -32,112 +49,193 @@ public class Buy_Online extends BaseTest{
 		zip = "42424";
 		cardNumberInvalid="2323232323232323";
 		monthYearInvalid = "0420";
+		
+		
 	}
 
+	
+	@Description("Buy Ticket - Checkout when empty data")
+	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void Buy_Online_01_Buy_Ticket_Success_Checkout_Now() {
-		System.out.println("Buy_Online_01 - Step 01: Verify Event Name");
-		Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
-
-		if (buyOnlinePage.isTextSelectTicketsDisplayed()) {
-			System.out.println("Buy_Online_01 - Step 02: Select quantity ticket");
-			buyOnlinePage.clickToDropDownSelectTicket();
-			buyOnlinePage.clickToValueOfDropdownSelectTicket();
-			
-			System.out.println("Buy_Online_01 - Step 03: Click button Agree & Checkout");
-			buyOnlinePage.clickToAgreeCheckoutButton();
-
-			System.out.println("Buy_Online_01 - Step 04: Verify Checkout screen");
-			Assert.assertTrue(buyOnlinePage.isCheckoutTextDisplayed());
-
-			System.out.println("Buy_Online_01 - Step 05: Input info buyer");
-			buyOnlinePage.inputToFullNameTextbox(fullName);
-			buyOnlinePage.inputToPhoneTextbox(phone);
-			buyOnlinePage.inputToEmailTextbox(email);
-			buyOnlinePage.inputToConfirmEmailTextbox(email);
-
-			System.out.println("Buy_Online_01 - Step 06: Input info card & Click checkbox accept the Terms of Service");
-			if (buyOnlinePage.isCardInfoTextDisplayed()) {
-				buyOnlinePage.switchToFrameIframe();
-				buyOnlinePage.inputToCardNumberTextbox(cardNumberValid);
-				buyOnlinePage.inputToMonthYearTextbox(monthYearValid);
-				buyOnlinePage.inputToCVCTextbox(cvc);
-				buyOnlinePage.inputToZipTextbox(zip);
-				buyOnlinePage.switchToDefaultContent();
-
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}else {
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}		
-
-			System.out.println("Buy_Online_01 - Step 07: Click Place Order button");
-			buyOnlinePage.clickPlaceOrderButton();
-
-			System.out.println("Buy_Online_01 - Step 08: Verify text order success");
-			Assert.assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
-
-			System.out.println("Buy_Online_01 - Step 09: Click button Print Order");
-			String buyOnlineSuccessWindowID = driver.getWindowHandle();
-			buyOnlinePage.clickPrintOrderButton();
-			buyOnlinePage.switchToWindowByID(buyOnlineSuccessWindowID);
-
-			String printOrderWindowID = driver.getWindowHandle();
-			driver.close();
-			buyOnlinePage.switchToWindowByID(printOrderWindowID);
-			
-			System.out.println("Buy_Online_01 - Step 10: Click button Back To Event Page");
-			buyOnlinePage.clickBackToEventPageButton();
-
-			System.out.println("Buy_Online_01 - Step 11: Verify Event Name");
-			Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
-		} else {
-			System.out.println("Event has no ticket");
-		}
+	public void BuyOnline_001_CheckoutEmptyQuantityTicket() {
+		
+		assertEquals(buyOnlinePage.getTextEventName(),eventName);
+		
+		buyOnlinePage.clickToAgreeCheckoutButton();
+		
+		assertEquals(buyOnlinePage.getErrorMessage(),"Please select tickets and add-ons you would like to buy!");
+		
+		buyOnlinePage.refreshToPage(driver);
 	}
 	
+	@Description("Buy Ticket - Checkout when empty info of buyer")
+	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void Buy_Online_02_Buy_Add_Ons_Success_Checkout_Now() {
-		System.out.println("Buy_Online_01 - Step 01: Verify Event Name");
-		Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
+	public void BuyOnline_002_CheckoutEmptyInfoBuyer() {
+		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
+		
+		buyOnlinePage.clickToAgreeCheckoutButton();
+		
+		buyOnlinePage.clickPlaceOrderButton();
+		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Please input your full name!");
+		buyOnlinePage.sleepInSecond(shortTime);
 
-		if (buyOnlinePage.isTextSelectAddOnsDisplayed()) {
-			System.out.println("Buy_Online_01 - Step 02: Select quantity ticket");
-			buyOnlinePage.clickToDropDownSelectAddOns();
-			buyOnlinePage.clickToValueOfDropdownSelectAddOns();
-			
-			System.out.println("Buy_Online_01 - Step 03: Click button Agree & Checkout");
-			buyOnlinePage.clickToAgreeCheckoutButton();
+		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
+		buyOnlinePage.clickPlaceOrderButton();
+		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Please input your phone!");
+		
+		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
+		buyOnlinePage.clickPlaceOrderButton();
+		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Please input your email!");
+		buyOnlinePage.sleepInSecond(shortTime);
 
-			System.out.println("Buy_Online_01 - Step 04: Verify Checkout screen");
-			Assert.assertTrue(buyOnlinePage.isCheckoutTextDisplayed());
+		buyOnlinePage.inputInfoBuyerTextbox("Email", invalidEmail);
+		buyOnlinePage.clickPlaceOrderButton();
+		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Please input your verify email!");
+		buyOnlinePage.sleepInSecond(shortTime);
 
-			System.out.println("Buy_Online_01 - Step 05: Input info buyer");
-			buyOnlinePage.inputToFullNameTextbox(fullName);
-			buyOnlinePage.inputToPhoneTextbox(phone);
-			buyOnlinePage.inputToEmailTextbox(email);
-			buyOnlinePage.inputToConfirmEmailTextbox(email);
+		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", invalidEmail);
+		buyOnlinePage.clickPlaceOrderButton();
+		buyOnlinePage.clickPlaceOrderButton();
+		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Your email is not valid. Please enter it again!");
+		buyOnlinePage.sleepInSecond(shortTime);
 
-			System.out.println("Buy_Online_01 - Step 06: Input info card & Click checkbox accept the Terms of Service");
-			if (buyOnlinePage.isCardInfoTextDisplayed()) {
-				buyOnlinePage.switchToFrameIframe();
-				buyOnlinePage.inputToCardNumberTextbox(cardNumberValid);
-				buyOnlinePage.inputToMonthYearTextbox(monthYearValid);
-				buyOnlinePage.inputToCVCTextbox(cvc);
-				buyOnlinePage.inputToZipTextbox(zip);
-				buyOnlinePage.switchToDefaultContent();
+		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
+		buyOnlinePage.clickPlaceOrderButton();
+		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Your email is not valid. Please enter it again!");
+		buyOnlinePage.sleepInSecond(shortTime);
 
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}else {
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}		
+		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", confirmEmail);
+		buyOnlinePage.clickPlaceOrderButton();
+		buyOnlinePage.clickPlaceOrderButton();
+		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Make sure your emails match. Please try again.");
+		buyOnlinePage.sleepInSecond(shortTime);
 
-			System.out.println("Buy_Online_01 - Step 07: Click Place Order button");
+		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
+		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", validEmail);
+	}
+
+	@Description("Buy Ticket - checkout when not accecpt terms of service")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void BuyOnline_003_CheckoutNowNotAcceptTerms() {
+		buyOnlinePage.clickPlaceOrderButton();
+		
+		assertEquals(buyOnlinePage.getErrorMessageAtFooter(), "Please accept the Terms of Service before placing your order.");
+	}
+
+	@Description("Buy Ticket - Checkout method: Checkout now  - when empty info of card")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void BuyOnline_004_CheckoutNowNotInputCard() {
+		buyOnlinePage.clickCheckboxAcceptTermsService();
+
+		buyOnlinePage.getTextTotalAmountOrder();
+		buyOnlinePage.sleepInSecond(3);
+		
+		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
+			buyOnlinePage.clickPlaceOrderButton();
+		} else {
+			buyOnlinePage.clickPlaceOrderButton();
 			buyOnlinePage.clickPlaceOrderButton();
 
-			System.out.println("Buy_Online_01 - Step 08: Verify text order success");
-			Assert.assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
+			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
 
-			System.out.println("Buy_Online_01 - Step 09: Click button Print Order");
+			buyOnlinePage.switchToFrameIframe();
+			buyOnlinePage.inputInfoCardManual("Card number",cardNumberInvalid);
+			buyOnlinePage.switchToDefaultContent();
+
+			assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(),"Your card number is invalid.");
+			
+			buyOnlinePage.switchToFrameIframe();
+			buyOnlinePage.inputInfoCardManual("Card number", cardNumberDeclined);
+			buyOnlinePage.inputInfoCardManual("MM / YY", monthYearValid);
+			buyOnlinePage.inputInfoCardManual("CVC", cvc);
+			buyOnlinePage.inputInfoCardManual("ZIP", zip);
+
+			buyOnlinePage.switchToDefaultContent();
+
+			buyOnlinePage.clickPlaceOrderButton();
+
+			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+
+			buyOnlinePage.switchToFrameIframe();
+			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
+			buyOnlinePage.inputInfoCardManual("MM / YY", monthYearInvalid);
+
+			buyOnlinePage.switchToDefaultContent();
+
+			assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(),"Your card's expiration year is in the past.");
+
+			buyOnlinePage.clickPlaceOrderButton();
+
+			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+
+			buyOnlinePage.switchToFrameIframe();
+			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
+			buyOnlinePage.switchToDefaultContent();
+
+			buyOnlinePage.clickPlaceOrderButton();
+
+			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+
+			buyOnlinePage.switchToFrameIframe();
+			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
+			buyOnlinePage.inputInfoCardManual("MM / YY", monthYearValid);
+
+			buyOnlinePage.switchToDefaultContent();
+
+			buyOnlinePage.clickPlaceOrderButton();
+
+			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+
+			buyOnlinePage.switchToFrameIframe();
+			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
+			buyOnlinePage.inputInfoCardManual("MM / YY", monthYearValid);
+			buyOnlinePage.inputInfoCardManual("CVC", cvc);
+			buyOnlinePage.switchToDefaultContent();
+
+			buyOnlinePage.clickPlaceOrderButton();
+
+			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+			
+			buyOnlinePage.refreshToPage(driver);
+			
+		}
+	}
+
+	@Description("Buy Ticket - Checkout method: Checkout now  - Success")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void BuyOnline_005_CheckoutNowSuccess() {
+		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
+		buyOnlinePage.clickToAgreeCheckoutButton();
+		
+		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
+		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
+		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
+		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", validEmail);
+
+		buyOnlinePage.clickCheckboxAcceptTermsService();
+		
+		buyOnlinePage.getTextTotalAmountOrder();
+		buyOnlinePage.sleepInSecond(3);
+		
+		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
+			buyOnlinePage.clickPlaceOrderButton();
+		} else {
+
+			buyOnlinePage.switchToFrameIframe();
+			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
+			buyOnlinePage.inputInfoCardManual("MM / YY", monthYearValid);
+			buyOnlinePage.inputInfoCardManual("CVC", cvc);
+			buyOnlinePage.inputInfoCardManual("ZIP", zip);
+			buyOnlinePage.switchToDefaultContent();
+
+			buyOnlinePage.clickPlaceOrderButton();
+			
+			assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
+
 			String buyOnlineSuccessWindowID = driver.getWindowHandle();
 			buyOnlinePage.clickPrintOrderButton();
 			buyOnlinePage.switchToWindowByID(buyOnlineSuccessWindowID);
@@ -146,59 +244,34 @@ public class Buy_Online extends BaseTest{
 			driver.close();
 			buyOnlinePage.switchToWindowByID(printOrderWindowID);
 			
-			System.out.println("Buy_Online_01 - Step 10: Click button Back To Event Page");
 			buyOnlinePage.clickBackToEventPageButton();
 
-			System.out.println("Buy_Online_01 - Step 11: Verify Event Name");
-			Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
-		} else {
-			System.out.println("Event has no ticket");
+			assertEquals(buyOnlinePage.getTextEventName(),eventName);
 		}
 	}
 
+	@Description("Buy Ticket - Checkout method: Buy now pay later - Fail")
+	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void Buy_Online_03_Buy_Passes_Success_Checkout_Now() {
-		System.out.println("Buy_Online_01 - Step 01: Verify Event Name");
-		Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
+	public void BuyOnline_006_CheckoutPayLaterFail() {
+		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
+		buyOnlinePage.clickToAgreeCheckoutButton();
+		
+		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
+		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
+		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
+		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", validEmail);
 
-		if (buyOnlinePage.isTextSelectPassesDisplayed()) {
-			System.out.println("Buy_Online_01 - Step 02: Select quantity ticket");
-			buyOnlinePage.clickToDropDownSelectPass();
-			buyOnlinePage.clickToValueOfDropdownSelectPass();
-			
-			System.out.println("Buy_Online_01 - Step 03: Click button Agree & Checkout");
-			buyOnlinePage.clickToAgreeCheckoutButton();
-
-			System.out.println("Buy_Online_01 - Step 04: Verify Checkout screen");
-			Assert.assertTrue(buyOnlinePage.isCheckoutTextDisplayed());
-
-			System.out.println("Buy_Online_01 - Step 05: Input info buyer");
-			buyOnlinePage.inputToFullNameTextbox(fullName);
-			buyOnlinePage.inputToPhoneTextbox(phone);
-			buyOnlinePage.inputToEmailTextbox(email);
-			buyOnlinePage.inputToConfirmEmailTextbox(email);
-
-			System.out.println("Buy_Online_01 - Step 06: Input info card & Click checkbox accept the Terms of Service");
-			if (buyOnlinePage.isCardInfoTextDisplayed()) {
-				buyOnlinePage.switchToFrameIframe();
-				buyOnlinePage.inputToCardNumberTextbox(cardNumberValid);
-				buyOnlinePage.inputToMonthYearTextbox(monthYearValid);
-				buyOnlinePage.inputToCVCTextbox(cvc);
-				buyOnlinePage.inputToZipTextbox(zip);
-				buyOnlinePage.switchToDefaultContent();
-
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}else {
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}		
-
-			System.out.println("Buy_Online_01 - Step 07: Click Place Order button");
+		buyOnlinePage.clickCheckboxAcceptTermsService();
+		
+		buyOnlinePage.getTextTotalAmountOrder();
+		buyOnlinePage.sleepInSecond(3);
+		
+		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
 			buyOnlinePage.clickPlaceOrderButton();
+			
+			assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
 
-			System.out.println("Buy_Online_01 - Step 08: Verify text order success");
-			Assert.assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
-
-			System.out.println("Buy_Online_01 - Step 09: Click button Print Order");
 			String buyOnlineSuccessWindowID = driver.getWindowHandle();
 			buyOnlinePage.clickPrintOrderButton();
 			buyOnlinePage.switchToWindowByID(buyOnlineSuccessWindowID);
@@ -207,59 +280,60 @@ public class Buy_Online extends BaseTest{
 			driver.close();
 			buyOnlinePage.switchToWindowByID(printOrderWindowID);
 			
-			System.out.println("Buy_Online_01 - Step 10: Click button Back To Event Page");
 			buyOnlinePage.clickBackToEventPageButton();
 
-			System.out.println("Buy_Online_01 - Step 11: Verify Event Name");
-			Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
+			assertEquals(buyOnlinePage.getTextEventName(),eventName);
 		} else {
-			System.out.println("Event has no ticket");
+			int amount = buyOnlinePage.convertTotalAmountToInt();
+
+			if(amount < 50) {
+				buyOnlinePage.clickToRadioButtonCheckoutMethod();
+				
+				assertEquals(buyOnlinePage.getErrorMessageBNPL(),"Buy now pay later is only available for orders totaling $50 or more.");
+				
+				buyOnlinePage.clickCheckboxAcceptTermsService();
+
+				buyOnlinePage.clickToBackToTicket();
+				
+			}else {
+				buyOnlinePage.clickToRadioButtonCheckoutMethod();
+
+				buyOnlinePage.clickToBuyNowPayLaterButton();
+				
+				buyOnlinePage.clickButtonFailTestPayment();
+				
+				assertEquals(buyOnlinePage.getTextOfAlertCheckoutFail(),"Checkout order failed! Please select your ticket and checkout again.");
+				buyOnlinePage.acceptAlert();
+
+				assertEquals(buyOnlinePage.getTextEventName(),eventName);
+			}
+			
 		}
 	}
-	
+
+
+	@Description("Buy Ticket - Checkout method: Buy now pay later - Fail")
+	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void Buy_Online_04_Buy_Gift_Card_Success_Checkout_Now() {
-		System.out.println("Buy_Online_01 - Step 01: Verify Event Name");
-		Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
+	public void BuyTicket_007_CheckoutPayLaterSuccess() {
+		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
+		buyOnlinePage.clickToAgreeCheckoutButton();
+		
+		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
+		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
+		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
+		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", validEmail);
 
-		if (buyOnlinePage.isTextSelectGiftCardDisplayed()) {
-			System.out.println("Buy_Online_01 - Step 02: Select quantity ticket");
-			buyOnlinePage.clickToDropDownSelectGiftCard();
-			buyOnlinePage.clickToValueOfDropdownSelectGiftCard();
-			
-			System.out.println("Buy_Online_01 - Step 03: Click button Agree & Checkout");
-			buyOnlinePage.clickToAgreeCheckoutButton();
-
-			System.out.println("Buy_Online_01 - Step 04: Verify Checkout screen");
-			Assert.assertTrue(buyOnlinePage.isCheckoutTextDisplayed());
-
-			System.out.println("Buy_Online_01 - Step 05: Input info buyer");
-			buyOnlinePage.inputToFullNameTextbox(fullName);
-			buyOnlinePage.inputToPhoneTextbox(phone);
-			buyOnlinePage.inputToEmailTextbox(email);
-			buyOnlinePage.inputToConfirmEmailTextbox(email);
-
-			System.out.println("Buy_Online_01 - Step 06: Input info card & Click checkbox accept the Terms of Service");
-			if (buyOnlinePage.isCardInfoTextDisplayed()) {
-				buyOnlinePage.switchToFrameIframe();
-				buyOnlinePage.inputToCardNumberTextbox(cardNumberValid);
-				buyOnlinePage.inputToMonthYearTextbox(monthYearValid);
-				buyOnlinePage.inputToCVCTextbox(cvc);
-				buyOnlinePage.inputToZipTextbox(zip);
-				buyOnlinePage.switchToDefaultContent();
-
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}else {
-				buyOnlinePage.clickCheckboxAcceptTermsService();
-			}		
-
-			System.out.println("Buy_Online_01 - Step 07: Click Place Order button");
+		buyOnlinePage.clickCheckboxAcceptTermsService();
+		
+		buyOnlinePage.getTextTotalAmountOrder();
+		buyOnlinePage.sleepInSecond(3);
+		
+		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
 			buyOnlinePage.clickPlaceOrderButton();
+			
+			assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
 
-			System.out.println("Buy_Online_01 - Step 08: Verify text order success");
-			Assert.assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
-
-			System.out.println("Buy_Online_01 - Step 09: Click button Print Order");
 			String buyOnlineSuccessWindowID = driver.getWindowHandle();
 			buyOnlinePage.clickPrintOrderButton();
 			buyOnlinePage.switchToWindowByID(buyOnlineSuccessWindowID);
@@ -268,15 +342,43 @@ public class Buy_Online extends BaseTest{
 			driver.close();
 			buyOnlinePage.switchToWindowByID(printOrderWindowID);
 			
-			System.out.println("Buy_Online_01 - Step 10: Click button Back To Event Page");
 			buyOnlinePage.clickBackToEventPageButton();
 
-			System.out.println("Buy_Online_01 - Step 11: Verify Event Name");
-			Assert.assertEquals(buyOnlinePage.getTextEventName(),"Giang Test auto");
+			assertEquals(buyOnlinePage.getTextEventName(),eventName);
 		} else {
-			System.out.println("Event has no ticket");
+			int amount = buyOnlinePage.convertTotalAmountToInt();
+			
+			if(amount < 50) {
+				buyOnlinePage.clickToRadioButtonCheckoutMethod();
+				
+				assertEquals(buyOnlinePage.getErrorMessageBNPL(),"Buy now pay later is only available for orders totaling $50 or more.");
+				
+				buyOnlinePage.clickToBackToTicket();
+				
+			}else {
+				buyOnlinePage.clickToRadioButtonCheckoutMethod();
+
+				buyOnlinePage.clickToBuyNowPayLaterButton();
+				
+				buyOnlinePage.clickButtonAuthorizeTestPayment();
+				
+				assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
+
+				String buyOnlineSuccessWindowID = driver.getWindowHandle();
+				buyOnlinePage.clickPrintOrderButton();
+				buyOnlinePage.switchToWindowByID(buyOnlineSuccessWindowID);
+
+				String printOrderWindowID = driver.getWindowHandle();
+				driver.close();
+				buyOnlinePage.switchToWindowByID(printOrderWindowID);
+				
+				buyOnlinePage.clickBackToEventPageButton();
+
+				assertEquals(buyOnlinePage.getTextEventName(),eventName);
+			}
 		}
 	}
+
 
 	@AfterClass
 	public void afterClass() {

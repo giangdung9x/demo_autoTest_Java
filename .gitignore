@@ -52,3 +52,4 @@ Thumbs.db
 test-output/
 .project/
 .settings/
+.allure-json/

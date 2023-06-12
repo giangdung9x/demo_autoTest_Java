@@ -15,14 +15,13 @@ import java.util.Random;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
+import org.openqa.selenium.JavascriptExecutor;
+ 
 
 public class Public_Kiosk_Page extends BaseTest{
 	private UserPublicKioskObject publicKioskPage;
-	String accessCodeInvalid;
-	String accessCodeValid;
-	String nameOfBuyer;
-	String phoneNumber;
-	String textItem;
+	private String accessCodeInvalid, accessCodeValid, nameOfBuyer, phoneNumber, textItem;
+	private String eventName, printerName, paperName, ticketName, quantityTicket, eventNameSelected;
 
 	@Description("Open Url Public Kiosk Page")
 	@Parameters({"browser", "portalURL"})
@@ -35,6 +34,13 @@ public class Public_Kiosk_Page extends BaseTest{
 		accessCodeValid ="city";
 		nameOfBuyer = "Dang Giang";
 		phoneNumber = "0" + generateFakeNumber();
+		eventName ="Giang Test auto";
+		eventNameSelected ="Giang Test auto";
+		
+		printerName ="Canon LBP2900 (DESKTOP-VMJ4FSM)";
+		paperName ="A4";
+		ticketName ="vip3";
+		quantityTicket ="1";
 	}
 	
 
@@ -104,12 +110,12 @@ public class Public_Kiosk_Page extends BaseTest{
 		assertTrue(publicKioskPage.isTextReportDisplayed());
 
 		publicKioskPage.clickToDropDownSelectPrinter();
-		publicKioskPage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		publicKioskPage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		assertTrue(publicKioskPage.isTextSelectdefaultPaperDisplayed());
 
 		publicKioskPage.clickToDropDownSelectPaper();
-		publicKioskPage.clickToValueOfDropdownSelectPaper("A4");
+		publicKioskPage.clickToValueOfDropdownSelectPaper(paperName);
 
 		publicKioskPage.clickToButtonReset();
 		publicKioskPage.acceptAlertReport();
@@ -133,9 +139,9 @@ public class Public_Kiosk_Page extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 7)
 	public void Checkout_001_SelectEvent() {
-		String eventName = publicKioskPage.getNameOfEventFromScreenSelectEvent("Giang Test auto");
+		String eventName = publicKioskPage.getNameOfEventFromScreenSelectEvent(eventNameSelected);
 
-		publicKioskPage.clickToChooseEventName("Giang Test auto");
+		publicKioskPage.clickToChooseEventName(eventNameSelected);
 
 		assertTrue(publicKioskPage.isTextOrderDisplayed());
 		assertEquals(publicKioskPage.getNameOfEventFromCheckoutScreen(),eventName);
@@ -179,14 +185,12 @@ public class Public_Kiosk_Page extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 11)
 	public void Checkout_005_CheckoutInputValidData() {
-		publicKioskPage.clickToDropDownSelectQuantityTicket("vip3", "2");
+		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, "2");
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
-		//publicKioskPage.clickToDropDownSelectTicket();
-		//publicKioskPage.clickToValueOfDropdownSelectTicket();
-		
+
 		publicKioskPage.clickToButtonCheckout();
-		
+
 		assertTrue(publicKioskPage.isTextCheckoutDisplayed());
 	}
 	
@@ -224,11 +228,11 @@ public class Public_Kiosk_Page extends BaseTest{
 		
 		publicKioskPage.clickToButtonBackToKiosk();
 		
-		publicKioskPage.clickToChooseEventName("Giang Test auto");
+		publicKioskPage.clickToChooseEventName(eventNameSelected);
 
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
-		publicKioskPage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		assertTrue(publicKioskPage.isTextTapToInsertPayment());
 		assertTrue(publicKioskPage.isTextSuccessPleaseWait());
@@ -243,7 +247,7 @@ public class Public_Kiosk_Page extends BaseTest{
 	public void Checkout_008_PaymentMethodDeclined() {
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
-		publicKioskPage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 		
 		publicKioskPage.clickToButtonCheckout();
 		
@@ -257,7 +261,7 @@ public class Public_Kiosk_Page extends BaseTest{
 		
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
-		publicKioskPage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 		
 		publicKioskPage.clickToButtonCancelPayment();
 
@@ -274,7 +278,7 @@ public class Public_Kiosk_Page extends BaseTest{
 	public void Checkout_009_CheckButtonKiosk() {
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
-		publicKioskPage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 		
 		publicKioskPage.clickToButtonCheckout();
 		

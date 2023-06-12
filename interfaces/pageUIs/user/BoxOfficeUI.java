@@ -10,10 +10,7 @@ public class BoxOfficeUI {
 	
 	public static final String MORE_MENU_BUTTON = "xpath=//div[@class='col-lg-2 d-flex align-center justify-content-between d-mobile-none']//button[text()='More menu']";
 	public static final String VALUES_MORE_BUTTON = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[contains(text(), '%s')]";
-	public static final String COPY_LINK_BUTTON = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[text()=' Copy link']";
-	public static final String CARD_READER_BUTTON = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[contains(text(), 'Card readers (2)')]";
-	public static final String INFORMATION_BUTTON = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[text()='Information']";
-	public static final String LOG_OUT_BUTTON = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[text()='Log out']";
+	
 	public static final String TEXT_TITLE_INSTRUCTION_YOUTUBE = "xpath=//yt-formatted-string[@class='style-scope ytd-watch-metadata'][normalize-space()='How to use ShowSlinger box office with card swiper']";
 	public static final String LOGIN_BUTTON_HOMEPAGE =  "xpath=//li[@id='nav-menu-item-15650']//a";
 	public static final String TEXT_REGISTERED_READERS = "xpath=//h4[text()='Registered readers']";
@@ -57,10 +54,8 @@ public class BoxOfficeUI {
 	public static final String BUTTON_CHARGE_CARD = "xpath=//button[text()='Charge card']";
 	public static final String TAP_OR_INSERT_TEXT = "xpath=//div[contains(text(), 'Tap or insert payment method')]";
 	public static final String BUTTON_CANCEL_CHARGE_CARD = "xpath=//a[text() = 'Cancel']";
-	public static final String CARD_NUMBER_TEXTBOX = "xpath=//input[@placeholder = '%s']";
-	public static final String MONTH_YEAR_TEXTBOX = "xpath=//input[@placeholder = 'MM / YY']";
-	public static final String CVC_TEXTBOX = "xpath=//input[@placeholder = 'CVC']";
-	public static final String ZIP_TEXTBOX = "xpath=//input[@placeholder = 'ZIP']";
+	public static final String CARD_INFO_TEXTBOX = "xpath=//input[@placeholder = '%s']";
+
 	public static final String ERROR_MESSAGE_CHARGE_CARD = "xpath=//div[@class='error-message flex justify-center items-center min-h-10 w-full text-red-600 border border-red-600 p-2 mb-5']";
 	public static final String NAME_OF_READER = "xpath=//label[text() = 'ss-reader']";
 	public static final String CARD_INFO_TEXT = "xpath=//b[text()='Card Info']";

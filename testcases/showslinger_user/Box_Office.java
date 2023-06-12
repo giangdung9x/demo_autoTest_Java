@@ -19,7 +19,7 @@ public class Box_Office extends BaseTest{
 	private String emailManager, passwordManager, emailStaffAuto, passwordStaffAuto, emailStaffManual, passwordStaffManual;
 	private String cardNumberValid, cardNumberInvalid, cardNumberDeclined, monthYearValid, monthYearInvalid, cvc, zip;
 
-
+	private String eventName, printerName, paperName, ticketName, quantityTicket;
 	//portalURL: boxoffice
 	@Parameters({"browser", "portalURL"})
 	@BeforeClass
@@ -33,6 +33,7 @@ public class Box_Office extends BaseTest{
 		passwordStaffAuto = "123456";
 		emailStaffManual ="dangthigiang+15@mobilefolk.com";
 		passwordStaffManual = "123456";
+		
 		cardNumberValid = "4242424242424242";
 		cardNumberDeclined ="4000000000000002";
 		monthYearValid = "0424";
@@ -40,7 +41,14 @@ public class Box_Office extends BaseTest{
 		zip = "42424";
 		cardNumberInvalid="2323232323232323";
 		monthYearInvalid = "0420";
-
+		
+		
+		eventName ="Giang Test auto";
+		printerName ="Canon LBP2900 (DESKTOP-VMJ4FSM)";
+		paperName ="A4";
+		ticketName ="vip3";
+		quantityTicket ="1";
+		
 	}
 
 	@Description("Login Account Manager and Open Box Office")
@@ -92,12 +100,12 @@ public class Box_Office extends BaseTest{
 	@Test
 	public void Manager_003_ConfigInformationBoxOffice() {
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		assertTrue(boxOfficePage.isTextSelectdefaultPaperDisplayed());
 
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		assertTrue(boxOfficePage.isSelectedPaperValueDisplayed());
 
@@ -153,7 +161,7 @@ public class Box_Office extends BaseTest{
 		boxOfficePage.clickToValueOfDropdownSelectVenue("City Theater");
 
 		boxOfficePage.clickToDropDownSelectEvent();
-		boxOfficePage.clickToValueOfDropdownSelectEvent("Giang Test auto");
+		boxOfficePage.clickToValueOfDropdownSelectEvent(eventName);
 
 		assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
@@ -166,7 +174,7 @@ public class Box_Office extends BaseTest{
 
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please select at least one ticket");
 
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickCheckboxConfirmationDelivery("Email");
 		boxOfficePage.clickButtonCheckout("Checkout now");
@@ -188,7 +196,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_006_CheckoutNowMethodByCashSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Cash");
 
@@ -228,7 +236,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -239,7 +247,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -259,7 +267,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_007_CheckoutNowMethodByCompSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Comp");
 
@@ -299,7 +307,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -310,7 +318,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -330,7 +338,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_008_CheckoutNowMethodByPayLaterSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -372,7 +380,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -383,7 +391,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -403,7 +411,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -420,7 +428,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_010_CheckoutNowMethodByPaylaterFailTestPayment() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -441,7 +449,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_011_CheckoutNowMethodByCardSwiperSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -491,7 +499,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -502,7 +510,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -522,7 +530,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_012_CheckoutNowMethodByCardSwiperFail() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -551,13 +559,16 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_013_CheckoutNowMethodByCardManuallySuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
 
 		boxOfficePage.getTextTotalAmountOrder();
+		boxOfficePage.sleepInSecond(3);
+
 
 		boxOfficePage.clickButtonCheckout("Checkout now");
+		
 
 		if ((boxOfficePage.getTextTotalAmountOrder()).equals("0$")) {
 			boxOfficePage.clickButtonPlaceOrder();
@@ -570,7 +581,9 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("ZIP", zip);
 			boxOfficePage.switchToDefaultContent();
 
+			boxOfficePage.clickButtonPlaceOrder();	
 			boxOfficePage.clickButtonPlaceOrder();		
+
 		}
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
@@ -605,7 +618,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -616,7 +629,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -636,7 +649,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_014_CheckoutNowMethodByCardManuallyFail() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
 
@@ -723,7 +736,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_015_AddToCart() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickButtonCheckout("Add to cart");
 
@@ -783,12 +796,12 @@ public class Box_Office extends BaseTest{
 	@Test
 	public void StaffAuto_003_ConfigInformationBoxOffice() {
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		assertTrue(boxOfficePage.isTextSelectdefaultPaperDisplayed());
 
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		assertTrue(boxOfficePage.isSelectedPaperValueDisplayed());
 
@@ -844,7 +857,7 @@ public class Box_Office extends BaseTest{
 		boxOfficePage.clickToValueOfDropdownSelectVenue("City Theater");
 
 		boxOfficePage.clickToDropDownSelectEvent();
-		boxOfficePage.clickToValueOfDropdownSelectEvent("Giang Test auto");
+		boxOfficePage.clickToValueOfDropdownSelectEvent(eventName);
 
 		assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
@@ -857,7 +870,7 @@ public class Box_Office extends BaseTest{
 
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please select at least one ticket");
 
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickCheckboxConfirmationDelivery("Email");
 		boxOfficePage.clickButtonCheckout("Checkout now");
@@ -879,7 +892,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_006_CheckoutNowMethodByCashSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Cash");
 
@@ -919,7 +932,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -930,7 +943,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -950,7 +963,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_007_CheckoutNowMethodByCompSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Comp");
 
@@ -990,7 +1003,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1001,7 +1014,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1021,7 +1034,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_008_CheckoutNowMethodByPayLaterSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -1063,7 +1076,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1074,7 +1087,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1094,7 +1107,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -1111,7 +1124,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_010_CheckoutNowMethodByPaylaterFailTestPayment() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -1132,7 +1145,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_011_CheckoutNowMethodByCardSwiperSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -1182,7 +1195,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1193,7 +1206,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1213,7 +1226,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_012_CheckoutNowMethodByCardSwiperFail() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -1242,11 +1255,12 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_013_CheckoutNowMethodByCardManuallySuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
 
 		boxOfficePage.getTextTotalAmountOrder();
+		boxOfficePage.sleepInSecond(3);
 
 		boxOfficePage.clickButtonCheckout("Checkout now");
 
@@ -1296,7 +1310,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1307,7 +1321,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1327,7 +1341,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_014_CheckoutNowMethodByCardManuallyFail() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
 
@@ -1414,7 +1428,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_015_AddToCart() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickButtonCheckout("Add to cart");
 
@@ -1475,12 +1489,12 @@ public class Box_Office extends BaseTest{
 	@Test
 	public void StaffManual_003_ConfigInformationBoxOffice() {
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		assertTrue(boxOfficePage.isTextSelectdefaultPaperDisplayed());
 
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		assertTrue(boxOfficePage.isSelectedPaperValueDisplayed());
 
@@ -1536,7 +1550,7 @@ public class Box_Office extends BaseTest{
 		boxOfficePage.clickToValueOfDropdownSelectVenue("City Theater");
 
 		boxOfficePage.clickToDropDownSelectEvent();
-		boxOfficePage.clickToValueOfDropdownSelectEvent("Giang Test auto");
+		boxOfficePage.clickToValueOfDropdownSelectEvent(eventName);
 
 		assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
@@ -1549,7 +1563,7 @@ public class Box_Office extends BaseTest{
 
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please select at least one ticket");
 
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickCheckboxConfirmationDelivery("Email");
 		boxOfficePage.clickButtonCheckout("Checkout now");
@@ -1571,7 +1585,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_006_CheckoutNowMethodByCashSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Cash");
 
@@ -1611,7 +1625,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1622,7 +1636,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1642,7 +1656,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_007_CheckoutNowMethodByCompSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Comp");
 
@@ -1682,7 +1696,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1693,7 +1707,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1713,7 +1727,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_008_CheckoutNowMethodByPayLaterSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -1755,7 +1769,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1766,7 +1780,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1786,7 +1800,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -1803,7 +1817,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_010_CheckoutNowMethodByPaylaterFailTestPayment() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
 
@@ -1824,7 +1838,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_011_CheckoutNowMethodByCardSwiperSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -1874,7 +1888,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1885,7 +1899,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -1905,7 +1919,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_012_CheckoutNowMethodByCardSwiperFail() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -1934,11 +1948,13 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_013_CheckoutNowMethodByCardManuallySuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
 
 		boxOfficePage.getTextTotalAmountOrder();
+		boxOfficePage.sleepInSecond(3);
+
 
 		boxOfficePage.clickButtonCheckout("Checkout now");
 
@@ -1988,7 +2004,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Canon LBP2900 (DESKTOP-VMJ4FSM)");
+		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
 
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
 
@@ -1999,7 +2015,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.switchToWindowByID(PageOrderSuccess);
 		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper("A4");
+		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
 
 		driver.close();
 		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
@@ -2019,7 +2035,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_014_CheckoutNowMethodByCardManuallyFail() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
 
@@ -2106,7 +2122,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_015_AddToCart() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket("vip3", "1");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickButtonCheckout("Add to cart");
 

@@ -312,8 +312,8 @@ public class UserBoxOfficePageObject extends BasePage{
 
 	@Step("Input info of card manual - {0} {1}")
 	public void inputInfoCardManual(String field, String value) {
-		waitForElementVisible(driver, BoxOfficeUI.CARD_NUMBER_TEXTBOX, field);
-		sendkeyToElement(driver, BoxOfficeUI.CARD_NUMBER_TEXTBOX, value, field);
+		waitForElementVisible(driver, BoxOfficeUI.CARD_INFO_TEXTBOX, field);
+		sendkeyToElement(driver, BoxOfficeUI.CARD_INFO_TEXTBOX, value, field);
 	}
 	
 	@Step("Verify Error message chargae card")
@@ -330,8 +330,8 @@ public class UserBoxOfficePageObject extends BasePage{
 
 	@Step("Click to Card Number")
 	public void clickToCardNumberTextbox() {
-		waitForElementClickable(driver,BoxOfficeUI.CARD_NUMBER_TEXTBOX);
-		clickToElement(driver, BoxOfficeUI.CARD_NUMBER_TEXTBOX);	
+		waitForElementClickable(driver,BoxOfficeUI.CARD_INFO_TEXTBOX);
+		clickToElement(driver, BoxOfficeUI.CARD_INFO_TEXTBOX);	
 	}
 
 	@Step("Verify text Card Info")
