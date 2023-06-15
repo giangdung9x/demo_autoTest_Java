@@ -449,7 +449,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void Manager_011_CheckoutNowMethodByCardSwiperSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -581,8 +581,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("ZIP", zip);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
-			boxOfficePage.clickButtonPlaceOrder();		
+			boxOfficePage.clickButtonChargeCard();
 
 		}
 
@@ -1145,7 +1144,7 @@ public class Box_Office extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffAuto_011_CheckoutNowMethodByCardSwiperSuccess() {
-		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
+		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName,quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
 
@@ -1275,7 +1274,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("ZIP", zip);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();		
+			boxOfficePage.clickButtonChargeCard();
 		}
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	

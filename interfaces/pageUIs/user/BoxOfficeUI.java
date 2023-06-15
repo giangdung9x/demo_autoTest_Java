@@ -41,7 +41,7 @@ public class BoxOfficeUI {
 
 	public static final String RADIO_BUTTON_PAYMENT_CHECKOUT ="xpath=(//span[text()='%s'])[1]";
 	
-	public static final String BUTTON_PLACE_ORDER = "xpath=//button[text()='Place Order']";
+	public static final String BUTTON_PLACE_ORDER = "xpath=//button[@id='btn-place-order']";
 	public static final String TEXT_SUCCESS_ORDER = "xpath=//b[text()='Success!']";
 	
 	public static final String BUTTON_VIEW_ORDER = "xpath=//a[text()='View order']";
@@ -51,7 +51,7 @@ public class BoxOfficeUI {
 	public static final String BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS = "xpath=//a[text()='Back to box office']";
 	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//a[contains(text(), 'Authorize Test Payment')]";
 	public static final String BUTTON_FAIL_TEST_PAYMENT = "xpath=//a[contains(text(), 'Fail Test Payment')]";
-	public static final String BUTTON_CHARGE_CARD = "xpath=//button[text()='Charge card']";
+	public static final String BUTTON_CHARGE_CARD = "xpath=//button[@id='btn-place-order']";
 	public static final String TAP_OR_INSERT_TEXT = "xpath=//div[contains(text(), 'Tap or insert payment method')]";
 	public static final String BUTTON_CANCEL_CHARGE_CARD = "xpath=//a[text() = 'Cancel']";
 	public static final String CARD_INFO_TEXTBOX = "xpath=//input[@placeholder = '%s']";

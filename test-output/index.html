@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-ShowSlinger" class="navigator-link">
-              <span class="suite-name border-passed">ShowSlinger</span>
+              <span class="suite-name border-failed">ShowSlinger</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">7 methods,   7 passed</span>
+                    <span class="method-stats">13 methods, 1 failed,   12 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-ShowSlinger" class="hide-methods failed suite-ShowSlinger"> (hide)</a> <!-- hide-methods failed suite-ShowSlinger -->
+                      <a href="#" panel-name="suite-ShowSlinger" class="show-methods failed suite-ShowSlinger"> (show)</a> <!-- show-methods failed suite-ShowSlinger -->
+                    </span>
+                    <div class="method-list-content failed suite-ShowSlinger">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="CancelRefundTicket_002_CancelRefundManual">CancelRefundTicket_002_CancelRefundManual</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-ShowSlinger -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,37 +116,62 @@
                     <div class="method-list-content passed suite-ShowSlinger">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Buy_Online" class="method navigator-link" hash-for-method="BuyOnline_001_CheckoutEmptyQuantityTicket">BuyOnline_001_CheckoutEmptyQuantityTicket</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="CancelRefundTicket_001_CancelRefundAuto">CancelRefundTicket_001_CancelRefundAuto</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Buy_Online" class="method navigator-link" hash-for-method="BuyOnline_002_CheckoutEmptyInfoBuyer">BuyOnline_002_CheckoutEmptyInfoBuyer</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="CopyTicket_001_CopyTicketFail">CopyTicket_001_CopyTicketFail</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Buy_Online" class="method navigator-link" hash-for-method="BuyOnline_003_CheckoutNowNotAcceptTerms">BuyOnline_003_CheckoutNowNotAcceptTerms</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="CopyTicket_002_CopyTicketSuccess">CopyTicket_002_CopyTicketSuccess</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Buy_Online" class="method navigator-link" hash-for-method="BuyOnline_004_CheckoutNowNotInputCard">BuyOnline_004_CheckoutNowNotInputCard</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="CreateTicket_001_CreateTicketFail">CreateTicket_001_CreateTicketFail</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Buy_Online" class="method navigator-link" hash-for-method="BuyOnline_005_CheckoutNowSuccess">BuyOnline_005_CheckoutNowSuccess</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="CreateTicket_002_CreateTicketSuccess">CreateTicket_002_CreateTicketSuccess</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Buy_Online" class="method navigator-link" hash-for-method="BuyOnline_006_CheckoutPayLaterFail">BuyOnline_006_CheckoutPayLaterFail</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="DeleteTicke_002_DeleteTicketSuccess">DeleteTicke_002_DeleteTicketSuccess</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Buy_Online" class="method navigator-link" hash-for-method="BuyTicket_007_CheckoutPayLaterSuccess">BuyTicket_007_CheckoutPayLaterSuccess</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="DeleteTicket_001_DeleteTicketFail">DeleteTicket_001_DeleteTicketFail</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="EditTicket_001_EditTicketFail">EditTicket_001_EditTicketFail</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="EditTicket_002_EditTicketSuccess">EditTicket_002_EditTicketSuccess</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="Ticket_OpenUrlAndLoginAccount">Ticket_OpenUrlAndLoginAccount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="TransferTicket_001_TransferTicketFail">TransferTicket_001_TransferTicketFail</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Actions_Of_Event" class="method navigator-link" hash-for-method="TransferTicket_002_TransferTicketSuccess">TransferTicket_002_TransferTicketSuccess</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-ShowSlinger -->
@@ -147,59 +186,142 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-ShowSlinger" class="panel ShowSlinger">
-          <div class="suite-ShowSlinger-class-passed">
+          <div class="suite-ShowSlinger-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">showslinger_user.Buy_Online</span>
+              <img src="failed.png"/>
+              <span class="class-name">showslinger_user.Actions_Of_Event</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="BuyOnline_001_CheckoutEmptyQuantityTicket">
-                  </a> <!-- BuyOnline_001_CheckoutEmptyQuantityTicket -->
-                  <span class="method-name">BuyOnline_001_CheckoutEmptyQuantityTicket</span>
+                  <a name="CancelRefundTicket_002_CancelRefundManual">
+                  </a> <!-- CancelRefundTicket_002_CancelRefundManual -->
+                  <span class="method-name">CancelRefundTicket_002_CancelRefundManual</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //strong[text()=&apos;Test 175&apos;]/ancestor::li[@class=&apos;has-sale&apos;] (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at commons.BasePage.waitForElementClickable(BasePage.java:438)
+	at pageObject.user.UserActionOfEventPageObject.clickToEvent(UserActionOfEventPageObject.java:172)
+	at showslinger_user.Actions_Of_Event.CancelRefundTicket_002_CancelRefundManual(Actions_Of_Event.java:393)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//strong[text()=&apos;Test 175&apos;]/ancestor::li[@class=&apos;has-sale&apos;]&quot;}
+  (Session info: chrome=114.0.5735.106)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;DANGs-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:835:4a6:f9b8:4c3c%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.5.1&apos;, java.version: &apos;11.0.17&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.106, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: /var/folders/pm/gzm9jcks7wv...}, goog:chromeOptions: {debuggerAddress: localhost:60299}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 15ccb5707ddf3a1991e4ed93d12d32d6
+*** Element info: {Using=xpath, value=//strong[text()=&apos;Test 175&apos;]/ancestor::li[@class=&apos;has-sale&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:641)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:638)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 28 more
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-ShowSlinger-class-failed -->
+          <div class="suite-ShowSlinger-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">showslinger_user.Actions_Of_Event</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CancelRefundTicket_001_CancelRefundAuto">
+                  </a> <!-- CancelRefundTicket_001_CancelRefundAuto -->
+                  <span class="method-name">CancelRefundTicket_001_CancelRefundAuto</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="BuyOnline_002_CheckoutEmptyInfoBuyer">
-                  </a> <!-- BuyOnline_002_CheckoutEmptyInfoBuyer -->
-                  <span class="method-name">BuyOnline_002_CheckoutEmptyInfoBuyer</span>
+                  <a name="CopyTicket_001_CopyTicketFail">
+                  </a> <!-- CopyTicket_001_CopyTicketFail -->
+                  <span class="method-name">CopyTicket_001_CopyTicketFail</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="BuyOnline_003_CheckoutNowNotAcceptTerms">
-                  </a> <!-- BuyOnline_003_CheckoutNowNotAcceptTerms -->
-                  <span class="method-name">BuyOnline_003_CheckoutNowNotAcceptTerms</span>
+                  <a name="CopyTicket_002_CopyTicketSuccess">
+                  </a> <!-- CopyTicket_002_CopyTicketSuccess -->
+                  <span class="method-name">CopyTicket_002_CopyTicketSuccess</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="BuyOnline_004_CheckoutNowNotInputCard">
-                  </a> <!-- BuyOnline_004_CheckoutNowNotInputCard -->
-                  <span class="method-name">BuyOnline_004_CheckoutNowNotInputCard</span>
+                  <a name="CreateTicket_001_CreateTicketFail">
+                  </a> <!-- CreateTicket_001_CreateTicketFail -->
+                  <span class="method-name">CreateTicket_001_CreateTicketFail</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="BuyOnline_005_CheckoutNowSuccess">
-                  </a> <!-- BuyOnline_005_CheckoutNowSuccess -->
-                  <span class="method-name">BuyOnline_005_CheckoutNowSuccess</span>
+                  <a name="CreateTicket_002_CreateTicketSuccess">
+                  </a> <!-- CreateTicket_002_CreateTicketSuccess -->
+                  <span class="method-name">CreateTicket_002_CreateTicketSuccess</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="BuyOnline_006_CheckoutPayLaterFail">
-                  </a> <!-- BuyOnline_006_CheckoutPayLaterFail -->
-                  <span class="method-name">BuyOnline_006_CheckoutPayLaterFail</span>
+                  <a name="DeleteTicke_002_DeleteTicketSuccess">
+                  </a> <!-- DeleteTicke_002_DeleteTicketSuccess -->
+                  <span class="method-name">DeleteTicke_002_DeleteTicketSuccess</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="BuyTicket_007_CheckoutPayLaterSuccess">
-                  </a> <!-- BuyTicket_007_CheckoutPayLaterSuccess -->
-                  <span class="method-name">BuyTicket_007_CheckoutPayLaterSuccess</span>
+                  <a name="DeleteTicket_001_DeleteTicketFail">
+                  </a> <!-- DeleteTicket_001_DeleteTicketFail -->
+                  <span class="method-name">DeleteTicket_001_DeleteTicketFail</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="EditTicket_001_EditTicketFail">
+                  </a> <!-- EditTicket_001_EditTicketFail -->
+                  <span class="method-name">EditTicket_001_EditTicketFail</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="EditTicket_002_EditTicketSuccess">
+                  </a> <!-- EditTicket_002_EditTicketSuccess -->
+                  <span class="method-name">EditTicket_002_EditTicketSuccess</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Ticket_OpenUrlAndLoginAccount">
+                  </a> <!-- Ticket_OpenUrlAndLoginAccount -->
+                  <span class="method-name">Ticket_OpenUrlAndLoginAccount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TransferTicket_001_TransferTicketFail">
+                  </a> <!-- TransferTicket_001_TransferTicketFail -->
+                  <span class="method-name">TransferTicket_001_TransferTicketFail</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TransferTicket_002_TransferTicketSuccess">
+                  </a> <!-- TransferTicket_002_TransferTicketSuccess -->
+                  <span class="method-name">TransferTicket_002_TransferTicketSuccess</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -218,13 +340,13 @@
     &lt;listener class-name=&quot;commons.MethodListener&quot;/&gt;
     &lt;listener class-name=&quot;reportConfig.AllureTestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Run on Chrome&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Sign up/Login&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
-    &lt;parameter name=&quot;portalURL&quot; value=&quot;buyonline&quot;/&gt;
+    &lt;parameter name=&quot;portalURL&quot; value=&quot;homepage&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;showslinger_user.Buy_Online&quot;/&gt;
+      &lt;class name=&quot;showslinger_user.Actions_Of_Event&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Run on Chrome --&gt;
+  &lt;/test&gt; &lt;!-- Sign up/Login --&gt;
 &lt;/suite&gt; &lt;!-- ShowSlinger --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -236,7 +358,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Run on Chrome (1 class)</span>
+                <span class="test-name">Sign up/Login (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -262,40 +384,64 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(7);
+data.addRows(13);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'BuyOnline_002_CheckoutEmptyInfoBuyer')
-data.setCell(0, 2, 'showslinger_user.Buy_Online')
-data.setCell(0, 3, 22318);
+data.setCell(0, 1, 'Ticket_OpenUrlAndLoginAccount')
+data.setCell(0, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(0, 3, 59289);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'BuyTicket_007_CheckoutPayLaterSuccess')
-data.setCell(1, 2, 'showslinger_user.Buy_Online')
-data.setCell(1, 3, 20234);
+data.setCell(1, 1, 'CancelRefundTicket_002_CancelRefundManual')
+data.setCell(1, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(1, 3, 54026);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'BuyOnline_004_CheckoutNowNotInputCard')
-data.setCell(2, 2, 'showslinger_user.Buy_Online')
-data.setCell(2, 3, 19237);
+data.setCell(2, 1, 'CancelRefundTicket_001_CancelRefundAuto')
+data.setCell(2, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(2, 3, 44258);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'BuyOnline_005_CheckoutNowSuccess')
-data.setCell(3, 2, 'showslinger_user.Buy_Online')
-data.setCell(3, 3, 13375);
+data.setCell(3, 1, 'CreateTicket_001_CreateTicketFail')
+data.setCell(3, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(3, 3, 28816);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'BuyOnline_006_CheckoutPayLaterFail')
-data.setCell(4, 2, 'showslinger_user.Buy_Online')
-data.setCell(4, 3, 4949);
+data.setCell(4, 1, 'DeleteTicke_002_DeleteTicketSuccess')
+data.setCell(4, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(4, 3, 20697);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'BuyOnline_001_CheckoutEmptyQuantityTicket')
-data.setCell(5, 2, 'showslinger_user.Buy_Online')
-data.setCell(5, 3, 4161);
+data.setCell(5, 1, 'CopyTicket_001_CopyTicketFail')
+data.setCell(5, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(5, 3, 13273);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'BuyOnline_003_CheckoutNowNotAcceptTerms')
-data.setCell(6, 2, 'showslinger_user.Buy_Online')
-data.setCell(6, 3, 642);
+data.setCell(6, 1, 'CopyTicket_002_CopyTicketSuccess')
+data.setCell(6, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(6, 3, 11382);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'DeleteTicket_001_DeleteTicketFail')
+data.setCell(7, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(7, 3, 10894);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'TransferTicket_001_TransferTicketFail')
+data.setCell(8, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(8, 3, 9537);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'TransferTicket_002_TransferTicketSuccess')
+data.setCell(9, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(9, 3, 7395);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'EditTicket_001_EditTicketFail')
+data.setCell(10, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(10, 3, 5791);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'EditTicket_002_EditTicketSuccess')
+data.setCell(11, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(11, 3, 2862);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'CreateTicket_002_CreateTicketSuccess')
+data.setCell(12, 2, 'showslinger_user.Actions_Of_Event')
+data.setCell(12, 3, 898);
 window.suiteTableData['ShowSlinger']= { tableData: data, tableDiv: 'times-div-ShowSlinger'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 4 minutes</span>
               <div id="times-div-ShowSlinger">
               </div> <!-- times-div-ShowSlinger -->
             </div> <!-- times-div -->
@@ -321,46 +467,72 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">showslinger_user.Buy_Online</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">showslinger_user.Actions_Of_Event</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">initBeforeSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
-                <span class="method-name">beforeClass(chrome, buyonline)</span>
-                <span class="method-start">42 ms</span>
+                <span class="method-name">beforeClass(chrome, homepage)</span>
+                <span class="method-start">19 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">BuyOnline_001_CheckoutEmptyQuantityTicket</span>
-                <span class="method-start">27466 ms</span>
+                <span class="method-name">Ticket_OpenUrlAndLoginAccount</span>
+                <span class="method-start">56235 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">BuyOnline_002_CheckoutEmptyInfoBuyer</span>
-                <span class="method-start">31687 ms</span>
+                <span class="method-name">CreateTicket_001_CreateTicketFail</span>
+                <span class="method-start">115585 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">BuyOnline_003_CheckoutNowNotAcceptTerms</span>
-                <span class="method-start">54008 ms</span>
+                <span class="method-name">CreateTicket_002_CreateTicketSuccess</span>
+                <span class="method-start">144405 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">BuyOnline_004_CheckoutNowNotInputCard</span>
-                <span class="method-start">54652 ms</span>
+                <span class="method-name">EditTicket_001_EditTicketFail</span>
+                <span class="method-start">145304 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">BuyOnline_005_CheckoutNowSuccess</span>
-                <span class="method-start">73891 ms</span>
+                <span class="method-name">EditTicket_002_EditTicketSuccess</span>
+                <span class="method-start">151097 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">BuyOnline_006_CheckoutPayLaterFail</span>
-                <span class="method-start">87268 ms</span>
+                <span class="method-name">CopyTicket_001_CopyTicketFail</span>
+                <span class="method-start">153960 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">BuyTicket_007_CheckoutPayLaterSuccess</span>
-                <span class="method-start">92220 ms</span>
+                <span class="method-name">CopyTicket_002_CopyTicketSuccess</span>
+                <span class="method-start">167235 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">TransferTicket_001_TransferTicketFail</span>
+                <span class="method-start">178618 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">TransferTicket_002_TransferTicketSuccess</span>
+                <span class="method-start">188157 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">DeleteTicket_001_DeleteTicketFail</span>
+                <span class="method-start">195555 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">DeleteTicke_002_DeleteTicketSuccess</span>
+                <span class="method-start">206451 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">CancelRefundTicket_001_CancelRefundAuto</span>
+                <span class="method-start">227149 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">CancelRefundTicket_002_CancelRefundManual</span>
+                <span class="method-start">271409 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">112456 ms</span>
+                <span class="method-start">326042 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

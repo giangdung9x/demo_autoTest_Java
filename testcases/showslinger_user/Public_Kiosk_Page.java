@@ -109,6 +109,7 @@ public class Public_Kiosk_Page extends BaseTest{
 		assertTrue(publicKioskPage.isTextCardReaderDisplayed());
 		assertTrue(publicKioskPage.isTextReportDisplayed());
 
+		publicKioskPage.sleepInSecond(5);
 		publicKioskPage.clickToDropDownSelectPrinter();
 		publicKioskPage.clickToValueOfDropdownSelectPrinter(printerName);
 

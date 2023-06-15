@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObject.admin.AdminDashboardPageObject;
 import pageObject.admin.AdminLoginPageObject;
+import pageObject.user.UserActionOfEventPageObject;
 import pageObject.user.UserBoxOfficePageObject;
 import pageObject.user.UserBuyOnlinePageObject;
 import pageObject.user.UserForgotPasswordObject;
@@ -44,5 +45,9 @@ public class PageGeneratorManager {
 	
 	public static UserBuyOnlinePageObject getUserBuyOnlinePageObject(WebDriver driver) {
 		return new UserBuyOnlinePageObject(driver);
+	}
+	
+	public static UserActionOfEventPageObject getUserActionOfEventPageObject(WebDriver driver) {
+		return new UserActionOfEventPageObject(driver);
 	}
 }

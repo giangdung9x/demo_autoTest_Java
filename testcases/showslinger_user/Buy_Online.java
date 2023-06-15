@@ -140,13 +140,15 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.clickPlaceOrderButton();
 
 			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+			buyOnlinePage.sleepInSecond(shortTime);
 
 			buyOnlinePage.switchToFrameIframe();
 			buyOnlinePage.inputInfoCardManual("Card number",cardNumberInvalid);
 			buyOnlinePage.switchToDefaultContent();
 
 			assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(),"Your card number is invalid.");
-			
+			buyOnlinePage.sleepInSecond(shortTime);
+
 			buyOnlinePage.switchToFrameIframe();
 			buyOnlinePage.inputInfoCardManual("Card number", cardNumberDeclined);
 			buyOnlinePage.inputInfoCardManual("MM / YY", monthYearValid);
@@ -158,6 +160,7 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.clickPlaceOrderButton();
 
 			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+			buyOnlinePage.sleepInSecond(shortTime);
 
 			buyOnlinePage.switchToFrameIframe();
 			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
@@ -166,10 +169,12 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.switchToDefaultContent();
 
 			assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(),"Your card's expiration year is in the past.");
+			buyOnlinePage.sleepInSecond(shortTime);
 
 			buyOnlinePage.clickPlaceOrderButton();
 
 			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+			buyOnlinePage.sleepInSecond(shortTime);
 
 			buyOnlinePage.switchToFrameIframe();
 			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
@@ -178,6 +183,7 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.clickPlaceOrderButton();
 
 			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+			buyOnlinePage.sleepInSecond(shortTime);
 
 			buyOnlinePage.switchToFrameIframe();
 			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
@@ -188,6 +194,7 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.clickPlaceOrderButton();
 
 			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
+			buyOnlinePage.sleepInSecond(shortTime);
 
 			buyOnlinePage.switchToFrameIframe();
 			buyOnlinePage.inputInfoCardManual("Card number", cardNumberValid);
@@ -198,7 +205,8 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.clickPlaceOrderButton();
 
 			assertEquals(buyOnlinePage.getErrorMessagePurchaseFailed(),"Purchase Failed");
-			
+			buyOnlinePage.sleepInSecond(shortTime);
+
 			buyOnlinePage.refreshToPage(driver);
 			
 		}

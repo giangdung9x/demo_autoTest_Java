@@ -6,34 +6,47 @@
 	<listener class-name ="reportConfig.AllureTestListener"></listener>
 </listeners>
 
-<test name="Run on Chrome" preserve-order="true">
-	<parameter name="browser" value = "chrome"></parameter>
+ 	<test name="Sign up/Login">
+		<parameter name="browser" value = "chrome"></parameter>
 	
-    	
-    <parameter name="portalURL" value="publickiosk"></parameter>
+    	<parameter name="portalURL" value="homepage"></parameter>
     	<classes>
-      		<class name="showslinger_user.Public_Kiosk_Page"/>
-    	</classes>
-    	
-    	
-    <parameter name="portalURL" value="buyonline"></parameter>
+      		<!--<class name="showslinger_user.SignUp_001_AccVenue"/> 
+     		<class name="showslinger_user.SignUp_002_AccArtist"/>
+	 		<class name="showslinger_user.Login_Account"/>
+     		<class name="showslinger_user.Forgot_Password"/>-->
+     		<class name="showslinger_user.Actions_Of_Event"/>
+    	</classes>  
+ 	</test>
+ 
+
+ 	<!--<test name="Buy Online" >
+		<parameter name="browser" value = "chrome"></parameter>
+   		<parameter name="portalURL" value="buyonline"></parameter>
   		  <classes>
      		 <class name="showslinger_user.Buy_Online"/>
    		 </classes>
-    	
-	  <parameter name="portalURL" value="boxoffice"></parameter>
+	</test>-->
+ 
+ 
+ 	<!--<test name="Box Office" >
+		<parameter name="browser" value = "chrome"></parameter>
+  		<parameter name="portalURL" value="boxoffice"></parameter>
     	<classes>
      		 <class name="showslinger_user.Box_Office"/>
     	</classes>
-    	
+	</test> 
+  
+  
+ <test name="Public Kiosk" >
+	<parameter name="browser" value = "chrome"></parameter>
 	
-    <parameter name="portalURL" value="homepage"></parameter>
-    <classes>
-      		<class name="showslinger_user.SignUp_001_AccVenue"/> 
-     		<class name="showslinger_user.SignUp_002_AccArtist"/>
-	 		<class name="showslinger_user.Login_Account"/>
-     		<class name="showslinger_user.Forgot_Password"/>
+   <parameter name="portalURL" value="publickiosk"></parameter>
+    	<classes>
+      		<class name="showslinger_user.Public_Kiosk_Page"/>
     	</classes>
- </test>
+ </test>	-->
+
   
 </suite>
+
