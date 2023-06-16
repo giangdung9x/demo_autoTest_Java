@@ -180,10 +180,23 @@ public class BasePage {
 		element.sendKeys(textValue);
 	}
 
+//	public void selectItemInSpanDropdown(WebDriver driver, String locatorType, String textItem, String... dynamicValues) {
+//	    WebElement dropdown = getWebElement(driver, getDynamicXpath(locatorType, dynamicValues));
+//	    dropdown.click();
+//	    
+//	    for (WebElement option : getListWebElement(driver, locatorType)) {
+//	        if (option.getText().equals(textItem)) {
+//	            option.click();
+//	            break;
+//	        }
+//	    }
+//	}
+	
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
 		Select select = new Select(getWebElement(driver, locatorType));
 		select.selectByVisibleText(textItem);
 	}
+	
 	
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem, String... dynamicValues) {
 		Select select = new Select(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)));
@@ -209,7 +222,24 @@ public class BasePage {
 		for (WebElement item: allItems) {
 			if (item.getText().trim().equals(expectedTextItem)) {
 				JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-				jsExecutor.executeScript("agruments[0].scrollIntoView(true);", item);
+				jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
+				sleepInSecond(1);
+				item.click();
+				break;
+			}
+		}
+	}
+	
+	public void selectItemInCustomDropdown(WebDriver driver,String parentXpath, String childXpath, String expectedTextItem,  String... dynamicValues) {
+		getWebElement(driver, parentXpath).click();
+		sleepInSecond(1);
+
+		WebDriverWait explicitWait= new WebDriverWait(driver, longTimeout);
+		List<WebElement> allItems = explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByLocator(childXpath)));
+		for (WebElement item: allItems) {
+			if (item.getText().trim().equals(expectedTextItem)) {
+				JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+				jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
 				sleepInSecond(1);
 				item.click();
 				break;

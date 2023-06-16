@@ -7,6 +7,7 @@ import pageObject.admin.AdminLoginPageObject;
 import pageObject.user.UserActionOfEventPageObject;
 import pageObject.user.UserBoxOfficePageObject;
 import pageObject.user.UserBuyOnlinePageObject;
+import pageObject.user.UserCouponPageObject;
 import pageObject.user.UserForgotPasswordObject;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserLoginPageObject;
@@ -50,4 +51,9 @@ public class PageGeneratorManager {
 	public static UserActionOfEventPageObject getUserActionOfEventPageObject(WebDriver driver) {
 		return new UserActionOfEventPageObject(driver);
 	}
+	
+	public static UserCouponPageObject getUserCouponPageObject(WebDriver driver) {
+		return new UserCouponPageObject(driver);
+	}
 }
+
