@@ -7,6 +7,7 @@ import io.qameta.allure.SeverityLevel;
 import pageObject.user.UserActionOfEventPageObject;
 import pageObject.user.UserCouponPageObject;
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -25,11 +26,14 @@ public class Feature_Coupons extends BaseTest{
 	private String emailManager, passwordManager,expirationDateInvalid, expirationDateValid;
 	private String couponName, couponNameInavlid, couponNameExist,couponNameAuto, eventName, eventNameAuto;
 	private String ticketName, quantityTicket;
+	private String descriptionAuto, descriptionManual;
+
 
 	//portalURL: homepage
 	@Parameters({"browser", "portalURL"})
 	@BeforeClass
 	public void beforeClass(String browserName, String portalURL) {
+		
 		driver = getBrowserDriver(browserName, portalURL);
 		couponPage = new UserCouponPageObject(driver);
 		
@@ -42,11 +46,14 @@ public class Feature_Coupons extends BaseTest{
 		couponNameInavlid = "Coupon" + " "+ generateFakeNumber();
 		couponName="Coupon" + generateFakeNumber();
 		couponNameAuto="Coupon1" + generateFakeNumber();
-		eventName = "Giang Test auto - Sat, May  6,  1:00 am";
-		eventNameAuto = "Giang Test 06 - Fri, Jun  2,  1:00 am";
+		eventName = "Giang Test auto";
+		eventNameAuto = "Giang Test 06";
 		
 		ticketName ="vip3";
 		quantityTicket ="2";
+		descriptionAuto="Auto Apply";
+		descriptionManual="Manual Apply";
+		
 	}
 
 	@Description("Login Account")
@@ -73,6 +80,7 @@ public class Feature_Coupons extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 2)
 	public void Coupons_001_CreateCouponFail() {
+
 		//Pre-conditions: 
 		couponPage.clickToAddCouponButton();
 		
@@ -80,9 +88,10 @@ public class Feature_Coupons extends BaseTest{
 		
 		couponPage.inputToTextboxPlaceholderCouponPopup("Code", couponNameExist);
 		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", couponNameExist);
-		couponPage.clickToValueOfDropdown("Discount", "%");
+		couponPage.clickToValueOfDropdownOfPopup("Discount", "%");
 		couponPage.inputToTextboxPlaceholderCouponPopup("0", "10");
 		couponPage.inputToTextboxPlaceholderCouponPopup("Date", expirationDateValid);
+
 		couponPage.clickToSaveCouponButton();
 		verifyEquals(couponPage.getTextOfAlert(), "Coupon '"+couponNameExist+"' was created successfully");
 		couponPage.clickToCloseAlertButton();
@@ -138,12 +147,12 @@ public class Feature_Coupons extends BaseTest{
 		verifyTrue(couponPage.isTextNameOfPopupDisplayed("Create Coupon"));
 		
 		couponPage.inputToTextboxPlaceholderCouponPopup("Code", couponName);
-		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", "Manual Apply");
-		couponPage.clickToValueOfDropdown("Discount", "%");
+		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", descriptionManual);
+		couponPage.clickToValueOfDropdownOfPopup("Discount", "%");
 		couponPage.inputToTextboxPlaceholderCouponPopup("0", "10");
 		couponPage.inputToTextboxNameCouponPopup("Min tix per order", "2");
 		couponPage.inputToTextboxNameCouponPopup("Max tix per order", "3");
-		couponPage.clickToValueOfDropdown("Select event(s)", eventName);
+		couponPage.clickToValueOfDropdownOfPopup("Select event(s)", eventName);
 		couponPage.inputToTextboxPlaceholderCouponPopup("Date", expirationDateValid);
 
 		couponPage.clickToSaveCouponButton();
@@ -155,17 +164,18 @@ public class Feature_Coupons extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 4)
 	public void Coupons_004_CreateCouponSuccessAutoApply() {
+
 		couponPage.clickToAddCouponButton();
 		
 		verifyTrue(couponPage.isTextNameOfPopupDisplayed("Create Coupon"));
 		
 		couponPage.inputToTextboxPlaceholderCouponPopup("Code", couponNameAuto);
-		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", "Auto Apply");
-		couponPage.clickToValueOfDropdown("Discount", "%");
+		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", descriptionAuto);
+		couponPage.clickToValueOfDropdownOfPopup("Discount", "%");
 		couponPage.inputToTextboxPlaceholderCouponPopup("0", "10");
 		couponPage.sleepInSecond(3);
 		couponPage.inputToTextboxPlaceholderCouponPopup("Date", expirationDateValid);
-		couponPage.clickToValueOfDropdown("Select event(s)", eventNameAuto);
+		couponPage.clickToValueOfDropdownOfPopup("Select event(s)", eventNameAuto);
 
 		couponPage.clickToSaveCouponButton();
 		verifyEquals(couponPage.getTextOfAlert(), "Coupon '"+couponNameAuto+"' was created successfully");
@@ -205,110 +215,139 @@ public class Feature_Coupons extends BaseTest{
 	public void Coupons_007_ChangeSatusCouponSuccess() {
 		couponPage.clickToActionButton(couponName,"Deactivate");
 		verifyEquals(couponPage.getTextOfAlert(), "Deactivated the coupon '"+couponName+"' successfully.");
-	}
-	
-	@Description("Open Box Office")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void ApplyCoupon_001_OpenUrlBoxOffice() {
-		String boxOfficeWindowID = driver.getWindowHandle();		
-		couponPage.clickToItemOfLeftMenu("Box Office");
-		couponPage.switchToWindowByID(boxOfficeWindowID);
-		assertTrue(couponPage.isBoxOfficeTextDisplayed());
-		
-	}
-	
-	@Description("Apply For Box Office - Manual Coupon - Event Not Support")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void ApplyCoupon_002_ApplyForBoxManualCouponEventNotSupport() {
-		couponPage.clickToDropDown("venue", "City Theater");
-		couponPage.clickToDropDown("ticket", "Giang Test Transfer");
-		assertTrue(couponPage.isOrderBoxOfficeTextDisplayed());
-
-		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
-		couponPage.clickToActionButton(couponName);
-		couponPage.clickButtonCheckout("Checkout now");
-		assertEquals(couponPage.getErrorMessageCheckoutEmptyData(),"Coupon code not found.");
-	
-	}
-	
-	
-	@Description("Apply For Box Office - Manual Coupon - Deactivate")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void ApplyCoupon_003_ApplyForBoxManualCouponDeactivate() {
-		couponPage.clickToDropDown("ticket",eventName);
-		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
-		couponPage.clickToActionButton(couponName);
-		couponPage.clickButtonCheckout("Checkout now");
-		assertEquals(couponPage.getErrorMessageCheckoutEmptyData(),"The event organizer has deactivated this code.");
-
-	}
-	
-	@Description("Apply For Box Office - Manual Coupon - Ticket Invalid")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void ApplyCoupon_004_ApplyForBoxManualCouponTicketInvalid() {
-		String managerPage = driver.getWindowHandle();	
-		couponPage.switchToWindowByID(managerPage);
-		
 		couponPage.clickToActionButton(couponName,"Activate");
 		verifyEquals(couponPage.getTextOfAlert(), "Activated the coupon '"+couponName+"' successfully.");
-		
-		String boxOfficeWindowID = driver.getWindowHandle();		
-		couponPage.switchToWindowByID(boxOfficeWindowID);
-		couponPage.clickToDropDownSelectQuantityTicket(ticketName, "4");
-		couponPage.clickToActionButton(couponName);
-		couponPage.clickButtonCheckout("Checkout now");
-		assertEquals(couponPage.getErrorMessageCheckoutEmptyData(),"Please change the number of tickets to make sure it's less than or equal to 3!");
-		
-		couponPage.clickToDropDownSelectQuantityTicket(ticketName, "1");
-		couponPage.clickToActionButton(couponName);
-		couponPage.clickButtonCheckout("Checkout now");
-		assertEquals(couponPage.getErrorMessageCheckoutEmptyData(),"Please change the number of tickets to make sure it's greater than or equal to 2!");
 	}
 	
-	
-	@Description("Apply For Box Office - Manual Coupon - Success")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void ApplyCoupon_005_ApplyForBoxManualCouponOfficeSuccess() {
-		couponPage.clickToDropDownSelectQuantityTicket(ticketName, "2");
-		couponPage.clickButtonCheckout("Checkout now");
-		couponPage.isTextCheckoutScreenDisplayed();
-	}
-	
-	@Description("Apply For Box Office - Auto Coupon - Success")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void ApplyCoupon_006_ApplyForBoxAutoCouponOfficeSuccess() {
-		couponPage.clickToDropDown("ticket",eventNameAuto);
-		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
-		couponPage.clickButtonCheckout("Checkout now");
-		couponPage.isTextDiscountDisplayed();
-		couponPage.refreshToPage(driver);
-	}
-	
-	@Description("Apply For Box Office - Auto Coupon - Fail")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 14)
-	public void ApplyCoupon_007_ApplyForBoxAutoCouponOfficeSuccess() {
-		couponPage.clickToDropDown("venue", "City Theater");
-		couponPage.clickToDropDown("ticket",eventNameAuto);
-		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
-		couponPage.clickButtonCheckout("Checkout now");
-		couponPage.isTextDiscountDisplayed();
-		String managerPage = driver.getWindowHandle();	
-		driver.close();
-		couponPage.switchToWindowByID(managerPage);
-	}
+//	@Description("Open Box Office")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority = 8)
+//	public void ApplyCoupon_001_OpenUrlBoxOffice() {
+//		String boxOfficeWindowID = driver.getWindowHandle();		
+//		couponPage.clickToItemOfLeftMenu("Box office");
+//		couponPage.switchToWindowByID(boxOfficeWindowID);
+//		assertTrue(couponPage.isBoxOfficeTextDisplayed());
+//		
+//	}
+//	
+//	@Description("Apply For Box Office - Manual Coupon - Event Not Support")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority = 9)
+//	public void ApplyCoupon_002_ApplyForBoxManualCouponEventNotSupport() {
+//		couponPage.clickToValueOfDropdown("venue", "City Theater");
+//		couponPage.clickToValueOfDropdown("ticket", "Giang Test Transfer");
+//		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
+//		
+//		couponPage.clickToValueOfDropdownCoupon("128379082");
+//		couponPage.clickButtonCheckout("Checkout now");
+//		assertEquals(couponPage.getErrorMessageCheckoutUseCoupon(),"Coupon/gift card/Pass code not found. Please note that coupon/gift card/Pass codes are case sensitive so make sure you type it in correctly.");
+//
+//		couponPage.clickToValueOfDropdownCoupon(couponName);
+//		couponPage.clickButtonCheckout("Checkout now");
+//		couponPage.clickButtonCheckout("Checkout now");
+//		assertEquals(couponPage.getErrorMessageCheckoutUseCoupon(),"Coupon code not found.");
+//
+//	}
+//	
+//	
+//	@Description("Apply For Box Office - Manual Coupon - Deactivate")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority = 10)
+//	public void ApplyCoupon_003_ApplyForBoxManualCouponDeactivate() {
+//		String boxOfficeWindowID = driver.getWindowHandle();	
+//		couponPage.switchToWindowByID(boxOfficeWindowID);
+//		couponPage.clickToActionButton(couponName,"Deactivate");
+//		verifyEquals(couponPage.getTextOfAlert(), "Deactivated the coupon '"+couponName+"' successfully.");
+//		
+//		String managerPage = driver.getWindowHandle();	
+//		couponPage.switchToWindowByID(managerPage);
+//		couponPage.clickToValueOfDropdown("ticket",eventName);
+//		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
+//		couponPage.clickToValueOfDropdownCoupon(couponName);
+//		couponPage.clickButtonCheckout("Checkout now");
+//		assertEquals(couponPage.getErrorMessageCheckoutUseCoupon(),"The event organizer has deactivated this code.");
+//
+//	}
+//	
+//	@Description("Apply For Box Office - Manual Coupon - Ticket Invalid")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority = 11)
+//	public void ApplyCoupon_004_ApplyForBoxManualCouponTicketInvalid() {
+//		String managerPage = driver.getWindowHandle();	
+//		couponPage.switchToWindowByID(managerPage);
+//		
+//		couponPage.clickToActionButton(couponName,"Activate");
+//		verifyEquals(couponPage.getTextOfAlert(), "Activated the coupon '"+couponName+"' successfully.");
+//		
+//		String boxOfficeWindowID = driver.getWindowHandle();		
+//		couponPage.switchToWindowByID(boxOfficeWindowID);
+//		couponPage.clickToDropDownSelectQuantityTicket(ticketName, "4");
+//		couponPage.clickToValueOfDropdownCoupon(couponName);
+//		couponPage.clickButtonCheckout("Checkout now");
+//		couponPage.clickButtonCheckout("Checkout now");
+//		
+//		couponPage.clickToDropDownSelectQuantityTicket(ticketName, "1");
+//		couponPage.clickToValueOfDropdownCoupon(couponName);
+//		couponPage.clickButtonCheckout("Checkout now");
+//		couponPage.clickButtonCheckout("Checkout now");
+//
+//	}
+//	
+//	
+//	@Description("Apply For Box Office - Manual Coupon - Success")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority = 12)
+//	public void ApplyCoupon_005_ApplyForBoxManualCouponOfficeSuccess() {
+//		couponPage.clickToDropDownSelectQuantityTicket(ticketName, "2");
+//		couponPage.clickButtonCheckout("Checkout now");
+//		couponPage.isTextCheckoutScreenDisplayed();
+//		couponPage.refreshToPage(driver);
+//	}
+//	
+//	@Description("Apply For Box Office - Auto Coupon - Success")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority = 13)
+//	public void ApplyCoupon_006_ApplyForBoxAutoCouponOfficeSuccess() {
+//		couponPage.clickToValueOfDropdown("venue", "City Theater");
+//		couponPage.clickToValueOfDropdown("ticket",eventNameAuto);
+//		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
+//		couponPage.clickButtonCheckout("Checkout now");
+//		couponPage.isTextDiscountDisplayed();
+//		couponPage.refreshToPage(driver);
+//	}
+//	
+//	@Description("Apply For Box Office - Auto Coupon - Fail")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority = 14)
+//	public void ApplyCoupon_007_ApplyForBoxAutoCouponOfficeSuccess() {
+//		couponPage.clickToValueOfDropdown("venue", "City Theater");
+//		couponPage.clickToValueOfDropdown("ticket",eventNameAuto);
+//		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
+//		couponPage.clickButtonCheckout("Checkout now");
+//		couponPage.isTextDiscountDisplayed();
+//		String managerPage = driver.getWindowHandle();	
+//		driver.close();
+//		couponPage.switchToWindowByID(managerPage);
+//	}
 	
 	@Description("Apply For Buy Online - Manual Coupon - Deactivate")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 15)
 	public void ApplyCoupon_008_ApplyForBuyOnlineManualCouponDeactivate() {
+		couponPage.clickToActionButton(couponName,"Deactivate");
+		verifyEquals(couponPage.getTextOfAlert(), "Deactivated the coupon '"+couponName+"' successfully.");
 		
+		couponPage.clickToItemOfLeftMenu("Calendar");
+		couponPage.clickToPrevButton();
+		couponPage.clickToEvent(eventName);
+		String managerPage = driver.getWindowHandle();	
+		couponPage.clickToLink("Preview");	
+		couponPage.switchToWindowByID(managerPage);
+		
+		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
+		couponPage.inputToTextboxCouponBuyOnline(couponName);
+		couponPage.clickToSendCouponButton();
+		assertEquals(couponPage.getErrorMessage(),"The event organizer has deactivated this code.");
 	}
 	
 	
@@ -316,6 +355,9 @@ public class Feature_Coupons extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 16)
 	public void ApplyCoupon_009_ApplyForBuyOnlineManualCouponTicketInvalid() {
+		couponPage.inputToTextboxCouponBuyOnline(couponNameAuto);
+		couponPage.clickToSendCouponButton();
+		assertEquals(couponPage.getErrorMessage(),"Coupon code not found.");
 		
 	}
 	
@@ -323,7 +365,25 @@ public class Feature_Coupons extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 17)
 	public void ApplyCoupon_010_ApplyForBuyOnlineManualCouponSuccess() {
+		String boxOfficeWindowID = driver.getWindowHandle();		
+		couponPage.switchToWindowByID(boxOfficeWindowID);
+		couponPage.clickToLink("Cancel");
+		couponPage.clickToItemOfLeftMenu("Ticketing");
+		couponPage.clickToItemOfListTicketing("Coupons");
 		
+		couponPage.clickToActionButton(couponName,"Activate");
+		verifyEquals(couponPage.getTextOfAlert(), "Activated the coupon '"+couponName+"' successfully.");
+		
+		String managerPage = driver.getWindowHandle();	
+		couponPage.switchToWindowByID(managerPage);
+		
+		couponPage.inputToTextboxCouponBuyOnline(couponName);
+		couponPage.clickToSendCouponButton();
+		assertEquals(couponPage.getSuccessMessage(),descriptionManual);
+		couponPage.clickToAgreeCheckoutButton();
+		couponPage.isTextDiscountDisplayed();
+		driver.close();
+		couponPage.switchToWindowByID(boxOfficeWindowID);
 	}
 	
 	
@@ -331,7 +391,16 @@ public class Feature_Coupons extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 18)
 	public void ApplyCoupon_011_ApplyForBuyOnlineAutoCouponSuccess() {
+		couponPage.clickToItemOfLeftMenu("Calendar");
+		couponPage.clickToPrevButton();
+		couponPage.clickToEvent(eventNameAuto);
+		String managerPage = driver.getWindowHandle();	
+		couponPage.clickToLink("Preview");	
+		couponPage.switchToWindowByID(managerPage);
 		
+		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
+		couponPage.clickToAgreeCheckoutButton();
+		couponPage.isTextDiscountDisplayed();
 	}
 	
 

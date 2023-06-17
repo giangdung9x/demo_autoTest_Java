@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import org.apache.hc.core5.http2.frame.StreamIdGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import commons.BasePage;
 import commons.GlobalConstants;
@@ -107,21 +108,21 @@ public class UserCouponPageObject extends BasePage{
 	}
 	
 	
-	
-	public void clickToDropDown(String field) {
+	//Dropdown of popup
+	public void clickToDropDownOfPopup(String field) {
 		waitForElementClickable(driver,CouponPageUI.DROPDOWN_VALUE_PARENT, field);
 		clickToElement(driver, CouponPageUI.DROPDOWN_VALUE_PARENT, field);	
 	}
 
-	public void clickToValue(String value) {
+	public void clickToValueOfPopup(String value) {
 		waitForElementClickable(driver,CouponPageUI.DROPDOWN_VALUE_CHILD, value);
 		clickToElement(driver, CouponPageUI.DROPDOWN_VALUE_CHILD, value);	
 	}
 	
 	@Step("Choose value of dropdown {0} {1}")
-	public void clickToValueOfDropdown(String field, String value) {
-		clickToDropDown(field);
-		clickToValue(value);
+	public void clickToValueOfDropdownOfPopup(String field, String value) {
+		clickToDropDownOfPopup(field);
+		clickToValueOfPopup(value);
 
 	}
 	
@@ -138,12 +139,17 @@ public class UserCouponPageObject extends BasePage{
 		clickToElement(driver, CouponPageUI.CLOSE_ALERT_BUTTON);	
 	}
 	
-	@Step("Click tO toogle - Auto Apply Coupon")
+	@Step("Click To toogle - Auto Apply Coupon")
 	public void clickToAutoApplyCouponToogle() {
 		waitForElementClickable(driver,CouponPageUI.TOOGLE_AUTO_APPLY);
 		clickToElement(driver, CouponPageUI.TOOGLE_AUTO_APPLY);	
 	}
 	
+//	@Step("Get text")
+//	public WebElement getAutoApplyCouponToggle() {
+//		waitForElementVisible(driver, CouponPageUI.TOOGLE_AUTO_APPLY);
+//		return getWebElement(driver, CouponPageUI.TOOGLE_AUTO_APPLY);
+//	}
 	
 	public void clickToMoreMenuButton(String field) {
 		waitForElementClickable(driver,CouponPageUI.MORE_MENU_BUTTON, field);
@@ -172,10 +178,27 @@ public class UserCouponPageObject extends BasePage{
 		return isElementDisplayed(driver, BoxOfficeUI.TEXT_BOX_OFFICE_SCREEN);
 	}
 	
-	@Step("Click to dropdown select quantity ticket {0} {1}")
-	public void clickToDropDown(String nameOfField,String textItem) {
-		waitForElementClickable(driver,CouponPageUI.DROPDOWN_FIELD, nameOfField);
-		selectItemInDefaultDropdown(driver, CouponPageUI.DROPDOWN_FIELD, textItem, nameOfField);	
+//	@Step("Click to dropdown select quantity ticket {0} {1}")
+//	public void clickToDropDown(String nameOfField,String textItem) {
+//		waitForElementClickable(driver,CouponPageUI.DROPDOWN_FIELD, nameOfField);
+//		selectItemInDefaultDropdown(driver, CouponPageUI.DROPDOWN_FIELD, textItem, nameOfField);	
+//	}
+	
+	//dropdown of box office
+	public void clickToDropDownBox(String field) {
+		waitForElementClickable(driver,CouponPageUI.DROPDOWN_FIELD, field);
+		clickToElement(driver, CouponPageUI.DROPDOWN_FIELD, field);	
+	}
+
+	public void clickToValueOfDropdownBox(String value) {
+		waitForElementClickable(driver,CouponPageUI.VALUE_DROPDOWN, value);
+		clickToElement(driver, CouponPageUI.VALUE_DROPDOWN, value);	
+	}
+	
+	@Step("Click to value of dropdown {0} {1}")
+	public void clickToValueOfDropdown(String field, String value) {
+		clickToDropDownBox(field);
+		clickToValueOfDropdownBox(value);
 	}
 	
 	@Step("Verify text - Order")
@@ -206,7 +229,7 @@ public class UserCouponPageObject extends BasePage{
 	}
 	
 	@Step("Input to coupon {0}")
-	public void clickToActionButton(String couponName) {
+	public void clickToValueOfDropdownCoupon(String couponName) {
 		clickToDropdownCoupon();
 		inputToTextboxCoupon(couponName);
 		clickToValueDropdownCoupon(couponName);
@@ -218,10 +241,10 @@ public class UserCouponPageObject extends BasePage{
 		clickToElement(driver, BoxOfficeUI.BUTTON_CHECK_OUT_OR_ADD_CART, buttonName);	
 	}
 	
-	@Step("Verify error message - when checkout empty data")
-	public String getErrorMessageCheckoutEmptyData() {
-		waitForElementVisible(driver, BoxOfficeUI.ERROR_MESSAGE_EMPTY_DATA);
-		return getElementText(driver, BoxOfficeUI.ERROR_MESSAGE_EMPTY_DATA);
+	@Step("Verify error message coupon- when checkout")
+	public String getErrorMessageCheckoutUseCoupon() {
+		waitForElementVisible(driver, CouponPageUI.ERROR_MESSAGE_USE_COUPON);
+		return getElementText(driver, CouponPageUI.ERROR_MESSAGE_USE_COUPON);
 	}
 	
 	@Step("Verify name of screen")
@@ -234,5 +257,54 @@ public class UserCouponPageObject extends BasePage{
 	public boolean isTextDiscountDisplayed() {
 		waitForElementVisible(driver, CouponPageUI.DISCOUNT_TEXT);
 		return isElementDisplayed(driver, CouponPageUI.DISCOUNT_TEXT);
+	}
+	
+	@Step("Click to Prev Button")
+	public void clickToPrevButton() {
+		waitForElementClickable(driver,CouponPageUI.PREV_BUTTON);
+		clickToElement(driver, CouponPageUI.PREV_BUTTON);	
+	}
+
+	@Step("Click to event - {0}")
+	public void clickToEvent(String nameOfEvent) {
+		waitForElementClickable(driver,ActionOfEventPageUI.EVENT_OF_CALENDAR_ON_SALE, nameOfEvent);
+		clickToElement(driver, ActionOfEventPageUI.EVENT_OF_CALENDAR_ON_SALE, nameOfEvent);	
+	}
+	
+	@Step("Click to event - {0}")
+	public void clickToLink(String nameOfLink) {
+		waitForElementClickable(driver,ActionOfEventPageUI.LINK_CANCEL_PREVIEW, nameOfLink);
+		clickToElement(driver, ActionOfEventPageUI.LINK_CANCEL_PREVIEW, nameOfLink);	
+	}
+	
+	//buy online
+	@Step("Click to button - Agree Checkout")
+	public void clickToAgreeCheckoutButton() {
+		waitForElementClickable(driver,BuyOnlinePageUI.BUTTON_AGREE_CHECKOUT);
+		clickToElement(driver, BuyOnlinePageUI.BUTTON_AGREE_CHECKOUT);	
+	}
+	
+	@Step("Input to Textbox Coupon - Buy Online {0}")
+	public void inputToTextboxCouponBuyOnline(String value) {
+		waitForElementVisible(driver, CouponPageUI.COUPON_TEXTBOX_BUY_ONLINE);
+		sendkeyToElement(driver, CouponPageUI.COUPON_TEXTBOX_BUY_ONLINE, value);		
+	}
+	
+	@Step("Click to button - Send Coupon")
+	public void clickToSendCouponButton() {
+		waitForElementClickable(driver,CouponPageUI.SEND_COUPON_BUTTON);
+		clickToElement(driver, CouponPageUI.SEND_COUPON_BUTTON);	
+	}
+	
+	@Step("Verify error message at Event screem")
+	public String getErrorMessage() {
+		waitForElementVisible(driver, BuyOnlinePageUI.ERROR_MESSAGE);
+		return getElementText(driver, BuyOnlinePageUI.ERROR_MESSAGE);
+	}
+	
+	@Step("Verify success message at Event screem")
+	public String getSuccessMessage() {
+		waitForElementVisible(driver, CouponPageUI.SUCCESS_MESSAGE);
+		return getElementText(driver, CouponPageUI.SUCCESS_MESSAGE);
 	}
 }

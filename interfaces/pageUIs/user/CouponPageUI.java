@@ -35,13 +35,23 @@ public class CouponPageUI {
 
 	public static final String MORE_MENU_BUTTON = "xpath=//td[text()='%s']/following-sibling::td[@class='content-center']";
 	public static final String ITEMS_OF_MORE_MENU = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[@class='dropdown-item'][normalize-space()='%s']";
-	public static final String DROPDOWN_FIELD = "xpath=//select[contains(@id,'%s')]";
+	public static final String DROPDOWN_FIELD = "xpath=//span[contains(@id,'%s')]";
+	public static final String VALUE_DROPDOWN = "xpath=//li[contains(text(), '%s')]";
+
 	public static final String COUPON_DROPDOWN = "xpath=//div[@class='d-flex flex-direction-column']//span[@role='combobox']";
-	public static final String COUPON_TEXTBOX= "xpath=//select[contains(@id,'%s')]";
-	public static final String COUPON_VALUE_SEARCH= "xpath=//li[text()='%s%']";
+	public static final String COUPON_TEXTBOX= "xpath=//input[@role='searchbox']";
+	public static final String COUPON_VALUE_SEARCH= "xpath=//li[text()='%s']";
 
 	public static final String CHECKOUT_TEXT= "xpath=//b[text()='Checkout']";
 	public static final String DISCOUNT_TEXT= "xpath=//span[text()='Coupon discount']";
 
+	public static final String ERROR_MESSAGE_USE_COUPON = "xpath=(//h4[normalize-space()='Coupon code']/parent::div/div/div)[2]";
 
+	//buy online
+	public static final String PREV_BUTTON= "xpath=//a[normalize-space()='[Prev]']";
+	public static final String COUPON_TEXTBOX_BUY_ONLINE= "xpath=//input[@placeholder='Enter promo code (optional)']";
+	public static final String SEND_COUPON_BUTTON= "xpath=//button[@id='btn-check-coupon-code']";
+	public static final String SUCCESS_MESSAGE = "xpath=(//div[contains(@class, 'info-message')])[1]";
+
+	
 }

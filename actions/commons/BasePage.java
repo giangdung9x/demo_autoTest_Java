@@ -135,18 +135,18 @@ public class BasePage {
 	}
 	
 
-	private String getDynamicXpath(String locatorType, String... values) {
+	protected String getDynamicXpath(String locatorType, String... values) {
 	if (locatorType.startsWith("xpath=")|| locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=")) {
 			locatorType = String.format(locatorType, (Object[]) values);
 		}
 		return locatorType;
 	}
 
-	private WebElement getWebElement(WebDriver driver, String locatorType) {
+	protected WebElement getWebElement(WebDriver driver, String locatorType) {
 		return driver.findElement(getByLocator(locatorType));
 	}
 
-	private List<WebElement> getListWebElement(WebDriver driver, String locatorType) {
+	protected List<WebElement> getListWebElement(WebDriver driver, String locatorType) {
 		return driver.findElements(getByLocator(locatorType));
 
 	}
@@ -325,6 +325,7 @@ public class BasePage {
 	public boolean isElementDisplayed(WebDriver driver, String locatorType) {
 		return getWebElement(driver,locatorType).isDisplayed();
 	}
+	
 	
 	public boolean isElementDisplayed(WebDriver driver, String locatorType, String... dynamicValues) {
 		return getWebElement(driver,getDynamicXpath(locatorType, dynamicValues)).isDisplayed();
