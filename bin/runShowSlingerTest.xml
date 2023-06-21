@@ -15,9 +15,9 @@
      		<class name="showslinger_user.SignUp_002_AccArtist"/>
 	 		<class name="showslinger_user.Login_Account"/>
      		<class name="showslinger_user.Forgot_Password"/>
-     		<class name="showslinger_user.Actions_Of_Event"/>-->
-     		<class name="showslinger_user.Feature_Coupons"/>
-
+     		<class name="showslinger_user.Actions_Of_Event"/>
+     		<class name="showslinger_user.Feature_Coupons"/>-->
+			<class name="showslinger_user.Feature_Pass"/>
     	</classes>  
  	</test>
  

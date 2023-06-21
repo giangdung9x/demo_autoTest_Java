@@ -13,7 +13,7 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import pageUIs.user.ActionOfEventPageUI;
-import pageUIs.user.BoxOfficeUI;
+import pageUIs.user.BoxOfficePageUI;
 import pageUIs.user.BuyOnlinePageUI;
 import pageUIs.user.CouponPageUI;
 import pageUIs.user.HomePageUI;
@@ -174,8 +174,8 @@ public class UserCouponPageObject extends BasePage{
 
 	@Step("Verify text - Box Office")
 	public boolean isBoxOfficeTextDisplayed() {
-		waitForElementVisible(driver, BoxOfficeUI.TEXT_BOX_OFFICE_SCREEN);
-		return isElementDisplayed(driver, BoxOfficeUI.TEXT_BOX_OFFICE_SCREEN);
+		waitForElementVisible(driver, BoxOfficePageUI.TEXT_BOX_OFFICE_SCREEN);
+		return isElementDisplayed(driver, BoxOfficePageUI.TEXT_BOX_OFFICE_SCREEN);
 	}
 	
 //	@Step("Click to dropdown select quantity ticket {0} {1}")
@@ -203,14 +203,14 @@ public class UserCouponPageObject extends BasePage{
 	
 	@Step("Verify text - Order")
 	public boolean isOrderBoxOfficeTextDisplayed() {
-		waitForElementVisible(driver, BoxOfficeUI.TEXT_ORDER_BOX_OFFICE_SCREEN);
-		return isElementDisplayed(driver, BoxOfficeUI.TEXT_ORDER_BOX_OFFICE_SCREEN);
+		waitForElementVisible(driver, BoxOfficePageUI.TEXT_ORDER_BOX_OFFICE_SCREEN);
+		return isElementDisplayed(driver, BoxOfficePageUI.TEXT_ORDER_BOX_OFFICE_SCREEN);
 	}
 	
 	@Step("Click to dropdown select quantity ticket {0} {1}")
 	public void clickToDropDownSelectQuantityTicket(String nameOfTicket,String textItem) {
-		waitForElementClickable(driver,BoxOfficeUI.DROPDOWN_QUANTITY_TICKET, nameOfTicket);
-		selectItemInDefaultDropdown(driver, BoxOfficeUI.DROPDOWN_QUANTITY_TICKET, textItem, nameOfTicket);	
+		waitForElementClickable(driver,BoxOfficePageUI.DROPDOWN_QUANTITY_TICKET, nameOfTicket);
+		selectItemInDefaultDropdown(driver, BoxOfficePageUI.DROPDOWN_QUANTITY_TICKET, textItem, nameOfTicket);	
 	}
 
 	public void clickToDropdownCoupon() {
@@ -237,8 +237,8 @@ public class UserCouponPageObject extends BasePage{
 	
 	@Step("Click to button - Checkout Now")
 	public void clickButtonCheckout(String buttonName) {
-		waitForElementClickable(driver,BoxOfficeUI.BUTTON_CHECK_OUT_OR_ADD_CART, buttonName);
-		clickToElement(driver, BoxOfficeUI.BUTTON_CHECK_OUT_OR_ADD_CART, buttonName);	
+		waitForElementClickable(driver,BoxOfficePageUI.BUTTON_CHECK_OUT_OR_ADD_CART, buttonName);
+		clickToElement(driver, BoxOfficePageUI.BUTTON_CHECK_OUT_OR_ADD_CART, buttonName);	
 	}
 	
 	@Step("Verify error message coupon- when checkout")

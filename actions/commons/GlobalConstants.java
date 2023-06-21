@@ -11,7 +11,8 @@ public class GlobalConstants {
 	public static final String BOX_OFFICE_PAGE_URL = PORTAL_PAGE_URL + "box_offices";	
 	public static final String ADMIN_PAGE_URL = PORTAL_PAGE_URL + "admin";
 	public static final String BUY_ONLINE_URL = PORTAL_PAGE_URL + "ticket_payment" +"/"+ ID_EVENT_STAGING +"/"+ "checkout_ticket";
-	
+	public static final String YOPMAIL = "https://yopmail.com/";	
+
 	
 	public static final String ID_EVENT_PROD = "3085";
 	public static final String PROD_PORTAL_PAGE_URL = "https://app.showslinger.com/";

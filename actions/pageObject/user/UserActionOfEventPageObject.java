@@ -11,7 +11,7 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import pageUIs.user.ActionOfEventPageUI;
-import pageUIs.user.BoxOfficeUI;
+import pageUIs.user.BoxOfficePageUI;
 import pageUIs.user.BuyOnlinePageUI;
 import pageUIs.user.HomePageUI;
 

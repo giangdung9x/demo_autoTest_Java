@@ -1,6 +1,6 @@
 package pageUIs.user;
 
-public class BoxOfficeUI {
+public class BoxOfficePageUI {
 
 	public static final String EMAIL_TEXTBOX = "xpath=(//input[@id='user_email'])[1]";
 	public static final String PASSWORD_TEXTBOX = "xpath=(//input[@id='user_password'])[1]";

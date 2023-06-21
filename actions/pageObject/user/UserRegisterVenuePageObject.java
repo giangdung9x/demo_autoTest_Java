@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import io.qameta.allure.Step;
-import pageUIs.user.BoxOfficeUI;
+import pageUIs.user.BoxOfficePageUI;
 import pageUIs.user.HomePageUI;
 import pageUIs.user.RegisterPageUI;
 

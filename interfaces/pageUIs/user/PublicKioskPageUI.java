@@ -1,6 +1,6 @@
 package pageUIs.user;
 
-public class PublicKioskUI {
+public class PublicKioskPageUI {
 	
 	//screen: Choose event
 	public static final String PLEASE_CHOOSE_EVENT_TEXT = "xpath=//h2[contains(text(), 'Please choose an event')]";

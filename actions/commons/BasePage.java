@@ -1,5 +1,6 @@
 package commons;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -474,6 +475,13 @@ public class BasePage {
 	public void openPagesAtMyAccountPageByName(WebDriver driver, String pageName) {
 		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, pageName);
 		clickToElement(driver,BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, pageName);
+	}
+	
+
+	public void openNewTab(WebDriver driver, String locatorType, String...dynamicValues) {
+		 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		 driver.switchTo().window(tabs.get(1));
+		 driver.get(getDynamicXpath(locatorType, dynamicValues));
 	}
 
 }
