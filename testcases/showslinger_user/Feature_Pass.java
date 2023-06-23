@@ -21,9 +21,9 @@ public class Feature_Pass extends BaseTest{
 	private UserPassPageObject passPage;
 	private String emailManager, passwordManager,startDate, endDate, accessCode;
 	private String passMulti, passSingleQR, passAccessCode, passDelete, eventNameQR, eventNameMulti, eventNameAccess;
-	private String ticketName, quantityTicket, quantityPass, passName;
+	private String ticketName, quantityTicket, quantityPass;
 	private String numberLimitPurchase, negativeLimit;
-	private String fullName, phone, validEmail, confirmEmail;
+	private String fullName, phone, validEmail;
 	private String cardNumberValid, monthYearValid,  cvc, zip;
 	public String passCode;
 
@@ -61,8 +61,6 @@ public class Feature_Pass extends BaseTest{
 		fullName = "Dang Thi Giang";
 		phone = "+128379292999";
 		validEmail = "dangthigiang" +  generateFakeNumber() + "@yopmail.com";
-		confirmEmail= validEmail;
-		
 		cardNumberValid = "4242424242424242";
 		monthYearValid = "0424";
 		cvc = "242";
@@ -570,7 +568,7 @@ public class Feature_Pass extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 }
 

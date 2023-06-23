@@ -218,6 +218,6 @@ public class SignUp_001_AccVenue extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 }

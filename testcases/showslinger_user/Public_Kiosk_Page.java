@@ -292,7 +292,7 @@ public class Public_Kiosk_Page extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 
 	public int generateFakeNumber() {

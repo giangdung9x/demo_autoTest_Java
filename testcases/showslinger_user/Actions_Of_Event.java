@@ -460,7 +460,7 @@ public class Actions_Of_Event extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 }
 

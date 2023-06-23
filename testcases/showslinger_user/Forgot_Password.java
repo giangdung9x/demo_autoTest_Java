@@ -95,7 +95,7 @@ public class Forgot_Password extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 
 

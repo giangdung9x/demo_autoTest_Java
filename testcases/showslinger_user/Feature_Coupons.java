@@ -433,7 +433,7 @@ public class Feature_Coupons extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 }
 

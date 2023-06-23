@@ -53,3 +53,4 @@ test-output/
 .project/
 .settings/
 .allure-json/
+/bin/
