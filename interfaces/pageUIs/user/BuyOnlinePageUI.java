@@ -32,5 +32,6 @@ public class BuyOnlinePageUI {
 	public static final String BUTTON_BNPL = "xpath=//button[text()='Buy now pay later']";
 	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//a[contains(text(), 'Authorize Test Payment')]";
 	public static final String BUTTON_FAIL_TEST_PAYMENT = "xpath=//a[contains(text(), 'Fail Test Payment')]";
+	public static final String REDEEM_REWARD_LINK = "xpath=//p[@class='sharing-summary']";
 
 }

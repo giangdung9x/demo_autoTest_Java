@@ -17,9 +17,9 @@
      		<class name="showslinger_user.Forgot_Password"/>
      		<class name="showslinger_user.Actions_Of_Event"/>
      		<class name="showslinger_user.Feature_Coupons"/>
-			<class name="showslinger_user.Feature_Pass"/>-->
-			<class name="showslinger_user.Feature_Gift_Card"/>
-
+			<class name="showslinger_user.Feature_Pass"/>
+			<class name="showslinger_user.Feature_Gift_Card"/>-->
+			<class name="showslinger_user.Feature_Reward"/>
     	</classes>  
  	</test>
  
@@ -39,10 +39,10 @@
     	<classes>
      		 <class name="showslinger_user.Box_Office"/>
     	</classes>
-	</test> 
+	</test> -->
   
   
- <test name="Public Kiosk" >
+ <!--<test name="Public Kiosk" >
 	<parameter name="browser" value = "chrome"></parameter>
 	
    <parameter name="portalURL" value="publickiosk"></parameter>
