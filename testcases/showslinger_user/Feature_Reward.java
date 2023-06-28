@@ -474,8 +474,6 @@ public class Feature_Reward extends BaseTest{
 		return rand.nextInt(9999);
 	}
 	
-	
-	
 	public static String generateLongText(int n) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {

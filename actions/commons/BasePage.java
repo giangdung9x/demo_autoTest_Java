@@ -293,6 +293,7 @@ public class BasePage {
 		return getListWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).size();
 	}
 
+	//CHECKBOX - RADIO
 	public void checkToDefaultCheckboxOrRadio(WebDriver driver, String locatorType) {
 		WebElement element = getWebElement(driver, locatorType);
 		if(!element.isSelected()) {
@@ -322,7 +323,36 @@ public class BasePage {
 		}
 	}
 	
+	//TOGGLE 
+	public void toggleSwitchOn(WebDriver driver, String locatorType) {
+	    WebElement element = getWebElement(driver, locatorType);
+	    if (!element.isSelected()) {
+	        element.click();
+	    }
+	}
 
+	public void toggleSwitchOff(WebDriver driver, String locatorType) {
+	    WebElement element = getWebElement(driver, locatorType);
+	    if (element.isSelected()) {
+	        element.click();
+	    }
+	}
+	
+	public void toggleSwitchOn(WebDriver driver, String locatorType, String... dynamicValues) {
+	    WebElement element = getWebElement(driver, getDynamicXpath(locatorType, dynamicValues));
+	    if (!element.isSelected()) {
+	        element.click();
+	    }
+	}
+
+	public void toggleSwitchOff(WebDriver driver, String locatorType, String... dynamicValues) {
+	    WebElement element = getWebElement(driver, getDynamicXpath(locatorType, dynamicValues));
+	    if (element.isSelected()) {
+	        element.click();
+	    }
+	}
+	
+	//ELEMENT
 	public boolean isElementDisplayed(WebDriver driver, String locatorType) {
 		return getWebElement(driver,locatorType).isDisplayed();
 	}
