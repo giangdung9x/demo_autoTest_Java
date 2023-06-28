@@ -56,7 +56,7 @@ public class Feature_Reward extends BaseTest{
 		quantityTicketValue ="2";
 		
 		fullName = "Dang Thi Giang";
-		phone = "+128379292999";
+		phone = "+12837929"+randomNumber;
 		validEmail = "dangthigiang" +  randomNumber + "@yopmail.com";
 		cardNumberValid = "4242424242424242";
 		monthYearValid = "0424";
@@ -267,7 +267,6 @@ public class Feature_Reward extends BaseTest{
 		
 		if (rewardPage.getPointOfUser()<rewardPage.getPointOfReward(rewardName)) {
 			rewardPage.clickToViewButtonOfReward(rewardName, "Redeem");
-			rewardPage.getTextOfButtonRedeemDisable();
 		} else {
 			rewardPage.clickToViewButtonOfReward(rewardName, "Redeem");
 			rewardPage.clickToButtonRedeemReward(rewardName);
@@ -337,13 +336,133 @@ public class Feature_Reward extends BaseTest{
 	}
 	
 
-	@Description("Delete Reward")
+	
+	
+	@Description("Open Tab Redeem List")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 10)
-	public void RewardList_007_DeleteReward() {
+	public void RedeemList_001_OpenTabRedeemList() {
 		rewardPage.refreshToPage(driver);
 		rewardPage.clickToItemOfLeftMenu("Ticketing");
 		rewardPage.clickToItemOfListTicketing("Rewards");
+		
+		rewardPage.clickToSwitchTabOfReward("redeem_list");
+	}
+	
+	@Description("Switch Status From Waiting")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 11)
+	public void RedeemList_002_SwitchStatusFromWaiting() {
+		rewardPage.selectRedeemCheckboxByTitle(rewardName);
+		rewardPage.selectTextItemActionDropdown("Mark unredeemed");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"Make to unredeemed. Are you sure?");
+		rewardPage.acceptAlert(driver);
+		rewardPage.refreshToPage(driver);
+		rewardPage.clickToSwitchTabOfReward("redeem_list");
+		verifyEquals(rewardPage.getTextOfStatusRedeemItem(rewardName), "Unredeemed");
+	}
+	
+	@Description("Switch Status From Unredeemed")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 12)
+	public void RedeemList_003_SwitchStatusFromUnredeemed() {
+		rewardPage.selectRedeemCheckboxByTitle(rewardName);
+		rewardPage.selectTextItemActionDropdown("Mark redeemed");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"Make to redeemed. Are you sure?");
+		rewardPage.acceptAlert(driver);
+		rewardPage.refreshToPage(driver);
+		rewardPage.clickToSwitchTabOfReward("redeem_list");
+		verifyEquals(rewardPage.getTextOfStatusRedeemItem(rewardName), "Redeemed");
+	}
+	
+	@Description("Switch Status From Redeemed")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 13)
+	public void RedeemList_004_SwitchStatusFromRedeemed() {
+		rewardPage.selectRedeemCheckboxByTitle(rewardName);
+		rewardPage.selectTextItemActionDropdown("Refund points");
+		rewardPage.clickToRequestButton();
+		rewardPage.clickToActionButton("Refund");
+		rewardPage.sleepInSecond(3);
+		rewardPage.refreshToPage(driver);
+		rewardPage.clickToSwitchTabOfReward("redeem_list");
+		verifyEquals(rewardPage.getTextOfStatusRedeemItem(rewardName), "Refunded");
+	}
+	
+	@Description("Switch Status From Refunded")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 14)
+	public void RedeemList_005_SwitchStatusFromRefunded() {
+		rewardPage.selectRedeemCheckboxByTitle(rewardName);
+		rewardPage.selectTextItemActionDropdown("Void reward");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"Make to voided. Are you sure?");
+		rewardPage.acceptAlert(driver);
+		rewardPage.refreshToPage(driver);
+		rewardPage.clickToSwitchTabOfReward("redeem_list");
+		verifyEquals(rewardPage.getTextOfStatusRedeemItem(rewardName), "Voided");
+	}
+	
+	@Description("Delete Reward From Void")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 15)
+	public void RedeemList_006_SwitchStatusFromVoided() {
+		rewardPage.selectRedeemCheckboxByTitle(rewardName);
+		
+		rewardPage.selectTextItemActionDropdown("Mark redeemed");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"You can not redeemed reward that have been voided.");
+		rewardPage.acceptAlert(driver);
+		verifyEquals(rewardPage.getTextOfStatusRedeemItem(rewardName), "Voided");
+		
+		rewardPage.selectTextItemActionDropdown("Mark unredeemed");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"You can not unredeemed reward that have been voided.");
+		rewardPage.acceptAlert(driver);
+		verifyEquals(rewardPage.getTextOfStatusRedeemItem(rewardName), "Voided");
+		
+		rewardPage.selectTextItemActionDropdown("Refund points");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"You can not refund reward that have been voided.");
+		rewardPage.acceptAlert(driver);
+		verifyEquals(rewardPage.getTextOfStatusRedeemItem(rewardName), "Voided");
+	}
+	
+	@Description("Delete Reward")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 16)
+	public void RedeemList_007_SwitchStatusFail() {
+		rewardPage.refreshToPage(driver);
+		rewardPage.clickToSwitchTabOfReward("redeem_list");
+		
+		rewardPage.selectTextItemActionDropdown("Mark redeemed");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"Please select at least one item before submitting action");
+		rewardPage.acceptAlert(driver);
+		
+		rewardPage.selectTextItemActionDropdown("Mark unredeemed");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"Please select at least one item before submitting action");
+		rewardPage.acceptAlert(driver);
+		
+		rewardPage.selectTextItemActionDropdown("Refund points");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"Please select at least one item before submitting action");
+		rewardPage.acceptAlert(driver);
+		
+		rewardPage.selectTextItemActionDropdown("Void reward");
+		rewardPage.clickToRequestButton();
+		verifyEquals(rewardPage.getAlertText(driver),"Please select at least one item before submitting action");
+		rewardPage.acceptAlert(driver);
+	}
+	
+	@Description("Delete Reward")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 17)
+	public void RewardList_007_DeleteReward() {
+		rewardPage.refreshToPage(driver);
 		
 		rewardPage.clickToActionButton(rewardName,"Delete");
 		rewardPage.acceptAlert(driver);
@@ -352,8 +471,10 @@ public class Feature_Reward extends BaseTest{
 	
 	public int generateFakeNumber() {
 		Random rand = new Random();
-		return rand.nextInt(999);
+		return rand.nextInt(9999);
 	}
+	
+	
 	
 	public static String generateLongText(int n) {
         StringBuilder sb = new StringBuilder();

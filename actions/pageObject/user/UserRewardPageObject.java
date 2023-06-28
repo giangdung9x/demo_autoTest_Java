@@ -543,4 +543,42 @@ public class UserRewardPageObject extends BasePage{
 		return getElementText(driver, RewardPageUI.GIFT_CARD_CODE, field);
 	}
 	
+	//Redeem List
+	@Step("Switch tab {0}")
+	public void clickToSwitchTabOfReward(String tabName) {
+		waitForElementClickable(driver,RewardPageUI.NAME_OF_TAB, tabName);
+		clickToElement(driver, RewardPageUI.NAME_OF_TAB, tabName);	
+	}
+	
+	@Step("Select redeem checkbox -  {0}")
+	public void selectRedeemCheckboxByTitle(String redeemTitle) {
+		waitForElementClickable(driver,RewardPageUI.ROW_CHECKBOX_BY_TITLE_NAME, redeemTitle);
+		checkToDefaultCheckboxOrRadio(driver,RewardPageUI.ROW_CHECKBOX_BY_TITLE_NAME, redeemTitle);
+	}
+	
+	@Step("Select {0} item in dropdown")
+	public void selectTextItemActionDropdown(String dropdownItem) {
+		waitForElementClickable(driver,RewardPageUI.ACTION_DROPDOWN);
+		selectItemInDefaultDropdown(driver,RewardPageUI.ACTION_DROPDOWN,dropdownItem);
+	}
+	
+	@Step("Click button Send Request")
+	public void clickToRequestButton() {
+		waitForElementClickable(driver,RewardPageUI.REQUEST_ACTION_BUTTON);
+		clickToElement(driver, RewardPageUI.REQUEST_ACTION_BUTTON);	
+	}
+
+
+	@Step("Get text - Gift Card CODE")
+	public String getTextOfStatusRedeemItem(String rewardName) {
+		waitForElementVisible(driver, RewardPageUI.REDEEM_REWARD_STATUS, rewardName);
+		return getElementText(driver, RewardPageUI.REDEEM_REWARD_STATUS, rewardName);
+	}
+	
+	@Step("Click button of popup redeem")
+	public void clickToActionButton(String nameButton) {
+		waitForElementClickable(driver,RewardPageUI.ACTION_BUTTON_POPUP, nameButton);
+		clickToElement(driver, RewardPageUI.ACTION_BUTTON_POPUP, nameButton);	
+	}
+	
 }

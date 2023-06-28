@@ -68,5 +68,13 @@ public class RewardPageUI {
 	public static final String REDEEM_BUTTON = "xpath=(//h3[text()='%s']//following::button)[1]";
 	public static final String REDEEM_BUTTON_DISABLE = "xpath=(//div[@role='dialog']//button[@disabled='disabled'])[1]";
 	public static final String MESSAGE_REDEEM_SUCCESS = "xpath=//div[@id='notiMessage']";
+	
+	//Redeem List
+	public static final String NAME_OF_TAB = "xpath=//a[@data-tab='%s']";
+	public static final String ROW_CHECKBOX_BY_TITLE_NAME = "xpath=//table[contains(@class, 'table-custom')]//tbody/tr/td[contains(text(),'%s')]/preceding::td/div";
+	public static final String ACTION_DROPDOWN = "xpath=//select[@id='action_selector']";
+	public static final String REQUEST_ACTION_BUTTON = "xpath=//button[@id='btn-tix-action']";
+	public static final String REDEEM_REWARD_STATUS = "xpath=//table[contains(@class, 'table-custom')]//tbody/tr/td[contains(text(),'%s')]/following-sibling::td/span";
+	public static final String ACTION_BUTTON_POPUP = "xpath=//button[normalize-space()='%s']";
 
 }
