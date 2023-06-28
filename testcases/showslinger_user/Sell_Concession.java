@@ -133,7 +133,7 @@ public class Sell_Concession extends BaseTest{
 
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge Save - Card Swiper")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 6)
 	public void Concessions_CheckoutMiscChargeSave_CardSwiper() {
@@ -149,7 +149,7 @@ public class Sell_Concession extends BaseTest{
 
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge Save - Enter Card Manually")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 7)
 	public void Concessions_CheckoutMiscChargeSave_EnterCardManually() {
@@ -166,7 +166,7 @@ public class Sell_Concession extends BaseTest{
 
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge Save - Cash")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 8)
 	public void Concessions_CheckoutMiscChargeSave_Cash() {
@@ -182,7 +182,7 @@ public class Sell_Concession extends BaseTest{
 
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge Save - Comp")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 9)
 	public void Concessions_CheckoutMiscChargeSave_Comp() {
@@ -199,7 +199,7 @@ public class Sell_Concession extends BaseTest{
 	}
 
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge - Card Swiper")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 10)
 	public void Concessions_CheckoutMiscCharge_CardSwiper() {
@@ -215,7 +215,7 @@ public class Sell_Concession extends BaseTest{
 
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge - Enter Card Manually")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 11)
 	public void Concessions_CheckoutMiscCharge_EnterCardManually() {
@@ -232,7 +232,7 @@ public class Sell_Concession extends BaseTest{
 
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge - Cash")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 12)
 	public void Concessions_CheckoutMiscCharge_Cash() {
@@ -247,7 +247,7 @@ public class Sell_Concession extends BaseTest{
 		concessionPage.sleepInSecond(shorTime);
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Misc Charge - Comp")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 13)
 	public void Concessions_CheckoutMiscCharge_Comp() {
@@ -262,7 +262,7 @@ public class Sell_Concession extends BaseTest{
 		concessionPage.sleepInSecond(shorTime);
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Add Ons - Card Swiper")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 14)
 	public void ConcessionsInventory_CheckoutAddOns_CardSwiper() {
@@ -278,7 +278,7 @@ public class Sell_Concession extends BaseTest{
 		concessionPage.refreshToPage(driver);
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Add Ons - Enter Card Manually")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 15)
 	public void ConcessionsInventory_CheckoutAddOns_EnterCardManually() {
@@ -294,7 +294,7 @@ public class Sell_Concession extends BaseTest{
 		concessionPage.clickToClosePopupCheckout();
 		concessionPage.refreshToPage(driver);
 	}
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Add Ons - Comp")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 16)
 	public void ConcessionsInventory_CheckoutAddOns_Comp() {
@@ -310,7 +310,7 @@ public class Sell_Concession extends BaseTest{
 		concessionPage.refreshToPage(driver);
 	}
 
-	@Description("Login Account")
+	@Description("Concessions -  Checkout Add Ons - Cash")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 17)
 	public void ConcessionsInventory_CheckoutAddOns_Cash() {
@@ -326,7 +326,7 @@ public class Sell_Concession extends BaseTest{
 		concessionPage.refreshToPage(driver);
 	}
 	
-	@Description("Login Account")
+	@Description("Concessions Sales - Refund Order")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 18)
 	public void ConcessionsSales_RefundOrder() {
