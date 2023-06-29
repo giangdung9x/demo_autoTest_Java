@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,12 +102,27 @@
                     <div class="method-list-content passed suite-ShowSlinger">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Sell_Concession" class="method navigator-link" hash-for-method="ConcessionsSales_RefundOrder">ConcessionsSales_RefundOrder</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Feature_Report" class="method navigator-link" hash-for-method="ListReport_001_OpenUrl">ListReport_001_OpenUrl</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Sell_Concession" class="method navigator-link" hash-for-method="Concessions_OpenUrlAndLogin">Concessions_OpenUrlAndLogin</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Feature_Report" class="method navigator-link" hash-for-method="ListReport_002_SearchEvent">ListReport_002_SearchEvent</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Feature_Report" class="method navigator-link" hash-for-method="SettlementReport_001_CheckValueOverview">SettlementReport_001_CheckValueOverview</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Feature_Report" class="method navigator-link" hash-for-method="SettlementReport_002_CheckValueSummary">SettlementReport_002_CheckValueSummary</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShowSlinger" title="showslinger_user.Feature_Report" class="method navigator-link" hash-for-method="SettlementReport_003_CheckValueOnlineSales">SettlementReport_003_CheckValueOnlineSales</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-ShowSlinger -->
@@ -125,21 +140,42 @@
           <div class="suite-ShowSlinger-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">showslinger_user.Sell_Concession</span>
+              <span class="class-name">showslinger_user.Feature_Report</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ConcessionsSales_RefundOrder">
-                  </a> <!-- ConcessionsSales_RefundOrder -->
-                  <span class="method-name">ConcessionsSales_RefundOrder</span>
+                  <a name="ListReport_001_OpenUrl">
+                  </a> <!-- ListReport_001_OpenUrl -->
+                  <span class="method-name">ListReport_001_OpenUrl</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Concessions_OpenUrlAndLogin">
-                  </a> <!-- Concessions_OpenUrlAndLogin -->
-                  <span class="method-name">Concessions_OpenUrlAndLogin</span>
+                  <a name="ListReport_002_SearchEvent">
+                  </a> <!-- ListReport_002_SearchEvent -->
+                  <span class="method-name">ListReport_002_SearchEvent</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SettlementReport_001_CheckValueOverview">
+                  </a> <!-- SettlementReport_001_CheckValueOverview -->
+                  <span class="method-name">SettlementReport_001_CheckValueOverview</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SettlementReport_002_CheckValueSummary">
+                  </a> <!-- SettlementReport_002_CheckValueSummary -->
+                  <span class="method-name">SettlementReport_002_CheckValueSummary</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SettlementReport_003_CheckValueOnlineSales">
+                  </a> <!-- SettlementReport_003_CheckValueOnlineSales -->
+                  <span class="method-name">SettlementReport_003_CheckValueOnlineSales</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -162,7 +198,7 @@
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;parameter name=&quot;portalURL&quot; value=&quot;homepage&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;showslinger_user.Sell_Concession&quot;/&gt;
+      &lt;class name=&quot;showslinger_user.Feature_Report&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Sign up/Login --&gt;
 &lt;/suite&gt; &lt;!-- ShowSlinger --&gt;
@@ -202,20 +238,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Concessions_OpenUrlAndLogin')
-data.setCell(0, 2, 'showslinger_user.Sell_Concession')
-data.setCell(0, 3, 22358);
+data.setCell(0, 1, 'ListReport_001_OpenUrl')
+data.setCell(0, 2, 'showslinger_user.Feature_Report')
+data.setCell(0, 3, 16360);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ConcessionsSales_RefundOrder')
-data.setCell(1, 2, 'showslinger_user.Sell_Concession')
-data.setCell(1, 3, 1755);
+data.setCell(1, 1, 'ListReport_002_SearchEvent')
+data.setCell(1, 2, 'showslinger_user.Feature_Report')
+data.setCell(1, 3, 3915);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'SettlementReport_003_CheckValueOnlineSales')
+data.setCell(2, 2, 'showslinger_user.Feature_Report')
+data.setCell(2, 3, 737);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'SettlementReport_001_CheckValueOverview')
+data.setCell(3, 2, 'showslinger_user.Feature_Report')
+data.setCell(3, 3, 712);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'SettlementReport_002_CheckValueSummary')
+data.setCell(4, 2, 'showslinger_user.Feature_Report')
+data.setCell(4, 3, 301);
 window.suiteTableData['ShowSlinger']= { tableData: data, tableDiv: 'times-div-ShowSlinger'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 24 seconds</span>
+              <span class="suite-total-time">Total running time: 22 seconds</span>
               <div id="times-div-ShowSlinger">
               </div> <!-- times-div-ShowSlinger -->
             </div> <!-- times-div -->
@@ -241,26 +289,38 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">showslinger_user.Sell_Concession</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">showslinger_user.Feature_Report</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">initBeforeSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass(chrome, homepage)</span>
-                <span class="method-start">18 ms</span>
+                <span class="method-start">19 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">Concessions_OpenUrlAndLogin</span>
-                <span class="method-start">13848 ms</span>
+                <span class="method-name">ListReport_001_OpenUrl</span>
+                <span class="method-start">11151 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">ConcessionsSales_RefundOrder</span>
-                <span class="method-start">36263 ms</span>
+                <span class="method-name">ListReport_002_SearchEvent</span>
+                <span class="method-start">27563 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SettlementReport_001_CheckValueOverview</span>
+                <span class="method-start">31482 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SettlementReport_002_CheckValueSummary</span>
+                <span class="method-start">32196 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SettlementReport_003_CheckValueOnlineSales</span>
+                <span class="method-start">32499 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">38021 ms</span>
+                <span class="method-start">33237 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

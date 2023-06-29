@@ -36,7 +36,7 @@
 	<classpathentry kind="lib" path="libWebDriverManager/jna-5.8.0.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/slf4j-api-2.0.3.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/webdrivermanager-5.3.1.jar"/>
-	<classpathentry kind="lib" path="libAllureReport/allure-java-commons-2.13.5.jar"/>
+	<classpathentry kind="lib" path="libAllureReport/allure-java-commons-2.13.5.jar" sourcepath="libAllureReport/allure-java-commons-2.13.5.jar"/>
 	<classpathentry kind="lib" path="libAllureReport/allure-model-2.13.5.jar"/>
 	<classpathentry kind="lib" path="libAllureReport/allure-testng-2.13.5.jar"/>
 	<classpathentry kind="lib" path="libAllureReport/aspectjlib-1.6.2.jar"/>
