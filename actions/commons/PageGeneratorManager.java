@@ -1,9 +1,6 @@
 package commons;
 
 import org.openqa.selenium.WebDriver;
-
-import pageObject.admin.AdminDashboardPageObject;
-import pageObject.admin.AdminLoginPageObject;
 import pageObject.user.UserActionOfEventPageObject;
 import pageObject.user.UserBoxOfficePageObject;
 import pageObject.user.UserBuyOnlinePageObject;
@@ -27,10 +24,6 @@ public class PageGeneratorManager {
 		return new UserRegisterVenuePageObject(driver);
 	}
 	
-	
-	public static AdminDashboardPageObject getAdminDashboardPage(WebDriver driver) {
-		return new AdminDashboardPageObject(driver);
-	}
 
 	public static UserForgotPasswordObject getUserForgotPasswordPage(WebDriver driver) {
 		return new UserForgotPasswordObject(driver);
