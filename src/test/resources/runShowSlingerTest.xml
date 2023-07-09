@@ -11,7 +11,7 @@
     	<parameter name="serverName" value="STAGING"></parameter>
     	<classes>
       		<!--<class name="showslinger_user.SignUp_001_AccVenue"/> 
-     		<class name="showslinger_user.SignUp_002_AccArtist"/>
+     		<class name="showslinger_user.Signdocker pull selenium/hubUp_002_AccArtist"/>
 	 		<class name="showslinger_user.Login_Account"/>
      		<class name="showslinger_user.Forgot_Password"/>
      		<class name="showslinger_user.Actions_Of_Event"/>
@@ -58,4 +58,5 @@
 
   
 </suite>
+
 
