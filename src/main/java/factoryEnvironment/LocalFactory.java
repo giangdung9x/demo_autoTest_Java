@@ -12,6 +12,11 @@ import factoryBrowsers.HeadlessFirefoxDriverManager;
 import factoryBrowsers.IEDriverManager;
 import factoryBrowsers.OperaDriverManager;
 import factoryBrowsers.SafariDriverManager;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class LocalFactory  implements EnvironmentFactory{
 	public WebDriver driver;
@@ -28,7 +33,13 @@ public class LocalFactory  implements EnvironmentFactory{
 			driver = new FirefoxDriverManager().getBrowserDriver();
 			break;
 		case CHROME :
-			driver = new ChromeDriverManager().getBrowserDriver();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--start-maximized");
+			try {
+				driver = new RemoteWebDriver(new URL("http:localhost:4444/wd/hub"), chromeOptions);
+			} catch (MalformedURLException e) {
+				throw new RuntimeException(e);
+			}
 			break;
 		case OPERA :
 			driver = new OperaDriverManager().getBrowserDriver();

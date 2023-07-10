@@ -26,11 +26,7 @@ public class ChromeDriverManager implements BrowsersFactory{
         chromePrefs.put("profile.default_content_settings.popup", 0);
         chromePrefs.put("download.default_directory", GlobalConstants.DOWNLOAD_FILE_FOLDER);
         options.setExperimentalOption("prefs", chromePrefs);
-        try {
-            new RemoteWebDriver(new URL("http:localhost:4444/wd/hub"),options);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+
         return new ChromeDriver(options);
     }
 }
