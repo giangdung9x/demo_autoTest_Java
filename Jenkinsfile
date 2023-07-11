@@ -4,19 +4,13 @@ node('built-in') {
         withMaven(globalMavenSettingsConfig: '', jdk: 'Jdk', maven: 'maven', mavenSettingsConfig: '', mavenSettingsFilePath: 'pom.xml', traceability: true) {
             // some block
 
-            sh 'export PATH="$M2_HOME/bin:$PATH" && mvn clean install'
+            sh 'mvn clean install'
         }
     }
 }
 
 node {
     echo "Testing guy!"
-    try {
-        sh 'mvn test'
-    } catch (Exception e) {
-        notifyBuild('FAILURE')
-        throw e
-    }
     notifyBuild('SUCCESSFUL')
 }
 

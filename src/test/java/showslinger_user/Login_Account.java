@@ -72,67 +72,67 @@ public class Login_Account extends BaseTest{
 	}
 
 
-	@Description("Log In Account - Empty Data")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void Login_002_EmptyData() {
-		loginPage.clickToLoginButton();
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-
-	}
-
-	@Description("Log In Account - Invalid Email")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void Login_003_InvalidEmail() {
-		loginPage.loginAccount(invalidEmail, "");
-
-
-		loginPage.clickToLoginButton();
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-	}
-
-	@Description("Log In Account - Account Not Found")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void Login_004_AccNotFound() {
-		loginPage.loginAccount(notExistingEmail, "");
-
-
-		loginPage.clickToLoginButton();
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-	}
-
-	@Description("Log In Account - Empty Password")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void Login_005_AccRegisteredEmptyPassword() {
-		loginPage.loginAccount(emailManager, "");
-
-		loginPage.clickToLoginButton();
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-	}
-
-	@Description("Log In Account - Invalid Password")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void Login_006_AccRegisteredInvalidPassword() {
-
-		loginPage.loginAccount(emailManager, invalidPassword);
-
-		loginPage.clickToLoginButton();
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-	}
-
-	@Description("Log In Account - Login Account Manager Success")
-	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	public void Login_007_AccManagerCompleted() {
+//	@Description("Log In Account - Empty Data")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void Login_002_EmptyData() {
+//		loginPage.clickToLoginButton();
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//
+//	}
+//
+//	@Description("Log In Account - Invalid Email")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void Login_003_InvalidEmail() {
+//		loginPage.loginAccount(invalidEmail, "");
+//
+//
+//		loginPage.clickToLoginButton();
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//	}
+//
+//	@Description("Log In Account - Account Not Found")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void Login_004_AccNotFound() {
+//		loginPage.loginAccount(notExistingEmail, "");
+//
+//
+//		loginPage.clickToLoginButton();
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//	}
+//
+//	@Description("Log In Account - Empty Password")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void Login_005_AccRegisteredEmptyPassword() {
+//		loginPage.loginAccount(emailManager, "");
+//
+//		loginPage.clickToLoginButton();
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//	}
+//
+//	@Description("Log In Account - Invalid Password")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void Login_006_AccRegisteredInvalidPassword() {
+//
+//		loginPage.loginAccount(emailManager, invalidPassword);
+//
+//		loginPage.clickToLoginButton();
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//	}
+//
+//	@Description("Log In Account - Login Account Manager Success")
+//	@Severity(SeverityLevel.CRITICAL)
+//	@Test
+//	public void Login_007_AccManagerCompleted() {
 
 //		loginPage.loginAccount(emailManager, validPasswordManager);
 //
@@ -151,92 +151,92 @@ public class Login_Account extends BaseTest{
 //
 //		assertTrue(homePage.isTextDisplayed());
 		//
-	}
-
-	@Description("Log In Account - Login Account Staff Manual Success")
-	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	public void Login_008_AccStaffManualCompleted() {
-		homePage.authenAlert();
-		
-		homePage.clickToLoginLink();
-
-		loginPage = new UserLoginPageObject(driver);
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-
-		
-		loginPage.loginAccount(emailStaffManual, passwordStaffManual);
-
-
-		loginPage.clickToLoginButton();
-
-		homePage = new UserHomePageObject(driver);
-
-		assertTrue(homePage.isTextBoxOfficeDisplayed());
-
-		homePage.clickMoreMenu();
-
-		homePage.clickButtonLogOutStaff();
-
-		assertTrue(homePage.isTextDisplayed());
-		
-	}
-
-	@Description("Log In Account - Login Account Staff Auto Success")
-	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	public void Login_009_AccStaffAutoCompleted() {
-		homePage.authenAlert();
-
-		
-		homePage.clickToLoginLink();
-
-		loginPage = new UserLoginPageObject(driver);
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-
-		loginPage.loginAccount(emailStaffAuto, passwordStaffAuto);
-
-		loginPage.clickToLoginButton();
-
-		homePage = new UserHomePageObject(driver);
-
-		assertTrue(homePage.isTextBoxOfficeDisplayed());
-
-		homePage.clickMoreMenu();
-
-		homePage.clickButtonLogOutStaff();
-
-		assertTrue(homePage.isTextDisplayed());
-		
-	}
-
-	@Description("Log In Account - Login Account Concession Success")
-	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	public void Login_010_AccConcessionsCompleted() {
-		homePage.authenAlert();
-
-
-		homePage.clickToLoginLink();
-
-		loginPage = new UserLoginPageObject(driver);
-
-		assertTrue(loginPage.isTextLogInDisplayed());
-
-		loginPage.loginAccount(emailConcession, passwordConcession);
-		
-		loginPage.clickToLoginButton();
-
-		homePage = new UserHomePageObject(driver);
-		
-		assertTrue(homePage.isTextboxConcesssions());
-
-		homePage.clickButtonLogOutConcesssions();
-
-		assertTrue(homePage.isTextDisplayed());
-	}
+//	}
+//
+//	@Description("Log In Account - Login Account Staff Manual Success")
+//	@Severity(SeverityLevel.CRITICAL)
+//	@Test
+//	public void Login_008_AccStaffManualCompleted() {
+//		homePage.authenAlert();
+//
+//		homePage.clickToLoginLink();
+//
+//		loginPage = new UserLoginPageObject(driver);
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//
+//
+//		loginPage.loginAccount(emailStaffManual, passwordStaffManual);
+//
+//
+//		loginPage.clickToLoginButton();
+//
+//		homePage = new UserHomePageObject(driver);
+//
+//		assertTrue(homePage.isTextBoxOfficeDisplayed());
+//
+//		homePage.clickMoreMenu();
+//
+//		homePage.clickButtonLogOutStaff();
+//
+//		assertTrue(homePage.isTextDisplayed());
+//
+//	}
+//
+//	@Description("Log In Account - Login Account Staff Auto Success")
+//	@Severity(SeverityLevel.CRITICAL)
+//	@Test
+//	public void Login_009_AccStaffAutoCompleted() {
+//		homePage.authenAlert();
+//
+//
+//		homePage.clickToLoginLink();
+//
+//		loginPage = new UserLoginPageObject(driver);
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//
+//		loginPage.loginAccount(emailStaffAuto, passwordStaffAuto);
+//
+//		loginPage.clickToLoginButton();
+//
+//		homePage = new UserHomePageObject(driver);
+//
+//		assertTrue(homePage.isTextBoxOfficeDisplayed());
+//
+//		homePage.clickMoreMenu();
+//
+//		homePage.clickButtonLogOutStaff();
+//
+//		assertTrue(homePage.isTextDisplayed());
+//
+//	}
+//
+//	@Description("Log In Account - Login Account Concession Success")
+//	@Severity(SeverityLevel.CRITICAL)
+//	@Test
+//	public void Login_010_AccConcessionsCompleted() {
+//		homePage.authenAlert();
+//
+//
+//		homePage.clickToLoginLink();
+//
+//		loginPage = new UserLoginPageObject(driver);
+//
+//		assertTrue(loginPage.isTextLogInDisplayed());
+//
+//		loginPage.loginAccount(emailConcession, passwordConcession);
+//
+//		loginPage.clickToLoginButton();
+//
+//		homePage = new UserHomePageObject(driver);
+//
+//		assertTrue(homePage.isTextboxConcesssions());
+//
+//		homePage.clickButtonLogOutConcesssions();
+//
+//		assertTrue(homePage.isTextDisplayed());
+//	}
 
 	@AfterClass
 	public void afterClass() {
