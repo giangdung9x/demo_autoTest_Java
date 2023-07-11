@@ -3,7 +3,8 @@ node('built-in') {
         git 'https://bitbucket.org/mobilefolkteam/showslinger-automation-tests.git'
         withMaven(globalMavenSettingsConfig: '', jdk: 'Jdk', maven: 'maven', mavenSettingsConfig: '', mavenSettingsFilePath: 'pom.xml', traceability: true) {
             // some block
-            sh 'mvn clean install'
+
+            sh 'export PATH="$M2_HOME/bin:$PATH" && mvn clean install'
         }
     }
 }
