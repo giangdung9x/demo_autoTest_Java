@@ -10,27 +10,19 @@ node('built-in') {
 
 node {
     echo "Testing guy !"
-    notifyBuild()
+    def buildResult = sh(returnStatus: true, script: 'mvn -q -Dexec.executable="echo" -Dexec.args="\${env.MVN_BUILD_RESULT}" --non-recursive exec:exec').trim()
+    def testCaseFail = sh(returnStdout: true, script: 'mvn -q -Dexec.executable="echo" -Dexec.args="\${env.TEST_CASE_FAIL}" --non-recursive exec:exec').trim().toInteger()
+
+    notifyBuild(buildResult, testCaseFail)
 }
 
-def notifyBuild() {
-    def buildStatus = currentBuild.result ?: 'SUCCESS'
+def notifyBuild(String buildResult, int testCaseFail) {
+    def buildStatus = buildResult == 'SUCCESS' && testCaseFail == 0 ? 'SUCCESSFUL' : 'FAILURE'
+    def colorCode = buildStatus == 'SUCCESSFUL' ? '#00FF00' : '#FF0000'
 
-    //default value
-    def colorCode = buildStatus == 'FAILURE' ? '#FF0000' : '#00FF00'
-    def now = new Date()
-    String timeDate = now.format("YYYY-MM-DD HH:mm:ss.Ms")
-
-    def reportName = "Extent Reports Link"
-    def reportUrl = "https://1843-58-186-100-87.ngrok-free.app/ExtentReports.html"
-
-    def buildStatusText = buildStatus == 'FAILURE' ? 'FAILURE' : 'SUCCESSFUL'
-
-    def msg_details = """${buildStatusText}: Job '${env.JOB_NAME}' [${env.BUILD_NUMBER}]
+    def msg_details = """${buildStatus}: Job '${env.JOB_NAME}' [${env.BUILD_NUMBER}]
     Job Name : ${env.JOB_NAME}
     Build : ${env.BUILD_NUMBER}
-    Time run : ${timeDate}
-    Extent Reports : <${reportUrl}|${reportName}>
     """
 
     slackSend(color: colorCode, message: msg_details)
