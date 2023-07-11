@@ -150,7 +150,7 @@ public class Login_Account extends BaseTest{
 //		homePage.clickToItemOfListTicketing("Sign out");
 //
 //		assertTrue(homePage.isTextDisplayed());
-		
+		//
 	}
 
 	@Description("Log In Account - Login Account Staff Manual Success")
