@@ -58,7 +58,7 @@ public class EmailUtil {
     private static String emailContent = "<p>Dear SHOWSLINGER project members,</p>\n" +
             "<p>Automation Team is sending the execution report of project ShowSlinger, version <b>version_build</b>.</p>\n" +
             "<p>Build result: <b>build_result</b></p>\n" +
-            "<p>Report Links: <a href=\"https://1843-58-186-100-87.ngrok-free.app/ExtentReports.html\">Allure Report Link</a></p>\n" +
+            "<p>Report Links: <a href=\"https://a8d2-27-72-144-248.ngrok-free.app/index.html\">Allure Report Link</a></p>\n" +
             "<p><i>(This is an automated release email after execution. Please contact Automation Team if you need further information!)</i></p>";
 }
 
