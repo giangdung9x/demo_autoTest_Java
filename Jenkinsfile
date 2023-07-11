@@ -10,7 +10,7 @@ node('built-in') {
 
 node {
     echo "Testing guy !"
-    notifyBuild('SUCCESSFUL')
+    notifyBuild('STARTED')
 }
 
 def notifyBuild(String buildStatus = 'STARTED') {
@@ -18,7 +18,6 @@ def notifyBuild(String buildStatus = 'STARTED') {
     buildStatus = buildStatus ?: 'SUCCESSFUL'
 
     //default value
-    def colorName = 'RED'
     def colorCode = '#FF0000'
     def now = new Date()
     String timeDate = now.format("YYYY-MM-DD HH:mm:ss.Ms")
@@ -27,7 +26,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
     def reportUrl = "https://1843-58-186-100-87.ngrok-free.app/ExtentReports.html"
 
     def buildStatusText = buildStatus == 'FAILURE' || testCaseFail > 0 ? 'FAILURE' : 'SUCCESSFUL'
-    def color = buildStatusText == 'FAILURE' ? 'RED' : 'GREEN'
+    def color = buildStatusText == 'FAILURE' ? '#FF0000' : '#00FF00'
 
     def msg_details = """${buildStatusText}: Job '${env.JOB_NAME}' [${env.BUILD_NUMBER}]
     Job Name : ${env.JOB_NAME}
@@ -36,12 +35,5 @@ def notifyBuild(String buildStatus = 'STARTED') {
     Extent Reports : <${reportUrl}|${reportName}>
     """
 
-
-    if (testCaseFail > 0 || buildStatus == 'FAILURE') {
-        slackSend(color: '#FF0000', message: msg_details)
-    } else {
-        slackSend(color: '#00FF00', message: msg_details)
-    }
+    slackSend(color: color, message: msg_details)
 }
-
-
