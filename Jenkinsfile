@@ -12,9 +12,10 @@ node('built-in') {
 node {
     echo "Testing guy!"
     try {
-        sh 'echo $M2_HOME'
-
-        sh 'export PATH="$M2_HOME/bin:$PATH" &&mvn test'
+        withMaven(globalMavenSettingsConfig: '', jdk: 'Jdk', maven: 'maven', mavenSettingsConfig: '', mavenSettingsFilePath: 'pom.xml', traceability: true) {
+            sh 'echo $M2_HOME'
+            sh 'mvn test'
+        }
     } catch (Exception e) {
         notifyBuild('FAILURE')
         throw e
