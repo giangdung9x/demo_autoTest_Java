@@ -134,14 +134,14 @@ public class Login_Account extends BaseTest{
 	@Test
 	public void Login_007_AccManagerCompleted() {
 
-//		loginPage.loginAccount(emailManager, validPasswordManager);
-//
-//
-//		loginPage.clickToLoginButton();
-//
-//		homePage = new UserHomePageObject(driver);
-//
-//		assertTrue(homePage.isCalendarLinkDisplayed());
+		loginPage.loginAccount(emailManager, invalidPassword);
+
+
+		loginPage.clickToLoginButton();
+
+		homePage = new UserHomePageObject(driver);
+
+		assertTrue(homePage.isCalendarLinkDisplayed());
 //
 //		homePage.clickShowLeftMenu();
 //
