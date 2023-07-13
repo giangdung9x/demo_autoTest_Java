@@ -1,7 +1,6 @@
 #!/bin/sh
-
 echo "------ Step 01: Set project path to variable -------"
-project_path="/Users/Automation Testing/Automation_Testing_MBF/mbf_maven_framework_showslinger"
+project_path="/Users/Automation Testing/Automation_Testing_MBF/mbf_framework_showslinger_web"
 echo "------ Step 02: Go to project path folder -------"
 cd "$project_path"
 echo "------ Step 03: Run the testcases -------"
