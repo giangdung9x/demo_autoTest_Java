@@ -72,15 +72,15 @@ public class Login_Account extends BaseTest{
 	}
 
 
-//	@Description("Log In Account - Empty Data")
-//	@Severity(SeverityLevel.NORMAL)
-//	@Test
-//	public void Login_002_EmptyData() {
-//		loginPage.clickToLoginButton();
-//
-//		assertTrue(loginPage.isTextLogInDisplayed());
-//
-//	}
+	@Description("Log In Account - Empty Data")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void Login_002_EmptyData() {
+		loginPage.clickToLoginButton();
+
+		assertTrue(loginPage.isTextLogInDisplayed());
+
+	}
 //
 //	@Description("Log In Account - Invalid Email")
 //	@Severity(SeverityLevel.NORMAL)
