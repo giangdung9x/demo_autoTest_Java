@@ -28,8 +28,8 @@ def notifyBuild(String buildStatus = 'STARTED') {
     buildStatus = buildStatus ?: 'SUCCESSFUL'
 
     //default value
-    def colorName = 'RED'
-    def colorCode = '#FF0000'
+    def colorName = buildStatus == 'FAILURE' ? 'RED' : 'GREEN'
+    def colorCode = buildStatus == 'FAILURE' ? '#FF0000' : '#00FF00'
     def now = new Date()
     String timeDate = now.format("YYYY-MM-DD HH:mm:ss.Ms")
 
@@ -37,7 +37,6 @@ def notifyBuild(String buildStatus = 'STARTED') {
     def reportUrl = "https://a8d2-27-72-144-248.ngrok-free.app/index.html"
 
     def buildStatusText = buildStatus == 'FAILURE' ? 'FAILURE' : 'SUCCESSFUL'
-    def color = buildStatusText == 'FAILURE' ? 'RED' : 'GREEN'
 
     def msg_details = """${buildStatusText}: Job '${env.JOB_NAME}' [${env.BUILD_NUMBER}]
     Job Name : ${env.JOB_NAME}
