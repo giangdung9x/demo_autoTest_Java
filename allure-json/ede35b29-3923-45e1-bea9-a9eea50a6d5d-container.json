@@ -1,1 +1,0 @@
-{"uuid":"ede35b29-3923-45e1-bea9-a9eea50a6d5d","name":"ShowSlinger","children":["b07cc540-6378-4b07-9d58-5cf2c79bd11a"],"befores":[{"name":"initBeforeSuite","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1689236575678,"stop":1689236575708}],"afters":[],"links":[],"start":1689236575659,"stop":1689236608106}

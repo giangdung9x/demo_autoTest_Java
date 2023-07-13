@@ -1,0 +1,11 @@
+Total Tests: 2
+Passed Tests: 1
+Failed Tests: 1
+Skipped Tests: 0
+
+Passed Tests in showslinger_user.Login_Account: 1
+Failed Tests in showslinger_user.Login_Account: 1
+Skipped Tests in showslinger_user.Login_Account: 0
+
+showslinger_user.Login_Account - Login_001_FormLogin - null - PASSED
+showslinger_user.Login_Account - Login_007_AccManagerCompleted - null - FAILED
