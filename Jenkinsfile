@@ -50,8 +50,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
     String timeDate = now.format("YYYY-MM-DD HH:mm:ss.Ms")
     def testCasePass = getTestCasePassCount()
     def testCaseFail = getTestCaseFailCount()
-
-    def totalTestCaseCount = testCasePass + testCaseFail + testCaseSkip
+    def totalTestCaseCount = testCasePass + testCaseFail
     def reportName = "Allure Reports Link"
     def reportUrl = "https://a8d2-27-72-144-248.ngrok-free.app/index.html"
 
@@ -64,7 +63,6 @@ def notifyBuild(String buildStatus = 'STARTED') {
     Total Test Case : ${totalTestCaseCount}
     Test Case Pass : ${testCasePass}
     Test Case Fail : ${testCaseFail}
-
     Allure Reports: <${reportUrl}|${reportName}>
     """
 
@@ -88,4 +86,3 @@ def getTestCaseFailCount() {
 
     return testCaseFailCount
 }
-
