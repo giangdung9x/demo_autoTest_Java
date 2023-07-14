@@ -150,7 +150,7 @@ public class Login_Account extends BaseTest{
 //
 //		assertTrue(homePage.isTextDisplayed());
 
-	}
+//}
 //
 //	@Description("Log In Account - Login Account Staff Manual Success")
 //	@Severity(SeverityLevel.CRITICAL)
