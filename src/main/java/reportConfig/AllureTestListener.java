@@ -85,6 +85,7 @@ public class AllureTestListener implements ITestListener {
 
 	private void writeTestResultToFile() {
 		try {
+			clearTestResultFile();
 			String reportPath = "test-result.txt";
 			StringBuilder contentBuilder = new StringBuilder();
 			contentBuilder.append(String.format("Total Tests: %d\n", totalTests));
@@ -156,6 +157,15 @@ public class AllureTestListener implements ITestListener {
 		Allure.getLifecycle().updateStep(parentUuid ->
 				Allure.getLifecycle().stopStep(String.valueOf(parentUuid)));
 	}
+
+	private void clearTestResultFile() {
+		try {
+			String reportPath = "test-result.txt";
+			Files.writeString(Path.of(reportPath), "", StandardOpenOption.TRUNCATE_EXISTING);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
 
 class AllureTestResult {
@@ -200,3 +210,4 @@ class AllureTestResultStorage {
 		return testResults;
 	}
 }
+
