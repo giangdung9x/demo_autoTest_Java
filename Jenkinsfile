@@ -50,7 +50,9 @@ def notifyBuild(String buildStatus = 'STARTED') {
     String timeDate = now.format("YYYY-MM-DD HH:mm:ss.Ms")
     def testCasePass = getTestCasePassCount()
     def testCaseFail = getTestCaseFailCount()
-    def totalTestCaseCount = testCasePass + testCaseFail
+    def testCaseSkip = getTestCaseSkipCount()
+
+    def totalTestCaseCount = testCasePass + testCaseFail + testCaseSkip
     def reportName = "Allure Reports Link"
     def reportUrl = "https://a8d2-27-72-144-248.ngrok-free.app/index.html"
 
@@ -63,6 +65,8 @@ def notifyBuild(String buildStatus = 'STARTED') {
     Total Test Case : ${totalTestCaseCount}
     Test Case Pass : ${testCasePass}
     Test Case Fail : ${testCaseFail}
+    Test Case Skip : ${testCaseSkip}
+
     Allure Reports: <${reportUrl}|${reportName}>
     """
 
@@ -85,4 +89,13 @@ def getTestCaseFailCount() {
     def testCaseFailCount = fileContent.readLines().count { line -> line.contains('FAILED') }
 
     return testCaseFailCount
+}
+
+def getTestCaseSkipCount() {
+    // Truy cập vào tệp tin .txt và đếm số lượng test case skip
+    def filePath = 'test-result.txt'
+    def fileContent = readFile(file: filePath)
+    def testCaseFailCount = fileContent.readLines().count { line -> line.contains('SKIPPED') }
+
+    return testCaseSkipCount
 }
