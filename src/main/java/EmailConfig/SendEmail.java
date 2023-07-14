@@ -43,7 +43,8 @@ public class SendEmail implements ITestListener {
         String username = "dangthigiang@mobilefolk.com";
         String password = "reddrrnvnzfivmkz";
         String from = "dangthigiang@mobilefolk.com";
-        String[] recipients = {"Khanhthi455@gmail.com", "manh@mobilefolk.com", "toan@mobilefolk.com", "viet@mobilefolk.com", "hoangn@mobilefolk.com"};
+        String[] recipients = {"Khanhthi455@gmail.com"};
+        //String[] recipients = {"Khanhthi455@gmail.com", "manh@mobilefolk.com", "toan@mobilefolk.com", "viet@mobilefolk.com", "hoangn@mobilefolk.com"};
 
         Email email;
         email = new Email(host, port, username, password, from, recipients);

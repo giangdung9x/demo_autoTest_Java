@@ -48,7 +48,9 @@ def notifyBuild(String buildStatus = 'STARTED') {
     def colorCode = buildStatus == 'FAILURE' ? '#FF0000' : '#00FF00'
     def now = new Date()
     String timeDate = now.format("YYYY-MM-DD HH:mm:ss.Ms")
-
+    def testCasePass = getTestCasePassCount()
+    def testCaseFail = getTestCaseFailCount()
+    def totalTestCaseCount = testCasePass + testCaseFail
     def reportName = "Allure Reports Link"
     def reportUrl = "https://a8d2-27-72-144-248.ngrok-free.app/index.html"
 
@@ -58,9 +60,29 @@ def notifyBuild(String buildStatus = 'STARTED') {
     Job Name: ${env.JOB_NAME}
     Build: ${env.BUILD_NUMBER}
     Time run: ${timeDate}
-
+    Total Test Case : ${totalTestCaseCount}
+    Test Case Pass : ${testCasePass}
+    Test Case Fail : ${testCaseFail}
     Allure Reports: <${reportUrl}|${reportName}>
     """
 
     slackSend(color: colorCode, message: msg_details)
+}
+
+def getTestCasePassCount() {
+    // Truy cập vào tệp tin .txt và đếm số lượng test case pass
+    def filePath = 'test-result.txt'
+    def fileContent = readFile(file: filePath)
+    def testCasePassCount = fileContent.readLines().count { line -> line.contains('PASSED') }
+
+    return testCasePassCount
+}
+
+def getTestCaseFailCount() {
+    // Truy cập vào tệp tin .txt và đếm số lượng test case fail
+    def filePath = 'test-result.txt'
+    def fileContent = readFile(file: filePath)
+    def testCaseFailCount = fileContent.readLines().count { line -> line.contains('FAILED') }
+
+    return testCaseFailCount
 }

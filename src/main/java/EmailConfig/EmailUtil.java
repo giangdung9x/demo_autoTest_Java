@@ -37,7 +37,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -132,6 +134,7 @@ public class EmailUtil {
         String content = "<p>Dear SHOWSLINGER project members,</p>\n" +
                 "<p>Automation Team is sending the execution report of project ShowSlinger, version <b>version_build</b>.</p>\n" +
                 "<p>Build result: <b>build_result</b></p>\n" +
+                "<p>Time run: <b>" + getTimeExecution() + "</b></p>\n" +
                 "<p>Report Links: <a href=\"https://9dc3-14-232-228-54.ngrok-free.app/allure-report/index.html\">Allure Report Link</a></p>\n" +
                 "<p><i>(This is an automated release email after execution. Please contact Automation Team if you need further information!)</i></p>";
 
@@ -335,6 +338,19 @@ public class EmailUtil {
 
     public static int getTotalTestCase(int tcPass, int tcFail) {
         return tcPass + tcFail;
+    }
+
+    public static String getTimeExecution() {
+        // Lấy thời gian hiện tại
+        Date now = new Date();
+
+        // Định dạng thời gian
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        // Chuyển đổi thời gian thành chuỗi
+        String timeExecution = sdf.format(now);
+
+        return timeExecution;
     }
 }
 
