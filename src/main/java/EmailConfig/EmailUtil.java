@@ -14,6 +14,8 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.GradientBarPainter;
+import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.chart.title.LegendTitle;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
@@ -152,7 +154,6 @@ public class EmailUtil {
 
 
     public static void createBarChart(int passCases, int failCases, int skipCases, int totalCases) {
-
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         dataset.addValue(totalCases, "Total Cases", "Total");
@@ -171,23 +172,35 @@ public class EmailUtil {
                 false // Hiển thị URLs
         );
 
-        // Các thiết lập khác cho biểu đồ
-
-
+        // Thiết lập màu sắc cho biểu đồ
         chart.setBackgroundPaint(Color.WHITE);
-        CategoryPlot plot = (CategoryPlot) chart.getPlot();
+        CategoryPlot plot = chart.getCategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
         plot.setOutlinePaint(Color.WHITE);
 
-        BarRenderer renderer = (BarRenderer) chart.getCategoryPlot().getRenderer();
-
+        BarRenderer renderer = (BarRenderer) plot.getRenderer();
         renderer.setMaximumBarWidth(5.6);
+
+        // Đặt BarPainter tùy chỉnh cho renderer
+        renderer.setBarPainter(new GradientBarPainter());
+        renderer.setShadowVisible(false);
+        renderer.setDefaultBarPainter(new StandardBarPainter());
+        renderer.setDrawBarOutline(true);
+        renderer.setSeriesOutlinePaint(0, Color.BLACK);
+        renderer.setSeriesOutlinePaint(1, Color.BLACK);
+        renderer.setSeriesOutlinePaint(2, Color.BLACK);
+        renderer.setSeriesOutlinePaint(3, Color.BLACK);
+        renderer.setSeriesOutlineStroke(0, new BasicStroke(1.5f));
+        renderer.setSeriesOutlineStroke(1, new BasicStroke(1.5f));
+        renderer.setSeriesOutlineStroke(2, new BasicStroke(1.5f));
+        renderer.setSeriesOutlineStroke(3, new BasicStroke(1.5f));
 
         renderer.setSeriesPaint(0, Color.decode("#375E97")); // Màu xám cho tổng số test case
         renderer.setSeriesPaint(1, Color.decode("#3F681C")); // Màu xanh lá cây cho test case pass
         renderer.setSeriesPaint(2, Color.decode("#FB6542")); // Màu đỏ cho test case fail
         renderer.setSeriesPaint(3, Color.decode("#FFBB00")); // Màu vàng cho test case skip
 
+        // Các thiết lập khác cho biểu đồ
         LegendTitle legend = chart.getLegend();
         legend.setItemLabelPadding(new RectangleInsets(0, 0, 0, 30)); // Thêm khoảng cách 20px giữa các chú thích
 
@@ -198,11 +211,9 @@ public class EmailUtil {
                 ItemLabelAnchor.OUTSIDE12, TextAnchor.TOP_CENTER, TextAnchor.CENTER, -Math.PI / 2);
         renderer.setPositiveItemLabelPositionFallback(position);
 
-
-        CategoryAxis xAxis = (CategoryAxis) plot.getDomainAxis();
+        CategoryAxis xAxis = plot.getDomainAxis();
         xAxis.setCategoryLabelPositions(CategoryLabelPositions.STANDARD); // Đặt vị trí của nhãn trục
         xAxis.setTickLabelFont(new Font("Tahoma", Font.PLAIN, 13)); // Đặt font chữ cho nhãn trục
-
 
         ValueAxis yAxis = plot.getRangeAxis();
         yAxis.setTickLabelFont(new Font("Tahoma", Font.PLAIN, 13)); // Đặt font chữ cho nhãn trục
@@ -216,7 +227,6 @@ public class EmailUtil {
         chart.getCategoryPlot().getRenderer().setBaseItemLabelsVisible(true);
         chart.getCategoryPlot().getRenderer().setBasePositiveItemLabelPosition(new ItemLabelPosition(
                 ItemLabelAnchor.OUTSIDE12, TextAnchor.TOP_CENTER));
-
 
         File barChartFile = new File("chart.png");
         try {

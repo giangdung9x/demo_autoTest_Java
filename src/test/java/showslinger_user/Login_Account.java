@@ -134,8 +134,7 @@ public class Login_Account extends BaseTest{
 	@Test
 	public void Login_007_AccManagerCompleted() {
 
-		loginPage.loginAccount(emailManager, invalidPassword);
-
+		loginPage.loginAccount(emailManager, validPasswordManager);
 
 		loginPage.clickToLoginButton();
 
