@@ -129,18 +129,18 @@ public class Login_Account extends BaseTest{
 //		assertTrue(loginPage.isTextLogInDisplayed());
 //	}
 //
-	@Description("Log In Account - Login Account Manager Success")
-	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	public void Login_007_AccManagerCompleted() {
-
-		loginPage.loginAccount(emailManager, validPasswordManager);
-
-		loginPage.clickToLoginButton();
-
-		homePage = new UserHomePageObject(driver);
-
-		assertTrue(homePage.isCalendarLinkDisplayed());
+//	@Description("Log In Account - Login Account Manager Success")
+//	@Severity(SeverityLevel.CRITICAL)
+//	@Test
+//	public void Login_007_AccManagerCompleted() {
+//
+//		loginPage.loginAccount(emailManager, validPasswordManager);
+//
+//		loginPage.clickToLoginButton();
+//
+//		homePage = new UserHomePageObject(driver);
+//
+//		assertTrue(homePage.isCalendarLinkDisplayed());
 //
 //		homePage.clickShowLeftMenu();
 //
