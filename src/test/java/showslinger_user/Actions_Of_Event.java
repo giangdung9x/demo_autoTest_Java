@@ -140,6 +140,7 @@ public class Actions_Of_Event extends BaseTest{
 		
 		assertTrue(eventPage.isNameOfEventAtCalendarDisplayed(eventName));
 
+
 	}
 	
 	

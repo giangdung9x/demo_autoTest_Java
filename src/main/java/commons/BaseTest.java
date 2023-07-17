@@ -41,6 +41,11 @@ import factoryEnvironment.LambdaFactory;
 import factoryEnvironment.LocalFactory;
 import factoryEnvironment.SauceLabsFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+
 public class BaseTest {
 	protected String portalURL;
 
@@ -91,7 +96,8 @@ public class BaseTest {
 		default:
 			throw new BrowserNotSupportedException(browserName);
 		}
-		
+
+
 		return driver;
 	}
 
@@ -257,5 +263,18 @@ public class BaseTest {
 			}
 		}
 	}
+
+	public int generateFakeNumberByDate() {
+		LocalDateTime now = LocalDateTime.now();
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+		String formattedDateTime = now.format(formatter);
+
+		int randomNumber = Integer.parseInt(formattedDateTime);
+
+		return randomNumber;
+	}
+
+
 
 }

@@ -19,11 +19,12 @@ import pageObject.user.UserBuyOnlinePageObject;
 public class Buy_Online extends BaseTest{
 
 	private UserBuyOnlinePageObject buyOnlinePage;
+	private String emailManager, passwordManager;
 	private String fullName, phone, validEmail, invalidEmail, confirmEmail;
 	private String cardNumberValid, cardNumberInvalid, cardNumberDeclined, monthYearValid, monthYearInvalid, cvc, zip, errorMessageInfoCard;
 	private String eventName, ticketName, quantity, addOnsName, passName, giftCardName;
 	private int shortTime;
-	
+
 	@Parameters({ "envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
 	@BeforeClass
 	public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName,
@@ -31,20 +32,23 @@ public class Buy_Online extends BaseTest{
 	portNumber,@Optional("Windows") String osName, @Optional("10") String osVersion) {
 		driver = getBrowserDriver(envName, serverName, browserName, ipAddress, portNumber, osName, osVersion);
 		buyOnlinePage = new UserBuyOnlinePageObject(driver);
+		emailManager ="paulv@showslinger.com";
+		passwordManager = "12345";
+
 		fullName = "Dang Thi Giang";
 		phone = "+128379292999";
 		validEmail = "dangthigiang+2@mobilefolk.com";
 		invalidEmail = "dangthigiang+2@";
 		confirmEmail= "dangthigiang+3@mobilefolk.com";
-				
+
 		eventName = "Giang Test auto";
 		ticketName ="vip3";
 		quantity ="1";
 		addOnsName = "coca";
-		passName = "giang test pass"; 
+		passName = "giang test pass";
 		giftCardName = "Gift Card";
 		shortTime =3;
-		
+
 		cardNumberValid = "4242424242424242";
 		cardNumberDeclined ="4000000000000002";
 		monthYearValid = "0424";
@@ -52,33 +56,42 @@ public class Buy_Online extends BaseTest{
 		zip = "42424";
 		cardNumberInvalid="2323232323232323";
 		monthYearInvalid = "0420";
-		
-		
+
+
 	}
 
-	
+
 	@Description("Buy Ticket - Checkout when empty data")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void BuyOnline_001_CheckoutEmptyQuantityTicket() {
-		
+		buyOnlinePage.clickToLoginLink();
+		buyOnlinePage.loginAccount(emailManager,passwordManager);
+		buyOnlinePage.clickToLoginButton();
+		buyOnlinePage.clickShowLeftMenu();
+		String managerWindowID = driver.getWindowHandle();
+		buyOnlinePage.clickToItemOfLeftMenu("Calendar");
+
+		buyOnlinePage.clickToPrevButton();
+		buyOnlinePage.clickToEvent(eventName);
+		String managerPage = driver.getWindowHandle();
+		buyOnlinePage.clickToLink("Preview");
+		buyOnlinePage.switchToWindowByID(managerPage);
+
 		assertEquals(buyOnlinePage.getTextEventName(),eventName);
-		
 		buyOnlinePage.clickToAgreeCheckoutButton();
-		
 		assertEquals(buyOnlinePage.getErrorMessage(),"Please select tickets and add-ons you would like to buy!");
-		
 		buyOnlinePage.refreshToPage(driver);
 	}
-	
+
 	@Description("Buy Ticket - Checkout when empty info of buyer")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void BuyOnline_002_CheckoutEmptyInfoBuyer() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
-		
+
 		buyOnlinePage.clickToAgreeCheckoutButton();
-		
+
 		buyOnlinePage.clickPlaceOrderButton();
 		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Please input your full name!");
 		buyOnlinePage.sleepInSecond(shortTime);
@@ -86,7 +99,7 @@ public class Buy_Online extends BaseTest{
 		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
 		buyOnlinePage.clickPlaceOrderButton();
 		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Please input your phone!");
-		
+
 		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
 		buyOnlinePage.clickPlaceOrderButton();
 		assertEquals(buyOnlinePage.getErrorMessageAtCheckoutScreen(), "Please input your email!");
@@ -123,7 +136,7 @@ public class Buy_Online extends BaseTest{
 	@Test
 	public void BuyOnline_003_CheckoutNowNotAcceptTerms() {
 		buyOnlinePage.clickPlaceOrderButton();
-		
+
 		assertEquals(buyOnlinePage.getErrorMessageAtFooter(), "Please accept the Terms of Service before placing your order.");
 	}
 
@@ -135,7 +148,7 @@ public class Buy_Online extends BaseTest{
 
 		buyOnlinePage.getTextTotalAmountOrder();
 		buyOnlinePage.sleepInSecond(3);
-		
+
 		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
 			buyOnlinePage.clickPlaceOrderButton();
 		} else {
@@ -211,7 +224,7 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.sleepInSecond(shortTime);
 
 			buyOnlinePage.refreshToPage(driver);
-			
+
 		}
 	}
 
@@ -221,17 +234,17 @@ public class Buy_Online extends BaseTest{
 	public void BuyOnline_005_CheckoutNowSuccess() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
 		buyOnlinePage.clickToAgreeCheckoutButton();
-		
+
 		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
 		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
 		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
 		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", validEmail);
 
 		buyOnlinePage.clickCheckboxAcceptTermsService();
-		
+
 		buyOnlinePage.getTextTotalAmountOrder();
 		buyOnlinePage.sleepInSecond(3);
-		
+
 		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
 			buyOnlinePage.clickPlaceOrderButton();
 		} else {
@@ -244,7 +257,7 @@ public class Buy_Online extends BaseTest{
 			buyOnlinePage.switchToDefaultContent();
 
 			buyOnlinePage.clickPlaceOrderButton();
-			
+
 			assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
 
 			String buyOnlineSuccessWindowID = driver.getWindowHandle();
@@ -254,7 +267,7 @@ public class Buy_Online extends BaseTest{
 			String printOrderWindowID = driver.getWindowHandle();
 			driver.close();
 			buyOnlinePage.switchToWindowByID(printOrderWindowID);
-			
+
 			buyOnlinePage.clickBackToEventPageButton();
 
 			assertEquals(buyOnlinePage.getTextEventName(),eventName);
@@ -267,20 +280,20 @@ public class Buy_Online extends BaseTest{
 	public void BuyOnline_006_CheckoutPayLaterFail() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
 		buyOnlinePage.clickToAgreeCheckoutButton();
-		
+
 		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
 		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
 		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
 		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", validEmail);
 
 		buyOnlinePage.clickCheckboxAcceptTermsService();
-		
+
 		buyOnlinePage.getTextTotalAmountOrder();
 		buyOnlinePage.sleepInSecond(3);
-		
+
 		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
 			buyOnlinePage.clickPlaceOrderButton();
-			
+
 			assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
 
 			String buyOnlineSuccessWindowID = driver.getWindowHandle();
@@ -290,7 +303,7 @@ public class Buy_Online extends BaseTest{
 			String printOrderWindowID = driver.getWindowHandle();
 			driver.close();
 			buyOnlinePage.switchToWindowByID(printOrderWindowID);
-			
+
 			buyOnlinePage.clickBackToEventPageButton();
 
 			assertEquals(buyOnlinePage.getTextEventName(),eventName);
@@ -299,26 +312,26 @@ public class Buy_Online extends BaseTest{
 
 			if(amount < 50) {
 				buyOnlinePage.clickToRadioButtonCheckoutMethod();
-				
+
 				assertEquals(buyOnlinePage.getErrorMessageBNPL(),"Buy now pay later is only available for orders totaling $50 or more.");
-				
+
 				buyOnlinePage.clickCheckboxAcceptTermsService();
 
 				buyOnlinePage.clickToBackToTicket();
-				
+
 			}else {
 				buyOnlinePage.clickToRadioButtonCheckoutMethod();
 
 				buyOnlinePage.clickToBuyNowPayLaterButton();
-				
+
 				buyOnlinePage.clickButtonFailTestPayment();
-				
+
 				assertEquals(buyOnlinePage.getTextOfAlertCheckoutFail(),"Checkout order failed! Please select your ticket and checkout again.");
 				buyOnlinePage.acceptAlert();
 
 				assertEquals(buyOnlinePage.getTextEventName(),eventName);
 			}
-			
+
 		}
 	}
 
@@ -329,20 +342,20 @@ public class Buy_Online extends BaseTest{
 	public void BuyTicket_007_CheckoutPayLaterSuccess() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 		buyOnlinePage.clickToAgreeCheckoutButton();
-		
+
 		buyOnlinePage.inputInfoBuyerTextbox("Full Name", fullName);
 		buyOnlinePage.inputInfoBuyerTextbox("Phone", phone);
 		buyOnlinePage.inputInfoBuyerTextbox("Email", validEmail);
 		buyOnlinePage.inputInfoBuyerTextbox("Confirm Email", validEmail);
 
 		buyOnlinePage.clickCheckboxAcceptTermsService();
-		
+
 		buyOnlinePage.getTextTotalAmountOrder();
 		buyOnlinePage.sleepInSecond(3);
-		
+
 		if ((buyOnlinePage.getTextTotalAmountOrder()).equals("0$")) {
 			buyOnlinePage.clickPlaceOrderButton();
-			
+
 			assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
 
 			String buyOnlineSuccessWindowID = driver.getWindowHandle();
@@ -352,27 +365,27 @@ public class Buy_Online extends BaseTest{
 			String printOrderWindowID = driver.getWindowHandle();
 			driver.close();
 			buyOnlinePage.switchToWindowByID(printOrderWindowID);
-			
+
 			buyOnlinePage.clickBackToEventPageButton();
 
 			assertEquals(buyOnlinePage.getTextEventName(),eventName);
 		} else {
 			int amount = buyOnlinePage.convertTotalAmountToInt();
-			
+
 			if(amount < 50) {
 				buyOnlinePage.clickToRadioButtonCheckoutMethod();
-				
+
 				assertEquals(buyOnlinePage.getErrorMessageBNPL(),"Buy now pay later is only available for orders totaling $50 or more.");
-				
+
 				buyOnlinePage.clickToBackToTicket();
-				
+
 			}else {
 				buyOnlinePage.clickToRadioButtonCheckoutMethod();
 
 				buyOnlinePage.clickToBuyNowPayLaterButton();
-				
+
 				buyOnlinePage.clickButtonAuthorizeTestPayment();
-				
+
 				assertTrue(buyOnlinePage.isCheckoutSuccessTextDisplayed());
 
 				String buyOnlineSuccessWindowID = driver.getWindowHandle();
@@ -382,7 +395,7 @@ public class Buy_Online extends BaseTest{
 				String printOrderWindowID = driver.getWindowHandle();
 				driver.close();
 				buyOnlinePage.switchToWindowByID(printOrderWindowID);
-				
+
 				buyOnlinePage.clickBackToEventPageButton();
 
 				assertEquals(buyOnlinePage.getTextEventName(),eventName);

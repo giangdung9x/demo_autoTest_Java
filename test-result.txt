@@ -1,11 +1,26 @@
-Total Tests: 2
-Passed Tests: 1
-Failed Tests: 1
+Total Tests: 17
+Passed Tests: 17
+Failed Tests: 0
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Login_Account: 1
-Failed Tests in showslinger_user.Login_Account: 1
-Skipped Tests in showslinger_user.Login_Account: 0
+Passed Tests in showslinger_user.Feature_Reward: 17
+Failed Tests in showslinger_user.Feature_Reward: 0
+Skipped Tests in showslinger_user.Feature_Reward: 0
 
-showslinger_user.Login_Account - Login_001_FormLogin - null - PASSED
-showslinger_user.Login_Account - Login_007_AccManagerCompleted - null - FAILED
+showslinger_user.Feature_Reward - Reward_OpenUrlAndLogin - null - PASSED
+showslinger_user.Feature_Reward - RewardList_001_CreateRewardFail - null - PASSED
+showslinger_user.Feature_Reward - RewardList_002_CreateRewardSuccess - null - PASSED
+showslinger_user.Feature_Reward - RewardList_003_EditRewardFail - null - PASSED
+showslinger_user.Feature_Reward - RewardList_004_EditRewardSuccess - null - PASSED
+showslinger_user.Feature_Reward - RewardList_006_SwitchStatusRewardSuccess - null - PASSED
+showslinger_user.Feature_Reward - RewardList_007_SeeRewardPage - null - PASSED
+showslinger_user.Feature_Reward - RedeemReward_001_RedeemFail - null - PASSED
+showslinger_user.Feature_Reward - RedeemReward_002_RedeemSuccess - null - PASSED
+showslinger_user.Feature_Reward - RedeemList_001_OpenTabRedeemList - null - PASSED
+showslinger_user.Feature_Reward - RedeemList_002_SwitchStatusFromWaiting - null - PASSED
+showslinger_user.Feature_Reward - RedeemList_003_SwitchStatusFromUnredeemed - null - PASSED
+showslinger_user.Feature_Reward - RedeemList_004_SwitchStatusFromRedeemed - null - PASSED
+showslinger_user.Feature_Reward - RedeemList_005_SwitchStatusFromRefunded - null - PASSED
+showslinger_user.Feature_Reward - RedeemList_006_SwitchStatusFromVoided - null - PASSED
+showslinger_user.Feature_Reward - RedeemList_007_SwitchStatusFail - null - PASSED
+showslinger_user.Feature_Reward - RewardList_007_DeleteReward - null - PASSED

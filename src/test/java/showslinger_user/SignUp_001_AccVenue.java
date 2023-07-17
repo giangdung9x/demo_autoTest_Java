@@ -1,5 +1,7 @@
 package showslinger_user;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
@@ -39,8 +41,8 @@ public class SignUp_001_AccVenue extends BaseTest{
 		homePage = new UserHomePageObject(driver);
 		
 		
-		nameOfVenue = "Dang Giang "+ generateFakeNumber();
-		validEmail = "dangthigiang" +"+"+ generateFakeNumber() + "@mobilefolk.com";
+		nameOfVenue = "Dang Giang "+ generateFakeNumberDateTime();
+		validEmail = "dangthigiang" +"+"+ generateFakeNumberDateTime() + "@mobilefolk.com";
 		validPassword = "123456";
 		existingEmail = "paulv@showslinger.com";
 		invalidEmail = "dabc@aaaa";
@@ -210,13 +212,22 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Test
 	public void AccVenue_009_RegisterCompteledSkipUploadImage() {
 		registerVenuePage.clickToButtonSkip();
-		
+		registerVenuePage.clickShowLeftMenu();
 		assertTrue(registerVenuePage.isTextTicketing());	
 	}
 	
 	public int generateFakeNumber() {
 		Random rand = new Random();
 		return rand.nextInt(9999);
+	}
+
+	public static long generateFakeNumberDateTime() {
+		LocalDateTime now = LocalDateTime.now();
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+		String formattedDateTime = now.format(formatter);
+
+		return Long.parseLong(formattedDateTime);
 	}
 
 	@AfterClass

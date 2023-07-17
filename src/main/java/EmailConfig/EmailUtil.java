@@ -33,10 +33,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,12 +57,14 @@ public class EmailUtil {
                     }
                 });
         try {
+
             // Lấy thông tin về các test case
             String filePath = "test-result.txt";
             int passCases = getPassedTestCaseCount(filePath);
             int failCases = getFailedTestCaseCount(filePath);
             int skipCases = getSkipTestCaseCount(filePath);
             int totalCases = getTotalTestCase(passCases, failCases);
+
 
             // Tạo các biểu đồ và lưu chúng vào file
             createBarChart(passCases, failCases, skipCases, totalCases);
@@ -352,6 +351,7 @@ public class EmailUtil {
 
         return timeExecution;
     }
+
 }
 
 

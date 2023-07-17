@@ -144,4 +144,10 @@ public class UserRegisterVenuePageObject extends BasePage {
 		waitForElementVisible(driver, RegisterPageUI.TEXT_TICKETING);
 		return isElementDisplayed(driver, RegisterPageUI.TEXT_TICKETING);
 	}
+
+	@Step("Click open Left Menu")
+	public void clickShowLeftMenu() {
+		waitForElementClickable(driver,BoxOfficePageUI.LEFT_MENU_BUTTON);
+		clickToElement(driver, BoxOfficePageUI.LEFT_MENU_BUTTON);
+	}
 }

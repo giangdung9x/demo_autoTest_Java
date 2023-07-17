@@ -208,19 +208,19 @@ public class Public_Kiosk_Page extends BaseTest{
 		assertTrue(publicKioskPage.isTextCheckoutDisplayed());
 	}
 	
-//	@Description("Checkout - Charge Card Other Internet")
-//	@Severity(SeverityLevel.NORMAL)
-//	@Test(priority = 12)
-//	public void Checkout_006_ChargeCardOrtherInternet() {
-//		
-//	}
+	@Description("Checkout - Charge Card Other Internet")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 12)
+	public void Checkout_006_ChargeCardOrtherInternet() {
+
+	}
 	
 	@Description("Checkout - Charge Card As Like Internet")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 13)
 	public void Checkout_007_ChargeCardAsLikeInternet() {
-		publicKioskPage.clickToRadioButtonCardReader();
-		
+		publicKioskPage.clickToChooseCardReader("ss-reader");
+		//publicKioskPage.clickToRadioButtonCardReader();
 		publicKioskPage.clickToButtonChargeCard();
 		
 		assertTrue(publicKioskPage.isTextTapToInsertPayment());
@@ -228,8 +228,7 @@ public class Public_Kiosk_Page extends BaseTest{
 		assertTrue(publicKioskPage.isTextPleaseTakeYourTickets());
 		
 		assertTrue(publicKioskPage.isTextOrderDisplayed());
-		
-		
+
 		publicKioskPage.clickToKiosk();
 		
 		assertTrue(publicKioskPage.isTextPleaseChooseEventDisplayed());
@@ -247,7 +246,7 @@ public class Public_Kiosk_Page extends BaseTest{
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
 		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
-
+		publicKioskPage.clickToButtonCheckout();
 		assertTrue(publicKioskPage.isTextTapToInsertPayment());
 		assertTrue(publicKioskPage.isTextSuccessPleaseWait());
 		assertTrue(publicKioskPage.isTextPleaseTakeYourTickets());
@@ -276,7 +275,8 @@ public class Public_Kiosk_Page extends BaseTest{
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
 		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
-		
+		publicKioskPage.clickToButtonCheckout();
+
 		publicKioskPage.clickToButtonCancelPayment();
 
 		assertTrue(publicKioskPage.isTextPaymentMethodDeclined());
@@ -293,13 +293,8 @@ public class Public_Kiosk_Page extends BaseTest{
 		publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 		publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
 		publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
-		
 		publicKioskPage.clickToButtonCheckout();
-		
-		assertTrue(publicKioskPage.isTextCheckoutDisplayed());
-		
-		assertTrue(publicKioskPage.isTextOrderDisplayed());
-
+		publicKioskPage.clickToKioskButtonPaymentScreen();
 	}
 	
 

@@ -21,7 +21,7 @@ public class Box_Office extends BaseTest{
 	private String cardNumberValid, cardNumberInvalid, cardNumberDeclined, monthYearValid, monthYearInvalid, cvc, zip;
 
 	private String eventName, printerName, paperName, ticketName, quantityTicket;
-	
+
 	@Parameters({ "envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
 	@BeforeClass
 	public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName,
@@ -36,7 +36,7 @@ public class Box_Office extends BaseTest{
 		passwordStaffAuto = "123456";
 		emailStaffManual ="dangthigiang+15@mobilefolk.com";
 		passwordStaffManual = "123456";
-		
+
 		cardNumberValid = "4242424242424242";
 		cardNumberDeclined ="4000000000000002";
 		monthYearValid = "0424";
@@ -44,14 +44,14 @@ public class Box_Office extends BaseTest{
 		zip = "42424";
 		cardNumberInvalid="2323232323232323";
 		monthYearInvalid = "0420";
-		
-		
+
+
 		eventName ="Giang Test auto";
 		printerName ="Canon LBP2900 (DESKTOP-VMJ4FSM)";
 		paperName ="A4";
 		ticketName ="vip3";
 		quantityTicket ="1";
-		
+
 	}
 
 	@Description("Login Account Manager and Open Box Office")
@@ -124,7 +124,7 @@ public class Box_Office extends BaseTest{
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
@@ -139,9 +139,9 @@ public class Box_Office extends BaseTest{
 		assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
@@ -155,7 +155,7 @@ public class Box_Office extends BaseTest{
 
 		String boxOfficeInformationWindowID = driver.getWindowHandle();
 		driver.close();
-		boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);	
+		boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);
 	}
 
 	@Description("Select venue and event")
@@ -178,20 +178,20 @@ public class Box_Office extends BaseTest{
 	@Test
 	public void Manager_005_CheckoutNowEmptyData() {
 		boxOfficePage.clickButtonCheckout("Checkout now");
-
+		boxOfficePage.sleepInSecond(3);
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please select at least one ticket");
 
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickCheckboxConfirmationDelivery("Email");
 		boxOfficePage.clickButtonCheckout("Checkout now");
-
+		boxOfficePage.sleepInSecond(3);
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please enter attendee's email");
 
 		boxOfficePage.clickCheckboxConfirmationDelivery("Text");
 
 		boxOfficePage.clickButtonCheckout("Checkout now");
-
+		boxOfficePage.sleepInSecond(3);
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please enter attendee's phone number");
 
 		boxOfficePage.clickCheckboxConfirmationDelivery("Email");
@@ -211,7 +211,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonPlaceOrder();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -222,7 +222,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -282,7 +282,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonPlaceOrder();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -293,7 +293,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -355,7 +355,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonAuthorizeTestPayment();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -366,7 +366,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -471,10 +471,10 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.clickButtonChargeCard();
 
-			assertTrue(boxOfficePage.isTapOrInsertTextDisplayed());	
+			assertTrue(boxOfficePage.isTapOrInsertTextDisplayed());
 		}
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -485,7 +485,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -575,7 +575,7 @@ public class Box_Office extends BaseTest{
 
 
 		boxOfficePage.clickButtonCheckout("Checkout now");
-		
+
 
 		if ((boxOfficePage.getTextTotalAmountOrder()).equals("0$")) {
 			boxOfficePage.clickButtonPlaceOrder();
@@ -592,7 +592,7 @@ public class Box_Office extends BaseTest{
 
 		}
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -603,7 +603,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -666,7 +666,7 @@ public class Box_Office extends BaseTest{
 		if ((boxOfficePage.getTextTotalAmountOrder()).equals("0$")) {
 			boxOfficePage.clickButtonPlaceOrder();
 
-			assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+			assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 			boxOfficePage.clickBackToBoxOfficeButton();
 		} else {
@@ -674,7 +674,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("Card number",cardNumberInvalid);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is invalid.");
 
@@ -686,7 +686,7 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
 
@@ -696,11 +696,11 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration year is in the past.");
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
 
@@ -708,7 +708,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("Card number", cardNumberValid);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration date is incomplete.");
 
@@ -718,7 +718,7 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's security code is incomplete.");
 
@@ -728,12 +728,12 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("CVC", cvc);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your postal code is incomplete.");
 
 
-			boxOfficePage.clickBackToTickets();	
+			boxOfficePage.clickBackToTickets();
 		}
 		assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
@@ -819,7 +819,7 @@ public class Box_Office extends BaseTest{
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
@@ -834,9 +834,9 @@ public class Box_Office extends BaseTest{
 		assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
@@ -850,7 +850,7 @@ public class Box_Office extends BaseTest{
 
 		String boxOfficeInformationWindowID = driver.getWindowHandle();
 		driver.close();
-		boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);	
+		boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);
 	}
 
 	@Description("Select venue and event")
@@ -906,7 +906,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonPlaceOrder();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -917,7 +917,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -977,7 +977,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonPlaceOrder();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -988,7 +988,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1050,7 +1050,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonAuthorizeTestPayment();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1061,7 +1061,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1166,10 +1166,10 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.clickButtonChargeCard();
 
-			assertTrue(boxOfficePage.isTapOrInsertTextDisplayed());	
+			assertTrue(boxOfficePage.isTapOrInsertTextDisplayed());
 		}
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1180,7 +1180,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1284,7 +1284,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.clickButtonChargeCard();
 		}
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1295,7 +1295,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1358,7 +1358,7 @@ public class Box_Office extends BaseTest{
 		if ((boxOfficePage.getTextTotalAmountOrder()).equals("0$")) {
 			boxOfficePage.clickButtonPlaceOrder();
 
-			assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+			assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 			boxOfficePage.clickBackToBoxOfficeButton();
 		} else {
@@ -1366,7 +1366,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("Card number",cardNumberInvalid);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is invalid.");
 
@@ -1378,7 +1378,7 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
 
@@ -1388,11 +1388,11 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration year is in the past.");
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
 
@@ -1400,7 +1400,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("Card number", cardNumberValid);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration date is incomplete.");
 
@@ -1410,7 +1410,7 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's security code is incomplete.");
 
@@ -1420,12 +1420,12 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("CVC", cvc);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your postal code is incomplete.");
 
 
-			boxOfficePage.clickBackToTickets();	
+			boxOfficePage.clickBackToTickets();
 		}
 		assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}
@@ -1443,13 +1443,13 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isLoginButtonDisplayed());
 	}
-	
+
 	@Description("Login Account Staff - Auto and Open Box Office")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void StaffManual_001_OpenUrlLoginAccount() {
 		boxOfficePage.authenAlert();
-		
+
 		boxOfficePage.loginAccount(emailStaffAuto,passwordStaffAuto);
 
 		boxOfficePage.clickToLoginButton();
@@ -1512,7 +1512,7 @@ public class Box_Office extends BaseTest{
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
@@ -1527,9 +1527,9 @@ public class Box_Office extends BaseTest{
 		assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");		
+		assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
 		assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
@@ -1543,7 +1543,7 @@ public class Box_Office extends BaseTest{
 
 		String boxOfficeInformationWindowID = driver.getWindowHandle();
 		driver.close();
-		boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);	
+		boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);
 	}
 
 	@Description("Select venue and event")
@@ -1599,7 +1599,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonPlaceOrder();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1610,7 +1610,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1670,7 +1670,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonPlaceOrder();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1681,7 +1681,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1743,7 +1743,7 @@ public class Box_Office extends BaseTest{
 
 		boxOfficePage.clickButtonAuthorizeTestPayment();
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1754,7 +1754,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1859,10 +1859,10 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.clickButtonChargeCard();
 
-			assertTrue(boxOfficePage.isTapOrInsertTextDisplayed());	
+			assertTrue(boxOfficePage.isTapOrInsertTextDisplayed());
 		}
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1873,7 +1873,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -1975,10 +1975,10 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("ZIP", zip);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();		
+			boxOfficePage.clickButtonPlaceOrder();
 		}
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button View Order
 		String PageOrderSuccess = driver.getWindowHandle();
@@ -1989,7 +1989,7 @@ public class Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(PageViewOrder);
 
-		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order
 		boxOfficePage.clickToMoreMenuButton();
@@ -2052,7 +2052,7 @@ public class Box_Office extends BaseTest{
 		if ((boxOfficePage.getTextTotalAmountOrder()).equals("0$")) {
 			boxOfficePage.clickButtonPlaceOrder();
 
-			assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());	
+			assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 			boxOfficePage.clickBackToBoxOfficeButton();
 		} else {
@@ -2060,7 +2060,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("Card number",cardNumberInvalid);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is invalid.");
 
@@ -2072,7 +2072,7 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
 
@@ -2082,11 +2082,11 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration year is in the past.");
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card number is incomplete.");
 
@@ -2094,7 +2094,7 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("Card number", cardNumberValid);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's expiration date is incomplete.");
 
@@ -2104,7 +2104,7 @@ public class Box_Office extends BaseTest{
 
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your card's security code is incomplete.");
 
@@ -2114,12 +2114,12 @@ public class Box_Office extends BaseTest{
 			boxOfficePage.inputInfoCardManual("CVC", cvc);
 			boxOfficePage.switchToDefaultContent();
 
-			boxOfficePage.clickButtonPlaceOrder();	
+			boxOfficePage.clickButtonPlaceOrder();
 
 			assertEquals(boxOfficePage.getErrorMessageChargeCard(),"Your postal code is incomplete.");
 
 
-			boxOfficePage.clickBackToTickets();	
+			boxOfficePage.clickBackToTickets();
 		}
 		assertTrue(boxOfficePage.isOrderBoxOfficeTextDisplayed());
 	}

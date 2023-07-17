@@ -79,7 +79,7 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.clickShowLeftMenu();
 
 		rewardPage.clickToItemOfLeftMenu("Marketing");
-		
+
 		rewardPage.clickToItemOfListTicketing("Rewards");
 	}
 	
@@ -91,14 +91,14 @@ public class Feature_Reward extends BaseTest{
 	public void RewardList_001_CreateRewardFail() {
 		rewardPage.clickToAddButton("Reward");
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Create Reward"));
-		
+
 		rewardPage.clickToSaveButton();
 		verifyEquals(rewardPage.getTextOfAlert(), "Validation failed: Title name can't be blank, Points must be a number, "
 				+ "Points can't be blank, Points is not a number, Quantity must be a number, Quantity can't be blank, Quantity is not a number, "
 				+ "Start sales date can't be blank, End sales date can't be blank");
 		rewardPage.clickToCloseAlertButton();
 
-		
+
 		rewardPage.inputToTextboxNamePopup("Name",rewardName);
 		rewardPage.inputToTextboxPlaceholderPopup("Start date", startDate);
 		rewardPage.inputToTextboxPlaceholderPopup("End date", endDateInvalid);
@@ -114,12 +114,12 @@ public class Feature_Reward extends BaseTest{
 				+ "The end date can not before the current time");
 		rewardPage.clickToCloseAlertButton();
 
-		rewardPage.clickToClosePopupButton();	
+		rewardPage.clickToClosePopupButton();
 		rewardPage.refreshToPage(driver);
 
 
 	}
-	
+
 
 	@Description("Create Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
@@ -127,7 +127,7 @@ public class Feature_Reward extends BaseTest{
 	public void RewardList_002_CreateRewardSuccess() {
 		rewardPage.clickToAddButton("Reward");
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Create Reward"));
-		
+
 		rewardPage.inputToTextboxNamePopup("Name",rewardName);
 		rewardPage.inputToTextboxPlaceholderPopup("Start date", startDate);
 		rewardPage.inputToTextboxPlaceholderPopup("End date", endDate);
@@ -141,8 +141,8 @@ public class Feature_Reward extends BaseTest{
 		verifyEquals(rewardPage.getTextOfAlert(), "1 Reward '" + rewardName + "' was created successfully");
 		rewardPage.clickToCloseAlertButton();
 		rewardPage.refreshToPage(driver);
-	}	
-	
+	}
+
 	@Description("Edit Reward - Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 4)
@@ -160,11 +160,11 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.inputToTextboxNamePopup("Qty",negativeNumber);
 		rewardPage.clickToSaveButton();
 		verifyEquals(rewardPage.getTextOfAlert(), "Reward can not be update when run out of redeems.");
-		rewardPage.clickToClosePopupButton();	
+		rewardPage.clickToClosePopupButton();
 		rewardPage.refreshToPage(driver);
 
-	}	
-	
+	}
+
 	@Description("Edit Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 5)
@@ -183,7 +183,7 @@ public class Feature_Reward extends BaseTest{
 		verifyTrue(rewardPage.getNameOfGiftCard(editRewardName));
 		verifyEquals(rewardPage.getTextOfAlert(), "Reward '" + editRewardName + "' was updated successfully.");
 		rewardPage.clickToCloseAlertButton();
-		
+
 		rewardPage.clickToActionButton(editRewardName,"Edit");
 		rewardPage.inputToTextboxNamePopup("Name",rewardName);
 		rewardPage.clickToSaveButton();
@@ -194,8 +194,8 @@ public class Feature_Reward extends BaseTest{
 
 
 	}
-	
-	
+
+
 	@Description("Switch Status Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 6)
@@ -207,7 +207,7 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.refreshToPage(driver);
 
 	}
-	
+
 	@Description("See Reward Page")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 7)
@@ -215,16 +215,16 @@ public class Feature_Reward extends BaseTest{
 		String rewardManagerPage = driver.getWindowHandle();
 		rewardPage.clickToActionButton(rewardName,"See Rewards Page");
 		rewardPage.switchToWindowByID(rewardManagerPage);
-				
+
 		rewardPage.clickToViewButtonOfReward(rewardName, "View");
-		
+
 		verifyEquals(rewardPage.getNameRewardOfPopup(rewardName), rewardName);
-		
+
 		String redeemRewardPage = driver.getWindowHandle();
 		driver.close();
 		rewardPage.switchToWindowByID(redeemRewardPage);
 	}
-	
+
 	@Description("Switch Status Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 8)
@@ -232,8 +232,8 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.clickToItemOfLeftMenu("Calendar");
 		rewardPage.clickToPrevButton();
 		rewardPage.clickToEvent(eventName);
-		String managerPage = driver.getWindowHandle();	
-		rewardPage.clickToLink("Preview");	
+		String managerPage = driver.getWindowHandle();
+		rewardPage.clickToLink("Preview");
 		rewardPage.switchToWindowByID(managerPage);
 
 		rewardPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
@@ -245,10 +245,10 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.inputInfoBuyerTextbox("Confirm Email", validEmail);
 
 		rewardPage.clickCheckboxAcceptTermsService();
-		
+
 		rewardPage.getTextTotalAmountOrder();
 		rewardPage.sleepInSecond(3);
-		
+
 		if ((rewardPage.getTextTotalAmountOrder()).equals("$0.00")) {
 			rewardPage.clickPlaceOrderButton();
 			assertTrue(rewardPage.isCheckoutSuccessTextDisplayed());
@@ -267,7 +267,7 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.clickRedeemRewardLink();
 		driver.close();
 		rewardPage.switchToWindowByID(buyOnlineSuccessWindowID);
-		
+
 		if (rewardPage.getPointOfUser()<rewardPage.getPointOfReward(rewardName)) {
 			rewardPage.clickToViewButtonOfReward(rewardName, "Redeem");
 		} else {
@@ -279,7 +279,7 @@ public class Feature_Reward extends BaseTest{
 		driver.close();
 		rewardPage.switchToWindowByID(redeemRewardPage);
 	}
-	
+
 
 	@Description("Switch Status Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
@@ -289,8 +289,8 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.clickToItemOfLeftMenu("Calendar");
 		rewardPage.clickToPrevButton();
 		rewardPage.clickToEvent(eventName);
-		String managerPage = driver.getWindowHandle();	
-		rewardPage.clickToLink("Preview");	
+		String managerPage = driver.getWindowHandle();
+		rewardPage.clickToLink("Preview");
 		rewardPage.switchToWindowByID(managerPage);
 
 		rewardPage.clickToDropDownSelectQuantityTicket(ticketNameValue, quantityTicketValue);
@@ -302,10 +302,10 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.inputInfoBuyerTextbox("Confirm Email", validEmail);
 
 		rewardPage.clickCheckboxAcceptTermsService();
-		
+
 		rewardPage.getTextTotalAmountOrder();
 		rewardPage.sleepInSecond(3);
-		
+
 		if ((rewardPage.getTextTotalAmountOrder()).equals("$0.00")) {
 			rewardPage.clickPlaceOrderButton();
 			assertTrue(rewardPage.isCheckoutSuccessTextDisplayed());
@@ -324,7 +324,7 @@ public class Feature_Reward extends BaseTest{
 		rewardPage.clickRedeemRewardLink();
 		driver.close();
 		rewardPage.switchToWindowByID(buyOnlineSuccessWindowID);
-		
+
 		if (rewardPage.getPointOfUser()<rewardPage.getPointOfReward(rewardName)) {
 			rewardPage.clickToViewButtonOfReward(rewardName, "Redeem");
 			rewardPage.getTextOfButtonRedeemDisable();
@@ -346,7 +346,7 @@ public class Feature_Reward extends BaseTest{
 	@Test(priority = 10)
 	public void RedeemList_001_OpenTabRedeemList() {
 		rewardPage.refreshToPage(driver);
-		rewardPage.clickShowLeftMenu();
+		//rewardPage.clickShowLeftMenu();
 		rewardPage.clickToItemOfLeftMenu("Marketing");
 		rewardPage.clickToItemOfListTicketing("Rewards");
 		

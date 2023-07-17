@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import io.qameta.allure.Step;
-import pageUIs.user.BuyOnlinePageUI;
+import pageUIs.user.*;
 
 public class UserBuyOnlinePageObject extends BasePage{
 
@@ -14,7 +14,61 @@ public class UserBuyOnlinePageObject extends BasePage{
 	public UserBuyOnlinePageObject(WebDriver driver) {
 		this.driver = driver;
 	}
+	//LOGIN
+	@Step("Click to button Login")
+	public void clickToLoginLink() {
+		waitForElementClickable(driver, BoxOfficePageUI.LOGIN_LINK);
+		clickToElement(driver, BoxOfficePageUI.LOGIN_LINK);
+	}
 
+	@Step("Input to Textbox Login {0} {1}")
+	public void inputToTextboxLogin(String field, String value) {
+		waitForElementVisible(driver, LoginPageUI.TEXTBOX_LOGIN, field);
+		sendkeyToElement(driver, LoginPageUI.TEXTBOX_LOGIN, value, field);
+	}
+
+	@Step("Login Account {0} {1}")
+	public void loginAccount(String email, String password) {
+		inputToTextboxLogin("email", email);
+		inputToTextboxLogin("password", password);
+
+	}
+
+	@Step("Click to button - Login")
+	public void clickToLoginButton() {
+		waitForElementClickable(driver,BoxOfficePageUI.LOGIN_BUTTON);
+		clickToElement(driver, BoxOfficePageUI.LOGIN_BUTTON);
+	}
+
+	@Step("Click open Left Menu")
+	public void clickShowLeftMenu() {
+		waitForElementClickable(driver,BoxOfficePageUI.LEFT_MENU_BUTTON);
+		clickToElement(driver, BoxOfficePageUI.LEFT_MENU_BUTTON);
+	}
+
+
+	@Step("Click to items of Left Menu - {0}")
+	public void clickToItemOfLeftMenu(String items) {
+		waitForElementClickable(driver, AttendeePageUI.ITEMS_LEFT_MENU, items);
+		clickToElement(driver, AttendeePageUI.ITEMS_LEFT_MENU, items);
+	}
+
+	@Step("Click to Prev Button")
+	public void clickToPrevButton() {
+		waitForElementClickable(driver, CouponPageUI.PREV_BUTTON);
+		clickToElement(driver, CouponPageUI.PREV_BUTTON);
+	}
+	@Step("Click to event - {0}")
+	public void clickToEvent(String nameOfEvent) {
+		waitForElementClickable(driver,ActionOfEventPageUI.EVENT_OF_CALENDAR_ON_SALE, nameOfEvent);
+		clickToElement(driver, ActionOfEventPageUI.EVENT_OF_CALENDAR_ON_SALE, nameOfEvent);
+	}
+
+	@Step("Click to event - {0}")
+	public void clickToLink(String nameOfLink) {
+		waitForElementClickable(driver,ActionOfEventPageUI.LINK_CANCEL_PREVIEW, nameOfLink);
+		clickToElement(driver, ActionOfEventPageUI.LINK_CANCEL_PREVIEW, nameOfLink);
+	}
 	@Step("Verify display text - Event Name")
 	public String getTextEventName() {
 		waitForElementVisible(driver, BuyOnlinePageUI.TEXT_EVENT_NAME);

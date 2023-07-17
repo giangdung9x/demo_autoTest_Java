@@ -40,14 +40,14 @@ public class PublicKioskPageUI {
 	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=//div[contains(text(), 'Please ')]";
 	public static final String DROPDOWN_QUANTITY_TICKET = "xpath=//select[@data-name='%s']";
 	public static final String TEXT_CHECKOUT = "xpath=//b[text()='Checkout']";
-	public static final String BUTTON_KIOSK = "xpath=//a[@href='#']";
+	public static final String BUTTON_KIOSK = "xpath=//a[@class='font-semibold text-light']";
 	
-	public static final String CARD_READER_NAME = "xpath=//label[@for='reader_0']";
+	public static final String CARD_READER_NAME = "xpath=//label[@for='reader_tmr_FK3gSQIUxoNFF0']"; //update because ID of card update
 	public static final String BUTTON_CHARGE_CARD = "xpath=//button[text()='Charge card']";
 	public static final String TEXT_TAP_TO_INSERT_PAYMENT = "xpath=//div[contains(text(), 'Tap or insert payment method...')]";
 	public static final String TEXT_SUCCESS_PLEASE_WAIT = "xpath=//span[text()='Success! Please wait for your tickets to be printed.']";
 	public static final String TEXT_PLEASE_TAKE_YOUR_TICKETS = "xpath=//h3[text()='Please take your tickets']";
-	public static final String RADIO_BUTTON_CARD_READER = "xpath=//label[@xpath='1']";
+	public static final String RADIO_BUTTON_CARD_READER = "xpath=//label[@for='reader_tmr_FK3gSQIUxoNFF0']";//update because ID of card update
 	
 	public static final String BUTTON_CANCEL_PAYMENT = "xpath=//a[text()='Cancel']";
 	public static final String TEXT_PAYMENT_METHOD_DECLINED = "xpath=//h3[text()='Payment method declined']";
@@ -55,5 +55,7 @@ public class PublicKioskPageUI {
 	public static final String DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']";
 	public static final String VALUE_DROPDOWN_TICKET = "xpath=//select[@data-name='vip3']//option[@value='1']";
 
+	public static final String KIOSK_BUTTON_PAYMENT_SCREEN = "xpath=(//a[text()='Kiosk'])[2]";
 
+	public static final String READER_NAME_CHECKOUT_SCREEN = "xpath=//label[normalize-space()='%s']";
 }

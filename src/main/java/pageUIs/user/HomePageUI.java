@@ -15,7 +15,7 @@ public class HomePageUI {
 	public static final String TEXT_CONCESSIONS = "xpath=//h2[text()='Please choose an event that you want to work on:']";
 	public static final String LOGOUT_CONCESSIONS_BUTTON = "xpath=//a[text()='Log out']";
 	
-	public static final String ITEMS_LEFT_MENU = "xpath=(//span[text()='%s'])[1]";
-	public static final String ITEMS_OF_LIST_TICKETING = "xpath=//span[text()='%s']";
+	public static final String ITEMS_LEFT_MENU = "xpath=(//span[text()='%s'])[1]"; //All item of left menu
+	public static final String ITEMS_OF_LIST_TICKETING = "xpath=(//a[text()='%s'])[1]"; //Account: Help - Signout
 	
 }

@@ -338,5 +338,15 @@ public class UserPublicKioskObject extends BasePage{
 		waitForElementClickable(driver,PublicKioskPageUI.VALUE_DROPDOWN_TICKET);
 		clickToElement(driver, PublicKioskPageUI.VALUE_DROPDOWN_TICKET);	
 	}
+	@Step("Choose card reader {0}")
+	public void clickToChooseCardReader(String readerName) {
+		waitForElementClickable(driver,PublicKioskPageUI.READER_NAME_CHECKOUT_SCREEN, readerName);
+		checkToDefaultCheckboxOrRadio(driver, PublicKioskPageUI.READER_NAME_CHECKOUT_SCREEN, readerName);
+	}
 
+	@Step("Click to button - Kiosk - of Payment screen")
+	public void clickToKioskButtonPaymentScreen() {
+		waitForElementClickable(driver,PublicKioskPageUI.KIOSK_BUTTON_PAYMENT_SCREEN);
+		clickToElement(driver, PublicKioskPageUI.KIOSK_BUTTON_PAYMENT_SCREEN);
+	}
 }

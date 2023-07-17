@@ -89,10 +89,10 @@ public class Forgot_Password extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void ForgotPassword_005_ExistingEmail() {
-	
+
 		forgotPasswordPage.inputToEmailTextbox(existingEmail);
 
-		forgotPasswordPage.clickToResetPasswordButton();	
+		forgotPasswordPage.clickToResetPasswordButton();
 	}
 
 

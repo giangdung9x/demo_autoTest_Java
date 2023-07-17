@@ -38,7 +38,7 @@ public class BoxOfficePageUI {
 	public static final String VALUE_DROPDOWN_EVENT = "xpath=//li[contains(text(), '%s')]";
 	
 	public static final String BUTTON_CHECK_OUT_OR_ADD_CART = "xpath=//button[text()='%s']";
-	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=//div[contains(@class, 'error-message')]";
+	public static final String ERROR_MESSAGE_EMPTY_DATA = "xpath=(//div[contains(@class, 'error-message')])[2]";
 	public static final String DROPDOWN_QUANTITY_TICKET = "xpath=//select[@data-name='%s']";
 
 	public static final String RADIO_BUTTON_PAYMENT_CHECKOUT ="xpath=(//span[text()='%s'])[1]";
