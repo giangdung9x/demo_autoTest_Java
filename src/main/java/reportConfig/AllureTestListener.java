@@ -87,7 +87,7 @@ public class AllureTestListener implements ITestListener {
 
 	private void writeTestResultToFile() {
 		try {
-			createResultFile1("test-result.txt");
+			createResultFile("test-result.txt");
 //			deleteResultFile();
 			String reportPath = "test-result.txt";
 			StringBuilder contentBuilder = new StringBuilder();
@@ -162,7 +162,7 @@ public class AllureTestListener implements ITestListener {
 		email = new Email(host, port, username, password, from, recipients);
 		EmailUtil emailSender = new EmailUtil();
 		emailSender.sendEmail(email);
-		deleteResultFile1("test-result.txt");
+//		deleteResultFile("test-result.txt");
 	}
 
 	private void writeTestResultToAllure(String className, String description, String testName, String status) {
@@ -197,7 +197,7 @@ public class AllureTestListener implements ITestListener {
 		}
 	}
 
-	public static void createResultFile1(String filePath) {
+	public static void createResultFile(String filePath) {
 		try {
 			Path path = Path.of(filePath);
 
@@ -213,18 +213,18 @@ public class AllureTestListener implements ITestListener {
 		}
 	}
 
-	public static void deleteResultFile1(String filePath) {
-		try {
-			Path path = Path.of(filePath);
-
-			if (Files.exists(path)) {
-				Files.delete(path);
-				System.out.println("Đã xóa tệp tin " + filePath);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void deleteResultFile(String filePath) {
+//		try {
+//			Path path = Path.of(filePath);
+//
+//			if (Files.exists(path)) {
+//				Files.delete(path);
+//				System.out.println("Đã xóa tệp tin " + filePath);
+//			}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 
 }

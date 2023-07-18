@@ -29,11 +29,14 @@ pipeline {
         success {
             script {
                 notifyBuild('SUCCESSFUL')
+                deleteResultFile()
+
             }
         }
         failure {
             script {
                 notifyBuild('FAILURE')
+                deleteResultFile()
             }
         }
     }
@@ -85,4 +88,14 @@ def getTestCaseFailCount() {
     def testCaseFailCount = fileContent.readLines().count { line -> line.contains('FAILED') }
 
     return testCaseFailCount
+}
+
+def deleteResultFile() {
+    try {
+        String filePath = 'test-result.txt'
+        sh "rm ${filePath}"
+        echo "Đã xóa tệp tin ${filePath}"
+    } catch (Exception e) {
+        echo "Đã xảy ra lỗi khi xóa tệp tin: ${e.getMessage()}"
+    }
 }
