@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import EmailConfig.Email;
+import EmailConfig.EmailUtil;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -85,7 +87,8 @@ public class AllureTestListener implements ITestListener {
 
 	private void writeTestResultToFile() {
 		try {
-			deleteResultFile();
+			createResultFile1("test-result.txt");
+//			deleteResultFile();
 			String reportPath = "test-result.txt";
 			StringBuilder contentBuilder = new StringBuilder();
 			contentBuilder.append(String.format("Total Tests: %d\n", totalTests));
@@ -146,6 +149,20 @@ public class AllureTestListener implements ITestListener {
 	@Override
 	public void onFinish(ITestContext context) {
 		writeTestResultToFile();
+		// Gọi EmailSender ở đây sau khi tất cả các bài kiểm tra tự động đã hoàn thành
+		String host = "smtp.gmail.com";
+		String port = "465";
+		String username = "dangthigiang@mobilefolk.com";
+		String password = "reddrrnvnzfivmkz";
+		String from = "dangthigiang@mobilefolk.com";
+		String[] recipients = {"danggiangmf@gmail.com"};
+		//String[] recipients = {"Khanhthi455@gmail.com", "manh@mobilefolk.com", "toan@mobilefolk.com", "viet@mobilefolk.com", "hoangn@mobilefolk.com"};
+
+		Email email;
+		email = new Email(host, port, username, password, from, recipients);
+		EmailUtil emailSender = new EmailUtil();
+		emailSender.sendEmail(email);
+		deleteResultFile1("test-result.txt");
 	}
 
 	private void writeTestResultToAllure(String className, String description, String testName, String status) {
@@ -180,6 +197,34 @@ public class AllureTestListener implements ITestListener {
 		}
 	}
 
+	public static void createResultFile1(String filePath) {
+		try {
+			Path path = Path.of(filePath);
+
+			Path parentDir = path.getParent();
+			if (parentDir != null && !Files.exists(parentDir)) {
+				Files.createDirectories(parentDir);
+			}
+
+			Files.createFile(path);
+			System.out.println("Đã tạo tệp tin " + filePath + " mới");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void deleteResultFile1(String filePath) {
+		try {
+			Path path = Path.of(filePath);
+
+			if (Files.exists(path)) {
+				Files.delete(path);
+				System.out.println("Đã xóa tệp tin " + filePath);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 }

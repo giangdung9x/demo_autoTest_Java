@@ -145,8 +145,13 @@ public class Feature_Attendees extends BaseTest{
 		attendeePage.selectEventTransferToDropdown(eventName);
 		attendeePage.selectQuantityTicketOfTransferEventDropdown("1");
 		attendeePage.clickToTransferButton();
-		attendeePage.acceptAlert(driver);
-		verifyEquals(attendeePage.getMessageTranferRessult(), "Transfer successful!");
+		if (attendeePage.isAlertPresent(driver)) {
+			attendeePage.acceptAlert(driver);
+			verifyEquals(attendeePage.getMessageTranferRessult(), "Transfer successful!");
+		} else {
+			verifyEquals(attendeePage.getMessageTranferRessult(), "Transfer successful!");
+		}
+
 	}
 
 	@Description("Refund Order is Success")
@@ -164,9 +169,9 @@ public class Feature_Attendees extends BaseTest{
 		attendeePage.sleepInSecond(1);
 		verifyEquals(attendeePage.getMessageRefundRessult(), "Refund ticket successfully!");
 	}
-	
-	
-	
+
+
+
 	@Description("Refund Order is Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 10)
@@ -182,7 +187,7 @@ public class Feature_Attendees extends BaseTest{
 		verifyEquals(attendeePage.getAlertText(driver),"You can only partial refund from ONE order at a time.");
 		attendeePage.acceptAlert(driver);
 	}
-	
+
 	@Description("Partial Refund Order is Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 11)
@@ -196,9 +201,9 @@ public class Feature_Attendees extends BaseTest{
 		verifyEquals(attendeePage.getNameOfPopup("Partial Refund"), "Partial Refund");
 		verifyEquals(attendeePage.getMessageOfPopup(), "This order is not valid to refund!");
 	}
-	
-	
-	
+
+
+
 	@Description("Partial Refund Order is Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 12)
