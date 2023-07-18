@@ -23,7 +23,7 @@ import static org.testng.Assert.assertFalse;
 public class Actions_Of_Event extends BaseTest{
 	private UserActionOfEventPageObject eventPage;
 	private String emailManager, passwordManager;
-	private String dayStart, dayEnd, dayEndInValid,eventName,eventNameNew, dayStartAfter, dayEndAfter;
+	private String dayStart, dayEnd, dayEndInValid,eventName,eventNameNew, dayStartAfter, dayEndAfter, dayStartCopy;
 	private String fullName, phone, validEmail;
 	private String cardNumberValid, monthYearValid, cvc, zip;
 	private String ticketName, quantity;
@@ -38,14 +38,15 @@ public class Actions_Of_Event extends BaseTest{
 		
 		emailManager ="paulv@showslinger.com";
 		passwordManager = "12345";
-		dayStart = "16/06/2023";
-		dayEnd = "30/06/2023";
+		dayStart = "12/07/2023";
+		dayEnd = "30/07/2023";
 		dayEndInValid = "12/06/2023";
 		eventName = "Test" + " "+ dayStart +" "+generateFakeNumber();
 		eventNameNew = "Test"+ " " +generateFakeNumber();
 
-		dayStartAfter ="15/06/2023";
-		dayEndAfter = "30/06/2023";
+		dayStartCopy ="15/07/2023";
+		dayStartAfter ="15/07/2023";
+		dayEndAfter = "30/07/2023";
 		
 		fullName = "Dang Thi Giang";
 		phone = "+128379292999";
@@ -213,7 +214,7 @@ public class Actions_Of_Event extends BaseTest{
 		eventPage.clickToButtonFooter("Copy ticket");
 		assertTrue(eventPage.isNameOfPopupDisplayed("Copy Ticket"));
 		
-		eventPage.inputValueTimesDay("Choose new day:", dayStart);
+		eventPage.inputValueTimesDay("Choose new day:", dayStartCopy);
 		
 		eventPage.clickToUpdateButton("Copy");
 
@@ -271,10 +272,8 @@ public class Actions_Of_Event extends BaseTest{
 	@Test(priority = 10)
 	public void DeleteTicket_001_DeleteTicketFail() {
 		eventPage.refreshToPage(driver);
-
 		eventPage.clickToEventCopy(eventName);
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
-		
 		eventPage.clickToButtonFooter("Delete");
 		assertTrue(eventPage.isNameOfPopupDisplayed("Delete Ticket?"));
 
@@ -285,12 +284,10 @@ public class Actions_Of_Event extends BaseTest{
 	@Description("DeleteTicket - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 11)
-	public void DeleteTicke_002_DeleteTicketSuccess() {
+	public void DeleteTicket_002_DeleteTicketSuccess() {
 		eventPage.refreshToPage(driver);
-
 		eventPage.clickToEventCopy(eventName);
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
-		
 		eventPage.clickToButtonFooter("Delete");
 		assertTrue(eventPage.isNameOfPopupDisplayed("Delete Ticket?"));
 		

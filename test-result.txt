@@ -1,26 +1,21 @@
-Total Tests: 17
-Passed Tests: 17
+Total Tests: 12
+Passed Tests: 12
 Failed Tests: 0
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Feature_Reward: 17
-Failed Tests in showslinger_user.Feature_Reward: 0
-Skipped Tests in showslinger_user.Feature_Reward: 0
+Passed Tests in showslinger_user.Feature_Attendees: 12
+Failed Tests in showslinger_user.Feature_Attendees: 0
+Skipped Tests in showslinger_user.Feature_Attendees: 0
 
-showslinger_user.Feature_Reward - Reward_OpenUrlAndLogin - null - PASSED
-showslinger_user.Feature_Reward - RewardList_001_CreateRewardFail - null - PASSED
-showslinger_user.Feature_Reward - RewardList_002_CreateRewardSuccess - null - PASSED
-showslinger_user.Feature_Reward - RewardList_003_EditRewardFail - null - PASSED
-showslinger_user.Feature_Reward - RewardList_004_EditRewardSuccess - null - PASSED
-showslinger_user.Feature_Reward - RewardList_006_SwitchStatusRewardSuccess - null - PASSED
-showslinger_user.Feature_Reward - RewardList_007_SeeRewardPage - null - PASSED
-showslinger_user.Feature_Reward - RedeemReward_001_RedeemFail - null - PASSED
-showslinger_user.Feature_Reward - RedeemReward_002_RedeemSuccess - null - PASSED
-showslinger_user.Feature_Reward - RedeemList_001_OpenTabRedeemList - null - PASSED
-showslinger_user.Feature_Reward - RedeemList_002_SwitchStatusFromWaiting - null - PASSED
-showslinger_user.Feature_Reward - RedeemList_003_SwitchStatusFromUnredeemed - null - PASSED
-showslinger_user.Feature_Reward - RedeemList_004_SwitchStatusFromRedeemed - null - PASSED
-showslinger_user.Feature_Reward - RedeemList_005_SwitchStatusFromRefunded - null - PASSED
-showslinger_user.Feature_Reward - RedeemList_006_SwitchStatusFromVoided - null - PASSED
-showslinger_user.Feature_Reward - RedeemList_007_SwitchStatusFail - null - PASSED
-showslinger_user.Feature_Reward - RewardList_007_DeleteReward - null - PASSED
+showslinger_user.Feature_Attendees - Attendee_001_OpenUrl - null - PASSED
+showslinger_user.Feature_Attendees - Transfer_001_TransferOrderComplete_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Transfer_002_TransferOrderPending_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Transfer_003_TransferOrderRefund_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Transfer_004_TransferOrderPartialRefund_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Transfer_005_TransferOrderVoid_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Transfer_006_TransferOrderTransferred_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Transfer_007_TransferOrderComplete_Success - null - PASSED
+showslinger_user.Feature_Attendees - Refund_001_RefundOrderSuccess - null - PASSED
+showslinger_user.Feature_Attendees - Refund_001_PartialRefundOrder_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Refund_002_PartialRefundOrderRefund_Fail - null - PASSED
+showslinger_user.Feature_Attendees - Refund_003_PartialRefundOrder_Success - null - PASSED

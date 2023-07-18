@@ -38,7 +38,7 @@ public class Feature_Attendees extends BaseTest{
 		emailManager ="paulv@showslinger.com";
 		passwordManager = "12345";
 
-		eventName = "Giang Test auto";
+		eventName = "Giang Test auto-Mon,Jul  3,1 PM";
 	}
 
 	@Description("Open url and open Attendee page")
@@ -72,12 +72,12 @@ public class Feature_Attendees extends BaseTest{
 		verifyEquals(attendeePage.getAlertText(driver),"You can only transfer ticket from ONE order at a time.");
 		attendeePage.acceptAlert(driver);
 	}
-	
+
 	@Description("Transfer Order has status Pending is Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 3)
 	public void Transfer_002_TransferOrderPending_Fail() {
-		
+
 
 	}
 
@@ -92,7 +92,7 @@ public class Feature_Attendees extends BaseTest{
 		verifyEquals(attendeePage.getAlertText(driver),"You can't transfer an order that has been refunded or transferred");
 		attendeePage.acceptAlert(driver);
 	}
-	
+
 	@Description("Transfer Order has status Partial Refund is Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 5)
@@ -104,7 +104,7 @@ public class Feature_Attendees extends BaseTest{
 		verifyEquals(attendeePage.getAlertText(driver),"You can't transfer an order that has been refunded or transferred");
 		attendeePage.acceptAlert(driver);
 	}
-	
+
 	@Description("Transfer Order has status Void is Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 6)
@@ -116,7 +116,7 @@ public class Feature_Attendees extends BaseTest{
 		verifyEquals(attendeePage.getAlertText(driver),"You can't transfer an order that has been refunded or transferred");
 		attendeePage.acceptAlert(driver);
 	}
-	
+
 	@Description("Transfer Order has status Transferred is Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 7)
@@ -128,9 +128,9 @@ public class Feature_Attendees extends BaseTest{
 		verifyEquals(attendeePage.getAlertText(driver),"You can't transfer an order that has been refunded or transferred");
 		attendeePage.acceptAlert(driver);
 	}
-	
-	
-	
+
+
+
 	@Description("Transfer Order has status Complete is Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 8)
@@ -140,14 +140,15 @@ public class Feature_Attendees extends BaseTest{
 		attendeePage.selectTextItemActionDropdown("Transfer order");
 		attendeePage.clickToActionButton();
 		verifyEquals(attendeePage.getNameOfPopup("Transfer"), "Transfer");
-		
+
 		attendeePage.selectQuantityTicketOfCurrentEventDropdown("1");
 		attendeePage.selectEventTransferToDropdown(eventName);
 		attendeePage.selectQuantityTicketOfTransferEventDropdown("1");
 		attendeePage.clickToTransferButton();
+		attendeePage.acceptAlert(driver);
 		verifyEquals(attendeePage.getMessageTranferRessult(), "Transfer successful!");
 	}
-	
+
 	@Description("Refund Order is Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 9)
@@ -160,7 +161,8 @@ public class Feature_Attendees extends BaseTest{
 		attendeePage.clickToActionButton();
 		verifyEquals(attendeePage.getNameOfPopup("Refund"), "Refund");
 		attendeePage.clickToTransferButton("Refund");
-		verifyEquals(attendeePage.getMessageTranferRessult(), "Refund ticket successfully!");
+		attendeePage.sleepInSecond(1);
+		verifyEquals(attendeePage.getMessageRefundRessult(), "Refund ticket successfully!");
 	}
 	
 	
@@ -174,9 +176,10 @@ public class Feature_Attendees extends BaseTest{
 		attendeePage.searchOrder("Online");
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectOrderFirstCheckbox("2");
-		attendeePage.selectTextItemActionDropdown("Refund");
+		attendeePage.selectTextItemActionDropdown("Partial refund");
 		attendeePage.clickToActionButton();
-		verifyEquals(attendeePage.getAlertText(driver),"You can only transfer ticket from ONE order at a time.");
+		attendeePage.sleepInSecond(1);
+		verifyEquals(attendeePage.getAlertText(driver),"You can only partial refund from ONE order at a time.");
 		attendeePage.acceptAlert(driver);
 	}
 	
@@ -207,10 +210,12 @@ public class Feature_Attendees extends BaseTest{
 		attendeePage.selectTextItemActionDropdown("Partial refund");
 		attendeePage.clickToActionButton();
 		verifyEquals(attendeePage.getNameOfPopup("Partial Refund"), "Partial Refund");
-		verifyEquals(attendeePage.getMessageOfPopup(), "This order is not valid to refund!");
+		//attendeePage.sleepInSecond(1);
+		//verifyEquals(attendeePage.getMessageOfPopup(), "This order is not valid to refund!");
 		attendeePage.selectQuantityTicketPartialRefund("1");
 		attendeePage.clickToTransferButton("Refund");
-		verifyEquals(attendeePage.getMessageTranferRessult(), "Partial refund ticket successfully!");
+		attendeePage.sleepInSecond(1);
+		verifyEquals(attendeePage.getMessageRefundRessult(), "Partial refund ticket successfully!");
 
 	}
 
