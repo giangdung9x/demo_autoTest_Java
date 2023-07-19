@@ -15,11 +15,7 @@ import commons.BasePage;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
-import pageUIs.user.ActionOfEventPageUI;
-import pageUIs.user.BoxOfficePageUI;
-import pageUIs.user.BuyOnlinePageUI;
-import pageUIs.user.GiftCardPageUI;
-import pageUIs.user.HomePageUI;
+import pageUIs.user.*;
 import org.openqa.selenium.interactions.Actions;
 
 
@@ -79,6 +75,12 @@ public class UserGiftCardPageObject extends BasePage{
 	public void clickToItemOfListTicketing(String items) {
 		waitForElementClickable(driver,GiftCardPageUI.ITEMS_OF_LIST_TICKETING, items);
 		clickToElement(driver, GiftCardPageUI.ITEMS_OF_LIST_TICKETING, items);	
+	}
+
+	@Step("Click to items of List Marketing - {0}")
+	public void clickToItemOfListMarketing(String items) {
+		waitForElementClickable(driver,GiftCardPageUI.ITEMS_OF_LIST_MARKETING, items);
+		clickToElement(driver, GiftCardPageUI.ITEMS_OF_LIST_MARKETING, items);
 	}
 
 	@Step("Click to button - Add {0}")
@@ -166,7 +168,17 @@ public class UserGiftCardPageObject extends BasePage{
 		clickToValueOfPopup(value);
 
 	}
-	
+	@Step("Toggle On Sale = ON")
+	public void clickToToggleOnSale() {
+		waitForElementClickable(driver, GiftCardPageUI.TOOGLE_ON_SALE);
+		clickToElement(driver, GiftCardPageUI.TOOGLE_ON_SALE);
+	}
+
+	public void clickToField() {
+		waitForElementClickable(driver, GiftCardPageUI.UPLOAD_FIELD_ON_POPUP);
+		clickToElement(driver, GiftCardPageUI.UPLOAD_FIELD_ON_POPUP);
+	}
+
 	@Step("Click to button - Select all ticket")
 	public void clickToSelectAllTicketButton() {
 		waitForElementClickable(driver,GiftCardPageUI.SELECT_ALL_BUTTON);

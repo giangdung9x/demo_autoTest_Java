@@ -21,7 +21,7 @@ import static org.testng.Assert.assertFalse;
 public class Feature_Gift_Card extends BaseTest{
 	private UserGiftCardPageObject giftCardPage;
 	private String emailManager, passwordManager,startDate, endDate, accessCode;
-	private String giftCard, giftCardAccessCode, eventName, eventNameAccess;
+	private String giftCard, giftCardAccessCode, eventName, eventNameAccess, eventNameGiftCard;
 	private String ticketName, quantityTicket, quantityGiftCard;
 	private String negativeLimit, giftCardCode;
 	private String fullName, phone, validEmail;
@@ -44,9 +44,9 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCard =  "Gift Card" + " "+ generateFakeNumber();
 		giftCardAccessCode =  "Gift Card Access Code" + " "+ generateFakeNumber();
 
-		eventName = "Giang Test auto";
-		eventNameAccess = "Giang Test 07";
-		
+		eventName = "Event Gift Card 1";
+		eventNameAccess = "Event Gift Card 2";
+
 		ticketName ="vip3";
 		quantityTicket ="2";
 		quantityGiftCard ="1";
@@ -77,7 +77,7 @@ public class Feature_Gift_Card extends BaseTest{
 
 		giftCardPage.clickToItemOfLeftMenu("Marketing");
 		
-		giftCardPage.clickToItemOfListTicketing("Gift cards");
+		giftCardPage.clickToItemOfListMarketing("Gift cards");
 		
 		verifyTrue(giftCardPage.isTextNameOfScreenDisplayed("Gift Cards"));
 	}
@@ -109,9 +109,10 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.inputToTextboxPlaceholderPopup("Start date", startDate);
 		giftCardPage.inputToTextboxPlaceholderPopup("End date", endDate);
 		giftCardPage.inputToTextboxPrice("10");
+		giftCardPage.clickToField();
 		giftCardPage.clickToValueOfDropdownOfPopup("Select event", eventNameAccess);	
-		//giftCardPage.clickToToggle();
-		giftCardPage.sleepInSecond(5); //open On Sale
+		giftCardPage.clickToToggleOnSale();
+		giftCardPage.sleepInSecond(3);
 		giftCardPage.clickToSaveButton();
 		verifyTrue(giftCardPage.getNameOfGiftCard(giftCard));
 	}	
@@ -120,7 +121,7 @@ public class Feature_Gift_Card extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 4)
 	public void GiftCard_003_CreateGiftCardAccessSuccess() {
-	giftCardPage.clickToAddButton("Gift Card");
+		giftCardPage.clickToAddButton("Gift Card");
 		
 		verifyTrue(giftCardPage.isTextNameOfPopupDisplayed("Create Gift Card"));
 		
@@ -129,10 +130,11 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.inputToTextboxPlaceholderPopup("Start date", startDate);
 		giftCardPage.inputToTextboxPlaceholderPopup("End date", endDate);
 		giftCardPage.inputToTextboxPrice("10");
+		giftCardPage.clickToField();
 		giftCardPage.clickToValueOfDropdownOfPopup("Select event", eventNameAccess);	
 		giftCardPage.inputToTextboxNamePopup("Access code",accessCode);
-		//giftCardPage.clickToToggle();
-		giftCardPage.sleepInSecond(5); //open On Sale
+		giftCardPage.clickToToggleOnSale();
+		giftCardPage.sleepInSecond(3);
 		giftCardPage.clickToSaveButton();
 		verifyTrue(giftCardPage.getNameOfGiftCard(giftCardAccessCode));
 	}	
@@ -143,7 +145,7 @@ public class Feature_Gift_Card extends BaseTest{
 	public void BuyGiftCard_NeedAccessCode() {	
 
 		giftCardPage.clickToItemOfLeftMenu("Calendar");
-		giftCardPage.clickToPrevButton();
+		//giftCardPage.clickToPrevButton();
 		giftCardPage.clickToEvent(eventNameAccess);
 		String managerPage = driver.getWindowHandle();	
 		giftCardPage.clickToLink("Preview");	
@@ -154,6 +156,7 @@ public class Feature_Gift_Card extends BaseTest{
 		assertEquals(giftCardPage.getSuccessMessage(),"Retrieved a secret gift card.");
 
 		giftCardPage.clickToDropDownSelectQuantityGiftCard(giftCardAccessCode, quantityGiftCard);
+		giftCardPage.sleepInSecond(3);
 		giftCardPage.clickToAgreeCheckoutButton();
 
 		giftCardPage.inputInfoBuyerTextbox("Full Name", fullName);
@@ -167,17 +170,17 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.sleepInSecond(3);
 		
 		if ((giftCardPage.getTextTotalAmountOrder()).equals("0$")) {
+			giftCardPage.sleepInSecond(3);
 			giftCardPage.clickPlaceOrderButton();
 			assertTrue(giftCardPage.isCheckoutSuccessTextDisplayed());
 		} else {
-
 			giftCardPage.switchToFrameIframe();
 			giftCardPage.inputInfoCardManual("Card number", cardNumberValid);
 			giftCardPage.inputInfoCardManual("MM / YY", monthYearValid);
 			giftCardPage.inputInfoCardManual("CVC", cvc);
 			giftCardPage.inputInfoCardManual("ZIP", zip);
 			giftCardPage.switchToDefaultContent();
-
+			giftCardPage.sleepInSecond(3);
 			giftCardPage.clickPlaceOrderButton();
 			assertTrue(giftCardPage.isCheckoutSuccessTextDisplayed());
 		}
@@ -249,7 +252,7 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.refreshToPage(driver);
 	}
 	
-	@Description("Apply For Box Office - Gift Card - Success")
+	@Description("Apply For Box Office - Gift Card - Invalid")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 9)
 	public void ApplyGiftCard_004_ApplyForBoxMultiGiftCardTicketInvalid() {
@@ -278,6 +281,7 @@ public class Feature_Gift_Card extends BaseTest{
 		assertEquals(giftCardPage.getSuccessMessage(),"Retrieved a secret gift card.");
 
 		giftCardPage.clickToDropDownSelectQuantityGiftCard(giftCardAccessCode, quantityGiftCard);
+		giftCardPage.sleepInSecond(3);
 		giftCardPage.clickToAgreeCheckoutButton();
 
 		giftCardPage.inputInfoBuyerTextbox("Full Name", fullName);
@@ -290,7 +294,8 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.getTextTotalAmountOrder();
 		giftCardPage.sleepInSecond(3);
 		
-		if ((giftCardPage.getTextTotalAmountOrder()).equals("0$")) {
+		if ((giftCardPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			giftCardPage.sleepInSecond(3);
 			giftCardPage.clickPlaceOrderButton();
 			assertTrue(giftCardPage.isCheckoutSuccessTextDisplayed());
 		} else {
@@ -301,7 +306,7 @@ public class Feature_Gift_Card extends BaseTest{
 			giftCardPage.inputInfoCardManual("CVC", cvc);
 			giftCardPage.inputInfoCardManual("ZIP", zip);
 			giftCardPage.switchToDefaultContent();
-
+			giftCardPage.sleepInSecond(3);
 			giftCardPage.clickPlaceOrderButton();
 			assertTrue(giftCardPage.isCheckoutSuccessTextDisplayed());
 		}
@@ -369,6 +374,7 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.inputToTextboxCouponBuyOnline(giftCardCode);
 		giftCardPage.clickToSendCouponButton();
 //		assertEquals(giftCardPage.getSuccessMessage(),"Success! You can use this pass to reserve seats for these ticket levels");
+		giftCardPage.sleepInSecond(3);
 		giftCardPage.clickToAgreeCheckoutButton();
 
 		giftCardPage.inputInfoBuyerTextbox("Full Name", fullName);
@@ -382,7 +388,8 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.getTextTotalAmountOrder();
 		giftCardPage.sleepInSecond(3);
 		
-		if ((giftCardPage.getTextTotalAmountOrder()).equals("0$")) {
+		if ((giftCardPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			giftCardPage.sleepInSecond(3);
 			giftCardPage.clickPlaceOrderButton();
 			assertTrue(giftCardPage.isCheckoutSuccessTextDisplayed());
 		} else {
@@ -393,7 +400,7 @@ public class Feature_Gift_Card extends BaseTest{
 			giftCardPage.inputInfoCardManual("CVC", cvc);
 			giftCardPage.inputInfoCardManual("ZIP", zip);
 			giftCardPage.switchToDefaultContent();
-
+			giftCardPage.sleepInSecond(3);
 			giftCardPage.clickPlaceOrderButton();
 			assertTrue(giftCardPage.isCheckoutSuccessTextDisplayed());
 		}
@@ -410,7 +417,7 @@ public class Feature_Gift_Card extends BaseTest{
 		giftCardPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 		giftCardPage.inputToTextboxCouponBuyOnline(giftCardCode);
 		giftCardPage.clickToSendCouponButton();
-		assertEquals(giftCardPage.getErrorMessageCheckoutUseCoupon(),"Gift card code was used! Please buy new gift code.");
+		assertEquals(giftCardPage.getErrorMessage(),"Gift card code was used! Please buy new gift code.");
 	}
 
 

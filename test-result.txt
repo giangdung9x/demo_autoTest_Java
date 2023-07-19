@@ -1,28 +1,22 @@
-Total Tests: 19
-Passed Tests: 19
-Failed Tests: 0
+Total Tests: 13
+Passed Tests: 12
+Failed Tests: 1
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Feature_Coupons: 19
-Failed Tests in showslinger_user.Feature_Coupons: 0
-Skipped Tests in showslinger_user.Feature_Coupons: 0
+Passed Tests in showslinger_user.Feature_Gift_Card: 12
+Failed Tests in showslinger_user.Feature_Gift_Card: 1
+Skipped Tests in showslinger_user.Feature_Gift_Card: 0
 
-showslinger_user.Feature_Coupons - Coupons_OpenUrlAndLogin - null - PASSED
-showslinger_user.Feature_Coupons - Coupons_001_CreateCouponFail - null - PASSED
-showslinger_user.Feature_Coupons - Coupons_002_CreateCouponSuccess - null - PASSED
-showslinger_user.Feature_Coupons - Coupons_004_CreateCouponSuccessAutoApply - null - PASSED
-showslinger_user.Feature_Coupons - Coupons_005_EditCouponFail - null - PASSED
-showslinger_user.Feature_Coupons - Coupons_006_ActiveCouponFail - null - PASSED
-showslinger_user.Feature_Coupons - Coupons_007_ChangeSatusCouponSuccess - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_001_OpenUrlBoxOffice - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_002_ApplyForBoxManualCouponEventNotSupport - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_003_ApplyForBoxManualCouponDeactivate - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_004_ApplyForBoxManualCouponTicketInvalid - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_005_ApplyForBoxManualCouponOfficeSuccess - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_006_ApplyForBoxAutoCouponOfficeSuccess - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_007_ApplyForBoxAutoCouponOfficeSuccess - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_008_ApplyForBuyOnlineManualCouponDeactivate - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_009_ApplyForBuyOnlineManualCouponTicketInvalid - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_010_ApplyForBuyOnlineManualCouponSuccess - null - PASSED
-showslinger_user.Feature_Coupons - ApplyCoupon_011_ApplyForBuyOnlineAutoCouponSuccess - null - PASSED
-showslinger_user.Feature_Coupons - Delete_All_Coupon_Created - null - PASSED
+showslinger_user.Feature_Gift_Card - GiftCard_OpenUrlAndLogin - null - PASSED
+showslinger_user.Feature_Gift_Card - GiftCard_001_CreateGiftCardFail - null - PASSED
+showslinger_user.Feature_Gift_Card - GiftCard_002_CreateGiftCardNotAccessSuccess - null - PASSED
+showslinger_user.Feature_Gift_Card - GiftCard_003_CreateGiftCardAccessSuccess - null - PASSED
+showslinger_user.Feature_Gift_Card - BuyGiftCard_NeedAccessCode - null - PASSED
+showslinger_user.Feature_Gift_Card - ApplyGiftCard_001_OpenUrlBoxOffice - null - PASSED
+showslinger_user.Feature_Gift_Card - ApplyGiftCard_002_ApplyForBoxMultiGiftCardEventNotSupport - null - PASSED
+showslinger_user.Feature_Gift_Card - ApplyGiftCard_003_ApplyForBoxMultiGiftCardOfficeSuccess - null - PASSED
+showslinger_user.Feature_Gift_Card - ApplyGiftCard_004_ApplyForBoxMultiGiftCardTicketInvalid - null - PASSED
+showslinger_user.Feature_Gift_Card - BuyGiftCard_NeedAccessCode_ForUseBuyOnline - null - PASSED
+showslinger_user.Feature_Gift_Card - ApplyGiftCard_005_ApplyForBuyOnlineMultiGiftCardEventNotSupport - null - PASSED
+showslinger_user.Feature_Gift_Card - ApplyGiftCard_006_ApplyForBuyOnlineMultiGiftCardOfficeSuccess - null - FAILED
+showslinger_user.Feature_Gift_Card - ApplyGiftCard_007_ApplyForBuyOnlineMultiGiftCardTicketInvalid - null - PASSED

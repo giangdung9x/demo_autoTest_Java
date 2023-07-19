@@ -95,40 +95,40 @@ public class Feature_Pass extends BaseTest{
 	@Test(priority = 2)
 	public void Pass_001_CreatePassFail() {
 		passPage.clickToAddPassButton();
-		
+
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
-		
+
 		passPage.clickToSaveButton();
 		verifyEquals(passPage.getErrorMessageOfFiled("total tickets"), "This field is required.");
 		verifyEquals(passPage.getErrorMessageOfFiled("shows"), "This field is required.");
 		verifyEquals(passPage.getErrorMessageOfFiled("tickets per show"), "This field is required.");
-		
+
 		passPage.inputToTextboxLimitPurchasePopup("total tickets", negativeLimit);
 		passPage.inputToTextboxLimitPurchasePopup("shows", negativeLimit);
 		passPage.inputToTextboxLimitPurchasePopup("tickets per show", negativeLimit);
 		verifyEquals(passPage.getErrorMessageOfFiled("total tickets"), "Please enter a value greater than or equal to 0.");
 		verifyEquals(passPage.getErrorMessageOfFiled("shows"), "Please enter a value greater than or equal to 0.");
 		verifyEquals(passPage.getErrorMessageOfFiled("tickets per show"), "Please enter a value greater than or equal to 0.");
-		
+
 		passPage.inputToTextboxLimitPurchasePopup("total tickets", numberLimitPurchase);
 		passPage.inputToTextboxLimitPurchasePopup("shows", numberLimitPurchase);
 		passPage.inputToTextboxLimitPurchasePopup("tickets per show", numberLimitPurchase);
 		passPage.clickToSaveButton();
 		verifyEquals(passPage.getTextOfAlert(), "You need to set both an on sale and off sale date for this pass to display to the public.");
 		passPage.clickToCloseAlertButton();
-		passPage.clickToClosePopupButton();	
+		passPage.clickToClosePopupButton();
 	}
-	
-	
+
+
 
 	@Description("Create Pass QR - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 3)
 	public void Pass_002_CreatePassSuccessSingleQR() {
 		passPage.clickToAddPassButton();
-		
+
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
-		
+
 		passPage.inputToTextboxNamePopup("Name",passSingleQR);
 		passPage.inputToTextboxPrice("10");
 		passPage.inputToTextboxPlaceholderDescriptionPopup("This description", passSingleQR);
@@ -141,20 +141,20 @@ public class Feature_Pass extends BaseTest{
 		passPage.inputToTextboxLimitPurchasePopup("tickets per show", numberLimitPurchase);
 		passPage.inputToTextboxPlaceholderPopup("Start date", startDate);
 		passPage.inputToTextboxPlaceholderPopup("End date", endDate);
-		
+
 		passPage.clickToSaveButton();
 		verifyEquals(passPage.getTextOfAlert(), "Pass '"+passSingleQR+"' was created successfully");
 		passPage.clickToCloseAlertButton();
-	}	
-	
+	}
+
 	@Description("Create Pass Multi - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 4)
 	public void Pass_003_CreatePassuccessMultiTicket() {
 		passPage.clickToAddPassButton();
-		
+
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
-		
+
 		passPage.inputToTextboxNamePopup("Name",passMulti);
 		passPage.inputToTextboxPrice("10");
 		passPage.inputToTextboxPlaceholderDescriptionPopup("This description", passMulti);
@@ -167,20 +167,20 @@ public class Feature_Pass extends BaseTest{
 		passPage.inputToTextboxLimitPurchasePopup("tickets per show", numberLimitPurchase);
 		passPage.inputToTextboxPlaceholderPopup("Start date", startDate);
 		passPage.inputToTextboxPlaceholderPopup("End date", endDate);
-		
+
 		passPage.clickToSaveButton();
 		verifyEquals(passPage.getTextOfAlert(), "Pass '"+passMulti+"' was created successfully");
 		passPage.clickToCloseAlertButton();
-	}	
-	
+	}
+
 	@Description("Create Pass QR has AccessCode - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 5)
 	public void Pass_004_CreatePassuccessAccessCode() {
 		passPage.clickToAddPassButton();
-		
+
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
-		
+
 		passPage.inputToTextboxNamePopup("Name",passAccessCode);
 		passPage.inputToTextboxPrice("10");
 		passPage.inputToTextboxPlaceholderDescriptionPopup("This description", passAccessCode);
@@ -198,8 +198,8 @@ public class Feature_Pass extends BaseTest{
 		passPage.clickToSaveButton();
 		verifyEquals(passPage.getTextOfAlert(), "Pass '"+passAccessCode+"' was created successfully");
 		passPage.clickToCloseAlertButton();
-	}	
-	
+	}
+
 	@Description("Change Satus Pass - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 6)
@@ -208,12 +208,12 @@ public class Feature_Pass extends BaseTest{
 		verifyEquals(passPage.getTextOfAlert(), "Deactivated the pass '"+passSingleQR+"' successfully.");
 		passPage.clickToActionButton(passSingleQR,"Active");
 		verifyEquals(passPage.getTextOfAlert(), "Activated the pass '"+passSingleQR+"' successfully.");
-	
+
 		passPage.clickToActionButton(passMulti,"Inactive");
 		verifyEquals(passPage.getTextOfAlert(), "Deactivated the pass '"+passMulti+"' successfully.");
 		passPage.clickToActionButton(passMulti,"Active");
 		verifyEquals(passPage.getTextOfAlert(), "Activated the pass '"+passMulti+"' successfully.");
-		
+
 		passPage.clickToActionButton(passAccessCode,"Inactive");
 		verifyEquals(passPage.getTextOfAlert(), "Deactivated the pass '"+passAccessCode+"' successfully.");
 		passPage.clickToActionButton(passAccessCode,"Active");
@@ -221,7 +221,7 @@ public class Feature_Pass extends BaseTest{
 		passPage.clickToCloseAlertButton();
 
 	}
-	
+
 
 	@Description("Edit Pass - Success")
 	@Severity(SeverityLevel.NORMAL)
@@ -233,7 +233,7 @@ public class Feature_Pass extends BaseTest{
 		verifyEquals(passPage.getTextOfAlert(), "Pass '"+passAccessCode+"' was updated successfully.");
 		passPage.clickToCloseAlertButton();
 	}
-	
+
 	@Description("Create Pass QR has AccessCode - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 8)
@@ -259,7 +259,7 @@ public class Feature_Pass extends BaseTest{
 		passPage.clickToSaveButton();
 		verifyEquals(passPage.getTextOfAlert(), "Pass '"+passDelete+"' was created successfully");
 		passPage.clickToCloseAlertButton();
-		
+		passPage.sleepInSecond(2);
 		passPage.clickToActionButton(passDelete,"Delete");
 		passPage.acceptAlert(driver);
 		verifyEquals(passPage.getTextOfAlert(), "Pass '"+passDelete+"' was deleted successfully.");
@@ -283,6 +283,7 @@ public class Feature_Pass extends BaseTest{
 		assertEquals(passPage.getSuccessMessage(),"Retrieved a secret pass.");
 
 		passPage.clickToDropDownSelectQuantityTicket(passAccessCode, quantityTicket);
+		passPage.sleepInSecond(1);
 		passPage.clickToAgreeCheckoutButton();
 
 		passPage.inputInfoBuyerTextbox("Full Name", fullName);
@@ -296,17 +297,17 @@ public class Feature_Pass extends BaseTest{
 		passPage.sleepInSecond(3);
 		
 		if ((passPage.getTextTotalAmountOrder()).equals("0$")) {
+			passPage.sleepInSecond(2);
 			passPage.clickPlaceOrderButton();
 			assertTrue(passPage.isCheckoutSuccessTextDisplayed());
 		} else {
-
 			passPage.switchToFrameIframe();
 			passPage.inputInfoCardManual("Card number", cardNumberValid);
 			passPage.inputInfoCardManual("MM / YY", monthYearValid);
 			passPage.inputInfoCardManual("CVC", cvc);
 			passPage.inputInfoCardManual("ZIP", zip);
 			passPage.switchToDefaultContent();
-
+			passPage.sleepInSecond(2);
 			passPage.clickPlaceOrderButton();
 			assertTrue(passPage.isCheckoutSuccessTextDisplayed());
 		}
@@ -411,8 +412,9 @@ public class Feature_Pass extends BaseTest{
 		passPage.inputToTextboxCouponBuyOnline(accessCode);
 		passPage.clickToSendCouponButton();
 		assertEquals(passPage.getSuccessMessage(),"Retrieved a secret pass.");
-
+		passPage.sleepInSecond(2);
 		passPage.clickToDropDownSelectQuantityTicket(passAccessCode, quantityTicket);
+		passPage.sleepInSecond(1);
 		passPage.clickToAgreeCheckoutButton();
 
 		passPage.inputInfoBuyerTextbox("Full Name", fullName);
@@ -425,18 +427,18 @@ public class Feature_Pass extends BaseTest{
 		passPage.getTextTotalAmountOrder();
 		passPage.sleepInSecond(3);
 		
-		if ((passPage.getTextTotalAmountOrder()).equals("0$")) {
+		if ((passPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			passPage.sleepInSecond(2);
 			passPage.clickPlaceOrderButton();
 			assertTrue(passPage.isCheckoutSuccessTextDisplayed());
 		} else {
-
 			passPage.switchToFrameIframe();
 			passPage.inputInfoCardManual("Card number", cardNumberValid);
 			passPage.inputInfoCardManual("MM / YY", monthYearValid);
 			passPage.inputInfoCardManual("CVC", cvc);
 			passPage.inputInfoCardManual("ZIP", zip);
 			passPage.switchToDefaultContent();
-
+			passPage.sleepInSecond(2);
 			passPage.clickPlaceOrderButton();
 			assertTrue(passPage.isCheckoutSuccessTextDisplayed());
 		}
@@ -510,6 +512,7 @@ public class Feature_Pass extends BaseTest{
 		passPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 		passPage.inputToTextboxCouponBuyOnline(passCode);
 		passPage.clickToSendCouponButton();
+		passPage.sleepInSecond(3);
 //		assertEquals(passPage.getSuccessMessage(),"Success! You can use this pass to reserve seats for these ticket levels");
 		passPage.clickToAgreeCheckoutButton();
 
@@ -517,30 +520,27 @@ public class Feature_Pass extends BaseTest{
 		passPage.inputInfoBuyerTextbox("Phone", phone);
 		passPage.inputInfoBuyerTextbox("Email", validEmail);
 		passPage.inputInfoBuyerTextbox("Confirm Email", validEmail);
-
 		passPage.clickCheckboxAcceptTermsService();
 		passPage.isTextDiscountDisplayed("Pass code discount");
-
 		passPage.getTextTotalAmountOrder();
 		passPage.sleepInSecond(3);
 		
-		if ((passPage.getTextTotalAmountOrder()).equals("0$")) {
+		if ((passPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			passPage.sleepInSecond(2);
 			passPage.clickPlaceOrderButton();
-			assertTrue(passPage.isCheckoutSuccessTextDisplayed());
 		} else {
-
 			passPage.switchToFrameIframe();
+			passPage.sleepInSecond(2);
 			passPage.inputInfoCardManual("Card number", cardNumberValid);
 			passPage.inputInfoCardManual("MM / YY", monthYearValid);
 			passPage.inputInfoCardManual("CVC", cvc);
 			passPage.inputInfoCardManual("ZIP", zip);
 			passPage.switchToDefaultContent();
-
+			passPage.sleepInSecond(3);
 			passPage.clickPlaceOrderButton();
-			assertTrue(passPage.isCheckoutSuccessTextDisplayed());
 		}
-		
-		passPage.refreshToPage(driver);
+
+		assertTrue(passPage.isCheckoutSuccessTextDisplayed());
 		
 	}
 	
@@ -551,6 +551,7 @@ public class Feature_Pass extends BaseTest{
 	public void ApplyPass_003_ApplyForBuyOnlineMultiPassTicketInvalid() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		passPage.switchToWindowByID(boxOfficeWindowID);
+		passPage.refreshToPage(driver);
 		passPage.clickToEvent(eventNameAccess);
 		String managerPage = driver.getWindowHandle();	
 		passPage.clickToLink("Preview");	

@@ -7,6 +7,7 @@ public class GiftCardPageUI {
 	public static final String LOGIN_BUTTON = "xpath=(//input[@name='commit'])[1]";
 	public static final String ITEMS_LEFT_MENU = "xpath=(//span[text()='%s'])[1]";
 	public static final String ITEMS_OF_LIST_TICKETING = "xpath=//span[text()='%s']";
+	public static final String ITEMS_OF_LIST_MARKETING = "xpath=(//a[text()='Gift cards'])[1]";
 	public static final String NAME_OF_SCREEN = "xpath=//h4[text()='%s']";
 	public static final String ADD_BUTTON= "xpath=//a[text()='%s']";
 	
@@ -29,6 +30,9 @@ public class GiftCardPageUI {
 	public static final String CLOSE_ALERT_BUTTON = "xpath=//button[@class='close text-capitalize']";
 
 	public static final String TOOGLE_AUTO_APPLY = "xpath=//label[@for='auto_apply']";
+	public static final String TOOGLE_ON_SALE = "xpath=(//div[contains(@class,'custom-control custom-switch switch-primary switch-md')])[1]";
+
+	public static final String UPLOAD_FIELD_ON_POPUP = "xpath=//label[normalize-space()='Upload image']";
 
 	public static final String MORE_MENU_BUTTON = "xpath=//td[text()='%s']/following::div[@class='dropdown-custom-ss dropdown']";
 	public static final String ITEMS_OF_MORE_MENU = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[@class='dropdown-item'][normalize-space()='%s']";
