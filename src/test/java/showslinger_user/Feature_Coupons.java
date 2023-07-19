@@ -73,17 +73,17 @@ public class Feature_Coupons extends BaseTest{
 	}
 	
 	
-	
+
 	@Description("Create Coupons - Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 2)
 	public void Coupons_001_CreateCouponFail() {
 
-		//Pre-conditions: 
+		//Pre-conditions:
 		couponPage.clickToAddCouponButton();
-		
+
 		verifyTrue(couponPage.isTextNameOfPopupDisplayed("Create Coupon"));
-		
+
 		couponPage.inputToTextboxPlaceholderCouponPopup("Code", couponNameExist);
 		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", couponNameExist);
 		couponPage.clickToValueOfDropdownOfPopup("Discount", "%");
@@ -93,11 +93,11 @@ public class Feature_Coupons extends BaseTest{
 		couponPage.clickToSaveCouponButton();
 		verifyEquals(couponPage.getTextOfAlert(), "Coupon '"+couponNameExist+"' was created successfully");
 		couponPage.clickToCloseAlertButton();
-		
+
 		//TCs
 		couponPage.clickToAddCouponButton();
 		verifyTrue(couponPage.isTextNameOfPopupDisplayed("Create Coupon"));
-		
+
 		couponPage.clickToSaveCouponButton();
 		verifyEquals(couponPage.getTextOfAlert(), "invalid date");
 		couponPage.clickToCloseAlertButton();
@@ -108,7 +108,7 @@ public class Feature_Coupons extends BaseTest{
 		couponPage.clickToSaveCouponButton();
 		verifyEquals(couponPage.getTextOfAlert(), "Discount amount is invalid");
 		couponPage.clickToCloseAlertButton();
-		
+
 		couponPage.inputToTextboxPlaceholderCouponPopup("0", "10");
 		couponPage.clickToSaveCouponButton();
 		verifyEquals(couponPage.getTextOfAlert(), "The coupon code should not contain any space characters. Please remove it.");
@@ -133,17 +133,17 @@ public class Feature_Coupons extends BaseTest{
 
 		couponPage.clickToClosePopupButton();
 	}
-	
-	
+
+
 
 	@Description("Create Coupons - Success")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 3)
 	public void Coupons_002_CreateCouponSuccess() {
 		couponPage.clickToAddCouponButton();
-		
+
 		verifyTrue(couponPage.isTextNameOfPopupDisplayed("Create Coupon"));
-		
+
 		couponPage.inputToTextboxPlaceholderCouponPopup("Code", couponName);
 		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", descriptionManual);
 		couponPage.clickToValueOfDropdownOfPopup("Discount", "%");
@@ -156,7 +156,7 @@ public class Feature_Coupons extends BaseTest{
 		couponPage.clickToSaveCouponButton();
 		verifyEquals(couponPage.getTextOfAlert(), "Coupon '"+couponName+"' was created successfully");
 		couponPage.clickToCloseAlertButton();
-	}	
+	}
 	
 	@Description("Create Coupon - Success: Auto Apply")
 	@Severity(SeverityLevel.NORMAL)
@@ -171,7 +171,7 @@ public class Feature_Coupons extends BaseTest{
 		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", descriptionAuto);
 		couponPage.clickToValueOfDropdownOfPopup("Discount", "%");
 		couponPage.inputToTextboxPlaceholderCouponPopup("0", "10");
-		couponPage.sleepInSecond(3);
+		couponPage.clickToToggleAutoApply();
 		couponPage.inputToTextboxPlaceholderCouponPopup("Date", expirationDateValid);
 		couponPage.clickToValueOfDropdownOfPopup("Select event(s)", eventNameAuto);
 
@@ -367,7 +367,7 @@ public class Feature_Coupons extends BaseTest{
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		couponPage.switchToWindowByID(boxOfficeWindowID);
 		couponPage.clickToLink("Cancel");
-		couponPage.clickShowLeftMenu();
+//		couponPage.clickShowLeftMenu();
 		couponPage.clickToItemOfLeftMenu("Ticketing");
 		couponPage.clickToItemOfListTicketing("Coupons");
 		
@@ -397,8 +397,8 @@ public class Feature_Coupons extends BaseTest{
 		String managerPage = driver.getWindowHandle();	
 		couponPage.clickToLink("Preview");	
 		couponPage.switchToWindowByID(managerPage);
-		
 		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
+		couponPage.sleepInSecond(2);
 		couponPage.clickToAgreeCheckoutButton();
 		couponPage.isTextDiscountDisplayed();
 	}
@@ -411,7 +411,7 @@ public class Feature_Coupons extends BaseTest{
 		driver.close();
 		couponPage.switchToWindowByID(boxOfficeWindowID);
 		couponPage.clickToLink("Cancel");
-		couponPage.clickShowLeftMenu();
+//		couponPage.clickShowLeftMenu();
 		couponPage.clickToItemOfLeftMenu("Ticketing");
 		couponPage.clickToItemOfListTicketing("Coupons");
 		

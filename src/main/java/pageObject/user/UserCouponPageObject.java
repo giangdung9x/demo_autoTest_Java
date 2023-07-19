@@ -156,7 +156,12 @@ public class UserCouponPageObject extends BasePage{
 //		waitForElementVisible(driver, CouponPageUI.TOOGLE_AUTO_APPLY);
 //		return getWebElement(driver, CouponPageUI.TOOGLE_AUTO_APPLY);
 //	}
-	
+
+	public void clickToToggleAutoApply() {
+		waitForElementClickable(driver,CouponPageUI.TOOGLE_AUTO_APPLY);
+		clickToElement(driver, CouponPageUI.TOOGLE_AUTO_APPLY);
+	}
+
 	public void clickToMoreMenuButton(String field) {
 		waitForElementClickable(driver,CouponPageUI.MORE_MENU_BUTTON, field);
 		clickToElement(driver, CouponPageUI.MORE_MENU_BUTTON, field);	

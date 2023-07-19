@@ -1,0 +1,28 @@
+Total Tests: 19
+Passed Tests: 19
+Failed Tests: 0
+Skipped Tests: 0
+
+Passed Tests in showslinger_user.Feature_Coupons: 19
+Failed Tests in showslinger_user.Feature_Coupons: 0
+Skipped Tests in showslinger_user.Feature_Coupons: 0
+
+showslinger_user.Feature_Coupons - Coupons_OpenUrlAndLogin - null - PASSED
+showslinger_user.Feature_Coupons - Coupons_001_CreateCouponFail - null - PASSED
+showslinger_user.Feature_Coupons - Coupons_002_CreateCouponSuccess - null - PASSED
+showslinger_user.Feature_Coupons - Coupons_004_CreateCouponSuccessAutoApply - null - PASSED
+showslinger_user.Feature_Coupons - Coupons_005_EditCouponFail - null - PASSED
+showslinger_user.Feature_Coupons - Coupons_006_ActiveCouponFail - null - PASSED
+showslinger_user.Feature_Coupons - Coupons_007_ChangeSatusCouponSuccess - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_001_OpenUrlBoxOffice - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_002_ApplyForBoxManualCouponEventNotSupport - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_003_ApplyForBoxManualCouponDeactivate - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_004_ApplyForBoxManualCouponTicketInvalid - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_005_ApplyForBoxManualCouponOfficeSuccess - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_006_ApplyForBoxAutoCouponOfficeSuccess - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_007_ApplyForBoxAutoCouponOfficeSuccess - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_008_ApplyForBuyOnlineManualCouponDeactivate - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_009_ApplyForBuyOnlineManualCouponTicketInvalid - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_010_ApplyForBuyOnlineManualCouponSuccess - null - PASSED
+showslinger_user.Feature_Coupons - ApplyCoupon_011_ApplyForBuyOnlineAutoCouponSuccess - null - PASSED
+showslinger_user.Feature_Coupons - Delete_All_Coupon_Created - null - PASSED
