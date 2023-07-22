@@ -18,6 +18,8 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import pageObject.user.UserHomePageObject;
 import pageObject.user.UserRegisterVenuePageObject;
+import utilities.ExcelHelper;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
@@ -30,29 +32,31 @@ public class SignUp_001_AccVenue extends BaseTest{
 	private String nameOfVenue, validEmail, validPassword, existingEmail, invalidEmail, invalidPasssword;
 	private String venueName, streetAddress, townCity, validZipCode, invalidZipCode; 
 	
-	
+	private ExcelHelper excelHelper;
 
 	@Parameters({ "envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
 	@BeforeClass
 	public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName,
 	@Optional("chrome") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String
-	portNumber,@Optional("Windows") String osName, @Optional("10") String osVersion) {
+	portNumber,@Optional("Windows") String osName, @Optional("10") String osVersion)  throws Exception {
 		driver = getBrowserDriver(envName, serverName, browserName, ipAddress, portNumber, osName, osVersion);
 		homePage = new UserHomePageObject(driver);
-		
-		
-		nameOfVenue = "Dang Giang "+ generateFakeNumberDateTime();
-		validEmail = "dangthigiang" +"+"+ generateFakeNumberDateTime() + "@mobilefolk.com";
-		validPassword = "123456";
-		existingEmail = "paulv@showslinger.com";
-		invalidEmail = "dabc@aaaa";
-		invalidPasssword = "1";
+		excelHelper = new ExcelHelper();
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Data");
+
+		//nameOfVenue = "Dang Giang "+ generateFakeNumberDateTime();
+		nameOfVenue = excelHelper.getCellData("nameVenue", 6) + " " + generateFakeNumberDateTime();
+		validEmail = excelHelper.getCellData("Email", 1) +"+"+ generateFakeNumberDateTime() + "@mobilefolk.com";
+		validPassword = excelHelper.getCellData("Password", 1);
+		existingEmail =  excelHelper.getCellData("Email", 2);
+		invalidEmail =  excelHelper.getCellData("Email", 3);
+		invalidPasssword =  excelHelper.getCellData("Password", 3);
 		
 		venueName = nameOfVenue; 
-		streetAddress="Hapenny Road"; 
-		townCity="West Danville"; 
-		validZipCode="05862";
-		invalidZipCode ="1";
+		streetAddress= excelHelper.getCellData("streetAddress", 4);
+		townCity= excelHelper.getCellData("townCity", 4);
+		validZipCode= excelHelper.getCellData("ZipCode", 4);
+		invalidZipCode = excelHelper.getCellData("ZipCode", 5);
 	}
     
 	@Description("Call form register account Venue")
@@ -60,9 +64,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Test
 	public void AccVenue_001_FormRegister() {
 		homePage.clickToRegisterLink();
-
 		registerVenuePage = new UserRegisterVenuePageObject(driver);
-		
 		registerVenuePage.clickToCallFormResgiter();
 		registerVenuePage.clickToRadioButtonVenue();
 	}
@@ -70,34 +72,33 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Description("Register account Venue -  when empty data")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_002_RegisterEmptyData() {
+	public void AccVenue_002_RegisterEmptyData() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.clickToRegisterButton();
-
-		assertEquals(registerVenuePage.getErrorMessageAtEmailTextbox(),"Please enter your email");
-		assertEquals(registerVenuePage.getErrorMessageAtPasswordTextbox(),"Please enter your password");
-		assertEquals(registerVenuePage.getErrorMessageAtConfirmPasswordTextbox(),"You must agree to the terms of service to continue");
+		assertEquals(registerVenuePage.getErrorMessageAtEmailTextbox(),excelHelper.getCellData("Message", 2));
+		assertEquals(registerVenuePage.getErrorMessageAtPasswordTextbox(),excelHelper.getCellData("Message", 3));
+		assertEquals(registerVenuePage.getErrorMessageAtConfirmPasswordTextbox(),excelHelper.getCellData("Message", 4));
 	}
 	
 	
 	@Description("Register account Venue - Don't verify ReCAPTCHA")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_003_RegisterNotVerifyReCAPTCHA() {
+	public void AccVenue_003_RegisterNotVerifyReCAPTCHA() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.inputToTextbox("Name", nameOfVenue);
 		registerVenuePage.inputToTextbox("Email",validEmail);	
-		registerVenuePage.inputToTextbox("Password",validPassword);	
-		
+		registerVenuePage.inputToTextbox("Password",validPassword);
 		registerVenuePage.clickCheckboxAcceptTerms();
-		
 		registerVenuePage.clickToRegisterButton();
-		 
-		assertEquals(registerVenuePage.getErrorMessageAtHeader(),"Please verify that you are human");
+		assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 5));
 	}
 	
 	@Description("Register account Venue - input email already exists")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_004_RegisterEmailAlredyExists() {
+	public void AccVenue_004_RegisterEmailAlredyExists() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.clickToCallFormResgiter();
 		registerVenuePage.clickToRadioButtonVenue();
 		
@@ -114,7 +115,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 
 		registerVenuePage.clickToRegisterButton();
 		
-		assertEquals(registerVenuePage.getErrorMessageAtHeader(),"Signup failed! Please check your info and try again.");
+		assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 6));
 
 	}
 	
@@ -139,8 +140,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 		registerVenuePage.sleepInSecond(10);
 		
 		registerVenuePage.clickToRegisterButton();
-		assertEquals(registerVenuePage.getErrorMessageAtHeader(),"Signup failed! Please check your info and try again.");
-
+		assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 7));
 	}
 	
 	
@@ -169,10 +169,10 @@ public class SignUp_001_AccVenue extends BaseTest{
 		assertTrue(registerVenuePage.isTextCreateYourVenueProfile());	
 		registerVenuePage.clickToButtonCreateVenue();
 		
-		assertEquals(registerVenuePage.getErrorMessageAtField("Venue Name"),"can't be blank");
-		assertEquals(registerVenuePage.getErrorMessageAtField("Street Address 1"),"can't be blank");
-		assertEquals(registerVenuePage.getErrorMessageAtField("Town/City"),"can't be blank");
-		assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),"Your zipcode should be in the form 12345 or 12345-1234.");
+		assertEquals(registerVenuePage.getErrorMessageAtField("Venue Name"),excelHelper.getCellData("Message", 8));
+		assertEquals(registerVenuePage.getErrorMessageAtField("Street Address 1"),excelHelper.getCellData("Message", 9));
+		assertEquals(registerVenuePage.getErrorMessageAtField("Town/City"),excelHelper.getCellData("Message", 10));
+		assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),excelHelper.getCellData("Message", 11));
 	}
 	
 	@Description("Register account Venue Profile - zip code is wrong")
@@ -186,7 +186,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 		
 		registerVenuePage.clickToButtonCreateVenue();
 		
-		assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),"Your zipcode should be in the form 12345 or 12345-1234.");
+		assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),excelHelper.getCellData("Message", 12));
 	}
 	
 	@Description("Register account Venue Profile - Photo empty data")
@@ -203,7 +203,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 		assertTrue(registerVenuePage.isTextAddPhoto());	
 		registerVenuePage.clickToButtonUpload();
 		
-		assertEquals(registerVenuePage.getErrorMessageUploadPhoto(),"You must choose a photo to be uploaded");
+		assertEquals(registerVenuePage.getErrorMessageUploadPhoto(),excelHelper.getCellData("Message", 13));
 	}
 	
 	
