@@ -18,11 +18,16 @@ public class UserLoginPageObject extends BasePage {
 		this.driver = driver;
 	}
 
+	@Step("Login Account {0} {1}")
+	public void loginAccount(String email, String password) {
+		inputToTextboxLogin("email", email);
+		inputToTextboxLogin("password", password);
+	}
+
 	@Step("Click to button Log In")
 	public void clickToLoginButton() {
 		waitForElementClickable(driver,LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver,LoginPageUI.LOGIN_BUTTON);
-//		return PageGeneratorManager.getUserHomePage(driver);
 	}
 
 	@Step("Input to Textbox Login {0} {1}")
@@ -43,12 +48,7 @@ public class UserLoginPageObject extends BasePage {
 		clickToElement(driver,LoginPageUI.FOTGOT_PASSWORD_BUTTON);
 	}
 	
-	@Step("Login Account {0} {1}")
-	public void loginAccount(String email, String password) {
-		inputToTextboxLogin("email", email);
-		inputToTextboxLogin("password", password);
 
-	}
 	
 	
 }
