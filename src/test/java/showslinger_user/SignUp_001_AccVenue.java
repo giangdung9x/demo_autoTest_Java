@@ -122,7 +122,8 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Description("Register account Venue - input email is wrong")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_005_RegisterEmailWrong() {
+	public void AccVenue_005_RegisterEmailWrong() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.clickToCallFormResgiter();
 		registerVenuePage.clickToRadioButtonVenue();
 		
@@ -147,7 +148,8 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Description("Register account Venue Profile - Empty data")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_006_RegisterVenueProfileEmpty() {
+	public void AccVenue_006_RegisterVenueProfileEmpty() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.clickToCallFormResgiter();
 		registerVenuePage.clickToRadioButtonVenue();
 		
@@ -178,7 +180,8 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Description("Register account Venue Profile - zip code is wrong")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_007_RegisterVenueProfileZipCodeWrong() {
+	public void AccVenue_007_RegisterVenueProfileZipCodeWrong() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.inputToTextboxProfile("Venue Name", venueName);
 		registerVenuePage.inputToTextboxProfile("Street Address 1",streetAddress);	
 		registerVenuePage.inputToTextboxProfile("Town/City",townCity);	
@@ -192,7 +195,8 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Description("Register account Venue Profile - Photo empty data")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_008_RegisterVenueAddPhotoEmpty() {
+	public void AccVenue_008_RegisterVenueAddPhotoEmpty() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.inputToTextboxProfile("Venue Name", venueName);
 		registerVenuePage.inputToTextboxProfile("Street Address 1",streetAddress);	
 		registerVenuePage.inputToTextboxProfile("Town/City",townCity);	
@@ -210,7 +214,8 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Description("Register account Venue Profile - register complelet - Skip upload photo")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void AccVenue_009_RegisterCompteledSkipUploadImage() {
+	public void AccVenue_009_RegisterCompteledSkipUploadImage() throws Exception{
+		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
 		registerVenuePage.clickToButtonSkip();
 		registerVenuePage.clickShowLeftMenu();
 		assertTrue(registerVenuePage.isTextTicketing());	

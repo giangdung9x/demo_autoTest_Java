@@ -27,7 +27,7 @@
 			<class name="showslinger_user.Buy_Online"/>
 			<class name="showslinger_user.Box_Office"/>
 			<class name="showslinger_user.Public_Kiosk_Page"/>-->
-			<class name="showslinger_user.SignUp_001_AccVenue"/>
+			<class name="showslinger_user.Login_Account"/>
 </classes>
 </test>
 
