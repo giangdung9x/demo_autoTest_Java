@@ -55,7 +55,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
     def testCaseFail = getTestCaseFailCount()
     def totalTestCaseCount = testCasePass + testCaseFail
     def reportName = "Allure Reports Link"
-    def reportUrl = "https://a8d2-27-72-144-248.ngrok-free.app/index.html"
+    def reportUrl = "https://9cb5-14-232-244-53.ngrok-free.app"
 
     def buildStatusText = buildStatus == 'FAILURE' ? 'FAILURE' : 'SUCCESSFUL'
 

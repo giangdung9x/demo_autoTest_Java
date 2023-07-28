@@ -134,7 +134,7 @@ public class EmailUtil {
                 "<p>Automation Team is sending the execution report of project ShowSlinger, version <b>version_build</b>.</p>\n" +
                 "<p>Build result: <b>build_result</b></p>\n" +
                 "<p>Time run: <b>" + getTimeExecution() + "</b></p>\n" +
-                "<p>Report Links: <a href=\"https://9dc3-14-232-228-54.ngrok-free.app/allure-report/index.html\">Allure Report Link</a></p>\n" +
+                "<p>Report Links: <a href=\"https://9cb5-14-232-244-53.ngrok-free.app\">Allure Report Link</a></p>\n" +
                 "<p><i>(This is an automated release email after execution. Please contact Automation Team if you need further information!)</i></p>";
 
         // Chèn hình ảnh vào nội dung email

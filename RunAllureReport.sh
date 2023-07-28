@@ -8,4 +8,4 @@ java -javaagent:"$project_path/libAllureReport/aspectjweaver-1.9.8.jar" -classpa
 echo "------ Step 04: Load allure command line setting -------"
 source ~/.bash_profile
 echo "------ Step 05: Generate Allure HTML Report -------"
-allure serve allure-results
+allure serve allure-results --port 4000

@@ -12,21 +12,21 @@
  		<parameter name="browser" value = "CHROME"></parameter>
     	<parameter name="serverName" value="STAGING"></parameter>
     	<classes>
-      		<!--<class name="showslinger_user.SignUp_001_AccVenue"/>
-     		<class name="showslinger_user.SignUp_002_AccArtist"/>-->
 	 		<class name="showslinger_user.Login_Account"/>
-     		<class name="showslinger_user.Forgot_Password"/>
-     		<class name="showslinger_user.Actions_Of_Event"/>
-			<!--<class name="showslinger_user.Feature_Coupons"/>-->
-			<!--<class name="showslinger_user.Feature_Pass"/>-->
-			<!--<class name="showslinger_user.Feature_Gift_Card"/>-->
-			<class name="showslinger_user.Feature_Reward"/>
-			<class name="showslinger_user.Sell_Concession"/>
-			<class name="showslinger_user.Feature_Report"/>
-			<class name="showslinger_user.Feature_Attendees"/>
-			<class name="showslinger_user.Buy_Online"/>
-			<!--<class name="showslinger_user.Box_Office"/>-->
-	<!--<class name="showslinger_user.Public_Kiosk_Page"/>-->
+			<!--<class name="showslinger_user.Forgot_Password"/>
+            <class name="showslinger_user.Actions_Of_Event"/>
+           <class name="showslinger_user.Feature_Reward"/>
+           <class name="showslinger_user.Sell_Concession"/>
+           <class name="showslinger_user.Feature_Report"/>
+           <class name="showslinger_user.Feature_Attendees"/>
+           <class name="showslinger_user.Buy_Online"/>-->
+           <!--<class name="showslinger_user.SignUp_001_AccVenue"/>
+            <class name="showslinger_user.SignUp_002_AccArtist"/>
+           <class name="showslinger_user.Feature_Coupons"/>
+           <class name="showslinger_user.Feature_Pass"/>
+           <class name="showslinger_user.Feature_Gift_Card"/>
+           <class name="showslinger_user.Box_Office"/>
+           <class name="showslinger_user.Public_Kiosk_Page"/>-->
 </classes>
 </test>
 
