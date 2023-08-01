@@ -54,3 +54,10 @@ test-output/
 .settings/
 .allure-json/
 /bin/
+
+#testresult
+allure-results/*
+/reports/.idea
+chart.png
+pie-chart.png
+test-result.txt

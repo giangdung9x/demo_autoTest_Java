@@ -1,19 +1,19 @@
-Total Tests: 0
-Passed Tests: 0
+Total Tests: 10
+Passed Tests: 10
 Failed Tests: 0
-Skipped Tests: 10
+Skipped Tests: 0
 
-Skipped Tests in showslinger_user.Login_Account: 10
+Passed Tests in showslinger_user.Login_Account: 10
+Failed Tests in showslinger_user.Login_Account: 0
+Skipped Tests in showslinger_user.Login_Account: 0
 
-showslinger_user.Login_Account - Login_001_FormLogin - null - SKIPPED
-showslinger_user.Login_Account - Login_002_EmptyData - null - SKIPPED
-showslinger_user.Login_Account - Login_003_InvalidEmail - null - SKIPPED
-showslinger_user.Login_Account - Login_004_AccNotFound - null - SKIPPED
-showslinger_user.Login_Account - Login_005_AccRegisteredEmptyPassword - null - SKIPPED
-showslinger_user.Login_Account - Login_006_AccRegisteredInvalidPassword - null - SKIPPED
-showslinger_user.Login_Account - Login_007_AccManagerCompleted - null - SKIPPED
-showslinger_user.Login_Account - Login_008_AccStaffManualCompleted - null - SKIPPED
-showslinger_user.Login_Account - Login_009_AccStaffAutoCompleted - null - SKIPPED
-showslinger_user.Login_Account - Login_010_AccConcessionsCompleted - null - SKIPPED
- PASSED
+showslinger_user.Login_Account - Login_001_FormLogin - null - PASSED
+showslinger_user.Login_Account - Login_002_EmptyData - null - PASSED
+showslinger_user.Login_Account - Login_003_InvalidEmail - null - PASSED
+showslinger_user.Login_Account - Login_004_AccNotFound - null - PASSED
+showslinger_user.Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED
+showslinger_user.Login_Account - Login_006_AccRegisteredInvalidPassword - null - PASSED
+showslinger_user.Login_Account - Login_007_AccManagerCompleted - null - PASSED
+showslinger_user.Login_Account - Login_008_AccStaffManualCompleted - null - PASSED
+showslinger_user.Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
 showslinger_user.Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
