@@ -280,7 +280,8 @@ public class BasePage {
 		return getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).getText();
 	}
 
-
+	// Kiểm tra bất kỳ thuộc tính CSS hợp lệ nào của phần tử - color - background-color- .....
+	//Test User Interface - font-size/color/width/height/margin-top/....
 	public String getElementCssValue(WebDriver driver, String locatorType, String propertyName) {
 		return getWebElement(driver, locatorType).getCssValue(propertyName);
 	}
@@ -290,6 +291,22 @@ public class BasePage {
 		return Color.fromString(rgbaValue).asHex();
 	}
 
+	public int getElementHeight(WebDriver driver, String locatorType) {
+		WebElement element = getWebElement(driver, locatorType);
+		return element.getSize().getHeight();
+	}
+
+	public String getElementBackgroundColor(WebDriver driver, String locatorType) {
+		WebElement element = getWebElement(driver, locatorType);
+		String rgbaValue = element.getCssValue("background-color");
+		return getHexaColorFromRGBA(rgbaValue);
+	}
+
+	//Kiểm tra vị trí của phần tử:
+	public Point getElementPosition(WebDriver driver, String locatorType) {
+		WebElement element = getWebElement(driver, locatorType);
+		return element.getLocation();
+	}
 
 	public int getElementSize(WebDriver driver, String locatorType) {
 		return getListWebElement(driver, locatorType).size();
