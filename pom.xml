@@ -229,6 +229,9 @@
                 <version>2.5</version>
                 <configuration>
                     <!-- Run TestNG xml file -->
+                    <skipTests>false</skipTests>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <forkMode>once</forkMode>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testsuite/runShowslingerTest.xml</suiteXmlFile>
                     </suiteXmlFiles>
