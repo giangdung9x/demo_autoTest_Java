@@ -17,7 +17,7 @@ dist/
 *.log
 
 # Package files
-*.jar
+#*.jar
 
 # Maven
 target/
@@ -56,8 +56,9 @@ test-output/
 /bin/
 
 #testresult
-allure-results/*
+allure-results/
 /reports/.idea
 chart.png
 pie-chart.png
 test-result.txt
+reports/
