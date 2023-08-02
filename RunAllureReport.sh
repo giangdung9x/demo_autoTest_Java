@@ -12,8 +12,8 @@ delete_directories() {
 }
 
 echo "------ Step 01: Set current project path to variable -------"
-delete_directories("$project_path/reports")
 project_path=$(pwd)
+delete_directories "$project_path/reports"
 
 echo "------ Step 02: Go to project path folder -------"
 cd "$project_path"
