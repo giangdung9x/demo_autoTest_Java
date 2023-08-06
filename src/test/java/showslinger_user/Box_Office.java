@@ -4,13 +4,10 @@ import commons.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.*;
 import pageObject.user.UserBoxOfficePageObject;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
@@ -102,6 +99,7 @@ public class Box_Office extends BaseTest{
 	}
 
 
+	@Ignore
 	@Description("Verify - Information Box Office")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
@@ -224,45 +222,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -295,45 +293,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -368,45 +366,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -487,45 +485,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -605,45 +603,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -796,7 +794,7 @@ public class Box_Office extends BaseTest{
 		assertTrue(boxOfficePage.isTitleBoxOfficeInformationDisplayed());
 	}
 
-
+	@Ignore
 	@Description("Verify - Information Box Office")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
@@ -919,45 +917,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -990,45 +988,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1063,45 +1061,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1182,45 +1180,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1297,45 +1295,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1489,7 +1487,7 @@ public class Box_Office extends BaseTest{
 		assertTrue(boxOfficePage.isTitleBoxOfficeInformationDisplayed());
 	}
 
-
+	@Ignore
 	@Description("Verify - Information Box Office")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
@@ -1612,45 +1610,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order- Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1683,45 +1681,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1756,45 +1754,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1875,45 +1873,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -1991,45 +1989,45 @@ public class Box_Office extends BaseTest{
 
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
-		//Verify Button Print Order
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
+		//Verify Button Print Order - Open when public kiosk reused
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();

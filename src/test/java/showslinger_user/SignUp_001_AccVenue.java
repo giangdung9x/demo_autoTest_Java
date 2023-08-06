@@ -1,5 +1,4 @@
 package showslinger_user;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
