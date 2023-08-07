@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
+import commons.ConfigOnOffTestcase;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -24,7 +25,6 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
 
 
-@Test(enabled = false)
 public class SignUp_001_AccVenue extends BaseTest{
 	private WebDriver driver;
 	private UserHomePageObject homePage  ;
@@ -64,21 +64,31 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Severity(SeverityLevel.CRITICAL)
 	@Test
 	public void AccVenue_001_FormRegister() {
-		homePage.clickToRegisterLink();
-		registerVenuePage = new UserRegisterVenuePageObject(driver);
-		registerVenuePage.clickToCallFormResgiter();
-		registerVenuePage.clickToRadioButtonVenue();
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			homePage.clickToRegisterLink();
+			registerVenuePage = new UserRegisterVenuePageObject(driver);
+			registerVenuePage.clickToCallFormResgiter();
+			registerVenuePage.clickToRadioButtonVenue();
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 
 	@Description("Register account Venue -  when empty data")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_002_RegisterEmptyData() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.clickToRegisterButton();
-		assertEquals(registerVenuePage.getErrorMessageAtEmailTextbox(),excelHelper.getCellData("Message", 2));
-		assertEquals(registerVenuePage.getErrorMessageAtPasswordTextbox(),excelHelper.getCellData("Message", 3));
-		assertEquals(registerVenuePage.getErrorMessageAtConfirmPasswordTextbox(),excelHelper.getCellData("Message", 4));
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.clickToRegisterButton();
+			assertEquals(registerVenuePage.getErrorMessageAtEmailTextbox(),excelHelper.getCellData("Message", 2));
+			assertEquals(registerVenuePage.getErrorMessageAtPasswordTextbox(),excelHelper.getCellData("Message", 3));
+			assertEquals(registerVenuePage.getErrorMessageAtConfirmPasswordTextbox(),excelHelper.getCellData("Message", 4));
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 	
@@ -86,37 +96,47 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_003_RegisterNotVerifyReCAPTCHA() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.inputToTextbox("Name", nameOfVenue);
-		registerVenuePage.inputToTextbox("Email",validEmail);	
-		registerVenuePage.inputToTextbox("Password",validPassword);
-		registerVenuePage.clickCheckboxAcceptTerms();
-		registerVenuePage.clickToRegisterButton();
-		assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 5));
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.inputToTextbox("Name", nameOfVenue);
+			registerVenuePage.inputToTextbox("Email",validEmail);
+			registerVenuePage.inputToTextbox("Password",validPassword);
+			registerVenuePage.clickCheckboxAcceptTerms();
+			registerVenuePage.clickToRegisterButton();
+			assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 5));
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 	@Description("Register account Venue - input email already exists")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_004_RegisterEmailAlredyExists() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.clickToCallFormResgiter();
-		registerVenuePage.clickToRadioButtonVenue();
-		
-		registerVenuePage.inputToTextbox("Name", nameOfVenue);
-		registerVenuePage.inputToTextbox("Email",existingEmail);	
-		registerVenuePage.inputToTextbox("Password",validPassword);	
-				
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.clickToCallFormResgiter();
+			registerVenuePage.clickToRadioButtonVenue();
+
+			registerVenuePage.inputToTextbox("Name", nameOfVenue);
+			registerVenuePage.inputToTextbox("Email",existingEmail);
+			registerVenuePage.inputToTextbox("Password",validPassword);
+
 //		registerVenuePage.switchToFrameIframe();
 //		registerVenuePage.clickCheckboxNotRobot();
 //		registerVenuePage.switchToSignInPage();
 
-		//manual verify reCAPTCHA
-		registerVenuePage.sleepInSecond(10);
+			//manual verify reCAPTCHA
+			registerVenuePage.sleepInSecond(10);
 
-		registerVenuePage.clickToRegisterButton();
-		
-		assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 6));
+			registerVenuePage.clickToRegisterButton();
+
+			assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 6));
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 
 	}
 	
@@ -124,25 +144,30 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_005_RegisterEmailWrong() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.clickToCallFormResgiter();
-		registerVenuePage.clickToRadioButtonVenue();
-		
-		registerVenuePage.inputToTextbox("Name", nameOfVenue);
-		registerVenuePage.inputToTextbox("Email",invalidEmail);	
-		registerVenuePage.inputToTextbox("Password",validPassword);	
-		
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.clickToCallFormResgiter();
+			registerVenuePage.clickToRadioButtonVenue();
+
+			registerVenuePage.inputToTextbox("Name", nameOfVenue);
+			registerVenuePage.inputToTextbox("Email",invalidEmail);
+			registerVenuePage.inputToTextbox("Password",validPassword);
+
 //		registerVenuePage.clickCheckboxAcceptTerms();
-		
+
 //		registerVenuePage.switchToFrameIframe();
 //		registerVenuePage.clickCheckboxNotRobot();
 //		registerVenuePage.switchToSignInPage();
 
-		//manual verify reCAPTCHA
-		registerVenuePage.sleepInSecond(10);
-		
-		registerVenuePage.clickToRegisterButton();
-		assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 7));
+			//manual verify reCAPTCHA
+			registerVenuePage.sleepInSecond(10);
+
+			registerVenuePage.clickToRegisterButton();
+			assertEquals(registerVenuePage.getErrorMessageAtHeader(),excelHelper.getCellData("Message", 7));
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 	
@@ -150,65 +175,80 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_006_RegisterVenueProfileEmpty() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.clickToCallFormResgiter();
-		registerVenuePage.clickToRadioButtonVenue();
-		
-		registerVenuePage.inputToTextbox("Name", nameOfVenue);
-		registerVenuePage.inputToTextbox("Email",validEmail);	
-		registerVenuePage.inputToTextbox("Password",validPassword);	
-		
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.clickToCallFormResgiter();
+			registerVenuePage.clickToRadioButtonVenue();
+
+			registerVenuePage.inputToTextbox("Name", nameOfVenue);
+			registerVenuePage.inputToTextbox("Email",validEmail);
+			registerVenuePage.inputToTextbox("Password",validPassword);
+
 //		registerVenuePage.clickCheckboxAcceptTerms();
-		
+
 //		registerVenuePage.switchToFrameIframe();
 //		registerVenuePage.clickCheckboxNotRobot();
 //		registerVenuePage.switchToSignInPage();
-		
-		//manual verify reCAPTCHA
-		registerVenuePage.sleepInSecond(10);
-		
-		registerVenuePage.clickToRegisterButton();
-		
-		assertTrue(registerVenuePage.isTextCreateYourVenueProfile());	
-		registerVenuePage.clickToButtonCreateVenue();
-		
-		assertEquals(registerVenuePage.getErrorMessageAtField("Venue Name"),excelHelper.getCellData("Message", 8));
-		assertEquals(registerVenuePage.getErrorMessageAtField("Street Address 1"),excelHelper.getCellData("Message", 9));
-		assertEquals(registerVenuePage.getErrorMessageAtField("Town/City"),excelHelper.getCellData("Message", 10));
-		assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),excelHelper.getCellData("Message", 11));
+
+			//manual verify reCAPTCHA
+			registerVenuePage.sleepInSecond(10);
+
+			registerVenuePage.clickToRegisterButton();
+
+			assertTrue(registerVenuePage.isTextCreateYourVenueProfile());
+			registerVenuePage.clickToButtonCreateVenue();
+
+			assertEquals(registerVenuePage.getErrorMessageAtField("Venue Name"),excelHelper.getCellData("Message", 8));
+			assertEquals(registerVenuePage.getErrorMessageAtField("Street Address 1"),excelHelper.getCellData("Message", 9));
+			assertEquals(registerVenuePage.getErrorMessageAtField("Town/City"),excelHelper.getCellData("Message", 10));
+			assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),excelHelper.getCellData("Message", 11));
+
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 	@Description("Register account Venue Profile - zip code is wrong")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_007_RegisterVenueProfileZipCodeWrong() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.inputToTextboxProfile("Venue Name", venueName);
-		registerVenuePage.inputToTextboxProfile("Street Address 1",streetAddress);	
-		registerVenuePage.inputToTextboxProfile("Town/City",townCity);	
-		registerVenuePage.inputToTextboxProfile("Zip/Postal Code",invalidZipCode);	
-		
-		registerVenuePage.clickToButtonCreateVenue();
-		
-		assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),excelHelper.getCellData("Message", 12));
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.inputToTextboxProfile("Venue Name", venueName);
+			registerVenuePage.inputToTextboxProfile("Street Address 1",streetAddress);
+			registerVenuePage.inputToTextboxProfile("Town/City",townCity);
+			registerVenuePage.inputToTextboxProfile("Zip/Postal Code",invalidZipCode);
+
+			registerVenuePage.clickToButtonCreateVenue();
+
+			assertEquals(registerVenuePage.getErrorMessageAtField("Zip/Postal Code"),excelHelper.getCellData("Message", 12));
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
 	}
 	
 	@Description("Register account Venue Profile - Photo empty data")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_008_RegisterVenueAddPhotoEmpty() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.inputToTextboxProfile("Venue Name", venueName);
-		registerVenuePage.inputToTextboxProfile("Street Address 1",streetAddress);	
-		registerVenuePage.inputToTextboxProfile("Town/City",townCity);	
-		registerVenuePage.inputToTextboxProfile("Zip/Postal Code",validZipCode);	
-		
-		registerVenuePage.clickToButtonCreateVenue();
-		
-		assertTrue(registerVenuePage.isTextAddPhoto());	
-		registerVenuePage.clickToButtonUpload();
-		
-		assertEquals(registerVenuePage.getErrorMessageUploadPhoto(),excelHelper.getCellData("Message", 13));
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.inputToTextboxProfile("Venue Name", venueName);
+			registerVenuePage.inputToTextboxProfile("Street Address 1",streetAddress);
+			registerVenuePage.inputToTextboxProfile("Town/City",townCity);
+			registerVenuePage.inputToTextboxProfile("Zip/Postal Code",validZipCode);
+
+			registerVenuePage.clickToButtonCreateVenue();
+
+			assertTrue(registerVenuePage.isTextAddPhoto());
+			registerVenuePage.clickToButtonUpload();
+
+			assertEquals(registerVenuePage.getErrorMessageUploadPhoto(),excelHelper.getCellData("Message", 13));
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 	
@@ -216,10 +256,15 @@ public class SignUp_001_AccVenue extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccVenue_009_RegisterCompteledSkipUploadImage() throws Exception{
-		excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
-		registerVenuePage.clickToButtonSkip();
-		registerVenuePage.clickShowLeftMenu();
-		assertTrue(registerVenuePage.isTextTicketing());	
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
+			registerVenuePage.clickToButtonSkip();
+			registerVenuePage.clickShowLeftMenu();
+			assertTrue(registerVenuePage.isTextTicketing());
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 	public int generateFakeNumber() {

@@ -2,6 +2,7 @@ package showslinger_user;
 
 import java.util.Random;
 
+import commons.ConfigOnOffTestcase;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -20,7 +21,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
 
-@Test(enabled = false)
 public class SignUp_002_AccArtist extends BaseTest{
 	private WebDriver driver;
 	private UserHomePageObject homePage  ;
@@ -54,38 +54,52 @@ public class SignUp_002_AccArtist extends BaseTest{
 	@Severity(SeverityLevel.CRITICAL)
 	@Test
 	public void AccArtist_001_FormRegister() {
-		homePage.clickToRegisterLink();
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			homePage.clickToRegisterLink();
 
-		registerArtistPage = new UserRegisterArtistPageObject(driver);
-		
-		registerArtistPage.clickToCallFormResgiter();
-		registerArtistPage.clickToRadioButtonArtist();
+			registerArtistPage = new UserRegisterArtistPageObject(driver);
+
+			registerArtistPage.clickToCallFormResgiter();
+			registerArtistPage.clickToRadioButtonArtist();
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 
     @Description("Call form register account Artist")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccArtist_002_RegisterEmptyData() {
-		registerArtistPage.clickToRegisterButton();
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			registerArtistPage.clickToRegisterButton();
 
-		Assert.assertEquals(registerArtistPage.getErrorMessageAtEmailTextbox(),"Please enter your email");
-		Assert.assertEquals(registerArtistPage.getErrorMessageAtPasswordTextbox(),"Please enter your password");
-		Assert.assertEquals(registerArtistPage.getErrorMessageAtConfirmPasswordTextbox(),"You must agree to the terms of service to continue");
+			Assert.assertEquals(registerArtistPage.getErrorMessageAtEmailTextbox(),"Please enter your email");
+			Assert.assertEquals(registerArtistPage.getErrorMessageAtPasswordTextbox(),"Please enter your password");
+			Assert.assertEquals(registerArtistPage.getErrorMessageAtConfirmPasswordTextbox(),"You must agree to the terms of service to continue");
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
 	}
 
     @Description("Register Account Artist - Not Verify ReCAPTCHA")
   	@Severity(SeverityLevel.NORMAL)
   	@Test
-  	public void AccArtist_003_RegisterNotVerifyReCAPTCHA() { 
-    	registerArtistPage.inputToTextbox("Name", nameOfArtist);
-    	registerArtistPage.inputToTextbox("Email",validEmail);	
-    	registerArtistPage.inputToTextbox("Password",validPassword);	
-		
-    	registerArtistPage.clickCheckboxAcceptTerms();
-		
-    	registerArtistPage.clickToRegisterButton();
-	
-		assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Please verify that you are human");
+  	public void AccArtist_003_RegisterNotVerifyReCAPTCHA() {
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			registerArtistPage.inputToTextbox("Name", nameOfArtist);
+			registerArtistPage.inputToTextbox("Email",validEmail);
+			registerArtistPage.inputToTextbox("Password",validPassword);
+
+			registerArtistPage.clickCheckboxAcceptTerms();
+
+			registerArtistPage.clickToRegisterButton();
+
+			assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Please verify that you are human");
+
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
 
 	}
 
@@ -95,23 +109,28 @@ public class SignUp_002_AccArtist extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccArtist_004_RegisterEmailAlredyExists() {
-    	registerArtistPage.clickToCallFormResgiter();
-    	registerArtistPage.clickToRadioButtonArtist();
-		
-    	registerArtistPage.inputToTextbox("Name", nameOfArtist);
-    	registerArtistPage.inputToTextbox("Email",existingEmail);	
-    	registerArtistPage.inputToTextbox("Password",validPassword);	
-				
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			registerArtistPage.clickToCallFormResgiter();
+			registerArtistPage.clickToRadioButtonArtist();
+
+			registerArtistPage.inputToTextbox("Name", nameOfArtist);
+			registerArtistPage.inputToTextbox("Email",existingEmail);
+			registerArtistPage.inputToTextbox("Password",validPassword);
+
 //		registerArtistPage.switchToFrameIframe();
 //		registerArtistPage.clickCheckboxNotRobot();
 //		registerArtistPage.switchToSignInPage();
 
-		//manual verify reCAPTCHA
-    	registerArtistPage.sleepInSecond(10);
+			//manual verify reCAPTCHA
+			registerArtistPage.sleepInSecond(10);
 
-    	registerArtistPage.clickToRegisterButton();
-		
-		assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Signup failed! Please check your info and try again.");
+			registerArtistPage.clickToRegisterButton();
+
+			assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Signup failed! Please check your info and try again.");
+
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
 
 	}
     
@@ -119,24 +138,29 @@ public class SignUp_002_AccArtist extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccArtist_005_RegisterEmailWrong() {
-    	registerArtistPage.clickToCallFormResgiter();
-    	registerArtistPage.clickToRadioButtonArtist();
-		
-    	registerArtistPage.inputToTextbox("Name", nameOfArtist);
-    	registerArtistPage.inputToTextbox("Email",invalidEmail);	
-    	registerArtistPage.inputToTextbox("Password",validPassword);	
-		
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			registerArtistPage.clickToCallFormResgiter();
+			registerArtistPage.clickToRadioButtonArtist();
+
+			registerArtistPage.inputToTextbox("Name", nameOfArtist);
+			registerArtistPage.inputToTextbox("Email",invalidEmail);
+			registerArtistPage.inputToTextbox("Password",validPassword);
+
 //		registerArtistPage.clickCheckboxAcceptTerms();
-		
+
 //		registerArtistPage.switchToFrameIframe();
 //		registerArtistPage.clickCheckboxNotRobot();
 //		registerArtistPage.switchToSignInPage();
 
-		//manual verify reCAPTCHA
-    	registerArtistPage.sleepInSecond(10);
-		
-    	registerArtistPage.clickToRegisterButton();
-		assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Signup failed! Please check your info and try again.");
+			//manual verify reCAPTCHA
+			registerArtistPage.sleepInSecond(10);
+
+			registerArtistPage.clickToRegisterButton();
+			assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Signup failed! Please check your info and try again.");
+
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
 
 	}
 	
@@ -145,28 +169,33 @@ public class SignUp_002_AccArtist extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccArtist_006_RegisterArtistProfileEmpty() {
-    	registerArtistPage.clickToCallFormResgiter();
-    	registerArtistPage.clickToRadioButtonArtist();
-		
-    	registerArtistPage.inputToTextbox("Name", nameOfArtist);
-    	registerArtistPage.inputToTextbox("Email",validEmail);	
-    	registerArtistPage.inputToTextbox("Password",validPassword);	
-		
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			registerArtistPage.clickToCallFormResgiter();
+			registerArtistPage.clickToRadioButtonArtist();
+
+			registerArtistPage.inputToTextbox("Name", nameOfArtist);
+			registerArtistPage.inputToTextbox("Email",validEmail);
+			registerArtistPage.inputToTextbox("Password",validPassword);
+
 //		registerArtistPage.clickCheckboxAcceptTerms();
-		
+
 //		registerArtistPage.switchToFrameIframe();
 //		registerArtistPage.clickCheckboxNotRobot();
 //		registerArtistPage.switchToSignInPage();
-		
-		//manual verify reCAPTCHA
-    	registerArtistPage.sleepInSecond(10);
-		
-    	registerArtistPage.clickToRegisterButton();
-		
-		assertTrue(registerArtistPage.isTextProfileInformation());	
-		registerArtistPage.clickToButtonNext();
-		
-		assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Please enter the required info");
+
+			//manual verify reCAPTCHA
+			registerArtistPage.sleepInSecond(10);
+
+			registerArtistPage.clickToRegisterButton();
+
+			assertTrue(registerArtistPage.isTextProfileInformation());
+			registerArtistPage.clickToButtonNext();
+
+			assertEquals(registerArtistPage.getErrorMessageAtHeader(),"Please enter the required info");
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 
 	}
 	
@@ -174,19 +203,24 @@ public class SignUp_002_AccArtist extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void AccArtist_007_RegisterArtistPhoneEmpty() {
-    	registerArtistPage.inputToTextboxProfile("Name", artistName);
-    	registerArtistPage.inputToTextboxProfile("Postal code",postalCode);	
-    	registerArtistPage.inputToTextboxProfile("Hometown",homeTown);	
-    	registerArtistPage.selectDropdownProfileType("Cover Music");
-    	
-    	registerArtistPage.clickToButtonNext();
-    	
-		assertTrue(registerArtistPage.isTextWeNeed());	
-    	
-    	registerArtistPage.clickToButtonSend();
-    	
-    	registerArtistPage.acceptAlert();
-    	
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			registerArtistPage.inputToTextboxProfile("Name", artistName);
+			registerArtistPage.inputToTextboxProfile("Postal code",postalCode);
+			registerArtistPage.inputToTextboxProfile("Hometown",homeTown);
+			registerArtistPage.selectDropdownProfileType("Cover Music");
+
+			registerArtistPage.clickToButtonNext();
+
+			assertTrue(registerArtistPage.isTextWeNeed());
+
+			registerArtistPage.clickToButtonSend();
+
+			registerArtistPage.acceptAlert();
+
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 	
@@ -194,9 +228,14 @@ public class SignUp_002_AccArtist extends BaseTest{
 	@Severity(SeverityLevel.CRITICAL)
 	@Test
 	public void AccArtist_008_RegisterCompteledSkipInputPhone() {
-    	registerArtistPage.clickToButtonSkip();
+		if(ConfigOnOffTestcase.isReCapTChaOn){
+			registerArtistPage.clickToButtonSkip();
 
-		assertTrue(registerArtistPage.isTextDashboard());	
+			assertTrue(registerArtistPage.isTextDashboard());
+		} else{
+			System.out.println("Not Handle RecapTCha");
+		}
+
 	}
 	
 
