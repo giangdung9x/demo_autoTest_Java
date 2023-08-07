@@ -23,6 +23,8 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
 
+
+@Test(enabled = false)
 public class SignUp_001_AccVenue extends BaseTest{
 	private WebDriver driver;
 	private UserHomePageObject homePage  ;

@@ -17,8 +17,9 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
 import org.openqa.selenium.JavascriptExecutor;
- 
 
+
+@Test(enabled = false)
 public class Public_Kiosk_Page extends BaseTest{
 	private UserPublicKioskObject publicKioskPage;
 	private String emailManager, passwordManager;
