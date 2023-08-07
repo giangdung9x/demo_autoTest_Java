@@ -8,17 +8,13 @@
 
 </listeners>
 
- 	<test name="Sign up/Login">
+ 	<test name="Sign up/Login" preserve-order="true">
  		<parameter name="browser" value = "CHROME"></parameter>
     	<parameter name="serverName" value="STAGING"></parameter>
-		<groups>
-			<run>
-				<exclude name="excludeClass" />
-			</run>
-		</groups>
+
     	<classes>
-			<class name="showslinger_user.SignUp_001_AccVenue" groups="excludeClass"/>
-			<class name="showslinger_user.SignUp_002_AccArtist" groups="excludeClass"/>
+<!--			<class name="showslinger_user.SignUp_001_AccVenue" />-->
+<!--			<class name="showslinger_user.SignUp_002_AccArtist" />-->
 			<class name="showslinger_user.Forgot_Password"/>
 			<class name="showslinger_user.Login_Account"/>
             <class name="showslinger_user.Actions_Of_Event"/>
@@ -31,7 +27,7 @@
            	<class name="showslinger_user.Feature_Coupons"/>
            	<class name="showslinger_user.Feature_Pass"/>
            	<class name="showslinger_user.Feature_Gift_Card"/>
-           	<class name="showslinger_user.Public_Kiosk_Page" groups="excludeClass"/>
+<!--           	<class name="showslinger_user.Public_Kiosk_Page"/>-->
 		</classes>
 </test>
 
