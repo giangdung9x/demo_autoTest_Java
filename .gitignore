@@ -56,7 +56,6 @@ test-output/
 /bin/
 
 #testresult
-allure-results/
 /reports/.idea
 chart.png
 pie-chart.png
