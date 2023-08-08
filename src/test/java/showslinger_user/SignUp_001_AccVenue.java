@@ -62,7 +62,7 @@ public class SignUp_001_AccVenue extends BaseTest{
     
 	@Description("Call form register account Venue")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test
+	@Test(priority = 1)
 	public void AccVenue_001_FormRegister() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			homePage.clickToRegisterLink();
@@ -77,7 +77,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 
 	@Description("Register account Venue -  when empty data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 2)
 	public void AccVenue_002_RegisterEmptyData() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
@@ -94,7 +94,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	
 	@Description("Register account Venue - Don't verify ReCAPTCHA")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 3)
 	public void AccVenue_003_RegisterNotVerifyReCAPTCHA() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
@@ -112,7 +112,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	
 	@Description("Register account Venue - input email already exists")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 4)
 	public void AccVenue_004_RegisterEmailAlredyExists() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
@@ -142,7 +142,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	
 	@Description("Register account Venue - input email is wrong")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 5)
 	public void AccVenue_005_RegisterEmailWrong() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
@@ -173,7 +173,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	
 	@Description("Register account Venue Profile - Empty data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 6)
 	public void AccVenue_006_RegisterVenueProfileEmpty() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
@@ -211,7 +211,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	
 	@Description("Register account Venue Profile - zip code is wrong")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 7)
 	public void AccVenue_007_RegisterVenueProfileZipCodeWrong() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
@@ -230,7 +230,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	
 	@Description("Register account Venue Profile - Photo empty data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 8)
 	public void AccVenue_008_RegisterVenueAddPhotoEmpty() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");
@@ -254,7 +254,7 @@ public class SignUp_001_AccVenue extends BaseTest{
 	
 	@Description("Register account Venue Profile - register complelet - Skip upload photo")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 9)
 	public void AccVenue_009_RegisterCompteledSkipUploadImage() throws Exception{
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			excelHelper.setExcelFile("src/test/resources/DataTest/SignUp.xlsx", "Message");

@@ -45,7 +45,7 @@ public class Forgot_Password extends BaseTest{
 
 	@Description("Open Form Forgot Password")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 1)
 	public void ForgotPassword_001_FormForgotPassword() {
 		homePage.clickToLoginLink();
 
@@ -56,7 +56,7 @@ public class Forgot_Password extends BaseTest{
 
 	@Description("Forgot Password- Empty Data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 2)
 	public void ForgotPassword_002_EmptyData() {
 		forgotPasswordPage = new UserForgotPasswordObject(driver);
 		
@@ -68,7 +68,7 @@ public class Forgot_Password extends BaseTest{
 
 	@Description("Forgot Password - Invalid Email")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 3)
 	public void ForgotPassword_003_InvalidEmail() {
 		forgotPasswordPage.inputToEmailTextbox(invalidEmail);
 
@@ -77,7 +77,7 @@ public class Forgot_Password extends BaseTest{
 
 	@Description("Forgot Password - Not Existing Email")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 4)
 	public void ForgotPassword_004_NotExistingEmail() {
 		forgotPasswordPage.inputToEmailTextbox(notExistingEmail);
 
@@ -87,7 +87,7 @@ public class Forgot_Password extends BaseTest{
 
 	@Description("Forgot Password - Existing Email - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(priority = 5)
 	public void ForgotPassword_005_ExistingEmail() {
 
 		forgotPasswordPage.inputToEmailTextbox(existingEmail);

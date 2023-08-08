@@ -412,7 +412,7 @@ public class Feature_Gift_Card extends BaseTest{
 
 	@Description("Apply For Buy Online - Gift Card - Fail ( Invalid)")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 17)
+	@Test(priority = 13)
 	public void ApplyGiftCard_007_ApplyForBuyOnlineMultiGiftCardTicketInvalid() {
 		giftCardPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 		giftCardPage.inputToTextboxCouponBuyOnline(giftCardCode);
