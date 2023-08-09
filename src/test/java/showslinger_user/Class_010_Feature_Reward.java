@@ -64,8 +64,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("Login Account")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void Reward_OpenUrlAndLogin() {
+	@Test
+	public void TCs_001_Reward_OpenUrlAndLogin() {
 		
 		rewardPage.clickToLoginLink();
 
@@ -83,8 +83,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Create Reward - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void RewardList_001_CreateRewardFail() {
+	@Test
+	public void TCs_002_RewardList_001_CreateRewardFail() {
 		rewardPage.clickToAddButton("Reward");
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Create Reward"));
 
@@ -119,8 +119,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("Create Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void RewardList_002_CreateRewardSuccess() {
+	@Test
+	public void TCs_003_RewardList_002_CreateRewardSuccess() {
 		rewardPage.clickToAddButton("Reward");
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Create Reward"));
 
@@ -141,8 +141,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("Edit Reward - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void RewardList_003_EditRewardFail() {
+	@Test
+	public void TCs_004_RewardList_003_EditRewardFail() {
 		rewardPage.clickToActionButton(rewardName,"Edit");
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Edit Reward"));
 
@@ -163,8 +163,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("Edit Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void RewardList_004_EditRewardSuccess() {
+	@Test
+	public void TCs_005_RewardList_004_EditRewardSuccess() {
 		rewardPage.clickToActionButton(rewardName,"Edit");
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Edit Reward"));
 		rewardPage.inputToTextboxNamePopup("Name",editRewardName);
@@ -194,8 +194,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("Switch Status Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void RewardList_006_SwitchStatusRewardSuccess() {
+	@Test
+	public void TCs_006_RewardList_006_SwitchStatusRewardSuccess() {
 		rewardPage.clickToActionButton(rewardName,"Inactive");
 		verifyEquals(rewardPage.getTextOfAlert(), "Deactivated the reward '" + rewardName + "' successfully.");
 		rewardPage.clickToActionButton(rewardName,"Active");
@@ -206,8 +206,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("See Reward Page")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void RewardList_007_SeeRewardPage() {
+	@Test
+	public void TCs_007_RewardList_007_SeeRewardPage() {
 		String rewardManagerPage = driver.getWindowHandle();
 		rewardPage.clickToActionButton(rewardName,"See Rewards Page");
 		rewardPage.switchToWindowByID(rewardManagerPage);
@@ -223,8 +223,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("Switch Status Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void RedeemReward_001_RedeemFail() {
+	@Test
+	public void TCs_008_RedeemReward_001_RedeemFail() {
 		rewardPage.clickToItemOfLeftMenu("Calendar");
 		rewardPage.clickToPrevButton();
 		rewardPage.clickToEvent(eventName);
@@ -279,8 +279,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 
 	@Description("Switch Status Reward - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void RedeemReward_002_RedeemSuccess() {
+	@Test
+	public void TCs_009_RedeemReward_002_RedeemSuccess() {
 		rewardPage.refreshToPage(driver);
 		rewardPage.clickToItemOfLeftMenu("Calendar");
 		rewardPage.clickToPrevButton();
@@ -339,8 +339,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Open Tab Redeem List")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void RedeemList_001_OpenTabRedeemList() {
+	@Test
+	public void TCs_010_RedeemList_001_OpenTabRedeemList() {
 		rewardPage.refreshToPage(driver);
 		//rewardPage.clickShowLeftMenu();
 		rewardPage.clickToItemOfLeftMenu("Marketing");
@@ -351,8 +351,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Switch Status From Waiting")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void RedeemList_002_SwitchStatusFromWaiting() {
+	@Test
+	public void TCs_011_RedeemList_002_SwitchStatusFromWaiting() {
 		rewardPage.selectRedeemCheckboxByTitle(rewardName);
 		rewardPage.selectTextItemActionDropdown("Mark unredeemed");
 		rewardPage.clickToRequestButton();
@@ -365,8 +365,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Switch Status From Unredeemed")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void RedeemList_003_SwitchStatusFromUnredeemed() {
+	@Test
+	public void TCs_012_RedeemList_003_SwitchStatusFromUnredeemed() {
 		rewardPage.selectRedeemCheckboxByTitle(rewardName);
 		rewardPage.selectTextItemActionDropdown("Mark redeemed");
 		rewardPage.clickToRequestButton();
@@ -379,8 +379,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Switch Status From Redeemed")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void RedeemList_004_SwitchStatusFromRedeemed() {
+	@Test
+	public void TCs_013_RedeemList_004_SwitchStatusFromRedeemed() {
 		rewardPage.selectRedeemCheckboxByTitle(rewardName);
 		rewardPage.selectTextItemActionDropdown("Refund points");
 		rewardPage.clickToRequestButton();
@@ -393,8 +393,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Switch Status From Refunded")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 14)
-	public void RedeemList_005_SwitchStatusFromRefunded() {
+	@Test
+	public void TCs_014_RedeemList_005_SwitchStatusFromRefunded() {
 		rewardPage.selectRedeemCheckboxByTitle(rewardName);
 		rewardPage.selectTextItemActionDropdown("Void reward");
 		rewardPage.clickToRequestButton();
@@ -407,8 +407,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Delete Reward From Void")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 15)
-	public void RedeemList_006_SwitchStatusFromVoided() {
+	@Test
+	public void TCs_015_RedeemList_006_SwitchStatusFromVoided() {
 		rewardPage.selectRedeemCheckboxByTitle(rewardName);
 		
 		rewardPage.selectTextItemActionDropdown("Mark redeemed");
@@ -432,8 +432,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Delete Reward")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 16)
-	public void RedeemList_007_SwitchStatusFail() {
+	@Test
+	public void TCs_016_RedeemList_007_SwitchStatusFail() {
 		rewardPage.refreshToPage(driver);
 		rewardPage.clickToSwitchTabOfReward("redeem_list");
 		
@@ -460,8 +460,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 	
 	@Description("Delete Reward")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 17)
-	public void RewardList_007_DeleteReward() {
+	@Test
+	public void TCs_017_RewardList_007_DeleteReward() {
 		rewardPage.refreshToPage(driver);
 		
 		rewardPage.clickToActionButton(rewardName,"Delete");

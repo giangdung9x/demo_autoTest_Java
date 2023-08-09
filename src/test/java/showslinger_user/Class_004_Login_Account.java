@@ -59,7 +59,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Open form Log In")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
+	@Test
 	public void Login_001_FormLogin() {
 		homePage.clickToLoginLink();
 
@@ -71,7 +71,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Empty Data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
+	@Test
 	public void Login_002_EmptyData() {
 		loginPage.clickToLoginButton();
 
@@ -81,7 +81,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Invalid Email")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
+	@Test
 	public void Login_003_InvalidEmail() {
 		loginPage.loginAccount(invalidEmail, "");
 
@@ -93,7 +93,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Account Not Found")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
+	@Test
 	public void Login_004_AccNotFound() {
 		loginPage.loginAccount(notExistingEmail, "");
 
@@ -105,7 +105,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Empty Password")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
+	@Test
 	public void Login_005_AccRegisteredEmptyPassword() {
 		loginPage.loginAccount(emailManager, "");
 
@@ -116,7 +116,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Invalid Password")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
+	@Test
 	public void Login_006_AccRegisteredInvalidPassword() {
 
 		loginPage.loginAccount(emailManager, invalidPassword);
@@ -128,7 +128,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Login Account Manager Success")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 7)
+	@Test
 	public void Login_007_AccManagerCompleted() {
 
 		loginPage.loginAccount(emailManager, validPasswordManager);
@@ -151,7 +151,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Login Account Staff Manual Success")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 8)
+	@Test
 	public void Login_008_AccStaffManualCompleted() {
 		homePage.authenAlert();
 
@@ -181,7 +181,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Login Account Staff Auto Success")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 9)
+	@Test
 	public void Login_009_AccStaffAutoCompleted() {
 		homePage.authenAlert();
 
@@ -210,7 +210,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@Description("Log In Account - Login Account Concession Success")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 10)
+	@Test
 	public void Login_010_AccConcessionsCompleted() {
 		homePage.authenAlert();
 
@@ -236,6 +236,7 @@ public class Class_004_Login_Account extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 	

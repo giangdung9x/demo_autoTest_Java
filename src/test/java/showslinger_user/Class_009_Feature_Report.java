@@ -41,8 +41,8 @@ public class Class_009_Feature_Report extends BaseTest{
 
 	@Description("Login Account")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void ListReport_001_OpenUrl() {
+	@Test
+	public void TCs_001_ListReport_001_OpenUrl() {
 		reportPage.clickToLoginLink();
 		reportPage.loginAccount(emailManager,passwordManager);
 		reportPage.clickToLoginButton();
@@ -54,16 +54,16 @@ public class Class_009_Feature_Report extends BaseTest{
 
 	@Description("List Report- Search Event")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void ListReport_002_SearchEvent() {
+	@Test
+	public void TCs_002_ListReport_002_SearchEvent() {
 		reportPage.searchEventName(eventName);
 		reportPage.clickToActionMenuOfEvent(eventName, "Settlement report");
 	}
 
 	@Description("Settlement Report -Check Value Overview")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void SettlementReport_001_CheckValueOverview() {
+	@Test
+	public void TCs_003_SettlementReport_001_CheckValueOverview() {
 		reportPage.compareValues(
 				reportPage.getValueOfTagOverview("Overview", "Online"), 
 				reportPage.getValueOfTag("Volume", "Online sales", "2"));
@@ -107,8 +107,8 @@ public class Class_009_Feature_Report extends BaseTest{
 
 	@Description("Settlement Report - Check Value Summary")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void SettlementReport_002_CheckValueSummary() {
+	@Test
+	public void TCs_004_SettlementReport_002_CheckValueSummary() {
 		double totalTickets = reportPage.getValueOfTag("Summary", "Tickets", "3")
 				+ reportPage.getValueOfTag("Summary", "Tickets", "4")
 				+ reportPage.getValueOfTag("Summary", "Tickets", "5")
@@ -126,8 +126,8 @@ public class Class_009_Feature_Report extends BaseTest{
 
 	@Description("Settlement Report - Check Value Online Sales")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void SettlementReport_003_CheckValueOnlineSales() {
+	@Test
+	public void TCs_005_SettlementReport_003_CheckValueOnlineSales() {
 		double totalFaceValuePre = reportPage.getValueOfTag("Online Sales", "Total Tickets (Online)", "2")
 				+ reportPage.getValueOfTag("Online Sales", "Total Add-Ons (Online)", "2")
 				+ reportPage.getValueOfTag("Online Sales", "Total Passes (Online)", "2");	
@@ -167,6 +167,7 @@ public class Class_009_Feature_Report extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 }

@@ -70,8 +70,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Login Account")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void Pass_OpenUrlAndLogin() {
+	@Test
+	public void TCs_001_Pass_OpenUrlAndLogin() {
 		
 		passPage.clickToLoginLink();
 
@@ -91,8 +91,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Create Pass - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void Pass_001_CreatePassFail() {
+	@Test
+	public void TCs_002_Pass_001_CreatePassFail() {
 		passPage.clickToAddPassButton();
 
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
@@ -122,8 +122,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Create Pass QR - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void Pass_002_CreatePassSuccessSingleQR() {
+	@Test
+	public void TCs_003_Pass_002_CreatePassSuccessSingleQR() {
 		passPage.clickToAddPassButton();
 
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
@@ -148,8 +148,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Create Pass Multi - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void Pass_003_CreatePassuccessMultiTicket() {
+	@Test
+	public void TCs_004_Pass_003_CreatePassuccessMultiTicket() {
 		passPage.clickToAddPassButton();
 
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
@@ -174,8 +174,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Create Pass QR has AccessCode - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void Pass_004_CreatePassuccessAccessCode() {
+	@Test
+	public void TCs_005_Pass_004_CreatePassuccessAccessCode() {
 		passPage.clickToAddPassButton();
 
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
@@ -201,8 +201,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Change Satus Pass - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void Pass_005_SwitchStatusPass() {
+	@Test
+	public void TCs_006_Pass_005_SwitchStatusPass() {
 		passPage.clickToActionButton(passSingleQR,"Inactive");
 		verifyEquals(passPage.getTextOfAlert(), "Deactivated the pass '"+passSingleQR+"' successfully.");
 		passPage.clickToActionButton(passSingleQR,"Active");
@@ -224,8 +224,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Edit Pass - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void Pass_006_EditPassSuccess() {
+	@Test
+	public void TCs_007_Pass_006_EditPassSuccess() {
 		passPage.clickToActionButton(passAccessCode,"Edit");
 		passPage.inputToTextboxNamePopup("Access code",accessCode);
 		passPage.clickToSaveButton();
@@ -235,8 +235,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Create Pass QR has AccessCode - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void Pass_007_DeletePassSuccess() {
+	@Test
+	public void TCs_008_Pass_007_DeletePassSuccess() {
 		passPage.clickToAddPassButton();
 		
 		verifyTrue(passPage.isTextNameOfPopupDisplayed("Create Pass"));
@@ -267,8 +267,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Buy Pass has Access Code")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void BuyPass_BuyPassAccessCode() {	
+	@Test
+	public void BTCs_009_uyPass_BuyPassAccessCode() {
 
 		passPage.clickToItemOfLeftMenu("Calendar");
 		passPage.clickToPrevButton();
@@ -340,8 +340,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Open Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void ApplyPass_001_OpenUrlBoxOffice() {
+	@Test
+	public void TCs_010_ApplyPass_001_OpenUrlBoxOffice() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		passPage.clickToItemOfLeftMenu("Box office");
 		passPage.switchToWindowByID(boxOfficeWindowID);
@@ -350,8 +350,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Apply For Box Office - Multi Pass - Event Not Support")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void ApplyPass_002_ApplyForBoxMultiPassEventNotSupport() {
+	@Test
+	public void TCs_011_ApplyPass_002_ApplyForBoxMultiPassEventNotSupport() {
 		passPage.clickToValueOfDropdown("venue", "City Theater");
 		passPage.clickToValueOfDropdown("ticket", eventNameMulti);
 		passPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
@@ -368,8 +368,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Apply For Box Office - Multi Pass - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void ApplyPass_003_ApplyForBoxMultiPassOfficeSuccess() {
+	@Test
+	public void TCs_012_ApplyPass_003_ApplyForBoxMultiPassOfficeSuccess() {
 		passPage.clickToValueOfDropdown("venue", "City Theater");
 		passPage.clickToValueOfDropdown("ticket", eventNameAccess);
 		passPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);		
@@ -386,8 +386,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Apply For Box Office - Multi Pass - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void ApplyPass_004_ApplyForBoxMultiPassTicketInvalid() {
+	@Test
+	public void TCs_013_ApplyPass_004_ApplyForBoxMultiPassTicketInvalid() {
 		passPage.clickToValueOfDropdown("venue", "City Theater");
 		passPage.clickToValueOfDropdown("ticket", eventNameAccess);
 		passPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);		
@@ -401,8 +401,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Buy Pass has Access Code for use buy online")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 14)
-	public void BuyPass_BuyPassAccessCode_ForUseBuyOnline() {	
+	@Test
+	public void TCs_014_BuyPass_BuyPassAccessCode_ForUseBuyOnline() {
 		passPage.clickToEvent(eventNameAccess);
 		String managerPage = driver.getWindowHandle();	
 		passPage.clickToLink("Preview");	
@@ -473,8 +473,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Apply For Buy Online - Multi Pass - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 15)
-	public void ApplyPass_002_ApplyForBuyOnlineMultiPassEventNotSupport() {
+	@Test
+	public void TCs_015_ApplyPass_002_ApplyForBuyOnlineMultiPassEventNotSupport() {
 		passPage.clickToItemOfLeftMenu("Calendar");
 		passPage.clickToPrevButton();
 		passPage.clickToEvent(eventNameMulti);
@@ -499,8 +499,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@Description("Apply For Buy Online - Multi Pass - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 16)
-	public void ApplyPass_002_ApplyForBuyOnlineMultiPassOfficeSuccess() {
+	@Test
+	public void TCs_016_ApplyPass_002_ApplyForBuyOnlineMultiPassOfficeSuccess() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		passPage.switchToWindowByID(boxOfficeWindowID);
 		passPage.clickToEvent(eventNameAccess);
@@ -546,8 +546,8 @@ public class Class_013_Feature_Pass extends BaseTest{
 
 	@Description("Apply For Buy Online - Multi Pass - Fail ( Invalid)")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 17)
-	public void ApplyPass_003_ApplyForBuyOnlineMultiPassTicketInvalid() {
+	@Test
+	public void TCs_017_ApplyPass_003_ApplyForBuyOnlineMultiPassTicketInvalid() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		passPage.switchToWindowByID(boxOfficeWindowID);
 		passPage.refreshToPage(driver);
@@ -571,6 +571,7 @@ public class Class_013_Feature_Pass extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 }

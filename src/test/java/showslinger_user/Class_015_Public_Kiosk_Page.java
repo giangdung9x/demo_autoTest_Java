@@ -53,8 +53,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 	
 	@Description("Config Kiosk - Open 'Config Kiosk")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void ConfigKiosk_001_OpenConfigKiosk() {
+	@Test
+	public void TCs_001_ConfigKiosk_001_OpenConfigKiosk() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.clickToLoginLink();
 			publicKioskPage.loginAccount(emailManager,passwordManager);
@@ -74,8 +74,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Config Kiosk - button 'Back to kiosk' ")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void ConfigKiosk_002_ButtonBackToKiosk() {
+	@Test
+	public void TCs_002_ConfigKiosk_002_ButtonBackToKiosk() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.clickToButtonBackToKiosk();
 
@@ -89,8 +89,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Config Kiosk - Enter code of Config Kiosk is empty")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void ConfigKiosk_003_EnterCodeEmpty() {
+	@Test
+	public void TCs_003_ConfigKiosk_003_EnterCodeEmpty() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.clickToButtonConfigKiosk();
 
@@ -106,8 +106,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Config Kiosk - Enter code of Config Kiosk is incorrect")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void ConfigKiosk_004_EnterCodeIncorrect() {
+	@Test
+	public void TCs_004_ConfigKiosk_004_EnterCodeIncorrect() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.inputCodeAccessConfigKiosk(accessCodeInvalid);
 
@@ -122,8 +122,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Config Kiosk - Enter code of Config Kiosk is correct")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void ConfigKiosk_005_EnterCodeCorrect() {
+	@Test
+	public void TCs_005_ConfigKiosk_005_EnterCodeCorrect() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.inputCodeAccessConfigKiosk(accessCodeValid);
 
@@ -139,8 +139,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Config Kiosk - Config to Kiosk")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void ConfigKiosk_006_ConfigToKiosk() {
+	@Test
+	public void TCs_006_ConfigKiosk_006_ConfigToKiosk() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			assertTrue(publicKioskPage.isTextComputerPrinterDisplayed());
 			assertTrue(publicKioskPage.isTextSelectDefaultPrintersDisplayed());
@@ -180,8 +180,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Checkout - Select Event of Public Kiosk")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void Checkout_001_SelectEvent() {
+	@Test
+	public void TCs_007_Checkout_001_SelectEvent() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			String eventName = publicKioskPage.getNameOfEventFromScreenSelectEvent(eventNameSelected);
 
@@ -197,8 +197,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Checkout - Checkout when empty data - Name")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void Checkout_002_CheckoutEmptyDataName() {
+	@Test
+	public void TCs_008_Checkout_002_CheckoutEmptyDataName() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.clickToButtonCheckout();
 
@@ -212,8 +212,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Checkout - Checkout when empty data - Phone")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void Checkout_003_CheckoutEmptyDataPhone() {
+	@Test
+	public void TCs_009_Checkout_003_CheckoutEmptyDataPhone() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 
@@ -228,8 +228,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@Description("Checkout - Checkout when empty data - Quantity")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void Checkout_004_CheckoutEmptyDataQuantity() {
+	@Test
+	public void TCs_010_Checkout_004_CheckoutEmptyDataQuantity() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 			publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
@@ -246,8 +246,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 	
 	@Description("Checkout - Checkout when input valid data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void Checkout_005_CheckoutInputValidData() {
+	@Test
+	public void TCs_011_Checkout_005_CheckoutInputValidData() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.clickToDropDownSelectQuantityTicket(ticketName, "2");
 			publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
@@ -264,16 +264,16 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 	
 	@Description("Checkout - Charge Card Other Internet")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void Checkout_006_ChargeCardOrtherInternet() {
+	@Test
+	public void TCs_012_Checkout_006_ChargeCardOrtherInternet() {
 
 
 	}
 	
 	@Description("Checkout - Charge Card As Like Internet")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void Checkout_007_ChargeCardAsLikeInternet() {
+	@Test
+	public void TCs_013_TCs_001_Checkout_007_ChargeCardAsLikeInternet() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.clickToChooseCardReader("ss-reader");
 			//publicKioskPage.clickToRadioButtonCardReader();
@@ -316,8 +316,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 	
 	@Description("Checkout - Payment Method Declined")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 14)
-	public void Checkout_008_PaymentMethodDeclined() {
+	@Test
+	public void TCs_014_TCs_001_Checkout_008_PaymentMethodDeclined() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 			publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
@@ -353,8 +353,8 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 	
 	@Description("Checkout - Check button Kiosk of Payment screen")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 15)
-	public void Checkout_009_CheckButtonKiosk() {
+	@Test
+	public void TCs_015_TCs_001_Checkout_009_CheckButtonKiosk() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			publicKioskPage.inputInfoBuyer("Name", nameOfBuyer);
 			publicKioskPage.inputInfoBuyer("Phone", phoneNumber);
@@ -370,6 +370,7 @@ public class Class_015_Public_Kiosk_Page extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 

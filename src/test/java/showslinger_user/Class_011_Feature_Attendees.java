@@ -41,8 +41,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Open url and open Attendee page")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void Attendee_001_OpenUrl() {
+	@Test
+	public void TCs_001_Attendee_001_OpenUrl() {
 		attendeePage.clickToLoginLink();
 		attendeePage.loginAccount(emailManager,passwordManager);
 		attendeePage.clickToLoginButton();
@@ -60,8 +60,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Transfer Order has status Complete is Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void Transfer_001_TransferOrderComplete_Fail() {
+	@Test
+	public void TCs_002_Transfer_001_TransferOrderComplete_Fail() {
 		attendeePage.selectTextItemFiterByStatusDropdown("Complete");
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectOrderFirstCheckbox("2");
@@ -73,16 +73,16 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Transfer Order has status Pending is Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void Transfer_002_TransferOrderPending_Fail() {
+	@Test
+	public void TCs_003_Transfer_002_TransferOrderPending_Fail() {
 
 
 	}
 
 	@Description("Transfer Order has status Refund is Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void Transfer_003_TransferOrderRefund_Fail() {
+	@Test
+	public void TCs_004_Transfer_003_TransferOrderRefund_Fail() {
 		attendeePage.selectTextItemFiterByStatusDropdown("Refund");
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectTextItemActionDropdown("Transfer order");
@@ -93,8 +93,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Transfer Order has status Partial Refund is Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void Transfer_004_TransferOrderPartialRefund_Fail() {
+	@Test
+	public void TCs_005_Transfer_004_TransferOrderPartialRefund_Fail() {
 		attendeePage.selectTextItemFiterByStatusDropdown("Partial refund");
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectTextItemActionDropdown("Transfer order");
@@ -105,8 +105,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Transfer Order has status Void is Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void Transfer_005_TransferOrderVoid_Fail() {
+	@Test
+	public void TCs_006_Transfer_005_TransferOrderVoid_Fail() {
 		attendeePage.selectTextItemFiterByStatusDropdown("Voided");
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectTextItemActionDropdown("Transfer order");
@@ -117,8 +117,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Transfer Order has status Transferred is Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void Transfer_006_TransferOrderTransferred_Fail() {
+	@Test
+	public void TCs_007_Transfer_006_TransferOrderTransferred_Fail() {
 		attendeePage.selectTextItemFiterByStatusDropdown("Transferred");
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectTextItemActionDropdown("Transfer order");
@@ -131,8 +131,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Transfer Order has status Complete is Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void Transfer_007_TransferOrderComplete_Success() {
+	@Test
+	public void TCs_008_Transfer_007_TransferOrderComplete_Success() {
 		attendeePage.selectTextItemFiterByStatusDropdown("Complete");
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectTextItemActionDropdown("Transfer order");
@@ -154,8 +154,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Refund Order is Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void Refund_001_RefundOrderSuccess() {
+	@Test
+	public void TCs_009_Refund_001_RefundOrderSuccess() {
 		attendeePage.refreshToPage(driver);
 		attendeePage.selectTextItemFiterByStatusDropdown("Complete");
 		attendeePage.searchOrder("Online");
@@ -172,8 +172,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Refund Order is Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void Refund_001_PartialRefundOrder_Fail() {
+	@Test
+	public void TCs_010_Refund_001_PartialRefundOrder_Fail() {
 		attendeePage.refreshToPage(driver);
 		attendeePage.selectTextItemFiterByStatusDropdown("Complete");
 		attendeePage.searchOrder("Online");
@@ -189,7 +189,7 @@ public class Class_011_Feature_Attendees extends BaseTest{
 	@Description("Partial Refund Order is Fail")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 11)
-	public void Refund_002_PartialRefundOrderRefund_Fail() {
+	public void TCs_011_Refund_002_PartialRefundOrderRefund_Fail() {
 		attendeePage.refreshToPage(driver);
 		attendeePage.selectTextItemFiterByStatusDropdown("Complete");
 		attendeePage.searchOrder("Comp");
@@ -204,8 +204,8 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@Description("Partial Refund Order is Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void Refund_003_PartialRefundOrder_Success() {
+	@Test
+	public void TCs_012_Refund_003_PartialRefundOrder_Success() {
 		attendeePage.refreshToPage(driver);
 		attendeePage.selectTextItemFiterByStatusDropdown("Complete");
 		attendeePage.searchOrder("Online");
@@ -230,6 +230,7 @@ public class Class_011_Feature_Attendees extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 }

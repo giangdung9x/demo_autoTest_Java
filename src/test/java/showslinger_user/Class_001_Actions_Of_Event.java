@@ -37,15 +37,15 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 		
 		emailManager ="paulv@showslinger.com";
 		passwordManager = "12345";
-		dayStart = "12/07/2023";
-		dayEnd = "30/07/2023";
+		dayStart = "01/08/2023";
+		dayEnd = "30/08/2023";
 		dayEndInValid = "12/06/2023";
 		eventName = "Test" + " "+ dayStart +" "+generateFakeNumber();
 		eventNameNew = "Test"+ " " +generateFakeNumber();
 
-		dayStartCopy ="15/07/2023";
-		dayStartAfter ="15/07/2023";
-		dayEndAfter = "30/07/2023";
+		dayStartCopy ="15/08/2023";
+		dayStartAfter ="15/08/2023";
+		dayEndAfter = "30/08/2023";
 		
 		fullName = "Dang Thi Giang";
 		phone = "+128379292999";
@@ -62,8 +62,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 
 	@Description("Login Account")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void Ticket_OpenUrlAndLoginAccount() {
+	@Test
+	public void TCs_001_Ticket_OpenUrlAndLoginAccount() {
 		
 		eventPage.clickToLoginLink();
 
@@ -74,8 +74,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Create Ticket - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void CreateTicket_001_CreateTicketFail() {
+	@Test
+	public void TCs_002_CreateTicket_001_CreateTicketFail() {
 		eventPage.clickToCreateTicketButton();
 		
 		assertTrue(eventPage.isNameOfPopupDisplayed("Create Ticket"));
@@ -127,8 +127,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Create Ticket - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void CreateTicket_002_CreateTicketSuccess() {
+	@Test
+	public void TCs_003_CreateTicket_002_CreateTicketSuccess() {
 		eventPage.inputToTextboxMinMaxTicket("Minimum ticket", "1");
 		eventPage.inputToTextboxMinMaxTicket("Maximum ticket", "10");
 		
@@ -146,8 +146,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Edit Ticket - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void EditTicket_001_EditTicketFail() {
+	@Test
+	public void TCs_004_EditTicket_001_EditTicketFail() {
 		eventPage.clickToEvent(eventName);
 		
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
@@ -166,8 +166,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Edit Ticket - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void EditTicket_002_EditTicketSuccess() {
+	@Test
+	public void TCs_005_EditTicket_002_EditTicketSuccess() {
 		eventPage.clickToEvent(eventName);
 
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
@@ -186,8 +186,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Copy Ticket - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void CopyTicket_001_CopyTicketFail() {
+	@Test
+	public void TCs_006_CopyTicket_001_CopyTicketFail() {
 		eventPage.refreshToPage(driver);
 		eventPage.clickToEvent(eventName);
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
@@ -203,8 +203,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Copy Ticket - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void CopyTicket_002_CopyTicketSuccess() {
+	@Test
+	public void TCs_007_CopyTicket_002_CopyTicketSuccess() {
 		eventPage.refreshToPage(driver);
 
 		eventPage.clickToEvent(eventName);
@@ -225,8 +225,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Transfer Ticket - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void TransferTicket_001_TransferTicketFail() {
+	@Test
+	public void TCs_008_TransferTicket_001_TransferTicketFail() {
 		eventPage.refreshToPage(driver);
 
 		eventPage.clickToEvent(eventName);
@@ -249,8 +249,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Transfer Ticket - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void TransferTicket_002_TransferTicketSuccess() {
+	@Test
+	public void TCs_009_TransferTicket_002_TransferTicketSuccess() {
 		eventPage.refreshToPage(driver);
 		eventPage.clickToEvent(eventName);
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
@@ -268,8 +268,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("DeleteTicket - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void DeleteTicket_001_DeleteTicketFail() {
+	@Test
+	public void TCs_010_DeleteTicket_001_DeleteTicketFail() {
 		eventPage.refreshToPage(driver);
 		eventPage.clickToEventCopy(eventName);
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
@@ -282,8 +282,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("DeleteTicket - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void DeleteTicket_002_DeleteTicketSuccess() {
+	@Test
+	public void TCs_011_DeleteTicket_002_DeleteTicketSuccess() {
 		eventPage.refreshToPage(driver);
 		eventPage.clickToEventCopy(eventName);
 		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
@@ -296,8 +296,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Cancel Refund Ticket - Refund Auto")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void CancelRefundTicket_001_CancelRefundAuto() {
+	@Test
+	public void TCs_012_CancelRefundTicket_001_CancelRefundAuto() {
 		eventPage.refreshToPage(driver);
 
 		eventPage.clickToEvent(eventName);
@@ -370,8 +370,8 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	@Description("Cancel Refund Ticket - Manual Auto")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void CancelRefundTicket_002_CancelRefundManual() {
+	@Test
+	public void TCs_013_CancelRefundTicket_002_CancelRefundManual() {
 		eventPage.refreshToPage(driver);
 
 		
@@ -460,6 +460,7 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	@AfterClass
 	public void afterClass() {
 		closeBrowserDriver();
+//		driver.quit();
 	}
 }
 

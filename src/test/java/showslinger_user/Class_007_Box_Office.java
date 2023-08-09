@@ -53,8 +53,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Login Account Manager and Open Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void Manager_001_OpenUrlLoginAccount() {
+	@Test
+	public void TCs_001_Manager_001_OpenUrlLoginAccount() {
 		boxOfficePage.clickToLoginLink();
 		boxOfficePage.loginAccount(emailManager,passwordManager);
 		boxOfficePage.clickToLoginButton();
@@ -68,8 +68,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Verify More Menu")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void Manager_002_MoreMenu() {
+	@Test
+	public void TCs_002_Manager_002_MoreMenu() {
 		boxOfficePage.clickToMoreMenuButton();
 
 		String boxOfficeWindowID = driver.getWindowHandle();
@@ -106,8 +106,8 @@ public class Class_007_Box_Office extends BaseTest{
 	@Ignore
 	@Description("Verify - Information Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void Manager_003_ConfigInformationBoxOffice() {
+	@Test
+	public void TCs_003_Manager_003_ConfigInformationBoxOffice() {
 		if (ConfigOnOffTestcase.isPublicKioskOn){
 			boxOfficePage.clickToDropDownSelectPrinter();
 			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
@@ -167,8 +167,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Select venue and event")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void Manager_004_SelectVenueAndEvent() {
+	@Test
+	public void TCs_004_Manager_004_SelectVenueAndEvent() {
 		assertTrue(boxOfficePage.isBoxOfficeTextDisplayed());
 
 		boxOfficePage.clickToDropDownSelectVenue();
@@ -182,8 +182,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - when empty data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void Manager_005_CheckoutNowEmptyData() {
+	@Test
+	public void TCs_005_Manager_005_CheckoutNowEmptyData() {
 		boxOfficePage.clickButtonCheckout("Checkout now");
 		boxOfficePage.sleepInSecond(3);
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please select at least one ticket");
@@ -208,8 +208,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Cash - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void Manager_006_CheckoutNowMethodByCashSuccess() {
+	@Test
+	public void TCs_006_Manager_006_CheckoutNowMethodByCashSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Cash");
@@ -283,8 +283,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Comp - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void Manager_007_CheckoutNowMethodByCompSuccess() {
+	@Test
+	public void TCs_007_Manager_007_CheckoutNowMethodByCompSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Comp");
@@ -359,8 +359,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void Manager_008_CheckoutNowMethodByPayLaterSuccess() {
+	@Test
+	public void TCs_008_Manager_008_CheckoutNowMethodByPayLaterSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -437,8 +437,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Fail reason - total amount <50$")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void Manager_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
+	@Test
+	public void TCs_009_Manager_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -454,8 +454,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Fail reason - payment")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void Manager_010_CheckoutNowMethodByPaylaterFailTestPayment() {
+	@Test
+	public void TCs_010_Manager_010_CheckoutNowMethodByPaylaterFailTestPayment() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -475,8 +475,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Swiper - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void Manager_011_CheckoutNowMethodByCardSwiperSuccess() {
+	@Test
+	public void TCs_011_Manager_011_CheckoutNowMethodByCardSwiperSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -561,8 +561,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Swiper - Status: Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void Manager_012_CheckoutNowMethodByCardSwiperFail() {
+	@Test
+	public void TCs_012_Manager_012_CheckoutNowMethodByCardSwiperFail() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -590,8 +590,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Manual - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void Manager_013_CheckoutNowMethodByCardManuallySuccess() {
+	@Test
+	public void TCs_013_Manager_013_CheckoutNowMethodByCardManuallySuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -684,8 +684,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Manual - Status: Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 14)
-	public void Manager_014_CheckoutNowMethodByCardManuallyFail() {
+	@Test
+	public void TCs_014_Manager_014_CheckoutNowMethodByCardManuallyFail() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -771,8 +771,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Add to cart")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 15)
-	public void Manager_015_AddToCart() {
+	@Test
+	public void TCs_015_Manager_015_AddToCart() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickButtonCheckout("Add to cart");
@@ -785,8 +785,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Login Account Staff - Auto and Open Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 16)
-	public void StaffAuto_001_OpenUrlLoginAccount() {
+	@Test
+	public void TCs_016_StaffAuto_001_OpenUrlLoginAccount() {
 		boxOfficePage.authenAlert();
 		boxOfficePage.loginAccount(emailStaffAuto,passwordStaffAuto);
 
@@ -797,8 +797,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Verify More Menu")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 17)
-	public void StaffAuto_002_MoreMenu() {
+	@Test
+	public void TCs_017_StaffAuto_002_MoreMenu() {
 		boxOfficePage.clickToMoreMenuButton();
 
 		String boxOfficeWindowID = driver.getWindowHandle();
@@ -834,8 +834,8 @@ public class Class_007_Box_Office extends BaseTest{
 	@Ignore
 	@Description("Verify - Information Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 18)
-	public void StaffAuto_003_ConfigInformationBoxOffice() {
+	@Test
+	public void TCs_018_StaffAuto_003_ConfigInformationBoxOffice() {
 		if(ConfigOnOffTestcase.isPublicKioskOn){
 			boxOfficePage.clickToDropDownSelectPrinter();
 			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
@@ -894,8 +894,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Select venue and event")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 19)
-	public void StaffAuto_004_SelectVenueAndEvent() {
+	@Test
+	public void TCs_019_StaffAuto_004_SelectVenueAndEvent() {
 		assertTrue(boxOfficePage.isBoxOfficeTextDisplayed());
 
 		boxOfficePage.clickToDropDownSelectVenue();
@@ -909,8 +909,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - when empty data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 20)
-	public void StaffAuto_005_CheckoutNowEmptyData() {
+	@Test
+	public void TCs_020_StaffAuto_005_CheckoutNowEmptyData() {
 		boxOfficePage.clickButtonCheckout("Checkout now");
 
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please select at least one ticket");
@@ -935,8 +935,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Cash - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 21)
-	public void StaffAuto_006_CheckoutNowMethodByCashSuccess() {
+	@Test
+	public void TCs_021_StaffAuto_006_CheckoutNowMethodByCashSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Cash");
@@ -1011,8 +1011,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Comp - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 22)
-	public void StaffAuto_007_CheckoutNowMethodByCompSuccess() {
+	@Test
+	public void TCs_22_StaffAuto_007_CheckoutNowMethodByCompSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Comp");
@@ -1087,8 +1087,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 23)
-	public void StaffAuto_008_CheckoutNowMethodByPayLaterSuccess() {
+	@Test
+	public void TCs_023_StaffAuto_008_CheckoutNowMethodByPayLaterSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -1165,8 +1165,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Fail reason - total amount <50$")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 24)
-	public void StaffAuto_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
+	@Test
+	public void TCs_024_StaffAuto_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -1182,8 +1182,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Fail reason - payment")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 25)
-	public void StaffAuto_010_CheckoutNowMethodByPaylaterFailTestPayment() {
+	@Test
+	public void TCs_025_StaffAuto_010_CheckoutNowMethodByPaylaterFailTestPayment() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -1203,8 +1203,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Swiper - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 26)
-	public void StaffAuto_011_CheckoutNowMethodByCardSwiperSuccess() {
+	@Test
+	public void TCs_026_StaffAuto_011_CheckoutNowMethodByCardSwiperSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName,quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -1289,8 +1289,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Swiper - Status: Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 27)
-	public void StaffAuto_012_CheckoutNowMethodByCardSwiperFail() {
+	@Test
+	public void TCs_027_StaffAuto_012_CheckoutNowMethodByCardSwiperFail() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -1318,8 +1318,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Manual - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 28)
-	public void StaffAuto_013_CheckoutNowMethodByCardManuallySuccess() {
+	@Test
+	public void TCs_028_StaffAuto_013_CheckoutNowMethodByCardManuallySuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -1409,8 +1409,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Manual - Status: Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 29)
-	public void StaffAuto_014_CheckoutNowMethodByCardManuallyFail() {
+	@Test
+	public void TCs_029_StaffAuto_014_CheckoutNowMethodByCardManuallyFail() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -1496,8 +1496,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Add to cart")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 30)
-	public void StaffAuto_015_AddToCart() {
+	@Test
+	public void TCs_030_StaffAuto_015_AddToCart() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickButtonCheckout("Add to cart");
@@ -1510,8 +1510,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Login Account Staff - Auto and Open Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 31)
-	public void StaffManual_001_OpenUrlLoginAccount() {
+	@Test
+	public void TCs_031_StaffManual_001_OpenUrlLoginAccount() {
 		boxOfficePage.authenAlert();
 
 		boxOfficePage.loginAccount(emailStaffAuto,passwordStaffAuto);
@@ -1523,8 +1523,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Verify More Menu")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 32)
-	public void StaffManual_002_MoreMenu() {
+	@Test
+	public void TCs_032_StaffManual_002_MoreMenu() {
 		boxOfficePage.clickToMoreMenuButton();
 
 		String boxOfficeWindowID = driver.getWindowHandle();
@@ -1559,8 +1559,8 @@ public class Class_007_Box_Office extends BaseTest{
 	@Ignore
 	@Description("Verify - Information Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 33)
-	public void StaffManual_003_ConfigInformationBoxOffice() {
+	@Test
+	public void TCs_033_StaffManual_003_ConfigInformationBoxOffice() {
 		if (ConfigOnOffTestcase.isPublicKioskOn){
 			boxOfficePage.clickToDropDownSelectPrinter();
 			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
@@ -1620,8 +1620,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Select venue and event")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 34)
-	public void StaffManual_004_SelectVenueAndEvent() {
+	@Test
+	public void TCs_034_StaffManual_004_SelectVenueAndEvent() {
 		assertTrue(boxOfficePage.isBoxOfficeTextDisplayed());
 
 		boxOfficePage.clickToDropDownSelectVenue();
@@ -1635,8 +1635,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - when empty data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 35)
-	public void StaffManual_005_CheckoutNowEmptyData() {
+	@Test
+	public void TCs_035_StaffManual_005_CheckoutNowEmptyData() {
 		boxOfficePage.clickButtonCheckout("Checkout now");
 
 		assertEquals(boxOfficePage.getErrorMessageCheckoutEmptyData(),"Please select at least one ticket");
@@ -1661,8 +1661,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Cash - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 36)
-	public void StaffManual_006_CheckoutNowMethodByCashSuccess() {
+	@Test
+	public void TCs_036_StaffManual_006_CheckoutNowMethodByCashSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Cash");
@@ -1737,8 +1737,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Comp - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 37)
-	public void StaffManual_007_CheckoutNowMethodByCompSuccess() {
+	@Test
+	public void TCs_037_StaffManual_007_CheckoutNowMethodByCompSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Comp");
@@ -1813,8 +1813,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 38)
-	public void StaffManual_008_CheckoutNowMethodByPayLaterSuccess() {
+	@Test
+	public void TCs_038_StaffManual_008_CheckoutNowMethodByPayLaterSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -1891,8 +1891,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Fail reason - total amount <50$")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 39)
-	public void StaffManual_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
+	@Test
+	public void TCs_039_StaffManual_009_CheckoutNowMethodByPayLaterFailTotalAmount() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -1908,8 +1908,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Pay Later - Status: Fail reason - payment")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 40)
-	public void StaffManual_010_CheckoutNowMethodByPaylaterFailTestPayment() {
+	@Test
+	public void TCs_040_StaffManual_010_CheckoutNowMethodByPaylaterFailTestPayment() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Buy now pay later");
@@ -1929,8 +1929,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Swiper - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 41)
-	public void StaffManual_011_CheckoutNowMethodByCardSwiperSuccess() {
+	@Test
+	public void TCs_041_StaffManual_011_CheckoutNowMethodByCardSwiperSuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -2015,8 +2015,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Swiper - Status: Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 42)
-	public void StaffManual_012_CheckoutNowMethodByCardSwiperFail() {
+	@Test
+	public void TCs_042_StaffManual_012_CheckoutNowMethodByCardSwiperFail() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -2044,8 +2044,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Manual - Status: Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 43)
-	public void StaffManual_013_CheckoutNowMethodByCardManuallySuccess() {
+	@Test
+	public void TCs_043_StaffManual_013_CheckoutNowMethodByCardManuallySuccess() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -2136,8 +2136,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Checkout - Method: Card Manual - Status: Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 44)
-	public void StaffManual_014_CheckoutNowMethodByCardManuallyFail() {
+	@Test
+	public void TCs_044_StaffManual_014_CheckoutNowMethodByCardManuallyFail() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -2223,8 +2223,8 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@Description("Add to cart")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 45)
-	public void StaffManual_015_AddToCart() {
+	@Test
+	public void TCs_045_StaffManual_015_AddToCart() {
 		boxOfficePage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 
 		boxOfficePage.clickButtonCheckout("Add to cart");
@@ -2238,6 +2238,7 @@ public class Class_007_Box_Office extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 

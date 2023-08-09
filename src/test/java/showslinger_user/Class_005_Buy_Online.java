@@ -62,7 +62,7 @@ public class Class_005_Buy_Online extends BaseTest{
 
 	@Description("Buy Ticket - Checkout when empty data")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
+	@Test
 	public void BuyOnline_001_CheckoutEmptyQuantityTicket() {
 		buyOnlinePage.clickToLoginLink();
 		buyOnlinePage.loginAccount(emailManager,passwordManager);
@@ -85,7 +85,7 @@ public class Class_005_Buy_Online extends BaseTest{
 
 	@Description("Buy Ticket - Checkout when empty info of buyer")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
+	@Test
 	public void BuyOnline_002_CheckoutEmptyInfoBuyer() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
 
@@ -132,7 +132,7 @@ public class Class_005_Buy_Online extends BaseTest{
 
 	@Description("Buy Ticket - checkout when not accecpt terms of service")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
+	@Test
 	public void BuyOnline_003_CheckoutNowNotAcceptTerms() {
 		buyOnlinePage.clickPlaceOrderButton();
 
@@ -141,7 +141,7 @@ public class Class_005_Buy_Online extends BaseTest{
 
 	@Description("Buy Ticket - Checkout method: Checkout now  - when empty info of card")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
+	@Test
 	public void BuyOnline_004_CheckoutNowNotInputCard() {
 		buyOnlinePage.clickCheckboxAcceptTermsService();
 
@@ -229,7 +229,7 @@ public class Class_005_Buy_Online extends BaseTest{
 
 	@Description("Buy Ticket - Checkout method: Checkout now  - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
+	@Test
 	public void BuyOnline_005_CheckoutNowSuccess() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
 		buyOnlinePage.clickToAgreeCheckoutButton();
@@ -275,7 +275,7 @@ public class Class_005_Buy_Online extends BaseTest{
 
 	@Description("Buy Ticket - Checkout method: Buy now pay later - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
+	@Test
 	public void BuyOnline_006_CheckoutPayLaterFail() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
 		buyOnlinePage.clickToAgreeCheckoutButton();
@@ -337,8 +337,8 @@ public class Class_005_Buy_Online extends BaseTest{
 
 	@Description("Buy Ticket - Checkout method: Buy now pay later - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void BuyTicket_007_CheckoutPayLaterSuccess() {
+	@Test
+	public void BuyOnline_007_CheckoutPayLaterSuccess() {
 		buyOnlinePage.clickToDropDownSelectQuantityTicket(ticketName, "5");
 		buyOnlinePage.clickToAgreeCheckoutButton();
 

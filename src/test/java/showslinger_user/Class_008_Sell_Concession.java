@@ -58,8 +58,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 
 	@Description("Login Account")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void Concessions_OpenUrlAndLogin() {
+	@Test
+	public void TCs_001_Concessions_OpenUrlAndLogin() {
 		concessionPage.clickToLoginLink();
 		concessionPage.loginAccount(emailConcession,passwordConcession);
 		concessionPage.clickToLoginButton();
@@ -70,8 +70,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 
 	@Description("Concessions Sales - CheckoutAddOns - Card Swiper")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void ConcessionsSales_CheckoutAddOns_CardSwiper() {
+	@Test
+	public void TCs_002_ConcessionsSales_CheckoutAddOns_CardSwiper() {
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
 		concessionPage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -85,8 +85,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions Sales - CheckoutAddOns - Enter Card Manually")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void ConcessionsSales_CheckoutAddOns_EnterCardManually() {
+	@Test
+	public void TCs_003_ConcessionsSales_CheckoutAddOns_EnterCardManually() {
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
 		concessionPage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -103,8 +103,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions Sales - CheckoutAddOns - Cash")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void ConcessionsSales_CheckoutAddOns_Cash() {
+	@Test
+	public void TCs_004_ConcessionsSales_CheckoutAddOns_Cash() {
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
 		concessionPage.clickToRadioButtonPaymentCheckout("Cash");
@@ -119,8 +119,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions Sales - CheckoutAddOns - Comp")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void ConcessionsSales_CheckoutAddOns_Comp() {
+	@Test
+	public void TCs_005_ConcessionsSales_CheckoutAddOns_Comp() {
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
 		concessionPage.clickToRadioButtonPaymentCheckout("Comp");
@@ -135,8 +135,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge Save - Card Swiper")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void Concessions_CheckoutMiscChargeSave_CardSwiper() {
+	@Test
+	public void TCs_006_Concessions_CheckoutMiscChargeSave_CardSwiper() {
 		concessionPage.clickToButtonOfMiscChargePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -151,8 +151,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge Save - Enter Card Manually")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void Concessions_CheckoutMiscChargeSave_EnterCardManually() {
+	@Test
+	public void TCs_007_Concessions_CheckoutMiscChargeSave_EnterCardManually() {
 		concessionPage.clickToButtonOfMiscChargePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -168,8 +168,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge Save - Cash")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void Concessions_CheckoutMiscChargeSave_Cash() {
+	@Test
+	public void TCs_008_Concessions_CheckoutMiscChargeSave_Cash() {
 		concessionPage.clickToButtonOfMiscChargePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Cash");
@@ -184,8 +184,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge Save - Comp")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void Concessions_CheckoutMiscChargeSave_Comp() {
+	@Test
+	public void TCs_009_Concessions_CheckoutMiscChargeSave_Comp() {
 		concessionPage.clickToButtonOfMiscChargePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Comp");
@@ -201,8 +201,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge - Card Swiper")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void Concessions_CheckoutMiscCharge_CardSwiper() {
+	@Test
+	public void TCs_010_Concessions_CheckoutMiscCharge_CardSwiper() {
 		concessionPage.clickToButtonOfMiscChargeSavePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Card swiper");
@@ -217,8 +217,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge - Enter Card Manually")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void Concessions_CheckoutMiscCharge_EnterCardManually() {
+	@Test
+	public void TCs_011_Concessions_CheckoutMiscCharge_EnterCardManually() {
 		concessionPage.clickToButtonOfMiscChargeSavePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Enter card manually");
@@ -234,8 +234,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge - Cash")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void Concessions_CheckoutMiscCharge_Cash() {
+	@Test
+	public void TCs_012_Concessions_CheckoutMiscCharge_Cash() {
 		concessionPage.clickToButtonOfMiscChargeSavePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Cash");
@@ -249,8 +249,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Misc Charge - Comp")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void Concessions_CheckoutMiscCharge_Comp() {
+	@Test
+	public void TCs_013_Concessions_CheckoutMiscCharge_Comp() {
 		concessionPage.clickToButtonOfMiscChargeSavePopup(amount, notes);
 		concessionPage.compareAmountsMisc();
 		concessionPage.clickToRadioButtonPaymentCheckout("Comp");
@@ -264,8 +264,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Add Ons - Card Swiper")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 14)
-	public void ConcessionsInventory_CheckoutAddOns_CardSwiper() {
+	@Test
+	public void TCs_004_ConcessionsInventory_CheckoutAddOns_CardSwiper() {
 		concessionPage.clickSwitchToTab("Inventory");
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
@@ -280,8 +280,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions -  Checkout Add Ons - Enter Card Manually")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 15)
-	public void ConcessionsInventory_CheckoutAddOns_EnterCardManually() {
+	@Test
+	public void TCs_015_ConcessionsInventory_CheckoutAddOns_EnterCardManually() {
 		concessionPage.clickSwitchToTab("Inventory");
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
@@ -296,8 +296,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	}
 	@Description("Concessions -  Checkout Add Ons - Comp")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 16)
-	public void ConcessionsInventory_CheckoutAddOns_Comp() {
+	@Test
+	public void TCs_016_ConcessionsInventory_CheckoutAddOns_Comp() {
 		concessionPage.clickSwitchToTab("Inventory");
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
@@ -312,8 +312,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 
 	@Description("Concessions -  Checkout Add Ons - Cash")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 17)
-	public void ConcessionsInventory_CheckoutAddOns_Cash() {
+	@Test
+	public void TCs_017_ConcessionsInventory_CheckoutAddOns_Cash() {
 		concessionPage.clickSwitchToTab("Inventory");
 		concessionPage.plusAddOnsCheckout();
 		concessionPage.compareAmounts();
@@ -328,8 +328,8 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@Description("Concessions Sales - Refund Order")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 18)
-	public void ConcessionsSales_RefundOrder() {
+	@Test
+	public void TCs_018_ConcessionsSales_RefundOrder() {
 		concessionPage.chooseActionOfDropdown("Refund");
 		concessionPage.clickToSelectAllRefund();
 		concessionPage.clickToButtonOfMiscChargePopup("Refund");
@@ -343,6 +343,7 @@ public class Class_008_Sell_Concession extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 }

@@ -52,7 +52,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
 
     @Description("Call form register account Artist")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 1)
+	@Test
 	public void AccArtist_001_FormRegister() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			homePage.clickToRegisterLink();
@@ -69,7 +69,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
 
     @Description("Call form register account Artist")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
+	@Test
 	public void AccArtist_002_RegisterEmptyData() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			registerArtistPage.clickToRegisterButton();
@@ -84,7 +84,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
 
     @Description("Register Account Artist - Not Verify ReCAPTCHA")
   	@Severity(SeverityLevel.NORMAL)
-  	@Test(priority = 3)
+  	@Test
   	public void AccArtist_003_RegisterNotVerifyReCAPTCHA() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			registerArtistPage.inputToTextbox("Name", nameOfArtist);
@@ -107,7 +107,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
     
     @Description("Register Account Artist - Input Email Alredy Exists")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
+	@Test
 	public void AccArtist_004_RegisterEmailAlredyExists() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			registerArtistPage.clickToCallFormResgiter();
@@ -136,7 +136,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
     
     @Description("Register Account Artist - Input Email Wrong")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
+	@Test
 	public void AccArtist_005_RegisterEmailWrong() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			registerArtistPage.clickToCallFormResgiter();
@@ -167,7 +167,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
 	
     @Description("Register Account Artist - Artist Profile Empty")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
+	@Test
 	public void AccArtist_006_RegisterArtistProfileEmpty() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			registerArtistPage.clickToCallFormResgiter();
@@ -201,7 +201,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
 	
     @Description("Register Account Artist - Artist Phone Empty")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
+	@Test
 	public void AccArtist_007_RegisterArtistPhoneEmpty() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			registerArtistPage.inputToTextboxProfile("Name", artistName);
@@ -226,7 +226,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
 	
     @Description("Register Account Artist - Skip Input Phone")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 8)
+	@Test
 	public void AccArtist_008_RegisterCompteledSkipInputPhone() {
 		if(ConfigOnOffTestcase.isReCapTChaOn){
 			registerArtistPage.clickToButtonSkip();
@@ -247,6 +247,7 @@ public class Class_002_SignUp_002_AccArtist extends BaseTest{
 
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 

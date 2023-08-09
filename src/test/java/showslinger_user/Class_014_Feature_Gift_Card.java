@@ -64,8 +64,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 
 	@Description("Login Account")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void GiftCard_OpenUrlAndLogin() {
+	@Test
+	public void TCs_001_GiftCard_OpenUrlAndLogin() {
 		
 		giftCardPage.clickToLoginLink();
 
@@ -85,8 +85,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Create Gift Card - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void GiftCard_001_CreateGiftCardFail() {
+	@Test
+	public void TCs_002_GiftCard_001_CreateGiftCardFail() {
 		giftCardPage.clickToAddButton("Gift Card");
 		
 		verifyTrue(giftCardPage.isTextNameOfPopupDisplayed("Create Gift Card"));
@@ -97,8 +97,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 
 	@Description("Create Gift Card - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void GiftCard_002_CreateGiftCardNotAccessSuccess() {
+	@Test
+	public void TCs_003_GiftCard_002_CreateGiftCardNotAccessSuccess() {
 		giftCardPage.clickToAddButton("Gift Card");
 		
 		verifyTrue(giftCardPage.isTextNameOfPopupDisplayed("Create Gift Card"));
@@ -118,8 +118,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Create Gift Card Multi - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void GiftCard_003_CreateGiftCardAccessSuccess() {
+	@Test
+	public void TCs_004_GiftCard_003_CreateGiftCardAccessSuccess() {
 		giftCardPage.clickToAddButton("Gift Card");
 		
 		verifyTrue(giftCardPage.isTextNameOfPopupDisplayed("Create Gift Card"));
@@ -140,8 +140,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Buy Gift Card has Access Code")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void BuyGiftCard_NeedAccessCode() {	
+	@Test
+	public void TCs_005_BuyGiftCard_NeedAccessCode() {
 
 		giftCardPage.clickToItemOfLeftMenu("Calendar");
 		//giftCardPage.clickToPrevButton();
@@ -213,8 +213,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 
 	@Description("Open Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void ApplyGiftCard_001_OpenUrlBoxOffice() {
+	@Test
+	public void TCs_006_ApplyGiftCard_001_OpenUrlBoxOffice() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		giftCardPage.clickToItemOfLeftMenu("Box office");
 		giftCardPage.switchToWindowByID(boxOfficeWindowID);
@@ -223,8 +223,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Apply For Box Office - Gift Card - Event Not Support")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void ApplyGiftCard_002_ApplyForBoxMultiGiftCardEventNotSupport() {
+	@Test
+	public void TCs_007_ApplyGiftCard_002_ApplyForBoxMultiGiftCardEventNotSupport() {
 		giftCardPage.clickToValueOfDropdown("venue", "City Theater");
 		giftCardPage.clickToValueOfDropdown("ticket", eventName);
 		giftCardPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
@@ -236,8 +236,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Apply For Box Office - Gift Card - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void ApplyGiftCard_003_ApplyForBoxMultiGiftCardOfficeSuccess() {
+	@Test
+	public void TCs_008_ApplyGiftCard_003_ApplyForBoxMultiGiftCardOfficeSuccess() {
 		giftCardPage.clickToValueOfDropdown("venue", "City Theater");
 		giftCardPage.clickToValueOfDropdown("ticket", eventNameAccess);
 		giftCardPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);		
@@ -253,8 +253,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Apply For Box Office - Gift Card - Invalid")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void ApplyGiftCard_004_ApplyForBoxMultiGiftCardTicketInvalid() {
+	@Test
+	public void TCs_009_ApplyGiftCard_004_ApplyForBoxMultiGiftCardTicketInvalid() {
 		giftCardPage.clickToValueOfDropdown("venue", "City Theater");
 		giftCardPage.clickToValueOfDropdown("ticket", eventNameAccess);
 		giftCardPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);		
@@ -268,8 +268,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Buy Gift Card has Access Code for use buy online")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void BuyGiftCard_NeedAccessCode_ForUseBuyOnline() {	
+	@Test
+	public void TCs_010_BuyGiftCard_NeedAccessCode_ForUseBuyOnline() {
 		giftCardPage.clickToEvent(eventNameAccess);
 		String managerPage = driver.getWindowHandle();	
 		giftCardPage.clickToLink("Preview");	
@@ -338,8 +338,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Apply For Buy Online - Gift Card - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void ApplyGiftCard_005_ApplyForBuyOnlineMultiGiftCardEventNotSupport() {
+	@Test
+	public void TCs_011_ApplyGiftCard_005_ApplyForBuyOnlineMultiGiftCardEventNotSupport() {
 		giftCardPage.clickToItemOfLeftMenu("Calendar");
 		giftCardPage.clickToPrevButton();
 		giftCardPage.clickToEvent(eventName);
@@ -360,8 +360,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@Description("Apply For Buy Online - Gift Card  - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void ApplyGiftCard_006_ApplyForBuyOnlineMultiGiftCardOfficeSuccess() {
+	@Test
+	public void TCs_012_ApplyGiftCard_006_ApplyForBuyOnlineMultiGiftCardOfficeSuccess() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		giftCardPage.switchToWindowByID(boxOfficeWindowID);
 		giftCardPage.clickToEvent(eventNameAccess);
@@ -411,8 +411,8 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 
 	@Description("Apply For Buy Online - Gift Card - Fail ( Invalid)")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void ApplyGiftCard_007_ApplyForBuyOnlineMultiGiftCardTicketInvalid() {
+	@Test
+	public void TCs_013_ApplyGiftCard_007_ApplyForBuyOnlineMultiGiftCardTicketInvalid() {
 		giftCardPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
 		giftCardPage.inputToTextboxCouponBuyOnline(giftCardCode);
 		giftCardPage.clickToSendCouponButton();
@@ -428,6 +428,7 @@ public class Class_014_Feature_Gift_Card extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 }

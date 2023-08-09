@@ -1,39 +1,38 @@
-Total Tests: 46
-Passed Tests: 41
-Failed Tests: 4
+Total Tests: 15
+Passed Tests: 15
+Failed Tests: 0
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Class_001_SignUp_001_AccVenue: 9
-Passed Tests in showslinger_user.Class_007_Box_Office: 2
-Passed Tests in showslinger_user.Class_004_Login_Account: 10
 Passed Tests in showslinger_user.Class_003_Forgot_Password: 5
-Passed Tests in showslinger_user.Class_005_Buy_Online: 7
-Passed Tests in showslinger_user.Class_002_SignUp_002_AccArtist: 8
-Failed Tests in showslinger_user.Class_001_SignUp_001_AccVenue: 0
-Failed Tests in showslinger_user.Class_007_Box_Office: 4
-Failed Tests in showslinger_user.Class_004_Login_Account: 0
+Passed Tests in showslinger_user.Class_004_Login_Account: 10
 Failed Tests in showslinger_user.Class_003_Forgot_Password: 0
-Failed Tests in showslinger_user.Class_005_Buy_Online: 0
-Failed Tests in showslinger_user.Class_002_SignUp_002_AccArtist: 0
-Skipped Tests in showslinger_user.Class_001_SignUp_001_AccVenue: 0
-Skipped Tests in showslinger_user.Class_007_Box_Office: 0
-Skipped Tests in showslinger_user.Class_004_Login_Account: 0
+Failed Tests in showslinger_user.Class_004_Login_Account: 0
 Skipped Tests in showslinger_user.Class_003_Forgot_Password: 0
-Skipped Tests in showslinger_user.Class_005_Buy_Online: 0
-Skipped Tests in showslinger_user.Class_002_SignUp_002_AccArtist: 0
+Skipped Tests in showslinger_user.Class_004_Login_Account: 0
 
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_001_FormRegister - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_002_RegisterEmptyData - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_003_RegisterNotVerifyReCAPTCHA - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_004_RegisterEmailAlredyExists - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_005_RegisterEmailWrong - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_006_RegisterVenueProfileEmpty - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_007_RegisterVenueProfileZipCodeWrong - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_008_RegisterVenueAddPhotoEmpty - null - PASSED
-showslinger_user.Class_001_SignUp_001_AccVenue - AccVenue_009_RegisterCompteledSkipUploadImage - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_001_FormRegister - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_002_RegisterEmptyData - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_003_RegisterNotVerifyReCAPTCHA - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_001_FormForgotPassword - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_002_EmptyData - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_003_InvalidEmail - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_004_NotExistingEmail - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_005_ExistingEmail - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_001_FormLogin - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_006_AccRegisteredInvalidPassword - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_007_AccManagerCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_008_AccStaffManualCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
+ Reward_OpenUrlAndLogin - null - SKIPPED
+showslinger_user.Class_009_Feature_Report - ListReport_001_OpenUrl - null - SKIPPED
+showslinger_user.Class_011_Feature_Attendees - Attendee_001_OpenUrl - null - SKIPPED
+showslinger_user.Class_012_Feature_Coupons - Coupons_OpenUrlAndLogin - null - SKIPPED
+showslinger_user.Class_013_Feature_Pass - Pass_OpenUrlAndLogin - null - SKIPPED
+showslinger_user.Class_014_Feature_Gift_Card - GiftCard_OpenUrlAndLogin - null - SKIPPED
+showslinger_user.Class_015_Public_Kiosk_Page - ConfigKiosk_001_OpenConfigKiosk - null - SKIPPED
+tist_003_RegisterNotVerifyReCAPTCHA - null - PASSED
 showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_004_RegisterEmailAlredyExists - null - PASSED
 showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_005_RegisterEmailWrong - null - PASSED
 showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_006_RegisterArtistProfileEmpty - null - PASSED

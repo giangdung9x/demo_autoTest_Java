@@ -57,8 +57,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 
 	@Description("Login Account")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void Coupons_OpenUrlAndLogin() {
+	@Test
+	public void TCs_001_Coupons_OpenUrlAndLogin() {
 		
 		couponPage.clickToLoginLink();
 		couponPage.loginAccount(emailManager,passwordManager);
@@ -73,8 +73,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 
 	@Description("Create Coupons - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 2)
-	public void Coupons_001_CreateCouponFail() {
+	@Test
+	public void TCs_002_Coupons_001_CreateCouponFail() {
 
 		//Pre-conditions:
 		couponPage.clickToAddCouponButton();
@@ -135,8 +135,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 
 	@Description("Create Coupons - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 3)
-	public void Coupons_002_CreateCouponSuccess() {
+	@Test
+	public void TCs_003_Coupons_002_CreateCouponSuccess() {
 		couponPage.clickToAddCouponButton();
 
 		verifyTrue(couponPage.isTextNameOfPopupDisplayed("Create Coupon"));
@@ -157,8 +157,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Create Coupon - Success: Auto Apply")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 4)
-	public void Coupons_004_CreateCouponSuccessAutoApply() {
+	@Test
+	public void TCs_004_Coupons_004_CreateCouponSuccessAutoApply() {
 
 		couponPage.clickToAddCouponButton();
 		
@@ -181,8 +181,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Edit Coupon - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 5)
-	public void Coupons_005_EditCouponFail() {
+	@Test
+	public void TCs_005_Coupons_005_EditCouponFail() {
 		couponPage.clickToActionButton(couponName,"Edit");
 		couponPage.inputToTextboxPlaceholderCouponPopup("Code", couponNameExist);
 		couponPage.clickToSaveCouponButton();
@@ -195,8 +195,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Edit Coupon - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 6)
-	public void Coupons_006_ActiveCouponFail() {
+	@Test
+	public void TCs_006_Coupons_006_ActiveCouponFail() {
 		couponPage.clickToActionButton("testmin","Activate");
 		verifyEquals(couponPage.getTextOfAlert(),"The expiration date has already passed. To make this coupon active, change the expiration to a future date.");
 		couponPage.clickToCloseAlertButton();
@@ -206,8 +206,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Change Satus Coupon - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 7)
-	public void Coupons_007_ChangeSatusCouponSuccess() {
+	@Test
+	public void TCs_007_Coupons_007_ChangeSatusCouponSuccess() {
 		couponPage.clickToActionButton(couponName,"Deactivate");
 		verifyEquals(couponPage.getTextOfAlert(), "Deactivated the coupon '"+couponName+"' successfully.");
 		couponPage.clickToActionButton(couponName,"Activate");
@@ -216,8 +216,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Open Box Office")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 8)
-	public void ApplyCoupon_001_OpenUrlBoxOffice() {
+	@Test
+	public void TCs_008_ApplyCoupon_001_OpenUrlBoxOffice() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		couponPage.clickToItemOfLeftMenu("Box office");
 		couponPage.switchToWindowByID(boxOfficeWindowID);
@@ -227,8 +227,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Box Office - Manual Coupon - Event Not Support")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 9)
-	public void ApplyCoupon_002_ApplyForBoxManualCouponEventNotSupport() {
+	@Test
+	public void TCs_009_ApplyCoupon_002_ApplyForBoxManualCouponEventNotSupport() {
 		couponPage.clickToValueOfDropdown("venue", "City Theater");
 		couponPage.clickToValueOfDropdown("ticket", "Giang Test Transfer");
 		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
@@ -247,8 +247,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Box Office - Manual Coupon - Deactivate")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 10)
-	public void ApplyCoupon_003_ApplyForBoxManualCouponDeactivate() {
+	@Test
+	public void TCs_010_ApplyCoupon_003_ApplyForBoxManualCouponDeactivate() {
 		String boxOfficeWindowID = driver.getWindowHandle();	
 		couponPage.switchToWindowByID(boxOfficeWindowID);
 		couponPage.clickToActionButton(couponName,"Deactivate");
@@ -266,8 +266,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Box Office - Manual Coupon - Ticket Invalid")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 11)
-	public void ApplyCoupon_004_ApplyForBoxManualCouponTicketInvalid() {
+	@Test
+	public void TCs_011_ApplyCoupon_004_ApplyForBoxManualCouponTicketInvalid() {
 		String managerPage = driver.getWindowHandle();	
 		couponPage.switchToWindowByID(managerPage);
 		
@@ -291,8 +291,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Box Office - Manual Coupon - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 12)
-	public void ApplyCoupon_005_ApplyForBoxManualCouponOfficeSuccess() {
+	@Test
+	public void TCs_012_ApplyCoupon_005_ApplyForBoxManualCouponOfficeSuccess() {
 		couponPage.clickToDropDownSelectQuantityTicket(ticketName, "2");
 		couponPage.clickButtonCheckout("Checkout now");
 		couponPage.isTextCheckoutScreenDisplayed();
@@ -302,8 +302,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Box Office - Auto Coupon - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 13)
-	public void ApplyCoupon_006_ApplyForBoxAutoCouponOfficeSuccess() {
+	@Test
+	public void TCs_013_ApplyCoupon_006_ApplyForBoxAutoCouponOfficeSuccess() {
 		couponPage.clickToValueOfDropdown("venue", "City Theater");
 		couponPage.clickToValueOfDropdown("ticket",eventNameAuto);
 		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
@@ -314,8 +314,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Box Office - Auto Coupon - Fail")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 14)
-	public void ApplyCoupon_007_ApplyForBoxAutoCouponOfficeSuccess() {
+	@Test
+	public void TCs_014_ApplyCoupon_007_ApplyForBoxAutoCouponOfficeSuccess() {
 		couponPage.clickToValueOfDropdown("venue", "City Theater");
 		couponPage.clickToValueOfDropdown("ticket",eventNameAuto);
 		couponPage.clickToDropDownSelectQuantityTicket(ticketName, quantityTicket);
@@ -328,8 +328,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Buy Online - Manual Coupon - Deactivate")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 15)
-	public void ApplyCoupon_008_ApplyForBuyOnlineManualCouponDeactivate() {
+	@Test
+	public void TCs_015_ApplyCoupon_008_ApplyForBuyOnlineManualCouponDeactivate() {
 		couponPage.clickToActionButton(couponName,"Deactivate");
 		verifyEquals(couponPage.getTextOfAlert(), "Deactivated the coupon '"+couponName+"' successfully.");
 		
@@ -349,8 +349,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Buy Online - Manual Coupon - Ticket Invalid")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 16)
-	public void ApplyCoupon_009_ApplyForBuyOnlineManualCouponTicketInvalid() {
+	@Test
+	public void TCs_016_ApplyCoupon_009_ApplyForBuyOnlineManualCouponTicketInvalid() {
 		couponPage.inputToTextboxCouponBuyOnline(couponNameAuto);
 		couponPage.clickToSendCouponButton();
 		assertEquals(couponPage.getErrorMessage(),"Coupon code not found.");
@@ -359,8 +359,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Buy Online - Manual Coupon - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 17)
-	public void ApplyCoupon_010_ApplyForBuyOnlineManualCouponSuccess() {
+	@Test
+	public void TCs_017_ApplyCoupon_010_ApplyForBuyOnlineManualCouponSuccess() {
 		String boxOfficeWindowID = driver.getWindowHandle();		
 		couponPage.switchToWindowByID(boxOfficeWindowID);
 		couponPage.clickToLink("Cancel");
@@ -386,8 +386,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Apply For Buy Online - Auto Coupon - Success")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 18)
-	public void ApplyCoupon_011_ApplyForBuyOnlineAutoCouponSuccess() {
+	@Test
+	public void TCs_018_ApplyCoupon_011_ApplyForBuyOnlineAutoCouponSuccess() {
 		couponPage.clickToItemOfLeftMenu("Calendar");
 		couponPage.clickToPrevButton();
 		couponPage.clickToEvent(eventNameAuto);
@@ -402,8 +402,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@Description("Delete all coupon created")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 19)
-	public void Delete_All_Coupon_Created() {
+	@Test
+	public void TCs_019_Delete_All_Coupon_Created() {
 		String boxOfficeWindowID = driver.getWindowHandle();	
 		driver.close();
 		couponPage.switchToWindowByID(boxOfficeWindowID);
@@ -430,6 +430,7 @@ public class Class_012_Feature_Coupons extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
+//		driver.quit();
 		closeBrowserDriver();
 	}
 }
