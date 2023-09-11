@@ -21,6 +21,8 @@ import factoryBrowsers.BrowsersFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.Architecture;
 
+import static org.openqa.selenium.remote.DesiredCapabilities.*;
+
 public class GridFactory implements EnvironmentFactory{
 	private WebDriver driver;
 	private String browserName;

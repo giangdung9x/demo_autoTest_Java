@@ -35,11 +35,12 @@ public class LocalFactory  implements EnvironmentFactory{
 		case CHROME :
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--start-maximized");
-			try {
-				driver = new RemoteWebDriver(new URL("http:localhost:4444/wd/hub"), chromeOptions);
-			} catch (MalformedURLException e) {
-				throw new RuntimeException(e);
-			}
+//			try {
+//				driver = new RemoteWebDriver(new URL("http:localhost:4444/wd/hub"), chromeOptions);
+//			} catch (MalformedURLException e) {
+//				throw new RuntimeException(e);
+//			}
+			driver = new ChromeDriverManager().getBrowserDriver();
 			break;
 		case OPERA :
 			driver = new OperaDriverManager().getBrowserDriver();

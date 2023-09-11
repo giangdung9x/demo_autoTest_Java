@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.automation.framework</groupId>
-  <artifactId>com.automation.framework</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>maven-hybrid-framwork-showslinger</name>
-  
-  <!-- Global Variable -->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.automation.framework</groupId>
+    <artifactId>com.automation.framework</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>maven-hybrid-framwork-showslinger</name>
+
+    <!-- Global Variable -->
     <properties>
         <!-- Encoding for Build/ Console -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,17 +20,17 @@
         <!-- Global variable for dependencies -->
         <webdriver.version>3.141.59</webdriver.version>
         <testng.version>6.14.3</testng.version>
-        <webdrivermanager.version>5.3.1</webdrivermanager.version>
+        <webdrivermanager.version>5.5.0</webdrivermanager.version>
         <aspectj.version>1.9.8</aspectj.version>
         <allure.version>2.13.5</allure.version>
         <!-- <jackson.version>2.10.0</jackson.version>-->
-      	<!-- <extent.version>5.0.8</extent.version>-->
-    	<!--  <faker.version>1.0.1</faker.version>-->
-		<log4j.version>1.2.16</log4j.version>
+        <!-- <extent.version>5.0.8</extent.version>-->
+        <!--  <faker.version>1.0.1</faker.version>-->
+        <log4j.version>1.2.16</log4j.version>
         <reportng.version>1.1.4</reportng.version>
     </properties>
-  
-   <!-- Quản lí thư viện -->
+
+    <!-- Quản lí thư viện -->
     <dependencies>
         <!-- TestNG -->
         <dependency>
@@ -71,23 +71,23 @@
             <scope>test</scope>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
+        <!-- <dependency>
+             <groupId>com.fasterxml.jackson.core</groupId>
+             <artifactId>jackson-core</artifactId>
+             <version>${jackson.version}</version>
+         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency> 
+         <dependency>
+             <groupId>com.fasterxml.jackson.core</groupId>
+             <artifactId>jackson-databind</artifactId>
+             <version>${jackson.version}</version>
+         </dependency>
 
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>${extent.version}</version>
-        </dependency>-->
+         <dependency>
+             <groupId>com.aventstack</groupId>
+             <artifactId>extentreports</artifactId>
+             <version>${extent.version}</version>
+         </dependency>-->
 
         <dependency>
             <groupId>joda-time</groupId>
@@ -125,11 +125,11 @@
             <version>1.2</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>${faker.version}</version>
-        </dependency> -->
+        <!-- <dependency>
+             <groupId>com.github.javafaker</groupId>
+             <artifactId>javafaker</artifactId>
+             <version>${faker.version}</version>
+         </dependency> -->
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -141,14 +141,14 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
-             <scope>runtime</scope>
+            <scope>runtime</scope>
         </dependency>
-        
+
         <dependency>
-    		<groupId>org.apache.commons</groupId>
-    		<artifactId>commons-lang3</artifactId>
-    		<version>3.12.0</version>
-		</dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -202,11 +202,18 @@
             <version>5.2.3</version>
         </dependency>
 
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
+        <!--            <artifactId>selenium-java</artifactId>-->
+        <!--            <version>4.11.0</version>-->
+        <!--        </dependency>-->
+
 
     </dependencies>
-  
-  
-   <!-- Compiler/ Run Test -->
+
+
+    <!-- Compiler/ Run Test -->
     <build>
         <plugins>
             <!-- Compiler -->

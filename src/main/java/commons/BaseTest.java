@@ -17,7 +17,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -100,6 +99,7 @@ public class BaseTest {
 
 		return driver;
 	}
+
 
 
 	protected WebDriver getBrowserDriver(String envName, String serverName, String browserName, String ipAddress,String portNumber, String osName, String osVersion) {

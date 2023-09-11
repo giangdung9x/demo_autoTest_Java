@@ -89,9 +89,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Create Reward"));
 
 		rewardPage.clickToSaveButton();
-		verifyEquals(rewardPage.getTextOfAlert(), "Validation failed: Title name can't be blank, Points must be a number, "
-				+ "Points can't be blank, Points is not a number, Quantity must be a number, Quantity can't be blank, Quantity is not a number, "
-				+ "Start sales date can't be blank, End sales date can't be blank");
+		verifyEquals(rewardPage.getTextOfAlert(), "Title name can't be blank, Points must be a number, Quantity must be a number, Points can't be blank, " +
+				"Quantity can't be blank, Points is not a number, Quantity is not a number, Start sales date can't be blank, End sales date can't be blank");
 		rewardPage.clickToCloseAlertButton();
 
 

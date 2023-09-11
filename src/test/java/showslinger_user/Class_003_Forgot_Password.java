@@ -31,9 +31,8 @@ public class Class_003_Forgot_Password extends BaseTest{
 
 	@Parameters({ "envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
 	@BeforeClass
-	public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName,
-	@Optional("chrome") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String
-	portNumber,@Optional("Windows") String osName, @Optional("10") String osVersion) {
+	public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName, @Optional("chrome") String browserName, @Optional("localhost") String ipAddress,
+							@Optional("4444") String portNumber, @Optional("Windows") String osName, @Optional("10") String osVersion) {
 		driver = getBrowserDriver(envName, serverName, browserName, ipAddress, portNumber, osName, osVersion);
 		homePage = new UserHomePageObject(driver);
 
@@ -41,6 +40,8 @@ public class Class_003_Forgot_Password extends BaseTest{
 		invalidEmail ="abc@xyz";
 		notExistingEmail = "abc@xyz.com";
 	}
+
+
 
 
 	@Description("Open Form Forgot Password")

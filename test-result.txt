@@ -1,63 +1,59 @@
-Total Tests: 15
-Passed Tests: 15
+Total Tests: 5
+Passed Tests: 5
 Failed Tests: 0
 Skipped Tests: 0
 
 Passed Tests in showslinger_user.Class_003_Forgot_Password: 5
-Passed Tests in showslinger_user.Class_004_Login_Account: 10
 Failed Tests in showslinger_user.Class_003_Forgot_Password: 0
-Failed Tests in showslinger_user.Class_004_Login_Account: 0
 Skipped Tests in showslinger_user.Class_003_Forgot_Password: 0
-Skipped Tests in showslinger_user.Class_004_Login_Account: 0
 
 showslinger_user.Class_003_Forgot_Password - ForgotPassword_001_FormForgotPassword - null - PASSED
 showslinger_user.Class_003_Forgot_Password - ForgotPassword_002_EmptyData - null - PASSED
 showslinger_user.Class_003_Forgot_Password - ForgotPassword_003_InvalidEmail - null - PASSED
 showslinger_user.Class_003_Forgot_Password - ForgotPassword_004_NotExistingEmail - null - PASSED
 showslinger_user.Class_003_Forgot_Password - ForgotPassword_005_ExistingEmail - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_001_FormLogin - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_006_AccRegisteredInvalidPassword - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_007_AccManagerCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_008_AccStaffManualCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
- Reward_OpenUrlAndLogin - null - SKIPPED
-showslinger_user.Class_009_Feature_Report - ListReport_001_OpenUrl - null - SKIPPED
-showslinger_user.Class_011_Feature_Attendees - Attendee_001_OpenUrl - null - SKIPPED
-showslinger_user.Class_012_Feature_Coupons - Coupons_OpenUrlAndLogin - null - SKIPPED
-showslinger_user.Class_013_Feature_Pass - Pass_OpenUrlAndLogin - null - SKIPPED
-showslinger_user.Class_014_Feature_Gift_Card - GiftCard_OpenUrlAndLogin - null - SKIPPED
-showslinger_user.Class_015_Public_Kiosk_Page - ConfigKiosk_001_OpenConfigKiosk - null - SKIPPED
-tist_003_RegisterNotVerifyReCAPTCHA - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_004_RegisterEmailAlredyExists - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_005_RegisterEmailWrong - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_006_RegisterArtistProfileEmpty - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_007_RegisterArtistPhoneEmpty - null - PASSED
-showslinger_user.Class_002_SignUp_002_AccArtist - AccArtist_008_RegisterCompteledSkipInputPhone - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_001_FormForgotPassword - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_002_EmptyData - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_003_InvalidEmail - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_004_NotExistingEmail - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_005_ExistingEmail - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_001_FormLogin - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_006_AccRegisteredInvalidPassword - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_007_AccManagerCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_008_AccStaffManualCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
-showslinger_user.Class_005_Buy_Online - BuyOnline_001_CheckoutEmptyQuantityTicket - null - PASSED
-showslinger_user.Class_005_Buy_Online - BuyOnline_002_CheckoutEmptyInfoBuyer - null - PASSED
-showslinger_user.Class_005_Buy_Online - BuyOnline_003_CheckoutNowNotAcceptTerms - null - PASSED
-showslinger_user.Class_005_Buy_Online - BuyOnline_004_CheckoutNowNotInputCard - null - PASSED
-showslinger_user.Class_005_Buy_Online - BuyOnline_005_CheckoutNowSuccess - null - PASSED
+mLogin - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_006_AccRegisteredInvalidPassword - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_007_AccManagerCompleted - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_008_AccStaffManualCompleted - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - SKIPPED
+showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - SKIPPED
+D
+nterCardManually - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_012_Concessions_CheckoutMiscCharge_Cash - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_013_Concessions_CheckoutMiscCharge_Comp - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_015_ConcessionsInventory_CheckoutAddOns_EnterCardManually - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_016_ConcessionsInventory_CheckoutAddOns_Comp - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_017_ConcessionsInventory_CheckoutAddOns_Cash - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_018_ConcessionsSales_RefundOrder - null - PASSED
+s_023_StaffAuto_008_CheckoutNowMethodByPayLaterSuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_024_StaffAuto_009_CheckoutNowMethodByPayLaterFailTotalAmount - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_025_StaffAuto_010_CheckoutNowMethodByPaylaterFailTestPayment - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_026_StaffAuto_011_CheckoutNowMethodByCardSwiperSuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_027_StaffAuto_012_CheckoutNowMethodByCardSwiperFail - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_028_StaffAuto_013_CheckoutNowMethodByCardManuallySuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_029_StaffAuto_014_CheckoutNowMethodByCardManuallyFail - null - FAILED
+showslinger_user.Class_007_Box_Office - TCs_030_StaffAuto_015_AddToCart - null - FAILED
+showslinger_user.Class_007_Box_Office - TCs_031_StaffManual_001_OpenUrlLoginAccount - null - FAILED
+showslinger_user.Class_007_Box_Office - TCs_032_StaffManual_002_MoreMenu - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_034_StaffManual_004_SelectVenueAndEvent - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_035_StaffManual_005_CheckoutNowEmptyData - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_036_StaffManual_006_CheckoutNowMethodByCashSuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_037_StaffManual_007_CheckoutNowMethodByCompSuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_038_StaffManual_008_CheckoutNowMethodByPayLaterSuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_039_StaffManual_009_CheckoutNowMethodByPayLaterFailTotalAmount - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_040_StaffManual_010_CheckoutNowMethodByPaylaterFailTestPayment - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_041_StaffManual_011_CheckoutNowMethodByCardSwiperSuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_042_StaffManual_012_CheckoutNowMethodByCardSwiperFail - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_043_StaffManual_013_CheckoutNowMethodByCardManuallySuccess - null - PASSED
+showslinger_user.Class_007_Box_Office - TCs_044_StaffManual_014_CheckoutNowMethodByCardManuallyFail - null - FAILED
+showslinger_user.Class_007_Box_Office - TCs_045_StaffManual_015_AddToCart - null - FAILED
+showslinger_user.Class_007_Box_Office - TCs_22_StaffAuto_007_CheckoutNowMethodByCompSuccess - null - FAILED
+null - PASSED
 showslinger_user.Class_005_Buy_Online - BuyOnline_006_CheckoutPayLaterFail - null - PASSED
 showslinger_user.Class_005_Buy_Online - BuyTicket_007_CheckoutPayLaterSuccess - null - PASSED
 showslinger_user.Class_007_Box_Office - Manager_001_OpenUrlLoginAccount - null - PASSED

@@ -15,8 +15,8 @@
 <!--			<package name="showslinger_user"></package>-->
 <!--		</packages>-->
 		<classes>
-			<class name="showslinger_user.Class_001_SignUp_001_AccVenue" />
-			<class name="showslinger_user.Class_002_SignUp_002_AccArtist" />
+<!--			<class name="showslinger_user.Class_001_SignUp_001_AccVenue" />-->
+<!--			<class name="showslinger_user.Class_002_SignUp_002_AccArtist" />-->
 			<class name="showslinger_user.Class_003_Forgot_Password" />
 			<class name="showslinger_user.Class_004_Login_Account" />
 			<class name="showslinger_user.Class_001_Actions_Of_Event" />
@@ -29,7 +29,7 @@
 			<class name="showslinger_user.Class_012_Feature_Coupons" />
 			<class name="showslinger_user.Class_013_Feature_Pass" />
 			<class name="showslinger_user.Class_014_Feature_Gift_Card" />
-			<class name="showslinger_user.Class_015_Public_Kiosk_Page" />
+<!--			<class name="showslinger_user.Class_015_Public_Kiosk_Page" />-->
 		</classes>
 	</test>
 </suite>

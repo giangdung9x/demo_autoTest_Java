@@ -268,7 +268,7 @@ public class Class_013_Feature_Pass extends BaseTest{
 	@Description("Buy Pass has Access Code")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void BTCs_009_uyPass_BuyPassAccessCode() {
+	public void TCs_009_BuyPass_BuyPassAccessCode() {
 
 		passPage.clickToItemOfLeftMenu("Calendar");
 		passPage.clickToPrevButton();
