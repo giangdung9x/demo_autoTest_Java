@@ -36,7 +36,7 @@ public class Class_011_Feature_Attendees extends BaseTest{
 		emailManager ="paulv@showslinger.com";
 		passwordManager = "12345";
 
-		eventName = "Giang Test auto-Mon,Jul  3,1 PM";
+		eventName = "Giang Test auto";
 	}
 
 	@Description("Open url and open Attendee page")
