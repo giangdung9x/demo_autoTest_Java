@@ -8,7 +8,7 @@
 		<listener class-name="EmailConfig.SendEmail" />
 	</listeners>
 
-	<test name="Sign up/Login">
+	<test name="Feature of Showslinger">
 		<parameter name="browser" value="CHROME" />
 		<parameter name="serverName" value="STAGING" />
 <!--		<packages>-->

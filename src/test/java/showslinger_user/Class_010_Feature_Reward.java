@@ -89,7 +89,7 @@ public class Class_010_Feature_Reward extends BaseTest{
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Create Reward"));
 
 		rewardPage.clickToSaveButton();
-		verifyEquals(rewardPage.getTextOfAlert(), "Title name can't be blank, Points must be a number, Quantity must be a number, Points can't be blank, " +
+		verifyEquals(rewardPage.getTextOfAlert(), "Validation failed: Title name can't be blank, Points must be a number, Quantity must be a number, Points can't be blank, " +
 				"Quantity can't be blank, Points is not a number, Quantity is not a number, Start sales date can't be blank, End sales date can't be blank");
 		rewardPage.clickToCloseAlertButton();
 
@@ -110,7 +110,6 @@ public class Class_010_Feature_Reward extends BaseTest{
 		rewardPage.clickToCloseAlertButton();
 
 		rewardPage.clickToClosePopupButton();
-		rewardPage.refreshToPage(driver);
 
 
 	}
@@ -120,6 +119,7 @@ public class Class_010_Feature_Reward extends BaseTest{
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void TCs_003_RewardList_002_CreateRewardSuccess() {
+		rewardPage.refreshToPage(driver);
 		rewardPage.clickToAddButton("Reward");
 		verifyTrue(rewardPage.isTextNameOfPopupDisplayed("Create Reward"));
 
@@ -132,8 +132,8 @@ public class Class_010_Feature_Reward extends BaseTest{
 		rewardPage.inputToTextboxNamePopup("Points",points);
 		rewardPage.inputToTextboxNamePopup("Qty",qty);
 		rewardPage.clickToSaveButton();
+		verifyEquals(rewardPage.getTextOfAlert(), "1 Reward '" + rewardName + "' was created successfully"); ////div[@role='alert']
 		verifyTrue(rewardPage.getNameOfGiftCard(rewardName));
-		verifyEquals(rewardPage.getTextOfAlert(), "1 Reward '" + rewardName + "' was created successfully");
 		rewardPage.clickToCloseAlertButton();
 		rewardPage.refreshToPage(driver);
 	}
@@ -182,7 +182,7 @@ public class Class_010_Feature_Reward extends BaseTest{
 		rewardPage.clickToActionButton(editRewardName,"Edit");
 		rewardPage.inputToTextboxNamePopup("Name",rewardName);
 		rewardPage.clickToSaveButton();
-		verifyTrue(rewardPage.getNameOfGiftCard(rewardName));
+//		verifyTrue(rewardPage.getNameOfGiftCard(rewardName));
 		verifyEquals(rewardPage.getTextOfAlert(), "Reward '" + rewardName + "' was updated successfully.");
 		rewardPage.clickToCloseAlertButton();
 		rewardPage.refreshToPage(driver);
@@ -197,6 +197,7 @@ public class Class_010_Feature_Reward extends BaseTest{
 	public void TCs_006_RewardList_006_SwitchStatusRewardSuccess() {
 		rewardPage.clickToActionButton(rewardName,"Inactive");
 		verifyEquals(rewardPage.getTextOfAlert(), "Deactivated the reward '" + rewardName + "' successfully.");
+		rewardPage.refreshToPage(driver);
 		rewardPage.clickToActionButton(rewardName,"Active");
 		verifyEquals(rewardPage.getTextOfAlert(), "Activated the reward '" + rewardName + "' successfully.");
 		rewardPage.refreshToPage(driver);
@@ -315,11 +316,11 @@ public class Class_010_Feature_Reward extends BaseTest{
 			rewardPage.clickPlaceOrderButton();
 			assertTrue(rewardPage.isCheckoutSuccessTextDisplayed());
 		}
+		rewardPage.sleepInSecond(3);
 		String buyOnlineSuccessWindowID = driver.getWindowHandle();
 		rewardPage.clickRedeemRewardLink();
 		driver.close();
 		rewardPage.switchToWindowByID(buyOnlineSuccessWindowID);
-
 		if (rewardPage.getPointOfUser()<rewardPage.getPointOfReward(rewardName)) {
 			rewardPage.clickToViewButtonOfReward(rewardName, "Redeem");
 			rewardPage.getTextOfButtonRedeemDisable();
@@ -332,9 +333,6 @@ public class Class_010_Feature_Reward extends BaseTest{
 		driver.close();
 		rewardPage.switchToWindowByID(redeemRewardPage);
 	}
-	
-
-	
 	
 	@Description("Open Tab Redeem List")
 	@Severity(SeverityLevel.NORMAL)

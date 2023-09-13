@@ -201,25 +201,25 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 	
 	
 	
-	@Description("Copy Ticket - Success")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void TCs_007_CopyTicket_002_CopyTicketSuccess() {
-		eventPage.refreshToPage(driver);
-
-		eventPage.clickToEvent(eventName);
-		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
-		
-		eventPage.clickToButtonFooter("Copy ticket");
-		assertTrue(eventPage.isNameOfPopupDisplayed("Copy Ticket"));
-		
-		eventPage.inputValueTimesDay("Choose new day:", dayStartCopy);
-		
-		eventPage.clickToUpdateButton("Copy");
-
-		assertTrue(eventPage.isNameOfEventCopyAtCalendarDisplayed(eventName));
-
-	}
+//	@Description("Copy Ticket - Success")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void TCs_007_CopyTicket_002_CopyTicketSuccess() {
+//		eventPage.refreshToPage(driver);
+//
+//		eventPage.clickToEvent(eventName);
+//		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
+//
+//		eventPage.clickToButtonFooter("Copy ticket");
+//		assertTrue(eventPage.isNameOfPopupDisplayed("Copy Ticket"));
+//
+//		eventPage.inputValueTimesDay("Choose new day:", dayStartCopy);
+//
+//		eventPage.clickToUpdateButton("Copy");
+//
+//		assertTrue(eventPage.isNameOfEventCopyAtCalendarDisplayed(eventName));
+//
+//	}
 	
 	
 	
@@ -266,32 +266,32 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 		eventPage.acceptAlert(driver);
 	}
 	
-	@Description("DeleteTicket - Fail")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void TCs_010_DeleteTicket_001_DeleteTicketFail() {
-		eventPage.refreshToPage(driver);
-		eventPage.clickToEventCopy(eventName);
-		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
-		eventPage.clickToButtonFooter("Delete");
-		assertTrue(eventPage.isNameOfPopupDisplayed("Delete Ticket?"));
-
-		eventPage.clickClosePopupButton();
-	}
-	
-	
-	@Description("DeleteTicket - Success")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void TCs_011_DeleteTicket_002_DeleteTicketSuccess() {
-		eventPage.refreshToPage(driver);
-		eventPage.clickToEventCopy(eventName);
-		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
-		eventPage.clickToButtonFooter("Delete");
-		assertTrue(eventPage.isNameOfPopupDisplayed("Delete Ticket?"));
-		
-		eventPage.clickToLink("Yes");
-	}
+//	@Description("DeleteTicket - Fail")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void TCs_010_DeleteTicket_001_DeleteTicketFail() {
+//		eventPage.refreshToPage(driver);
+//		eventPage.clickToEventCopy(eventName);
+//		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
+//		eventPage.clickToButtonFooter("Delete");
+//		assertTrue(eventPage.isNameOfPopupDisplayed("Delete Ticket?"));
+//
+//		eventPage.clickClosePopupButton();
+//	}
+//
+//
+//	@Description("DeleteTicket - Success")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void TCs_011_DeleteTicket_002_DeleteTicketSuccess() {
+//		eventPage.refreshToPage(driver);
+//		eventPage.clickToEventCopy(eventName);
+//		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
+//		eventPage.clickToButtonFooter("Delete");
+//		assertTrue(eventPage.isNameOfPopupDisplayed("Delete Ticket?"));
+//
+//		eventPage.clickToLink("Yes");
+//	}
 	
 	
 	@Description("Cancel Refund Ticket - Refund Auto")

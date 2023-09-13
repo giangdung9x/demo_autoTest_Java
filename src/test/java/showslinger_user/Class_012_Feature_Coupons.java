@@ -168,6 +168,7 @@ public class Class_012_Feature_Coupons extends BaseTest{
 		couponPage.inputToTextboxPlaceholderCouponPopup("Tell the buyer", descriptionAuto);
 		couponPage.clickToValueOfDropdownOfPopup("Discount", "%");
 		couponPage.inputToTextboxPlaceholderCouponPopup("0", "10");
+		couponPage.sleepInSecond(2);
 		couponPage.clickToToggleAutoApply();
 		couponPage.inputToTextboxPlaceholderCouponPopup("Date", expirationDateValid);
 		couponPage.clickToValueOfDropdownOfPopup("Select event(s)", eventNameAuto);
@@ -334,6 +335,8 @@ public class Class_012_Feature_Coupons extends BaseTest{
 		verifyEquals(couponPage.getTextOfAlert(), "Deactivated the coupon '"+couponName+"' successfully.");
 		
 		couponPage.clickToItemOfLeftMenu("Calendar");
+		couponPage.sleepInSecond(2);
+		couponPage.refreshToPage(driver);
 		couponPage.clickToPrevButton();
 		couponPage.clickToEvent(eventName);
 		String managerPage = driver.getWindowHandle();	

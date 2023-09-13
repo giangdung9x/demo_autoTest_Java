@@ -31,7 +31,7 @@ public class CouponPageUI {
 	public static final String CLOSE_POPUP_BUTTON = "xpath=//button[@class='close']//*[name()='svg']";
 	public static final String CLOSE_ALERT_BUTTON = "xpath=//button[@class='close text-capitalize']";
 
-	public static final String TOOGLE_AUTO_APPLY = "xpath=(//div[contains(@class,'custom-control custom-switch switch-primary switch-md')])[1]";
+	public static final String TOOGLE_AUTO_APPLY = "xpath=(//div[contains(@class,'custom-control custom-switch switch-primary switch-md')])[2]";
 
 	public static final String MORE_MENU_BUTTON = "xpath=//td[text()='%s']/following-sibling::td[@class='content-center']";
 	public static final String ITEMS_OF_MORE_MENU = "xpath=//div[@class='dropdown-default dropdown-menu show']//a[@class='dropdown-item'][normalize-space()='%s']";

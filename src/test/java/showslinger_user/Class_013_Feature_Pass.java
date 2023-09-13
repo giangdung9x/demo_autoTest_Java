@@ -318,7 +318,7 @@ public class Class_013_Feature_Pass extends BaseTest{
 		passPage.openNewTab();
 		passPage.inputToTextboxLogin(validEmail);
 		passPage.clickToSwitchToEmail();
-		passPage.sleepInSecond(10);
+		passPage.sleepInSecond(60);
 		passPage.refreshToPage(driver);
 		
 		passPage.switchToIframeInbox();
