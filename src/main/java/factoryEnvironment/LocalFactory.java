@@ -5,12 +5,12 @@ import org.openqa.selenium.WebDriver;
 import factoryBrowsers.BrowserList;
 import factoryBrowsers.BrowserNotSupportedException;
 import factoryBrowsers.ChromeDriverManager;
-import factoryBrowsers.EdgeDriverManager;
+//import factoryBrowsers.EdgeDriverManager;
 import factoryBrowsers.FirefoxDriverManager;
-import factoryBrowsers.HeadlessChromeDriverManager;
-import factoryBrowsers.HeadlessFirefoxDriverManager;
-import factoryBrowsers.IEDriverManager;
-import factoryBrowsers.OperaDriverManager;
+//import factoryBrowsers.HeadlessChromeDriverManager;
+//import factoryBrowsers.HeadlessFirefoxDriverManager;
+//import factoryBrowsers.IEDriverManager;
+//import factoryBrowsers.OperaDriverManager;
 import factoryBrowsers.SafariDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -42,24 +42,24 @@ public class LocalFactory  implements EnvironmentFactory{
 //			}
 			driver = new ChromeDriverManager().getBrowserDriver();
 			break;
-		case OPERA :
-			driver = new OperaDriverManager().getBrowserDriver();
-			break;
-		case EDGE_CHROMIUM :
-			driver = new EdgeDriverManager().getBrowserDriver();
-			break;
-		case IE :
-			driver = new IEDriverManager().getBrowserDriver();
-			break;
+//		case OPERA :
+//			driver = new OperaDriverManager().getBrowserDriver();
+//			break;
+//		case EDGE_CHROMIUM :
+//			driver = new EdgeDriverManager().getBrowserDriver();
+//			break;
+//		case IE :
+//			driver = new IEDriverManager().getBrowserDriver();
+//			break;
 		case SAFARI :
 			driver = new SafariDriverManager().getBrowserDriver();
 			break;
-		case H_CHROME :
-			driver = new HeadlessChromeDriverManager().getBrowserDriver();
-			break;
-		case H_FIREFOX :
-			driver = new HeadlessFirefoxDriverManager().getBrowserDriver();
-			break;
+//		case H_CHROME :
+//			driver = new HeadlessChromeDriverManager().getBrowserDriver();
+//			break;
+//		case H_FIREFOX :
+//			driver = new HeadlessFirefoxDriverManager().getBrowserDriver();
+//			break;
 		default :
 			throw new BrowserNotSupportedException(browserName);
 		}

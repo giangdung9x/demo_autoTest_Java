@@ -1,29 +1,33 @@
-Total Tests: 11
-Passed Tests: 8
-Failed Tests: 2
+Total Tests: 15
+Passed Tests: 15
+Failed Tests: 0
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Class_013_Feature_Pass: 8
-Failed Tests in showslinger_user.Class_013_Feature_Pass: 2
-Skipped Tests in showslinger_user.Class_013_Feature_Pass: 0
+Passed Tests in showslinger_user.Class_003_Forgot_Password: 5
+Passed Tests in showslinger_user.Class_004_Login_Account: 10
+Failed Tests in showslinger_user.Class_003_Forgot_Password: 0
+Failed Tests in showslinger_user.Class_004_Login_Account: 0
+Skipped Tests in showslinger_user.Class_003_Forgot_Password: 0
+Skipped Tests in showslinger_user.Class_004_Login_Account: 0
 
-showslinger_user.Class_013_Feature_Pass - TCs_001_Pass_OpenUrlAndLogin - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_002_Pass_001_CreatePassFail - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_003_Pass_002_CreatePassSuccessSingleQR - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_004_Pass_003_CreatePassuccessMultiTicket - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_005_Pass_004_CreatePassuccessAccessCode - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_006_Pass_005_SwitchStatusPass - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_007_Pass_006_EditPassSuccess - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_008_Pass_007_DeletePassSuccess - null - PASSED
-showslinger_user.Class_013_Feature_Pass - TCs_009_BuyPass_BuyPassAccessCode - null - FAILED
-showslinger_user.Class_013_Feature_Pass - TCs_010_ApplyPass_001_OpenUrlBoxOffice - null - FAILED
-er_user.Class_012_Feature_Coupons - TCs_010_ApplyCoupon_003_ApplyForBoxManualCouponDeactivate - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_011_ApplyCoupon_004_ApplyForBoxManualCouponTicketInvalid - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_012_ApplyCoupon_005_ApplyForBoxManualCouponOfficeSuccess - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_013_ApplyCoupon_006_ApplyForBoxAutoCouponOfficeSuccess - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_014_ApplyCoupon_007_ApplyForBoxAutoCouponOfficeSuccess - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_015_ApplyCoupon_008_ApplyForBuyOnlineManualCouponDeactivate - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_016_ApplyCoupon_009_ApplyForBuyOnlineManualCouponTicketInvalid - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_001_FormForgotPassword - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_002_EmptyData - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_003_InvalidEmail - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_004_NotExistingEmail - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_005_ExistingEmail - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_001_FormLogin - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_006_AccRegisteredInvalidPassword - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_007_AccManagerCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_008_AccStaffManualCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
+n_009_ApplyForBuyOnlineManualCouponTicketInvalid - null - PASSED
 showslinger_user.Class_012_Feature_Coupons - TCs_017_ApplyCoupon_010_ApplyForBuyOnlineManualCouponSuccess - null - PASSED
 showslinger_user.Class_012_Feature_Coupons - TCs_018_ApplyCoupon_011_ApplyForBuyOnlineAutoCouponSuccess - null - PASSED
 showslinger_user.Class_012_Feature_Coupons - TCs_019_Delete_All_Coupon_Created - null - PASSED

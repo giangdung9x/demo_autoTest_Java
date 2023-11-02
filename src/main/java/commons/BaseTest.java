@@ -25,21 +25,12 @@ import org.testng.annotations.BeforeSuite;
 import factoryBrowsers.BrowserList;
 import factoryBrowsers.BrowserNotSupportedException;
 import factoryBrowsers.ChromeDriverManager;
-import factoryBrowsers.EdgeDriverManager;
 import factoryBrowsers.FirefoxDriverManager;
-import factoryBrowsers.HeadlessChromeDriverManager;
-import factoryBrowsers.HeadlessFirefoxDriverManager;
-import factoryBrowsers.IEDriverManager;
-import factoryBrowsers.OperaDriverManager;
 import factoryBrowsers.SafariDriverManager;
 import factoryEnvironment.BrowserStackFactory;
-import factoryEnvironment.CrossbrowserFactory;
 import factoryEnvironment.EnvironmentList;
-import factoryEnvironment.GridFactory;
-import factoryEnvironment.LambdaFactory;
 import factoryEnvironment.LocalFactory;
-import factoryEnvironment.SauceLabsFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -74,29 +65,12 @@ public class BaseTest {
 		case CHROME:
 			driver = new ChromeDriverManager().getBrowserDriver();
 			break;
-		case OPERA:
-			driver = new OperaDriverManager().getBrowserDriver();
-			break;
-		case EDGE_CHROMIUM:
-			driver = new EdgeDriverManager().getBrowserDriver();
-			break;
-		case IE:
-			driver = new IEDriverManager().getBrowserDriver();
-			break;
 		case SAFARI:
 			driver = new SafariDriverManager().getBrowserDriver();
-			break;
-		case H_CHROME:
-			driver = new HeadlessChromeDriverManager().getBrowserDriver();
-			break;
-		case H_FIREFOX:
-			driver = new HeadlessFirefoxDriverManager().getBrowserDriver();
 			break;
 		default:
 			throw new BrowserNotSupportedException(browserName);
 		}
-
-
 		return driver;
 	}
 
@@ -107,20 +81,8 @@ public class BaseTest {
 		case "local":
 			driver = new LocalFactory(browserName).createDriver();
 			break;
-		case "grid":
-			driver = new GridFactory(browserName, ipAddress, portNumber).createDriver();
-			break;
 		case "browserStack":
 			driver = new BrowserStackFactory(browserName, osName, osVersion).createDriver();
-			break;
-		case "saucelab":
-			driver = new SauceLabsFactory(browserName, osName).createDriver();
-			break;
-		case "crossBrowser":
-			driver = new CrossbrowserFactory(browserName, osName).createDriver();
-			break;
-		case "Lambda":
-			driver = new LambdaFactory(browserName, osName).createDriver();
 			break;
 		default:
 			driver = new LocalFactory(browserName).createDriver();
