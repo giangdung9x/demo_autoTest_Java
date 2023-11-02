@@ -15,35 +15,35 @@ import java.util.HashMap;
 public class ChromeDriverManager implements BrowsersFactory{
     @Override
     public WebDriver getBrowserDriver() {
-//
-//        ChromeOptions options = new ChromeOptions();
-//        options.setExperimentalOption("useAutomationExtension", false);
-//        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-//        options.addArguments("--disable-notifications");
-//        options.addArguments("--disbale-geolocation");
-//        options.addArguments("--incognito");
-//
-//        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-//        chromePrefs.put("profile.default_content_settings.popup", 0);
-//        chromePrefs.put("download.default_directory", GlobalConstants.DOWNLOAD_FILE_FOLDER);
-//        chromePrefs.put("credentials_enable_service", false);
-//        chromePrefs.put("profile.password_manager_enabled", false);
-//        options.setExperimentalOption("prefs", chromePrefs);
-//
-//        return new ChromeDriver(options);
 
-        //        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("useAutomationExtension", false);
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         options.addArguments("--disable-notifications");
         options.addArguments("--disbale-geolocation");
+        options.addArguments("--incognito");
 
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popup", 0);
         chromePrefs.put("download.default_directory", GlobalConstants.DOWNLOAD_FILE_FOLDER);
+        chromePrefs.put("credentials_enable_service", false);
+        chromePrefs.put("profile.password_manager_enabled", false);
         options.setExperimentalOption("prefs", chromePrefs);
 
         return new ChromeDriver(options);
+
+        //        WebDriverManager.chromedriver().setup();
+//        ChromeOptions options = new ChromeOptions();
+//        options.setExperimentalOption("useAutomationExtension", false);
+//        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+//        options.addArguments("--disable-notifications");
+//        options.addArguments("--disbale-geolocation");
+//
+//        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+//        chromePrefs.put("profile.default_content_settings.popup", 0);
+//        chromePrefs.put("download.default_directory", GlobalConstants.DOWNLOAD_FILE_FOLDER);
+//        options.setExperimentalOption("prefs", chromePrefs);
+//
+//        return WebDriverManager.chromedriver().create();
     }
 }
