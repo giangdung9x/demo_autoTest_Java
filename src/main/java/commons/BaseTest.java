@@ -88,7 +88,7 @@ public class BaseTest {
 			driver = new LocalFactory(browserName).createDriver();
 			break;
 		}
-		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+//		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(getEnvironmentUrl(serverName));
 		return driver;

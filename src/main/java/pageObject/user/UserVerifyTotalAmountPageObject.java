@@ -1,12 +1,10 @@
 package pageObject.user;
 
 import commons.BasePage;
-import commons.GlobalConstants;
 import io.qameta.allure.Step;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import pageUIs.user.ActionOfEventPageUI;
+import pageUIs.user.BoxOfficePageUI;
 import pageUIs.user.VerifyTotalAmountPageUI;
 import pageUIs.user.BuyOnlinePageUI;
 
@@ -75,11 +73,24 @@ public class UserVerifyTotalAmountPageObject extends BasePage{
 		sendkeyToElement(driver, VerifyTotalAmountPageUI.INPUT_SEARCH_NAME, nameVenue + Keys.ENTER);
 	}
 
-	@Step("Verify text - Error Message At Footer Popup")
+	@Step("Get Value Fees - {0}")
 	public String getValueFees(String feeName) {
-		waitForElementVisible(driver, ActionOfEventPageUI.ERROR_MESSAGE_AT_FOOTER_POPUP, feeName);
-		return getElementText(driver, ActionOfEventPageUI.ERROR_MESSAGE_AT_FOOTER_POPUP, feeName);
+		waitForElementVisible(driver, VerifyTotalAmountPageUI.ALL_FEES_ADMIN, feeName);
+		return getElementText(driver, VerifyTotalAmountPageUI.ALL_FEES_ADMIN, feeName);
 	}
+
+	@Step("input value fees- {0} {1}")
+	public void inputValueFees(String field, String fees) {
+		waitForElementVisible(driver, VerifyTotalAmountPageUI.ALL_FEES_ADMIN, field);
+		sendkeyToElement(driver, VerifyTotalAmountPageUI.ALL_FEES_ADMIN, fees, field);
+	}
+
+	@Step("Click to button - {0}")
+	public void clickToButtonUpdateVenue() {
+		waitForElementClickable(driver,VerifyTotalAmountPageUI.BUTTON_UPDATE_VENUE);
+		clickToElement(driver, VerifyTotalAmountPageUI.BUTTON_UPDATE_VENUE);
+	}
+
 	//------------------------------
 
 
@@ -264,8 +275,24 @@ public class UserVerifyTotalAmountPageObject extends BasePage{
 		waitForElementClickable(driver,BuyOnlinePageUI.BUTTON_PLACE_ORDER);
 		clickToElement(driver, BuyOnlinePageUI.BUTTON_PLACE_ORDER);	
 	}
-	
 
+	@Step("Click to radio button - Buy now pay later")
+	public void clickToRadioButtonCheckoutMethod() {
+		waitForElementClickable(driver,BuyOnlinePageUI.RADIO_BUTTON_BNPL);
+		clickToElement(driver, BuyOnlinePageUI.RADIO_BUTTON_BNPL);
+	}
+
+	@Step("Click to button - Buy now pay later")
+	public void clickToBuyNowPayLaterButton() {
+		waitForElementClickable(driver,BuyOnlinePageUI.BUTTON_BNPL);
+		clickToElement(driver, BuyOnlinePageUI.BUTTON_BNPL);
+	}
+
+	@Step("Click to button - Authorize Test Payment")
+	public void clickButtonAuthorizeTestPayment() {
+		waitForElementClickable(driver,BuyOnlinePageUI.BUTTON_AUTHORIZE_TEST_PAYMENT);
+		clickToElement(driver, BuyOnlinePageUI.BUTTON_AUTHORIZE_TEST_PAYMENT);
+	}
 	
 	@Step("Input info of buyer {0} {1}")
 	public void inputInfoBuyerTextbox(String field, String fullName) {
@@ -354,5 +381,98 @@ public class UserVerifyTotalAmountPageObject extends BasePage{
 		waitForElementClickable(driver,ActionOfEventPageUI.CLOSE_BUTTON);
 		clickToElement(driver, ActionOfEventPageUI.CLOSE_BUTTON);	
 	}
-	
+
+
+	//BOX OFFICE
+
+	@Step("Click open Left Menu")
+	public void clickShowLeftMenu() {
+		waitForElementClickable(driver,BoxOfficePageUI.LEFT_MENU_BUTTON);
+		clickToElement(driver, BoxOfficePageUI.LEFT_MENU_BUTTON);
+	}
+
+	@Step("Verify text - Box Office")
+	public boolean isBoxOfficeTextDisplayed() {
+		waitForElementVisible(driver, BoxOfficePageUI.TEXT_BOX_OFFICE_SCREEN);
+		return isElementDisplayed(driver, BoxOfficePageUI.TEXT_BOX_OFFICE_SCREEN);
+	}
+
+	@Step("Click to dropdown - Select Venue")
+	public void clickToDropDownSelectVenue() {
+		waitForElementClickable(driver,BoxOfficePageUI.DROPDOWN_VENUE);
+		clickToElement(driver, BoxOfficePageUI.DROPDOWN_VENUE);
+	}
+
+	@Step("Click to value of dropdown - Select Venue")
+	public void clickToValueOfDropdownSelectVenue(String venueName) {
+		waitForElementClickable(driver,BoxOfficePageUI.VALUE_DROPDOWN_VENUE, venueName);
+		clickToElement(driver, BoxOfficePageUI.VALUE_DROPDOWN_VENUE, venueName);
+	}
+
+	@Step("Click to dropdown - Select Event")
+	public void clickToDropDownSelectEvent() {
+		waitForElementClickable(driver,BoxOfficePageUI.DROPDOWN_EVENT);
+		clickToElement(driver, BoxOfficePageUI.DROPDOWN_EVENT);
+	}
+
+	@Step("Click to value of dropdown - Select Event")
+	public void clickToValueOfDropdownSelectEvent(String eventName) {
+		waitForElementClickable(driver,BoxOfficePageUI.VALUE_DROPDOWN_EVENT, eventName);
+		clickToElement(driver, BoxOfficePageUI.VALUE_DROPDOWN_EVENT, eventName);
+	}
+
+	@Step("Verify text - Order")
+	public boolean isOrderBoxOfficeTextDisplayed() {
+		waitForElementVisible(driver, BoxOfficePageUI.TEXT_ORDER_BOX_OFFICE_SCREEN);
+		return isElementDisplayed(driver, BoxOfficePageUI.TEXT_ORDER_BOX_OFFICE_SCREEN);
+	}
+
+	@Step("Click to radio button - Payment Checkout - {0}")
+	public void clickToRadioButtonPaymentCheckout(String paymentType) {
+		waitForElementClickable(driver,BoxOfficePageUI.RADIO_BUTTON_PAYMENT_CHECKOUT, paymentType);
+		clickToElement(driver, BoxOfficePageUI.RADIO_BUTTON_PAYMENT_CHECKOUT, paymentType);
+	}
+
+	@Step("Click to button - Checkout Now")
+	public void clickButtonCheckout(String buttonName) {
+		waitForElementClickable(driver,BoxOfficePageUI.BUTTON_CHECK_OUT_OR_ADD_CART, buttonName);
+		clickToElement(driver, BoxOfficePageUI.BUTTON_CHECK_OUT_OR_ADD_CART, buttonName);
+	}
+
+	@Step("Click to button - Place Order")
+	public void clickButtonPlaceOrder() {
+		waitForElementClickable(driver,BoxOfficePageUI.BUTTON_PLACE_ORDER);
+		clickToElement(driver, BoxOfficePageUI.BUTTON_PLACE_ORDER);
+	}
+
+	@Step("Verify name of reader")
+	public String getTextNameOfReader() {
+		waitForElementVisible(driver, BoxOfficePageUI.NAME_OF_READER);
+		return getElementText(driver, BoxOfficePageUI.NAME_OF_READER);
+	}
+
+	@Step("Click to button - Charge Card")
+	public void clickButtonChargeCard() {
+		waitForElementClickable(driver,BoxOfficePageUI.BUTTON_CHARGE_CARD);
+		clickToElement(driver, BoxOfficePageUI.BUTTON_CHARGE_CARD);
+	}
+
+	@Step("Verify text - Tap or insert")
+	public boolean isTapOrInsertTextDisplayed() {
+		waitForElementVisible(driver, BoxOfficePageUI.TAP_OR_INSERT_TEXT);
+		return isElementDisplayed(driver, BoxOfficePageUI.TAP_OR_INSERT_TEXT);
+	}
+
+	@Step("Verify text - Order Success")
+	public boolean isSuccessOrderTextDisplayed() {
+		waitForElementVisible(driver, BoxOfficePageUI.TEXT_SUCCESS_ORDER);
+		return isElementDisplayed(driver, BoxOfficePageUI.TEXT_SUCCESS_ORDER);
+	}
+
+	@Step("Click to button - Back to box office")
+	public void clickBackToBoxOfficeButton() {
+		waitForElementClickable(driver,BoxOfficePageUI.BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS);
+		clickToElement(driver, BoxOfficePageUI.BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS);
+	}
+
 }

@@ -1,22 +1,21 @@
-Total Tests: 15
-Passed Tests: 15
+Total Tests: 8
+Passed Tests: 8
 Failed Tests: 0
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Class_003_Forgot_Password: 5
-Passed Tests in showslinger_user.Class_004_Login_Account: 10
-Failed Tests in showslinger_user.Class_003_Forgot_Password: 0
-Failed Tests in showslinger_user.Class_004_Login_Account: 0
-Skipped Tests in showslinger_user.Class_003_Forgot_Password: 0
-Skipped Tests in showslinger_user.Class_004_Login_Account: 0
+Passed Tests in showslinger_user.Class_016_Verify_Amount_Order: 8
+Failed Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
+Skipped Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
 
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_001_FormForgotPassword - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_002_EmptyData - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_003_InvalidEmail - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_004_NotExistingEmail - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_005_ExistingEmail - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_001_FormLogin - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_001_Ticket_OpenUrlAndLoginAccount - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_002_CreateTicket - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_003_GetDataFees - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_004_BuyOnline_01_CheckoutNow - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_005_BuyOnline_02_BuyNowPayLater - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_006_BuyOnline_01_CardSwiper - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_007_BuyOnline_02_EnterCardManually - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_008_BuyOnline_03_BuyNowPayLater - null - PASSED
+2_EmptyData - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED

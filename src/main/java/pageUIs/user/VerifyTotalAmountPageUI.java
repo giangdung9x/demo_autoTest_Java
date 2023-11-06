@@ -65,4 +65,8 @@ public class VerifyTotalAmountPageUI {
 	public static final String BUTTON_VENUES = "xpath=//a[text()='%s']";
 	public static final String INPUT_SEARCH_NAME = "xpath=//input[@id='q_name']";
 	public static final String FEES_BY_NAME = "xpath=(//label[contains(text(), '%s')])[4]";
+    public static final String ALL_FEES_ADMIN = "xpath=(//label[text()='%s']/following-sibling::input)[1]";
+
+	public static final String BUTTON_UPDATE_VENUE = "xpath=//input[@name='commit']";
+
 }

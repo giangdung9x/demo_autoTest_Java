@@ -79,10 +79,18 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 		verifyAmountPage.clickToButton("Venues");
 		verifyAmountPage.inputValueVenueName("City Theater");
 		verifyAmountPage.clickToButton("Edit");
-		dataClass16.baseFeeSS = Integer.parseInt(verifyAmountPage.getValueFees("Showslinger Base Fee (ex: $1)"));
-		dataClass16.perFeeSS= Integer.parseInt(verifyAmountPage.getValueFees("Showslinger Percentage Fee (ex: 0.03)"));
-		dataClass16.baseFeeSSCash = Integer.parseInt(verifyAmountPage.getValueFees("Showslinger Base Fee Cash (ex: $1)"));
-		dataClass16.perFeeSSCash = Integer.parseInt(verifyAmountPage.getValueFees("Showslinger Percentage Fee Cash (ex: 0.03)"));
+
+		verifyAmountPage.inputValueTimesDay("Showslinger Base Fee (ex: $1)", dataClass16.baseFeeSS_input);
+		verifyAmountPage.inputValueTimesDay("Showslinger Percentage Fee (ex: 0.03)", dataClass16.perFeeSS_input);
+		verifyAmountPage.inputValueTimesDay("Showslinger Base Fee Cash (ex: $1)", dataClass16.baseFeeSSCash_input);
+		verifyAmountPage.inputValueTimesDay("Showslinger Percentage Fee Cash (ex: 0.03)", dataClass16.perFeeSSCash_input);
+
+		verifyAmountPage.clickToButtonUpdateVenue();
+
+		dataClass16.baseFeeSS = parseDoubleWithComma(dataClass16.baseFeeSS_input);
+		dataClass16.baseFeeSSCash = parseDoubleWithComma(dataClass16.baseFeeSSCash_input);
+		dataClass16.perFeeSS = parseDoubleWithComma(dataClass16.perFeeSS_input);
+		dataClass16.perFeeSSCash = parseDoubleWithComma(dataClass16.perFeeSSCash_input);
 
 		String PageAdmin = driver.getWindowHandle();
 		driver.close();
@@ -143,15 +151,15 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
 
 			if (orderTotalAmount == actualTotalAmount) {
+				System.out.println("orderTotalAmount == actualTotalAmount");
+
 				verifyAmountPage.switchToFrameIframe();
 				verifyAmountPage.inputInfoCardManual("Card number", dataClass16.cardNumberValid);
 				verifyAmountPage.inputInfoCardManual("MM / YY", dataClass16.monthYearValid);
 				verifyAmountPage.inputInfoCardManual("CVC", dataClass16.cvc);
 				verifyAmountPage.inputInfoCardManual("ZIP", dataClass16.zip);
 				verifyAmountPage.switchToDefaultContent();
-
 				verifyAmountPage.clickPlaceOrderButton();
-
 				assertTrue(verifyAmountPage.isCheckoutSuccessTextDisplayed());
 
 				String PageOrder = driver.getWindowHandle();
@@ -169,13 +177,280 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 		verifyAmountPage.clickToLink("Cancel");
 	}
 
+	@Description("Buy Online - Buy now pay later -verify total amount order ")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void TCs_005_BuyOnline_02_BuyNowPayLater() {
+		verifyAmountPage.refreshToPage(driver);
+
+		verifyAmountPage.clickToEvent(dataClass16.eventName);
+		assertTrue(verifyAmountPage.isNameOfPopupDisplayed("Edit Ticket"));
+
+		String PageEvent = driver.getWindowHandle();
+		verifyAmountPage.clickToLink("Preview");
+		verifyAmountPage.switchToWindowByID(PageEvent);
+
+		verifyAmountPage.clickToDropDownSelectQuantityTicket(dataClass16.ticketName, dataClass16.quantity);
+
+		//click button Agree & Checkout
+		verifyAmountPage.clickToAgreeCheckoutButton();
+
+		verifyAmountPage.inputInfoBuyerTextbox("Full Name", dataClass16.fullName);
+		verifyAmountPage.inputInfoBuyerTextbox("Phone", dataClass16.phone);
+		verifyAmountPage.inputInfoBuyerTextbox("Email", dataClass16.validEmail);
+		verifyAmountPage.inputInfoBuyerTextbox("Confirm Email", dataClass16.validEmail);
+		verifyAmountPage.clickToRadioButtonCheckoutMethod(); //buy now pay later
+		verifyAmountPage.clickCheckboxAcceptTermsService();
+
+		//get Total Amount of screen
+		verifyAmountPage.getTextTotalAmountOrder();
+
+		verifyAmountPage.sleepInSecond(3);
+
+		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("0$")) {
+			verifyAmountPage.clickPlaceOrderButton();
+			assertTrue(verifyAmountPage.isCheckoutSuccessTextDisplayed());
+
+			String PageOrder = driver.getWindowHandle();
+			driver.close();
+			verifyAmountPage.switchToWindowByID(PageOrder);
+
+		} else {
+			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+
+			intPrice = Integer.parseInt(dataClass16.price);
+			intQuantity = Integer.parseInt(dataClass16.quantity);
+
+			//Caculation total amount of order - Exclude Overage fee
+			baseTicketPrice = intQuantity*intPrice;
+			overageFee = 0;
+			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+			creditCardProcessingFeeEstimate = (dataClass16.payLaterFixedFee + dataClass16.payLaterPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.payLaterPercentageFee);
+
+			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
+
+			if (orderTotalAmount == actualTotalAmount) {
+				System.out.println("orderTotalAmount == actualTotalAmount");
+				verifyAmountPage.clickToBuyNowPayLaterButton();
+				verifyAmountPage.clickButtonAuthorizeTestPayment();
+				assertTrue(verifyAmountPage.isCheckoutSuccessTextDisplayed());
+
+				String PageOrder = driver.getWindowHandle();
+				driver.close();
+				verifyAmountPage.switchToWindowByID(PageOrder);
+			} else {
+				System.out.println("Total amount is error");
+				String PageOrder = driver.getWindowHandle();
+				driver.close();
+				verifyAmountPage.switchToWindowByID(PageOrder);
+			}
+		}
+		verifyAmountPage.clickToLink("Cancel");
+	}
+
+	@Description("Box Office - Card swiper -verify total amount order ")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void TCs_006_BuyOnline_01_CardSwiper() {
+		verifyAmountPage.clickShowLeftMenu();
+		String managerWindowID = driver.getWindowHandle();
+		verifyAmountPage.clickToItemOfLeftMenu("Box office");
+//		driver.close();
+		verifyAmountPage.switchToWindowByID(managerWindowID);
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+		verifyAmountPage.clickToDropDownSelectVenue();
+		verifyAmountPage.clickToValueOfDropdownSelectVenue("City Theater");
+		verifyAmountPage.clickToDropDownSelectEvent();
+		verifyAmountPage.clickToValueOfDropdownSelectEvent(dataClass16.eventName);
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+
+		verifyAmountPage.clickToDropDownSelectQuantityTicket(dataClass16.ticketName, dataClass16.quantity);
+
+		verifyAmountPage.clickToRadioButtonPaymentCheckout("Card swiper");
+		verifyAmountPage.clickButtonCheckout("Checkout now");
+		verifyAmountPage.getTextTotalAmountOrder();
+
+		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			verifyAmountPage.clickButtonPlaceOrder();
+			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+			verifyAmountPage.clickBackToBoxOfficeButton();
+		} else {
+			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+
+			intPrice = Integer.parseInt(dataClass16.price);
+			intQuantity = Integer.parseInt(dataClass16.quantity);
+
+			//Caculation total amount of order - Exclude Overage fee
+			baseTicketPrice = intQuantity*intPrice;
+			overageFee = 0;
+			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+			creditCardProcessingFeeEstimate = (dataClass16.cardReaderFixedFee + dataClass16.cardReaderPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.cardReaderPercentageFee);
+
+			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
+
+			if (orderTotalAmount == actualTotalAmount) {
+				System.out.println("orderTotalAmount == actualTotalAmount");
+				assertEquals(verifyAmountPage.getTextNameOfReader(),"ss-reader");
+				verifyAmountPage.clickButtonChargeCard();
+				assertTrue(verifyAmountPage.isTapOrInsertTextDisplayed());
+
+				assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+				verifyAmountPage.clickBackToBoxOfficeButton();
+
+			} else {
+				System.out.println("Total amount is error");
+				verifyAmountPage.refreshToPage(driver);
+			}
+		}
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+		String boxOfficeWindowID = driver.getWindowHandle();
+		driver.close();
+		verifyAmountPage.switchToWindowByID(boxOfficeWindowID);
+		verifyAmountPage.refreshToPage(driver);
+	}
+
+	@Description("Box Office - Card swiper -verify total amount order ")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void TCs_007_BuyOnline_02_EnterCardManually() {
+//		verifyAmountPage.clickShowLeftMenu();
+		String managerWindowID = driver.getWindowHandle();
+		verifyAmountPage.clickToItemOfLeftMenu("Box office");
+//		driver.close();
+		verifyAmountPage.switchToWindowByID(managerWindowID);
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+		verifyAmountPage.clickToDropDownSelectVenue();
+		verifyAmountPage.clickToValueOfDropdownSelectVenue("City Theater");
+		verifyAmountPage.clickToDropDownSelectEvent();
+		verifyAmountPage.clickToValueOfDropdownSelectEvent(dataClass16.eventName);
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+
+		verifyAmountPage.clickToDropDownSelectQuantityTicket(dataClass16.ticketName, dataClass16.quantity);
+
+		verifyAmountPage.clickToRadioButtonPaymentCheckout("Enter card manually");
+		verifyAmountPage.clickButtonCheckout("Checkout now");
+		verifyAmountPage.getTextTotalAmountOrder();
+
+		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			verifyAmountPage.clickButtonPlaceOrder();
+			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+			verifyAmountPage.clickBackToBoxOfficeButton();
+		} else {
+			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+
+			intPrice = Integer.parseInt(dataClass16.price);
+			intQuantity = Integer.parseInt(dataClass16.quantity);
+
+			//Caculation total amount of order - Exclude Overage fee
+			baseTicketPrice = intQuantity*intPrice;
+			overageFee = 0;
+			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+			creditCardProcessingFeeEstimate = (dataClass16.onlineFixedFee + dataClass16.onlinePercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.onlinePercentageFee);
+
+			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
+
+			if (orderTotalAmount == actualTotalAmount) {
+				System.out.println("orderTotalAmount == actualTotalAmount");
+
+				verifyAmountPage.switchToFrameIframe();
+				verifyAmountPage.inputInfoCardManual("Card number", dataClass16.cardNumberValid);
+				verifyAmountPage.inputInfoCardManual("MM / YY", dataClass16.monthYearValid);
+				verifyAmountPage.inputInfoCardManual("CVC", dataClass16.cvc);
+				verifyAmountPage.inputInfoCardManual("ZIP", dataClass16.zip);
+				verifyAmountPage.switchToDefaultContent();
+				verifyAmountPage.clickPlaceOrderButton();
+
+				assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+				verifyAmountPage.clickBackToBoxOfficeButton();
+			} else {
+				System.out.println("Total amount is error");
+				verifyAmountPage.refreshToPage(driver);
+			}
+		}
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+		String boxOfficeWindowID = driver.getWindowHandle();
+		driver.close();
+		verifyAmountPage.switchToWindowByID(boxOfficeWindowID);
+		verifyAmountPage.refreshToPage(driver);
+	}
+
+	@Description("Box Office - Card swiper -verify total amount order ")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void TCs_008_BuyOnline_03_BuyNowPayLater() {
+//		verifyAmountPage.clickShowLeftMenu();
+		String managerWindowID = driver.getWindowHandle();
+		verifyAmountPage.clickToItemOfLeftMenu("Box office");
+//		driver.close();
+		verifyAmountPage.switchToWindowByID(managerWindowID);
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+		verifyAmountPage.clickToDropDownSelectVenue();
+		verifyAmountPage.clickToValueOfDropdownSelectVenue("City Theater");
+		verifyAmountPage.clickToDropDownSelectEvent();
+		verifyAmountPage.clickToValueOfDropdownSelectEvent(dataClass16.eventName);
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+
+		verifyAmountPage.clickToDropDownSelectQuantityTicket(dataClass16.ticketName, dataClass16.quantity);
+
+		verifyAmountPage.clickToRadioButtonPaymentCheckout("Buy now pay later");
+		verifyAmountPage.clickButtonCheckout("Checkout now");
+		verifyAmountPage.getTextTotalAmountOrder();
+
+		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			verifyAmountPage.clickButtonPlaceOrder();
+			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+			verifyAmountPage.clickBackToBoxOfficeButton();
+		} else {
+			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+
+			intPrice = Integer.parseInt(dataClass16.price);
+			intQuantity = Integer.parseInt(dataClass16.quantity);
+
+			//Caculation total amount of order - Exclude Overage fee
+			baseTicketPrice = intQuantity*intPrice;
+			overageFee = 0;
+			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+			creditCardProcessingFeeEstimate = (dataClass16.payLaterFixedFee + dataClass16.payLaterPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.payLaterPercentageFee);
+
+			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
+
+			if (orderTotalAmount == actualTotalAmount) {
+				System.out.println("orderTotalAmount == actualTotalAmount");
+				verifyAmountPage.clickButtonPlaceOrder();
+				verifyAmountPage.clickButtonAuthorizeTestPayment();
+
+				assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+				verifyAmountPage.clickBackToBoxOfficeButton();
+			} else {
+				System.out.println("Total amount is error");
+				verifyAmountPage.refreshToPage(driver);
+			}
+		}
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+		String boxOfficeWindowID = driver.getWindowHandle();
+		driver.close();
+		verifyAmountPage.switchToWindowByID(boxOfficeWindowID);
+		verifyAmountPage.refreshToPage(driver);
+	}
 
 	
 	public int generateFakeNumber() {
 		Random rand = new Random();
 		return rand.nextInt(999);
 	}
-	
+
+	public static double parseDoubleWithComma(String input) {
+		String sanitizedInput = input.replace(",", ".");
+		double result = Double.parseDouble(sanitizedInput);
+		return result;
+	}
+
 	@AfterClass
 	public void afterClass() {
 		closeBrowserDriver();

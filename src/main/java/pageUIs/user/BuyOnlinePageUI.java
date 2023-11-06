@@ -6,6 +6,7 @@ public class BuyOnlinePageUI {
 	public static final String ERROR_MESSAGE = "xpath=(//div[contains(@class, 'error-message')])[1]";
 	public static final String DROPDOWN_QUANTITY_TICKET = "xpath=//select[@data-name='%s']";
 	public static final String TEXT_TOTAL_AMOUNT_ORDER = "xpath=//span[@id='total']";
+//	public static final String TEXT_TOTAL_AMOUNT_ORDER = "xpath=//h4[contains(text(), 'Total')]/following-sibling::div/h3[contains(@class, 'bo-total-price')]";
 
 	public static final String BUTTON_AGREE_CHECKOUT = "xpath=//button[text()='Agree & Checkout']";
 
@@ -32,7 +33,7 @@ public class BuyOnlinePageUI {
 	public static final String ERROR_MESSAGE_BNPL = "xpath=//span[text()='Buy now pay later is only available for orders totaling $50 or more.']";
 	public static final String RADIO_BUTTON_BNPL = "xpath=//span[text()='Buy now pay later']";
 	public static final String BUTTON_BNPL = "xpath=//button[text()='Buy now pay later']";
-	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//a[contains(text(), 'Authorize Test Payment')]";
+	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//button[contains(text(), 'Authorize Test Payment')]";
 	public static final String BUTTON_FAIL_TEST_PAYMENT = "xpath=//a[contains(text(), 'Fail Test Payment')]";
 	public static final String REDEEM_REWARD_LINK = "xpath=//p[@class='sharing-summary']";
 
