@@ -19,7 +19,7 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 	private UserVerifyTotalAmountPageObject verifyAmountPage;
 
 	private static double orderTotalAmount, actualTotalAmount;
-	private static double baseTicketPrice, overageFee, showSlingerFee, creditCardProcessingFeeEstimate, subtotal;
+	private static double baseTicketPrice, overageFee, showSlingerFee, feesCreditEstimate, subtotal;
 	private static int intPrice, intQuantity;
 	DecimalFormat df = new DecimalFormat("#.##");
 
@@ -128,6 +128,19 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 
 		verifyAmountPage.sleepInSecond(3);
 
+		orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+
+		intPrice = Integer.parseInt(dataClass16.price);
+		intQuantity = Integer.parseInt(dataClass16.quantity);
+
+		//Caculation total amount of order - Exclude Overage fee
+		baseTicketPrice = intQuantity*intPrice;
+		overageFee = 0;
+		showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+		feesCreditEstimate = (dataClass16.onlineFixedFee + dataClass16.onlinePercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.onlinePercentageFee);
+
+		actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+ feesCreditEstimate));
+
 		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("0$")) {
 			verifyAmountPage.clickPlaceOrderButton();
 			assertTrue(verifyAmountPage.isCheckoutSuccessTextDisplayed());
@@ -137,19 +150,6 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 			verifyAmountPage.switchToWindowByID(PageOrder);
 
 		} else {
-			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
-
-			intPrice = Integer.parseInt(dataClass16.price);
-			intQuantity = Integer.parseInt(dataClass16.quantity);
-
-			//Caculation total amount of order - Exclude Overage fee
-			baseTicketPrice = intQuantity*intPrice;
-			overageFee = 0;
-			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
-			creditCardProcessingFeeEstimate = (dataClass16.onlineFixedFee + dataClass16.onlinePercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.onlinePercentageFee);
-
-			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
-
 			if (orderTotalAmount == actualTotalAmount) {
 				System.out.println("orderTotalAmount == actualTotalAmount");
 
@@ -207,6 +207,16 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 
 		verifyAmountPage.sleepInSecond(3);
 
+		orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+		intPrice = Integer.parseInt(dataClass16.price);
+		intQuantity = Integer.parseInt(dataClass16.quantity);
+		//Caculation total amount of order - Exclude Overage fee
+		baseTicketPrice = intQuantity*intPrice;
+		overageFee = 0;
+		showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+		feesCreditEstimate = (dataClass16.payLaterFixedFee + dataClass16.payLaterPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.payLaterPercentageFee);
+		actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+ feesCreditEstimate));
+
 		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("0$")) {
 			verifyAmountPage.clickPlaceOrderButton();
 			assertTrue(verifyAmountPage.isCheckoutSuccessTextDisplayed());
@@ -216,18 +226,6 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 			verifyAmountPage.switchToWindowByID(PageOrder);
 
 		} else {
-			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
-
-			intPrice = Integer.parseInt(dataClass16.price);
-			intQuantity = Integer.parseInt(dataClass16.quantity);
-
-			//Caculation total amount of order - Exclude Overage fee
-			baseTicketPrice = intQuantity*intPrice;
-			overageFee = 0;
-			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
-			creditCardProcessingFeeEstimate = (dataClass16.payLaterFixedFee + dataClass16.payLaterPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.payLaterPercentageFee);
-
-			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
 
 			if (orderTotalAmount == actualTotalAmount) {
 				System.out.println("orderTotalAmount == actualTotalAmount");
@@ -272,23 +270,21 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 		verifyAmountPage.clickButtonCheckout("Checkout now");
 		verifyAmountPage.getTextTotalAmountOrder();
 
+		orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+		intPrice = Integer.parseInt(dataClass16.price);
+		intQuantity = Integer.parseInt(dataClass16.quantity);
+		//Caculation total amount of order - Exclude Overage fee
+		baseTicketPrice = intQuantity*intPrice;
+		overageFee = 0;
+		showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+		feesCreditEstimate = (dataClass16.cardReaderFixedFee + dataClass16.cardReaderPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.cardReaderPercentageFee);
+		actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+ feesCreditEstimate));
+
 		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
 			verifyAmountPage.clickButtonPlaceOrder();
 			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
 			verifyAmountPage.clickBackToBoxOfficeButton();
 		} else {
-			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
-
-			intPrice = Integer.parseInt(dataClass16.price);
-			intQuantity = Integer.parseInt(dataClass16.quantity);
-
-			//Caculation total amount of order - Exclude Overage fee
-			baseTicketPrice = intQuantity*intPrice;
-			overageFee = 0;
-			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
-			creditCardProcessingFeeEstimate = (dataClass16.cardReaderFixedFee + dataClass16.cardReaderPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.cardReaderPercentageFee);
-
-			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
 
 			if (orderTotalAmount == actualTotalAmount) {
 				System.out.println("orderTotalAmount == actualTotalAmount");
@@ -335,27 +331,23 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 		verifyAmountPage.clickButtonCheckout("Checkout now");
 		verifyAmountPage.getTextTotalAmountOrder();
 
+		orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+		intPrice = Integer.parseInt(dataClass16.price);
+		intQuantity = Integer.parseInt(dataClass16.quantity);
+		//Caculation total amount of order - Exclude Overage fee
+		baseTicketPrice = intQuantity*intPrice;
+		overageFee = 0;
+		showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+		feesCreditEstimate = (dataClass16.onlineFixedFee + dataClass16.onlinePercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.onlinePercentageFee);
+
+		actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+ feesCreditEstimate));
 		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
 			verifyAmountPage.clickButtonPlaceOrder();
 			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
 			verifyAmountPage.clickBackToBoxOfficeButton();
 		} else {
-			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
-
-			intPrice = Integer.parseInt(dataClass16.price);
-			intQuantity = Integer.parseInt(dataClass16.quantity);
-
-			//Caculation total amount of order - Exclude Overage fee
-			baseTicketPrice = intQuantity*intPrice;
-			overageFee = 0;
-			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
-			creditCardProcessingFeeEstimate = (dataClass16.onlineFixedFee + dataClass16.onlinePercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.onlinePercentageFee);
-
-			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
-
 			if (orderTotalAmount == actualTotalAmount) {
 				System.out.println("orderTotalAmount == actualTotalAmount");
-
 				verifyAmountPage.switchToFrameIframe();
 				verifyAmountPage.inputInfoCardManual("Card number", dataClass16.cardNumberValid);
 				verifyAmountPage.inputInfoCardManual("MM / YY", dataClass16.monthYearValid);
@@ -402,24 +394,21 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 		verifyAmountPage.clickButtonCheckout("Checkout now");
 		verifyAmountPage.getTextTotalAmountOrder();
 
+		orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+		intPrice = Integer.parseInt(dataClass16.price);
+		intQuantity = Integer.parseInt(dataClass16.quantity);
+		//Caculation total amount of order - Exclude Overage fee
+		baseTicketPrice = intQuantity*intPrice;
+		overageFee = 0;
+		showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
+		feesCreditEstimate = (dataClass16.payLaterFixedFee + dataClass16.payLaterPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.payLaterPercentageFee);
+		actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+ feesCreditEstimate));
+
 		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
 			verifyAmountPage.clickButtonPlaceOrder();
 			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
 			verifyAmountPage.clickBackToBoxOfficeButton();
 		} else {
-			orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
-
-			intPrice = Integer.parseInt(dataClass16.price);
-			intQuantity = Integer.parseInt(dataClass16.quantity);
-
-			//Caculation total amount of order - Exclude Overage fee
-			baseTicketPrice = intQuantity*intPrice;
-			overageFee = 0;
-			showSlingerFee = ((intQuantity*dataClass16.baseFeeSS)+baseTicketPrice*dataClass16.perFeeSS);
-			creditCardProcessingFeeEstimate = (dataClass16.payLaterFixedFee + dataClass16.payLaterPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.payLaterPercentageFee);
-
-			actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
-
 			if (orderTotalAmount == actualTotalAmount) {
 				System.out.println("orderTotalAmount == actualTotalAmount");
 				verifyAmountPage.clickButtonPlaceOrder();
@@ -439,6 +428,122 @@ public class Class_016_Verify_Amount_Order extends BaseTest{
 		verifyAmountPage.refreshToPage(driver);
 	}
 
+	@Description("Box Office - Cash -verify total amount order ")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void TCs_009_BuyOnline_04_Cash() {
+//		verifyAmountPage.clickShowLeftMenu();
+		String managerWindowID = driver.getWindowHandle();
+		verifyAmountPage.clickToItemOfLeftMenu("Box office");
+//		driver.close();
+		verifyAmountPage.switchToWindowByID(managerWindowID);
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+		verifyAmountPage.clickToDropDownSelectVenue();
+		verifyAmountPage.clickToValueOfDropdownSelectVenue("City Theater");
+		verifyAmountPage.clickToDropDownSelectEvent();
+		verifyAmountPage.clickToValueOfDropdownSelectEvent(dataClass16.eventName);
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+
+		verifyAmountPage.clickToDropDownSelectQuantityTicket(dataClass16.ticketName, dataClass16.quantity);
+
+		verifyAmountPage.clickToRadioButtonPaymentCheckout("Cash");
+		verifyAmountPage.clickButtonCheckout("Checkout now");
+		verifyAmountPage.getTextTotalAmountOrder();
+
+		orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+		intPrice = Integer.parseInt(dataClass16.price);
+		intQuantity = Integer.parseInt(dataClass16.quantity);
+		//Caculation total amount of order - Exclude Overage fee
+		baseTicketPrice = intQuantity*intPrice;
+		overageFee = 0;
+		showSlingerFee = ((intQuantity*dataClass16.baseFeeSSCash)+baseTicketPrice*dataClass16.perFeeSSCash);
+		feesCreditEstimate = (dataClass16.cashFixedFee + dataClass16.cashPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.cashPercentageFee);
+		actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice + overageFee+ showSlingerFee+ feesCreditEstimate));
+
+		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			verifyAmountPage.clickButtonPlaceOrder();
+			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+			verifyAmountPage.clickBackToBoxOfficeButton();
+		} else {
+			if (orderTotalAmount == actualTotalAmount) {
+				System.out.println("orderTotalAmount == actualTotalAmount");
+				verifyAmountPage.clickButtonPlaceOrder();
+				assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+				verifyAmountPage.clickBackToBoxOfficeButton();
+			} else {
+				System.out.println("Total amount is error" + "actual is:" + actualTotalAmount + "orderTotalAmount: " + orderTotalAmount);
+				verifyAmountPage.refreshToPage(driver);
+			}
+		}
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+		String boxOfficeWindowID = driver.getWindowHandle();
+		driver.close();
+		verifyAmountPage.switchToWindowByID(boxOfficeWindowID);
+		verifyAmountPage.refreshToPage(driver);
+	}
+
+	@Description("Box Office - Comp -verify total amount order ")
+	@Severity(SeverityLevel.NORMAL)
+	@Test
+	public void TCs_010_BuyOnline_05_Comp() {
+//		verifyAmountPage.clickShowLeftMenu();
+		String managerWindowID = driver.getWindowHandle();
+		verifyAmountPage.clickToItemOfLeftMenu("Box office");
+//		driver.close();
+		verifyAmountPage.switchToWindowByID(managerWindowID);
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+
+		assertTrue(verifyAmountPage.isBoxOfficeTextDisplayed());
+		verifyAmountPage.clickToDropDownSelectVenue();
+		verifyAmountPage.clickToValueOfDropdownSelectVenue("City Theater");
+		verifyAmountPage.clickToDropDownSelectEvent();
+		verifyAmountPage.clickToValueOfDropdownSelectEvent(dataClass16.eventName);
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+
+		verifyAmountPage.clickToDropDownSelectQuantityTicket(dataClass16.ticketName, dataClass16.quantity);
+
+		verifyAmountPage.clickToRadioButtonPaymentCheckout("Comp");
+		verifyAmountPage.clickButtonCheckout("Checkout now");
+		verifyAmountPage.getTextTotalAmountOrder();
+
+		orderTotalAmount = Double.parseDouble(verifyAmountPage.getTextTotalAmountOrder().replace("$", ""));
+
+		intPrice = Integer.parseInt(dataClass16.price);
+		intQuantity = Integer.parseInt(dataClass16.quantity);
+
+		//Caculation total amount of order - Exclude Overage fee
+		baseTicketPrice = intQuantity*intPrice;
+		overageFee = 0;
+		//showSlingerFee = ((intQuantity*dataClass16.baseFeeSS); //+baseTicketPrice*dataClass16.perFeeSS) -
+		//creditCardProcessingFeeEstimate = (dataClass16.cashFixedFee + dataClass16.cashPercentageFee*(baseTicketPrice+overageFee+showSlingerFee))/(1-dataClass16.cashPercentageFee);
+
+		actualTotalAmount = Double.parseDouble(df.format(baseTicketPrice - baseTicketPrice)); //+ overageFee+ showSlingerFee+creditCardProcessingFeeEstimate));
+
+		if ((verifyAmountPage.getTextTotalAmountOrder()).equals("$0.00")) {
+			System.out.println("orderTotalAmount == actualTotalAmount");
+			verifyAmountPage.clickButtonPlaceOrder();
+			assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+			verifyAmountPage.clickBackToBoxOfficeButton();
+		} else {
+
+			if (orderTotalAmount == actualTotalAmount) {
+				System.out.println("orderTotalAmount == actualTotalAmount");
+				verifyAmountPage.clickButtonPlaceOrder();
+				assertTrue(verifyAmountPage.isSuccessOrderTextDisplayed());
+				verifyAmountPage.clickBackToBoxOfficeButton();
+			} else {
+				System.out.println("Total amount is error");
+				verifyAmountPage.refreshToPage(driver);
+			}
+		}
+		assertTrue(verifyAmountPage.isOrderBoxOfficeTextDisplayed());
+		String boxOfficeWindowID = driver.getWindowHandle();
+		driver.close();
+		verifyAmountPage.switchToWindowByID(boxOfficeWindowID);
+		verifyAmountPage.refreshToPage(driver);
+	}
 	
 	public int generateFakeNumber() {
 		Random rand = new Random();

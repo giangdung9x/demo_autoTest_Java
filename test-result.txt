@@ -1,19 +1,18 @@
-Total Tests: 72
-Passed Tests: 72
+Total Tests: 5
+Passed Tests: 5
 Failed Tests: 0
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Class_010_Feature_Reward: 17
-Passed Tests in showslinger_user.Class_008_Sell_Concession: 18
-Passed Tests in showslinger_user.Class_009_Feature_Report: 5
-Passed Tests in showslinger_user.Class_016_Verify_Amount_Order: 8
-Passed Tests in showslinger_user.Class_001_Actions_Of_Event: 9
-Passed Tests in showslinger_user.Class_003_Forgot_Password: 5
-Passed Tests in showslinger_user.Class_004_Login_Account: 10
-Failed Tests in showslinger_user.Class_010_Feature_Reward: 0
-Failed Tests in showslinger_user.Class_008_Sell_Concession: 0
-Failed Tests in showslinger_user.Class_009_Feature_Report: 0
+Passed Tests in showslinger_user.Class_016_Verify_Amount_Order: 5
 Failed Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
+Skipped Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
+
+showslinger_user.Class_016_Verify_Amount_Order - TCs_001_Ticket_OpenUrlAndLoginAccount - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_002_CreateTicket - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_003_GetDataFees - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_009_BuyOnline_04_Cash - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_010_BuyOnline_05_Comp - null - PASSED
+ser.Class_016_Verify_Amount_Order: 0
 Failed Tests in showslinger_user.Class_001_Actions_Of_Event: 0
 Failed Tests in showslinger_user.Class_003_Forgot_Password: 0
 Failed Tests in showslinger_user.Class_004_Login_Account: 0
