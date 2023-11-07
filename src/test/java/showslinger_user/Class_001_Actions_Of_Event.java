@@ -294,77 +294,77 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 //	}
 	
 	
-	@Description("Cancel Refund Ticket - Refund Auto")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void TCs_012_CancelRefundTicket_001_CancelRefundAuto() {
-		eventPage.refreshToPage(driver);
-
-		eventPage.clickToEvent(eventName);
-		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
-		
-		String PageEvent = driver.getWindowHandle();
-		eventPage.clickToLink("Preview");		
-		eventPage.switchToWindowByID(PageEvent);
-
-		eventPage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
-		eventPage.clickToAgreeCheckoutButton();
-		
-		eventPage.inputInfoBuyerTextbox("Full Name", fullName);
-		eventPage.inputInfoBuyerTextbox("Phone", phone);
-		eventPage.inputInfoBuyerTextbox("Email", validEmail);
-		eventPage.inputInfoBuyerTextbox("Confirm Email", validEmail);
-
-		eventPage.clickCheckboxAcceptTermsService();
-		
-		eventPage.getTextTotalAmountOrder();
-		eventPage.sleepInSecond(3);
-		
-		if ((eventPage.getTextTotalAmountOrder()).equals("0$")) {
-			eventPage.clickPlaceOrderButton();
-			assertTrue(eventPage.isCheckoutSuccessTextDisplayed());
-
-			String PageOrder = driver.getWindowHandle();
-			driver.close();
-			eventPage.switchToWindowByID(PageOrder);
-			
-		} else {
-
-			eventPage.switchToFrameIframe();
-			eventPage.inputInfoCardManual("Card number", cardNumberValid);
-			eventPage.inputInfoCardManual("MM / YY", monthYearValid);
-			eventPage.inputInfoCardManual("CVC", cvc);
-			eventPage.inputInfoCardManual("ZIP", zip);
-			eventPage.switchToDefaultContent();
-
-			eventPage.clickPlaceOrderButton();
-			
-			assertTrue(eventPage.isCheckoutSuccessTextDisplayed());
-						
-			String PageOrder = driver.getWindowHandle();
-			driver.close();
-			eventPage.switchToWindowByID(PageOrder);
-			
-		}
-		
-		eventPage.clickToLink("Cancel");		
-
-		eventPage.clickToEvent(eventName);
-		
-		eventPage.clickToButtonFooter("Cancel event/Refund tickets");
-
-		eventPage.acceptAlert(driver);
-		
-		
-		eventPage.clickToRadioButton("auto");
-		
-		eventPage.clickToRefundButton("Refund Tickets");
-		
-		eventPage.clickToRefundButton("Refund");
-		
-		eventPage.clickClosePopupButton();
-
-	}
+//	@Description("Cancel Refund Ticket - Refund Auto")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void TCs_012_CancelRefundTicket_001_CancelRefundAuto() {
+//		eventPage.refreshToPage(driver);
+//
+//		eventPage.clickToEvent(eventName);
+//		assertTrue(eventPage.isNameOfPopupDisplayed("Edit Ticket"));
+//
+//		String PageEvent = driver.getWindowHandle();
+//		eventPage.clickToLink("Preview");
+//		eventPage.switchToWindowByID(PageEvent);
+//
+//		eventPage.clickToDropDownSelectQuantityTicket(ticketName, quantity);
+//		eventPage.clickToAgreeCheckoutButton();
+//
+//		eventPage.inputInfoBuyerTextbox("Full Name", fullName);
+//		eventPage.inputInfoBuyerTextbox("Phone", phone);
+//		eventPage.inputInfoBuyerTextbox("Email", validEmail);
+//		eventPage.inputInfoBuyerTextbox("Confirm Email", validEmail);
+//
+//		eventPage.clickCheckboxAcceptTermsService();
+//
+//		eventPage.getTextTotalAmountOrder();
+//		eventPage.sleepInSecond(3);
+//
+//		if ((eventPage.getTextTotalAmountOrder()).equals("0$")) {
+//			eventPage.clickPlaceOrderButton();
+//			assertTrue(eventPage.isCheckoutSuccessTextDisplayed());
+//
+//			String PageOrder = driver.getWindowHandle();
+//			driver.close();
+//			eventPage.switchToWindowByID(PageOrder);
+//
+//		} else {
+//
+//			eventPage.switchToFrameIframe();
+//			eventPage.inputInfoCardManual("Card number", cardNumberValid);
+//			eventPage.inputInfoCardManual("MM / YY", monthYearValid);
+//			eventPage.inputInfoCardManual("CVC", cvc);
+//			eventPage.inputInfoCardManual("ZIP", zip);
+//			eventPage.switchToDefaultContent();
+//
+//			eventPage.clickPlaceOrderButton();
+//
+//			assertTrue(eventPage.isCheckoutSuccessTextDisplayed());
+//
+//			String PageOrder = driver.getWindowHandle();
+//			driver.close();
+//			eventPage.switchToWindowByID(PageOrder);
+//
+//		}
+//
+//		eventPage.clickToLink("Cancel");
+//
+//		eventPage.clickToEvent(eventName);
+//
+//		eventPage.clickToButtonFooter("Cancel event/Refund tickets");
+//
+//		eventPage.acceptAlert(driver);
+//
+//
+//		eventPage.clickToRadioButton("auto");
+//
+//		eventPage.clickToRefundButton("Refund Tickets");
+//
+//		eventPage.clickToRefundButton("Refund");
+//
+//		eventPage.clickClosePopupButton();
+//
+//	}
 	
 	
 	

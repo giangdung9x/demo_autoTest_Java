@@ -1,21 +1,37 @@
-Total Tests: 8
-Passed Tests: 8
+Total Tests: 72
+Passed Tests: 72
 Failed Tests: 0
 Skipped Tests: 0
 
+Passed Tests in showslinger_user.Class_010_Feature_Reward: 17
+Passed Tests in showslinger_user.Class_008_Sell_Concession: 18
+Passed Tests in showslinger_user.Class_009_Feature_Report: 5
 Passed Tests in showslinger_user.Class_016_Verify_Amount_Order: 8
+Passed Tests in showslinger_user.Class_001_Actions_Of_Event: 9
+Passed Tests in showslinger_user.Class_003_Forgot_Password: 5
+Passed Tests in showslinger_user.Class_004_Login_Account: 10
+Failed Tests in showslinger_user.Class_010_Feature_Reward: 0
+Failed Tests in showslinger_user.Class_008_Sell_Concession: 0
+Failed Tests in showslinger_user.Class_009_Feature_Report: 0
 Failed Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
+Failed Tests in showslinger_user.Class_001_Actions_Of_Event: 0
+Failed Tests in showslinger_user.Class_003_Forgot_Password: 0
+Failed Tests in showslinger_user.Class_004_Login_Account: 0
+Skipped Tests in showslinger_user.Class_010_Feature_Reward: 0
+Skipped Tests in showslinger_user.Class_008_Sell_Concession: 0
+Skipped Tests in showslinger_user.Class_009_Feature_Report: 0
 Skipped Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
+Skipped Tests in showslinger_user.Class_001_Actions_Of_Event: 0
+Skipped Tests in showslinger_user.Class_003_Forgot_Password: 0
+Skipped Tests in showslinger_user.Class_004_Login_Account: 0
 
-showslinger_user.Class_016_Verify_Amount_Order - TCs_001_Ticket_OpenUrlAndLoginAccount - null - PASSED
-showslinger_user.Class_016_Verify_Amount_Order - TCs_002_CreateTicket - null - PASSED
-showslinger_user.Class_016_Verify_Amount_Order - TCs_003_GetDataFees - null - PASSED
-showslinger_user.Class_016_Verify_Amount_Order - TCs_004_BuyOnline_01_CheckoutNow - null - PASSED
-showslinger_user.Class_016_Verify_Amount_Order - TCs_005_BuyOnline_02_BuyNowPayLater - null - PASSED
-showslinger_user.Class_016_Verify_Amount_Order - TCs_006_BuyOnline_01_CardSwiper - null - PASSED
-showslinger_user.Class_016_Verify_Amount_Order - TCs_007_BuyOnline_02_EnterCardManually - null - PASSED
-showslinger_user.Class_016_Verify_Amount_Order - TCs_008_BuyOnline_03_BuyNowPayLater - null - PASSED
-2_EmptyData - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_001_FormForgotPassword - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_002_EmptyData - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_003_InvalidEmail - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_004_NotExistingEmail - null - PASSED
+showslinger_user.Class_003_Forgot_Password - ForgotPassword_005_ExistingEmail - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_001_FormLogin - null - PASSED
+showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED
@@ -24,13 +40,18 @@ showslinger_user.Class_004_Login_Account - Login_007_AccManagerCompleted - null 
 showslinger_user.Class_004_Login_Account - Login_008_AccStaffManualCompleted - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_009_AccStaffAutoCompleted - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_010_AccConcessionsCompleted - null - PASSED
-n_009_ApplyForBuyOnlineManualCouponTicketInvalid - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_017_ApplyCoupon_010_ApplyForBuyOnlineManualCouponSuccess - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_018_ApplyCoupon_011_ApplyForBuyOnlineAutoCouponSuccess - null - PASSED
-showslinger_user.Class_012_Feature_Coupons - TCs_019_Delete_All_Coupon_Created - null - PASSED
-ns_EnterCardManually - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_001_Ticket_OpenUrlAndLoginAccount - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_002_CreateTicket_001_CreateTicketFail - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_003_CreateTicket_002_CreateTicketSuccess - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_004_EditTicket_001_EditTicketFail - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_005_EditTicket_002_EditTicketSuccess - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_006_CopyTicket_001_CopyTicketFail - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_008_TransferTicket_001_TransferTicketFail - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_009_TransferTicket_002_TransferTicketSuccess - null - PASSED
+showslinger_user.Class_001_Actions_Of_Event - TCs_013_CancelRefundTicket_002_CancelRefundManual - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_001_Concessions_OpenUrlAndLogin - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_002_ConcessionsSales_CheckoutAddOns_CardSwiper - null - PASSED
+showslinger_user.Class_008_Sell_Concession - TCs_003_ConcessionsSales_CheckoutAddOns_EnterCardManually - null - PASSED
 showslinger_user.Class_008_Sell_Concession - TCs_004_ConcessionsInventory_CheckoutAddOns_CardSwiper - null - PASSED
 showslinger_user.Class_008_Sell_Concession - TCs_004_ConcessionsSales_CheckoutAddOns_Cash - null - PASSED
 showslinger_user.Class_008_Sell_Concession - TCs_005_ConcessionsSales_CheckoutAddOns_Comp - null - PASSED
@@ -47,17 +68,32 @@ showslinger_user.Class_008_Sell_Concession - TCs_016_ConcessionsInventory_Checko
 showslinger_user.Class_008_Sell_Concession - TCs_017_ConcessionsInventory_CheckoutAddOns_Cash - null - PASSED
 showslinger_user.Class_008_Sell_Concession - TCs_018_ConcessionsSales_RefundOrder - null - PASSED
 showslinger_user.Class_010_Feature_Reward - TCs_001_Reward_OpenUrlAndLogin - null - PASSED
-showslinger_user.Class_010_Feature_Reward - TCs_002_RewardList_001_CreateRewardFail - null - FAILED
-showslinger_user.Class_010_Feature_Reward - TCs_003_RewardList_002_CreateRewardSuccess - null - FAILED
-showslinger_user.Class_010_Feature_Reward - TCs_004_RewardList_003_EditRewardFail - null - FAILED
-showslinger_user.Class_010_Feature_Reward - TCs_005_RewardList_004_EditRewardSuccess - null - FAILED
-showslinger_user.Class_010_Feature_Reward - TCs_006_RewardList_006_SwitchStatusRewardSuccess - null - FAILED
-showslinger_user.Class_010_Feature_Reward - TCs_007_RewardList_007_SeeRewardPage - null - FAILED
-showslinger_user.Class_010_Feature_Reward - TCs_008_RedeemReward_001_RedeemFail - null - FAILED
-showslinger_user.Class_010_Feature_Reward - TCs_009_RedeemReward_002_RedeemSuccess - null - FAILED
-x_Office - Manager_001_OpenUrlLoginAccount - null - PASSED
-showslinger_user.Class_007_Box_Office - Manager_002_MoreMenu - null - PASSED
-showslinger_user.Class_007_Box_Office - Manager_004_SelectVenueAndEvent - null - FAILED
-showslinger_user.Class_007_Box_Office - Manager_005_CheckoutNowEmptyData - null - FAILED
-showslinger_user.Class_007_Box_Office - Manager_006_CheckoutNowMethodByCashSuccess - null - FAILED
-showslinger_user.Class_007_Box_Office - Manager_007_CheckoutNowMethodByCompSuccess - null - FAILED
+showslinger_user.Class_010_Feature_Reward - TCs_002_RewardList_001_CreateRewardFail - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_003_RewardList_002_CreateRewardSuccess - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_004_RewardList_003_EditRewardFail - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_005_RewardList_004_EditRewardSuccess - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_006_RewardList_006_SwitchStatusRewardSuccess - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_007_RewardList_007_SeeRewardPage - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_008_RedeemReward_001_RedeemFail - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_009_RedeemReward_002_RedeemSuccess - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_010_RedeemList_001_OpenTabRedeemList - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_011_RedeemList_002_SwitchStatusFromWaiting - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_012_RedeemList_003_SwitchStatusFromUnredeemed - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_013_RedeemList_004_SwitchStatusFromRedeemed - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_014_RedeemList_005_SwitchStatusFromRefunded - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_015_RedeemList_006_SwitchStatusFromVoided - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_016_RedeemList_007_SwitchStatusFail - null - PASSED
+showslinger_user.Class_010_Feature_Reward - TCs_017_RewardList_007_DeleteReward - null - PASSED
+showslinger_user.Class_009_Feature_Report - TCs_001_ListReport_001_OpenUrl - null - PASSED
+showslinger_user.Class_009_Feature_Report - TCs_002_ListReport_002_SearchEvent - null - PASSED
+showslinger_user.Class_009_Feature_Report - TCs_003_SettlementReport_001_CheckValueOverview - null - PASSED
+showslinger_user.Class_009_Feature_Report - TCs_004_SettlementReport_002_CheckValueSummary - null - PASSED
+showslinger_user.Class_009_Feature_Report - TCs_005_SettlementReport_003_CheckValueOnlineSales - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_001_Ticket_OpenUrlAndLoginAccount - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_002_CreateTicket - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_003_GetDataFees - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_004_BuyOnline_01_CheckoutNow - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_005_BuyOnline_02_BuyNowPayLater - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_006_BuyOnline_01_CardSwiper - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_007_BuyOnline_02_EnterCardManually - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_008_BuyOnline_03_BuyNowPayLater - null - PASSED
