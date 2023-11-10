@@ -23,7 +23,7 @@
 <!--			<class name="showslinger_user.Class_005_Buy_Online" />-->
 <!--			<class name="showslinger_user.Class_007_Box_Office" />-->
 			<class name="showslinger_user.Class_008_Sell_Concession"/>
-			<class name="showslinger_user.Class_010_Feature_Reward"/>
+<!--			<class name="showslinger_user.Class_010_Feature_Reward"/>-->
 			<class name="showslinger_user.Class_009_Feature_Report"/>
 <!--			<class name="showslinger_user.Class_011_Feature_Attendees" />-->
 <!--			<class name="showslinger_user.Class_012_Feature_Coupons" />-->
