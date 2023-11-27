@@ -17,8 +17,8 @@
 		<classes>
 <!--			<class name="showslinger_user.Class_001_SignUp_001_AccVenue" />-->
 <!--			<class name="showslinger_user.Class_002_SignUp_002_AccArtist" />-->
-			<class name="showslinger_user.Class_003_Forgot_Password"/>
-			<class name="showslinger_user.Class_004_Login_Account"/>
+<!--			<class name="showslinger_user.Class_003_Forgot_Password"/>-->
+<!--			<class name="showslinger_user.Class_004_Login_Account"/>-->
 			<class name="showslinger_user.Class_001_Actions_Of_Event"/>
 <!--			<class name="showslinger_user.Class_005_Buy_Online" />-->
 <!--			<class name="showslinger_user.Class_007_Box_Office" />-->
