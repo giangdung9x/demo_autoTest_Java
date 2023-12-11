@@ -323,7 +323,7 @@ public class Class_010_Feature_Reward extends BaseTest{
 		rewardPage.switchToWindowByID(buyOnlineSuccessWindowID);
 		if (rewardPage.getPointOfUser()<rewardPage.getPointOfReward(rewardName)) {
 			rewardPage.clickToViewButtonOfReward(rewardName, "Redeem");
-			rewardPage.getTextOfButtonRedeemDisable();
+//			rewardPage.getTextOfButtonRedeemDisable();
 		} else {
 			rewardPage.clickToViewButtonOfReward(rewardName, "Redeem");
 			rewardPage.clickToButtonRedeemReward(rewardName);

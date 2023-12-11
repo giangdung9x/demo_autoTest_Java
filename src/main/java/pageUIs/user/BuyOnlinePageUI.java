@@ -2,7 +2,7 @@ package pageUIs.user;
 
 public class BuyOnlinePageUI {
 
-	public static final String TEXT_EVENT_NAME = "xpath=//h1[@class='my-5 text-lg font-semibold']";
+	public static final String TEXT_EVENT_NAME = "xpath=//h1[@class='my-5 text-lg font-semibold event-name-text']";
 	public static final String ERROR_MESSAGE = "xpath=(//div[contains(@class, 'error-message')])[1]";
 	public static final String DROPDOWN_QUANTITY_TICKET = "xpath=//select[@data-name='%s']";
 	public static final String TEXT_TOTAL_AMOUNT_ORDER = "xpath=//span[@id='total']";

@@ -51,8 +51,8 @@ public class BoxOfficePageUI {
 	public static final String VALUE_OF_DROPDOWN_PRINTER_DEFAULT ="xpath=//li[text()='Please select your printer']";
 	public static final String BUTTON_PRINT_ORDER = "xpath=//div[text()='Print order']";
 	public static final String BUTTON_BACK_TO_BOX_OFFICE_FROM_ORDER_SUCCESS = "xpath=//a[text()='Back to box office']";
-	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//a[contains(text(), 'Authorize Test Payment')]";
-	public static final String BUTTON_FAIL_TEST_PAYMENT = "xpath=//a[contains(text(), 'Fail Test Payment')]";
+	public static final String BUTTON_AUTHORIZE_TEST_PAYMENT = "xpath=//button[contains(text(), 'Authorize Test Payment')]";
+	public static final String BUTTON_FAIL_TEST_PAYMENT = "xpath=//button[contains(text(), 'Fail Test Payment')]";
 	public static final String BUTTON_CHARGE_CARD = "xpath=//button[@id='btn-place-order']";
 	public static final String TAP_OR_INSERT_TEXT = "xpath=//div[contains(text(), 'Tap or insert payment method')]";
 	public static final String BUTTON_CANCEL_CHARGE_CARD = "xpath=//a[text() = 'Cancel']";

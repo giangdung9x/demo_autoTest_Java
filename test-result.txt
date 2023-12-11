@@ -1,36 +1,30 @@
-Total Tests: 5
-Passed Tests: 5
+Total Tests: 10
+Passed Tests: 10
 Failed Tests: 0
 Skipped Tests: 0
 
-Passed Tests in showslinger_user.Class_016_Verify_Amount_Order: 5
+Passed Tests in showslinger_user.Class_016_Verify_Amount_Order: 10
 Failed Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
 Skipped Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
 
 showslinger_user.Class_016_Verify_Amount_Order - TCs_001_Ticket_OpenUrlAndLoginAccount - null - PASSED
 showslinger_user.Class_016_Verify_Amount_Order - TCs_002_CreateTicket - null - PASSED
 showslinger_user.Class_016_Verify_Amount_Order - TCs_003_GetDataFees - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_004_BuyOnline_01_CheckoutNow - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_005_BuyOnline_02_BuyNowPayLater - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_006_BuyOnline_01_CardSwiper - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_007_BuyOnline_02_EnterCardManually - null - PASSED
+showslinger_user.Class_016_Verify_Amount_Order - TCs_008_BuyOnline_03_BuyNowPayLater - null - PASSED
 showslinger_user.Class_016_Verify_Amount_Order - TCs_009_BuyOnline_04_Cash - null - PASSED
 showslinger_user.Class_016_Verify_Amount_Order - TCs_010_BuyOnline_05_Comp - null - PASSED
-ser.Class_016_Verify_Amount_Order: 0
-Failed Tests in showslinger_user.Class_001_Actions_Of_Event: 0
-Failed Tests in showslinger_user.Class_003_Forgot_Password: 0
-Failed Tests in showslinger_user.Class_004_Login_Account: 0
-Skipped Tests in showslinger_user.Class_010_Feature_Reward: 0
-Skipped Tests in showslinger_user.Class_008_Sell_Concession: 0
-Skipped Tests in showslinger_user.Class_009_Feature_Report: 0
-Skipped Tests in showslinger_user.Class_016_Verify_Amount_Order: 0
-Skipped Tests in showslinger_user.Class_001_Actions_Of_Event: 0
-Skipped Tests in showslinger_user.Class_003_Forgot_Password: 0
-Skipped Tests in showslinger_user.Class_004_Login_Account: 0
-
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_001_FormForgotPassword - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_002_EmptyData - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_003_InvalidEmail - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_004_NotExistingEmail - null - PASSED
-showslinger_user.Class_003_Forgot_Password - ForgotPassword_005_ExistingEmail - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_001_FormLogin - null - PASSED
-showslinger_user.Class_004_Login_Account - Login_002_EmptyData - null - PASSED
+ture_Pass - TCs_011_ApplyPass_002_ApplyForBoxMultiPassEventNotSupport - null - PASSED
+showslinger_user.Class_013_Feature_Pass - TCs_012_ApplyPass_003_ApplyForBoxMultiPassOfficeSuccess - null - PASSED
+showslinger_user.Class_013_Feature_Pass - TCs_013_ApplyPass_004_ApplyForBoxMultiPassTicketInvalid - null - PASSED
+showslinger_user.Class_013_Feature_Pass - TCs_014_BuyPass_BuyPassAccessCode_ForUseBuyOnline - null - PASSED
+showslinger_user.Class_013_Feature_Pass - TCs_015_ApplyPass_002_ApplyForBuyOnlineMultiPassEventNotSupport - null - PASSED
+showslinger_user.Class_013_Feature_Pass - TCs_016_ApplyPass_002_ApplyForBuyOnlineMultiPassOfficeSuccess - null - PASSED
+showslinger_user.Class_013_Feature_Pass - TCs_017_ApplyPass_003_ApplyForBuyOnlineMultiPassTicketInvalid - null - PASSED
+ PASSED
 showslinger_user.Class_004_Login_Account - Login_003_InvalidEmail - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_004_AccNotFound - null - PASSED
 showslinger_user.Class_004_Login_Account - Login_005_AccRegisteredEmptyPassword - null - PASSED

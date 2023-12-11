@@ -37,15 +37,15 @@ public class Class_001_Actions_Of_Event extends BaseTest{
 		
 		emailManager ="paulv@showslinger.com";
 		passwordManager = "12345";
-		dayStart = "01/11/2023";
-		dayEnd = "30/11/2023";
+		dayStart = "01/12/2023";
+		dayEnd = "30/12/2023";
 		dayEndInValid = "12/06/2023";
 		eventName = "Test" + " "+ dayStart +" "+generateFakeNumber();
 		eventNameNew = "Test"+ " " +generateFakeNumber();
 
-		dayStartCopy ="15/11/2023";
-		dayStartAfter ="15/11/2023";
-		dayEndAfter = "30/11/2023";
+		dayStartCopy ="15/12/2023";
+		dayStartAfter ="15/12/2023";
+		dayEndAfter = "30/12/2023";
 		
 		fullName = "Dang Thi Giang";
 		phone = "+128379292999";

@@ -87,7 +87,7 @@ public class Class_011_Feature_Attendees extends BaseTest{
 		attendeePage.selectOrderFirstCheckbox("1");
 		attendeePage.selectTextItemActionDropdown("Transfer order");
 		attendeePage.clickToActionButton();
-		verifyEquals(attendeePage.getAlertText(driver),"You can't transfer an order that has been refunded or transferred");
+		verifyEquals(attendeePage.getAlertText(driver),"You can't transfer an order that has been refunded");
 		attendeePage.acceptAlert(driver);
 	}
 

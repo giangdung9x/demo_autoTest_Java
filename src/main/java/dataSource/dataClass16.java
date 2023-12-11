@@ -8,8 +8,8 @@ public class dataClass16 {
     public static final String passwordManager = "12345";
 
     //info event
-    public static final String dayStart = "01/11/2023";
-    public static final String dayEnd = "30/11/2023";
+    public static final String dayStart = "01/12/2023";
+    public static final String dayEnd = "30/12/2023";
     public static final String eventName = "Test verify amount" +" " + generateFakeNumber();
     public static final String price ="100";
     public static final String totalTicket ="100";
