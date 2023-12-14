@@ -103,67 +103,67 @@ public class Class_007_Box_Office extends BaseTest{
 	}
 
 
-	@Ignore
-	@Description("Verify - Information Box Office")
-	@Severity(SeverityLevel.NORMAL)
-	@Test
-	public void TCs_003_Manager_003_ConfigInformationBoxOffice() {
-		if (ConfigOnOffTestcase.isPublicKioskOn){
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-			assertTrue(boxOfficePage.isTextSelectdefaultPaperDisplayed());
-
-			boxOfficePage.clickToDropDownSelectPaper();
-			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-			assertTrue(boxOfficePage.isSelectedPaperValueDisplayed());
-
-			boxOfficePage.clickToButtonReset();
-			boxOfficePage.acceptAlertReport();
-
-			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-total", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-total", "total_money"),"0");
-
-
-			boxOfficePage.clickToButtonReset();
-			boxOfficePage.cancelAlertReport();
-
-			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_money"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-total", "total_ticket"),"0");
-			assertEquals(boxOfficePage.getValueReport("report-total", "total_money"),"0");
-
-			boxOfficePage.clickToButtonBackToBoxOfficeFromInformationScreen();
-
-			assertTrue(boxOfficePage.isBoxOfficeTextDisplayed());
-
-			String boxOfficeInformationWindowID = driver.getWindowHandle();
-			driver.close();
-			boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);
-		} else {
-			System.out.println("Public Kiosk not use");
-		}
-
-	}
+//	@Ignore
+//	@Description("Verify - Information Box Office")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test
+//	public void TCs_003_Manager_003_ConfigInformationBoxOffice() {
+//		if (ConfigOnOffTestcase.isPublicKioskOn){
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//			assertTrue(boxOfficePage.isTextSelectdefaultPaperDisplayed());
+//
+//			boxOfficePage.clickToDropDownSelectPaper();
+//			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//			assertTrue(boxOfficePage.isSelectedPaperValueDisplayed());
+//
+//			boxOfficePage.clickToButtonReset();
+//			boxOfficePage.acceptAlertReport();
+//
+//			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-total", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-total", "total_money"),"0");
+//
+//
+//			boxOfficePage.clickToButtonReset();
+//			boxOfficePage.cancelAlertReport();
+//
+//			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-card_reader", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-cash", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-cash", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-online", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-online", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-comp", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-comp", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-affirm", "total_money"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-total", "total_ticket"),"0");
+//			assertEquals(boxOfficePage.getValueReport("report-total", "total_money"),"0");
+//
+//			boxOfficePage.clickToButtonBackToBoxOfficeFromInformationScreen();
+//
+//			assertTrue(boxOfficePage.isBoxOfficeTextDisplayed());
+//
+//			String boxOfficeInformationWindowID = driver.getWindowHandle();
+//			driver.close();
+//			boxOfficePage.switchToWindowByID(boxOfficeInformationWindowID);
+//		} else {
+//			System.out.println("Public Kiosk not use");
+//		}
+//
+//	}
 
 	@Description("Select venue and event")
 	@Severity(SeverityLevel.NORMAL)
