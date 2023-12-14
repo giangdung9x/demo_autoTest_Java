@@ -92,13 +92,13 @@ public class Class_007_Box_Office extends BaseTest{
 		driver.close();
 		boxOfficePage.switchToWindowByID(registeredReadersWindowID);
 
-		if (ConfigOnOffTestcase.isPublicKioskOn){
-			boxOfficePage.clickToValueOfMoreMennu("Information");
-			boxOfficePage.switchToWindowByID(boxOfficeWindowID);
-			assertTrue(boxOfficePage.isTitleBoxOfficeInformationDisplayed());
-		} else {
-			System.out.println("Public Kiosk not use");
-		}
+//		if (ConfigOnOffTestcase.isPublicKioskOn){
+//			boxOfficePage.clickToValueOfMoreMennu("Information");
+//			boxOfficePage.switchToWindowByID(boxOfficeWindowID);
+//			assertTrue(boxOfficePage.isTitleBoxOfficeInformationDisplayed());
+//		} else {
+//			System.out.println("Public Kiosk not use");
+//		}
 
 	}
 
@@ -232,47 +232,47 @@ public class Class_007_Box_Office extends BaseTest{
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order - Open when public kiosk reused
-		if (ConfigOnOffTestcase.isPublicKioskOn){
-			boxOfficePage.clickToMoreMenuButton();
-			boxOfficePage.clickToValueOfMoreMennu("Information");
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-			String pageInformationBoxOffice  = driver.getWindowHandle();;
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPaper();
-			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-			driver.close();
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-			boxOfficePage.acceptAlert();
-		} else {
-			System.out.println("Public Kiosk not use");
-		}
+//		if (ConfigOnOffTestcase.isPublicKioskOn){
+//			boxOfficePage.clickToMoreMenuButton();
+//			boxOfficePage.clickToValueOfMoreMennu("Information");
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//			String pageInformationBoxOffice  = driver.getWindowHandle();;
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPaper();
+//			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//			driver.close();
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//			boxOfficePage.acceptAlert();
+//		} else {
+//			System.out.println("Public Kiosk not use");
+//		}
 
 
 		//Verify Button Back To Box Office
@@ -307,49 +307,49 @@ public class Class_007_Box_Office extends BaseTest{
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order - Open when public kiosk reused
-		if (ConfigOnOffTestcase.isPublicKioskOn) {
-			boxOfficePage.clickToMoreMenuButton();
-
-			boxOfficePage.clickToValueOfMoreMennu("Information");
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-			String pageInformationBoxOffice = driver.getWindowHandle();
-			;
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(), "Your printer was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(), "Your paper was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPaper();
-			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-			driver.close();
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(), "Printing tickets");
-			boxOfficePage.acceptAlert();
-		} else {
-			System.out.println("Public Kiosk not use");
-		}
+//		if (ConfigOnOffTestcase.isPublicKioskOn) {
+//			boxOfficePage.clickToMoreMenuButton();
+//
+//			boxOfficePage.clickToValueOfMoreMennu("Information");
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//			String pageInformationBoxOffice = driver.getWindowHandle();
+//			;
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(), "Your printer was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(), "Your paper was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPaper();
+//			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//			driver.close();
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(), "Printing tickets");
+//			boxOfficePage.acceptAlert();
+//		} else {
+//			System.out.println("Public Kiosk not use");
+//		}
 
 		//Verify Button Back To Box Office
 		boxOfficePage.clickBackToBoxOfficeButton();
@@ -385,48 +385,48 @@ public class Class_007_Box_Office extends BaseTest{
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order - Open when public kiosk reused
-		if (ConfigOnOffTestcase.isPublicKioskOn) {
-		boxOfficePage.clickToMoreMenuButton();
-
-		boxOfficePage.clickToValueOfMoreMennu("Information");
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-		String pageInformationBoxOffice  = driver.getWindowHandle();;
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPrinter();
-		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-		boxOfficePage.acceptAlert();
-
-		boxOfficePage.switchToWindowByID(PageOrderSuccess);
-		boxOfficePage.clickToDropDownSelectPaper();
-		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-		driver.close();
-		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-		boxOfficePage.clickPrintOrderButton();
-
-		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-		boxOfficePage.acceptAlert();
-		} else {
-			System.out.println("Public Kiosk not use");
-		}
+//		if (ConfigOnOffTestcase.isPublicKioskOn) {
+//		boxOfficePage.clickToMoreMenuButton();
+//
+//		boxOfficePage.clickToValueOfMoreMennu("Information");
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//		String pageInformationBoxOffice  = driver.getWindowHandle();;
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPrinter();
+//		boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//		boxOfficePage.acceptAlert();
+//
+//		boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//		boxOfficePage.clickToDropDownSelectPaper();
+//		boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//		driver.close();
+//		boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//		boxOfficePage.clickPrintOrderButton();
+//
+//		assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//		boxOfficePage.acceptAlert();
+//		} else {
+//			System.out.println("Public Kiosk not use");
+//		}
 
 
 		//Verify Button Back To Box Office
@@ -509,48 +509,48 @@ public class Class_007_Box_Office extends BaseTest{
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order - Open when public kiosk reused
-		if (ConfigOnOffTestcase.isPublicKioskOn) {
-			boxOfficePage.clickToMoreMenuButton();
-
-			boxOfficePage.clickToValueOfMoreMennu("Information");
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-			String pageInformationBoxOffice  = driver.getWindowHandle();;
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPaper();
-			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-			driver.close();
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-			boxOfficePage.acceptAlert();
-		} else {
-			System.out.println("Public Kiosk not use");
-		}
+//		if (ConfigOnOffTestcase.isPublicKioskOn) {
+//			boxOfficePage.clickToMoreMenuButton();
+//
+//			boxOfficePage.clickToValueOfMoreMennu("Information");
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//			String pageInformationBoxOffice  = driver.getWindowHandle();;
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPaper();
+//			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//			driver.close();
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//			boxOfficePage.acceptAlert();
+//		} else {
+//			System.out.println("Public Kiosk not use");
+//		}
 
 
 		//Verify Button Back To Box Office
@@ -632,48 +632,48 @@ public class Class_007_Box_Office extends BaseTest{
 		assertTrue(boxOfficePage.isSuccessOrderTextDisplayed());
 
 		//Verify Button Print Order - Open when public kiosk reused
-		if (ConfigOnOffTestcase.isPublicKioskOn) {
-			boxOfficePage.clickToMoreMenuButton();
-
-			boxOfficePage.clickToValueOfMoreMennu("Information");
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
-
-			String pageInformationBoxOffice  = driver.getWindowHandle();;
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPrinter();
-			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
-
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
-			boxOfficePage.acceptAlert();
-
-			boxOfficePage.switchToWindowByID(PageOrderSuccess);
-			boxOfficePage.clickToDropDownSelectPaper();
-			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
-
-			driver.close();
-			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
-
-			boxOfficePage.clickPrintOrderButton();
-
-			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
-			boxOfficePage.acceptAlert();
-		} else {
-			System.out.println("Public Kiosk not use");
-		}
+//		if (ConfigOnOffTestcase.isPublicKioskOn) {
+//			boxOfficePage.clickToMoreMenuButton();
+//
+//			boxOfficePage.clickToValueOfMoreMennu("Information");
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter("Please select your printer");
+//
+//			String pageInformationBoxOffice  = driver.getWindowHandle();;
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your printer was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPrinter();
+//			boxOfficePage.clickToValueOfDropdownSelectPrinter(printerName);
+//
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Your paper was not configured!");
+//			boxOfficePage.acceptAlert();
+//
+//			boxOfficePage.switchToWindowByID(PageOrderSuccess);
+//			boxOfficePage.clickToDropDownSelectPaper();
+//			boxOfficePage.clickToValueOfDropdownSelectPaper(paperName);
+//
+//			driver.close();
+//			boxOfficePage.switchToWindowByID(pageInformationBoxOffice);
+//
+//			boxOfficePage.clickPrintOrderButton();
+//
+//			assertEquals(boxOfficePage.getTextOfAlertBoxOffice(),"Printing tickets");
+//			boxOfficePage.acceptAlert();
+//		} else {
+//			System.out.println("Public Kiosk not use");
+//		}
 
 
 		//Verify Button Back To Box Office
