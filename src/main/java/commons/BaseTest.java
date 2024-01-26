@@ -100,10 +100,12 @@ public class BaseTest {
 		EnvironmentList environment = EnvironmentList.valueOf(environmentName.toUpperCase());
 		switch (environment) {
 		case STAGING:
-            envUrl = "https://" + "SS15243" + ":" + "12345" + "@showslinger-staging.herokuapp.com/";
+//			envUrl = "https://" + "SS15243" + ":" + "12345" + "@showslinger-staging.herokuapp.com/"; //when url has authen
+			envUrl = "http://demo.nopcommerce.com/";
 			break;
 		case PROD:
-            envUrl = "https://" + "snarejockey" + ":" + "15243qwertY" + "@app.showslinger.com/";
+//            envUrl = "https://" + "snarejockey" + ":" + "15243qwertY" + "@app.showslinger.com/";
+			envUrl = "http://demo.nopcommerce.com/";
 			break;
 		default:
 			envUrl = null;

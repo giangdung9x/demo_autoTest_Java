@@ -4,7 +4,7 @@
 	  <parameter name="browser" value = "chrome"></parameter>
 	  <parameter name="portalURL" value="publickiosk"></parameter>
     <classes>
-      <class name="showslinger_user.Class_015_Public_Kiosk_Page"/>
+      <class name="NopCommerce.Class_015_Public_Kiosk_Page"/>
     </classes>
   </test> <!-- Test --> 
   

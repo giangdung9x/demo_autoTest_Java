@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NopCommerceWeb">
+
+	<listeners>
+		<listener class-name="commons.MethodListener" />
+		<listener class-name="reportConfig.AllureTestListener" />
+		<listener class-name="EmailConfig.SendEmail" />
+	</listeners>
+
+	<test name="Feature of NopCommerceWeb">
+		<parameter name="browser" value="CHROME" />
+		<parameter name="serverName" value="STAGING" />
+		<classes>
+<!--			<class name="NopCommerceWeb.NopCommerce.NopCommerce_01_Register"/>-->
+<!--			<class name="NopCommerceWeb.NopCommerce.NopCommerce_02_Login"/>-->
+			<class name="NopCommerceWeb.NopCommerce.NopCommerce_03_MyAccount"/>
+
+		</classes>
+	</test>
+</suite>

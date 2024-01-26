@@ -2,7 +2,6 @@ package commons;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -14,9 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObject.user.UserHomePageObject;
-
-import pageUIs.user.BasePageUI;
 
 
 public class BasePage {
@@ -528,10 +524,10 @@ public class BasePage {
 	}
 
 
-	public void openPagesAtMyAccountPageByName(WebDriver driver, String pageName) {
-		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, pageName);
-		clickToElement(driver,BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, pageName);
-	}
+//	public void openPagesAtMyAccountPageByName(WebDriver driver, String pageName) {
+//		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, pageName);
+//		clickToElement(driver,BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, pageName);
+//	}
 	
 
 	public void openNewTab(WebDriver driver, String locatorType, String...dynamicValues) {
