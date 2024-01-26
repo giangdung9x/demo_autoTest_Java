@@ -1,6 +1,6 @@
 
-# Test Automation Framework Selenium Java with TestNG of ShowSlinger Project
-Create by dangthigiang@mobilefolk.com
+# Test Automation Framework Selenium Java with TestNG of Demo Project - NopCommerce
+Create by Giang
 ## 1. Project Overview
 Test Automation Framework - Reusable template for Java/Selenium frameworks. Learn more about the project here: https://app.showslinger.com
 

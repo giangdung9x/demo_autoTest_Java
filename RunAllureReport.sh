@@ -11,6 +11,9 @@ delete_directories() {
     fi
 }
 
+
+
+
 echo "------ Step 01: Set current project path to variable -------"
 project_path=$(pwd)
 delete_directories "$project_path/reports"
